@@ -566,73 +566,32 @@ h2.serif em{font-style:italic;color:var(--gold)}
 /* stack captions removed */
 
 /* OME SPA SECTION */
-.ome-sec{background:var(--ink);padding:80px 5vw;position:relative;overflow:hidden}
-.ome-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 50%,rgba(74,175,160,.07),transparent);pointer-events:none}
+.ome-sec{background:var(--ink);padding:100px 5vw;position:relative;overflow:hidden}
+.ome-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(74,175,160,.06),transparent);pointer-events:none;z-index:1}
 .ome-sec .body-t{color:rgba(253,250,246,.72);opacity:1}
-.ome-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:2}
-@media(max-width:768px){.ome-inner{grid-template-columns:1fr;gap:44px}}
-.ome-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(74,175,160,.12);border:1px solid rgba(74,175,160,.3);padding:8px 18px;margin-bottom:32px}
-.ome-badge span{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--teal)}
-.ome-gift-tag{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);padding:6px 16px;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:20px}
-.ome-perks{list-style:none;margin:28px 0 36px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:600px){.ome-perks{grid-template-columns:1fr}}
-.ome-perk{display:flex;align-items:flex-start;gap:14px;padding:16px 16px;background:rgba(253,250,246,.035);border:1px solid rgba(253,250,246,.06);border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.2),0 8px 24px -12px rgba(0,0,0,.35);transition:transform .3s ease,border-color .3s ease,background .3s ease,box-shadow .3s ease}
-.ome-perk:hover{transform:translateY(-4px);background:rgba(74,175,160,.06);border-color:rgba(74,175,160,.35);box-shadow:0 2px 4px rgba(0,0,0,.25),0 18px 40px -12px rgba(74,175,160,.22)}
-.ome-perk:hover .ome-perk-ico{color:var(--teal);border-color:rgba(74,175,160,.65);background:rgba(74,175,160,.1)}
-.ome-perk-ico{width:36px;height:36px;border:1px solid rgba(74,175,160,.3);display:flex;align-items:center;justify-content:center;color:rgba(74,175,160,.65);flex-shrink:0;margin-top:1px;transition:color .3s ease,border-color .3s ease,background .3s ease}
-.ome-perk-ico svg{width:18px;height:18px;stroke-width:1.3}
-.ome-perk-txt{display:flex;flex-direction:column;gap:3px}
-.ome-perk-name{font-size:.78rem;color:rgba(253,250,246,.85);font-weight:400}
-.ome-perk-note{font-size:.65rem;color:rgba(253,250,246,.38);line-height:1.5}
-.ome-visual{position:relative;z-index:0}
-/* Ambient turquoise blobs behind the unified card — pure CSS, very low opacity */
-.ome-blobs{position:absolute;inset:-120px;pointer-events:none;z-index:0;overflow:visible}
-.ome-blob{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform}
-.ome-blob-1{top:-40px;right:-60px;width:420px;height:420px;background:rgba(127,184,168,.12)}
-.ome-blob-2{bottom:-80px;left:-80px;width:340px;height:340px;background:rgba(127,184,168,.1)}
-.ome-blob-3{top:38%;left:20%;width:300px;height:300px;background:rgba(127,184,168,.08)}
-.ome-unified{position:relative;z-index:1}
-.ome-card{background:rgba(253,250,246,.04);border:1px solid rgba(74,175,160,.2);padding:24px 28px;text-align:center;position:relative;overflow:hidden}
-.ome-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(74,175,160,.12),transparent);pointer-events:none}
-/* Unified OMé card — single panel containing brand, membership pill and included list */
-.ome-unified{background:rgba(253,250,246,.035);border:1px solid rgba(127,184,168,.2);border-radius:10px;padding:48px;text-align:center;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;gap:10px}
-@media(max-width:768px){.ome-unified{padding:32px 28px}}
-.ome-unified::before{content:'';position:absolute;top:-50px;right:-50px;width:140px;height:140px;border-radius:50%;background:radial-gradient(circle,rgba(74,175,160,.08),transparent);pointer-events:none}
-.ome-u-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;opacity:.95;margin-bottom:6px}
-.ome-u-icon svg{width:44px;height:44px}
-.ome-u-title{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:300;font-size:clamp(1.35rem,2.2vw,1.65rem);color:var(--white);line-height:1.2;letter-spacing:.01em;white-space:nowrap}
-.ome-u-sub{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(253,250,246,.4);margin-bottom:4px}
-.ome-u-divider{width:64px;height:1px;background:linear-gradient(to right,transparent,rgba(127,184,168,.55),transparent);margin:14px auto}
-.ome-u-pill{display:inline-flex;align-items:center;gap:6px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-lt);background:transparent;border:1px solid rgba(201,164,106,.55);padding:8px 18px;border-radius:999px;font-weight:500}
-.ome-u-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-variant:small-caps}
-.ome-u-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;padding:0;margin:4px 0 6px;width:100%;max-width:420px}
-@media(max-width:520px){.ome-u-list{grid-template-columns:1fr;max-width:280px}}
-.ome-u-list li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(253,250,246,.02);border:1px solid rgba(253,250,246,.06);border-radius:6px;font-size:.74rem;color:rgba(253,250,246,.8);text-align:left;line-height:1.4;cursor:default;transition:transform 400ms ease-out,background-color 400ms ease-out,border-color 400ms ease-out,box-shadow 400ms ease-out,color 400ms ease-out}
-.ome-u-list li:hover{transform:translateY(-3px);background:rgba(74,175,160,.08);border-color:rgba(74,175,160,.4);box-shadow:0 0 40px rgba(74,175,160,.22);color:rgba(253,250,246,.95)}
-.ome-u-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 0 3px rgba(74,175,160,.12);transition:background-color 400ms ease-out,box-shadow 400ms ease-out,filter 400ms ease-out}
-.ome-u-list li:hover .ome-u-dot{filter:brightness(1.2);box-shadow:0 0 0 3px rgba(74,175,160,.22),0 0 14px rgba(74,175,160,.55)}
-.ome-logo-box{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid rgba(74,175,160,.2)}
-.ome-hero-row{display:flex;align-items:center;justify-content:center;gap:24px;padding:8px 4px 24px;margin-bottom:24px;border-bottom:1px solid rgba(74,175,160,.2)}
-.ome-hero-row .ome-logo-box,.ome-hero-row .ome-membership-hero{margin:0;padding:0;border:none;flex:1 1 0}
-.ome-hero-row .ome-logo-box{align-items:flex-end;text-align:right}
-.ome-hero-row .ome-membership-hero{text-align:left;padding:0}
-.ome-hero-row .ome-for-two{font-size:2.2rem;margin-bottom:2px}
-.ome-hero-row .ome-membership-label{margin-bottom:10px}
-.ome-hero-row .ome-logo-icon{font-size:2.2rem}
-.ome-hero-row .ome-logo-name{font-size:1.35rem}
-.ome-hero-divider{width:1px;align-self:stretch;background:rgba(74,175,160,.28);flex:0 0 1px}
-@media(max-width:520px){.ome-hero-row{flex-direction:column;gap:14px}.ome-hero-row .ome-logo-box{align-items:center;text-align:center}.ome-hero-row .ome-membership-hero{text-align:center}.ome-hero-divider{width:40px;height:1px;align-self:center}}
-.ome-logo-icon{font-size:2.8rem;line-height:1}
-.ome-logo-name{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:1.6rem;font-weight:200;color:var(--teal);letter-spacing:.08em}
-.ome-logo-sub{font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(253,250,246,.35)}
-.ome-value{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:3rem;font-weight:200;color:var(--gold-lt);line-height:1;margin-bottom:4px}
-.ome-value-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(253,250,246,.35);margin-bottom:20px;display:block}
-.ome-included{background:rgba(74,175,160,.07);border:1px solid rgba(74,175,160,.18);padding:14px 16px;margin-top:16px;display:flex;flex-direction:column;gap:0}
-.ome-inc-item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(74,175,160,.1);text-align:left}
-.ome-inc-item:last-child{border-bottom:none}
-.ome-inc-item .ico{font-size:.82rem;flex-shrink:0;width:20px;text-align:center}
-.ome-inc-item .txt{font-size:.65rem;color:rgba(253,250,246,.6);line-height:1.4}
-.ome-disclaimer{font-size:.58rem;color:rgba(253,250,246,.22);margin-top:20px;line-height:1.6;text-align:center;font-style:italic}
+/* Botanical silhouette background — large, static, very muted teal */
+.ome-sec-bg{position:absolute;top:-80px;right:-120px;width:min(900px,62vw);height:auto;color:rgba(127,184,168,.06);pointer-events:none;z-index:0;transform-origin:center;animation:omeBreathe 8s ease-in-out infinite;will-change:transform}
+.ome-sec-bg svg{width:100%;height:auto;display:block;transform:rotate(12deg)}
+@keyframes omeBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+@media(max-width:768px){.ome-sec-bg{top:-40px;right:-80px;width:min(520px,85vw);color:rgba(127,184,168,.05)}}
+@media(prefers-reduced-motion:reduce){.ome-sec-bg{animation:none}}
+/* Single centered layout */
+.ome-inner{max-width:1200px;margin:0 auto;text-align:center;position:relative;z-index:2}
+.ome-sec .ey{justify-content:center}
+.ome-sec .rule{margin-left:auto;margin-right:auto}
+.ome-sec .body-t{max-width:680px;margin:0 auto}
+/* 6 benefit cards — 3×2 grid on desktop, 2×3 tablet, 1×6 mobile */
+.ome-perks{list-style:none;margin:52px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;text-align:left;max-width:1200px}
+@media(max-width:900px){.ome-perks{grid-template-columns:repeat(2,1fr);gap:24px}}
+@media(max-width:600px){.ome-perks{grid-template-columns:1fr;gap:20px}}
+.ome-perk{display:flex;align-items:flex-start;gap:14px;padding:22px 22px;background:rgba(253,250,246,.035);border:1px solid rgba(253,250,246,.06);border-radius:6px;box-shadow:0 1px 2px rgba(0,0,0,.2),0 8px 24px -12px rgba(0,0,0,.35);transition:transform .35s ease-out,border-color .35s ease-out,background .35s ease-out,box-shadow .35s ease-out}
+.ome-perk:hover{transform:translateY(-4px);background:rgba(74,175,160,.06);border-color:rgba(74,175,160,.4);box-shadow:0 2px 4px rgba(0,0,0,.25),0 0 40px rgba(74,175,160,.25),0 18px 40px -12px rgba(74,175,160,.28)}
+.ome-perk:hover .ome-perk-ico{color:var(--teal);border-color:rgba(74,175,160,.7);background:rgba(74,175,160,.12)}
+.ome-perk-ico{width:40px;height:40px;border:1px solid rgba(74,175,160,.3);display:flex;align-items:center;justify-content:center;color:rgba(74,175,160,.7);flex-shrink:0;margin-top:1px;transition:color .35s ease-out,border-color .35s ease-out,background .35s ease-out}
+.ome-perk-ico svg{width:20px;height:20px;stroke-width:1.3}
+.ome-perk-txt{display:flex;flex-direction:column;gap:4px}
+.ome-perk-name{font-size:.82rem;color:rgba(253,250,246,.9);font-weight:400}
+.ome-perk-note{font-size:.68rem;color:rgba(253,250,246,.42);line-height:1.55}
 
 /* FOOTER */
 footer{background:var(--ink);position:relative;padding:56px 5vw 28px}
@@ -711,15 +670,6 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
 
 
 
-/* ── OMé membership hero card ── */
-.ome-tag-line{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:16px;margin-top:28px}
-.ome-membership-hero{text-align:center;padding:14px 0 10px}
-.ome-for-two{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:2.6rem;font-weight:200;font-style:italic;color:var(--teal);line-height:1;margin-bottom:4px}
-.ome-membership-label{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(253,250,246,.55);margin-bottom:12px}
-.ome-year-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(74,175,160,.12);border:1px solid rgba(74,175,160,.35);color:var(--teal);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px}
-.ome-divider{height:1px;background:rgba(74,175,160,.2);margin:16px 0}
-.ome-footnote{font-size:.52rem;color:rgba(253,250,246,.22);margin-top:16px;line-height:1.6;text-align:center;font-style:italic}
-
 /* ── Language switcher ── */
 .lang-sw{display:flex;gap:2px;align-items:center;margin-left:8px}
 .lang-btn{background:none;border:1px solid transparent;color:var(--ink2);font-family:'Plus Jakarta Sans',sans-serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 9px;cursor:pointer;transition:all .3s;line-height:1}
@@ -738,15 +688,6 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 @media(max-width:768px){.btt{bottom:20px;right:20px;width:40px;height:40px}}
 
 
-
-/* ── OMé membership hero card ── */
-.ome-tag-line{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);opacity:.7;margin-bottom:16px;margin-top:28px}
-.ome-membership-hero{text-align:center;padding:14px 0 10px}
-.ome-for-two{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:2.6rem;font-weight:200;font-style:italic;color:var(--teal);line-height:1;margin-bottom:4px}
-.ome-membership-label{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(253,250,246,.55);margin-bottom:12px}
-.ome-year-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(74,175,160,.12);border:1px solid rgba(74,175,160,.35);color:var(--teal);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px}
-.ome-divider{height:1px;background:rgba(74,175,160,.2);margin:16px 0}
-.ome-footnote{font-size:.52rem;color:rgba(253,250,246,.22);margin-top:16px;line-height:1.6;text-align:center;font-style:italic}
 
 /* ── Language switcher ── */
 .lang-sw{display:flex;gap:2px;align-items:center;margin-left:4px}
@@ -1073,18 +1014,18 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- OME SPA MEMBERSHIP -->
 <section class="ome-sec" id="ome">
+  <div class="ome-sec-bg" aria-hidden="true">
+    <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><path fill="currentColor" d="M300 10 Q280 200 270 600 Q280 760 300 790 Q320 760 330 600 Q320 200 300 10 Z M200 90 Q80 70 30 150 Q130 130 230 160 Z M180 190 Q60 170 10 270 Q120 240 230 250 Z M180 310 Q70 300 20 400 Q130 370 230 360 Z M200 430 Q90 430 40 520 Q150 490 240 470 Z M240 550 Q130 550 70 650 Q200 610 270 590 Z M400 90 Q520 70 570 150 Q470 130 370 160 Z M420 190 Q540 170 590 270 Q480 240 370 250 Z M420 310 Q530 300 580 400 Q470 370 370 360 Z M400 430 Q510 430 560 520 Q450 490 360 470 Z M360 550 Q470 550 530 650 Q400 610 330 590 Z"/></svg>
+  </div>
   <div class="ome-inner">
     <div class="rv">
-      <div class="ome-gift-tag" data-i18n="ome.gift">🎁 Exclusive Buyer Benefit</div>
       <div class="ey" style="color:var(--teal)" data-i18n="ome.ey">Included with Casa Árbol</div>
       <h2 class="serif split-parent" style="color:var(--white)">
-        <span class="split-wrap"><span class="split-inner d1" data-i18n="ome.h2a">Spa Membership</span></span>
+        <span class="split-wrap"><span class="split-inner d1" data-i18n="ome.h2a">OMé Spa</span></span>
         <span class="split-wrap"><span class="split-inner d2" data-i18n="ome.h2b">for Two</span></span>
       </h2>
       <span class="rule" style="background:var(--teal)"></span>
-      <p class="body-t" data-i18n="ome.body">Every buyer of Casa Árbol receives a complimentary full-year dual membership at OMé Spa — the award-winning wellness sanctuary at The Reef Playacar, minutes from your new home.</p>
-
-      <div class="ome-tag-line" data-i18n="ome.tagline">What's included for both of you:</div>
+      <p class="body-t" data-i18n="ome.body">OMé Spa is part of living at Casa Árbol. The award-winning wellness sanctuary at The Reef Playacar — minutes from your door — becomes an extension of the home. A full year of unlimited access, for two, included with the residence.</p>
 
       <ul class="ome-perks">
         <div class="ome-perk rv d1">
@@ -1132,32 +1073,6 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       </ul>
     </div>
 
-    <div class="ome-visual rv">
-      <div class="ome-blobs" aria-hidden="true">
-        <div class="ome-blob ome-blob-1"></div>
-        <div class="ome-blob ome-blob-2"></div>
-        <div class="ome-blob ome-blob-3"></div>
-      </div>
-      <div class="ome-unified">
-        <div class="ome-u-icon" aria-hidden="true">
-          <svg viewBox="0 0 44 44" fill="none" stroke="#7FB8A8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4 Q22 14 22 42 M22 12 Q15 10 10 14 Q15 16 22 15 M22 20 Q13 18 7 23 Q14 25 22 23 M22 28 Q15 26 10 30 Q15 32 22 31 M22 12 Q29 10 34 14 Q29 16 22 15 M22 20 Q31 18 37 23 Q30 25 22 23 M22 28 Q29 26 34 30 Q29 32 22 31"/></svg>
-        </div>
-        <div class="ome-u-title" data-i18n="ome.u.title">OMé Spa · For Two</div>
-        <div class="ome-u-sub" data-i18n="ome.u.sub">The Reef Playacar · Playa del Carmen</div>
-        <div class="ome-u-divider" aria-hidden="true"></div>
-        <div class="ome-u-pill" data-i18n="ome.u.pill">1 Year Full Membership</div>
-        <div class="ome-u-divider" aria-hidden="true"></div>
-        <div class="ome-u-label" data-i18n="ome.u.label">What's Included</div>
-        <ul class="ome-u-list">
-          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i1">Spa &amp; Wellness</span></li>
-          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i2">Unlimited Gym</span></li>
-          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i3">Yoga Classes</span></li>
-          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i4">Beach Club</span></li>
-          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i5">Sauna &amp; Steam Room</span></li>
-          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i6">Selvatic Circuit Access</span></li>
-        </ul>
-      </div>
-    </div>
   </div>
 </section>
 <!-- WINE CELLAR -->
@@ -1493,7 +1408,7 @@ var LANG = {
     'ome.gift':      'Exclusive Buyer Benefit',
     'ome.ey':        'Included with Casa Árbol',
 
-    'ome.h2a':       'Spa Membership',
+    'ome.h2a':       'OMé Spa',
     'ome.h2b':       'for Two',
     'ome.tagline':   "What's included for both of you:",
     'ome.u.title':   'OMé Spa · For Two',
@@ -1532,7 +1447,7 @@ var LANG = {
     'ome.p4.name':   'Beach Club at The Reef Playacar',
     'ome.p4.note':   '6 complimentary day passes — private Caribbean beach, pools, all resort facilities',
 
-    'ome.body':      'Every buyer of Casa Árbol receives a complimentary full-year dual membership at OMé Spa — the award-winning wellness sanctuary at The Reef Playacar, nestled in the heart of Playacar just minutes from your new home.',
+    'ome.body':      'OMé Spa is part of living at Casa Árbol. The award-winning wellness sanctuary at The Reef Playacar — minutes from your door — becomes an extension of the home. A full year of unlimited access, for two, included with the residence.',
     'ome.p1.name':   'Unlimited Gym & Selvatic Circuit Access',
     'ome.p1.note':   'Daily access to the indoor gym and signature outdoor jungle circuit training — 7am to 9pm',
     'ome.p2.name':   'Unlimited Yoga Classes',
@@ -1822,7 +1737,7 @@ var LANG = {
     'ome.gift':      'Beneficio Exclusivo para el Comprador',
     'ome.ey':        'Incluido con Casa Árbol',
 
-    'ome.h2a':       'Membresía de Spa',
+    'ome.h2a':       'OMé Spa',
     'ome.h2b':       'para Dos',
     'ome.tagline':   'Lo que incluye para ambos:',
     'ome.u.title':   'OMé Spa · Para Dos',
@@ -1861,7 +1776,7 @@ var LANG = {
     'ome.p4.name':   'Club de Playa en The Reef Playacar',
     'ome.p4.note':   '6 pases de día — playa privada caribeña, albercas e instalaciones del resort',
 
-    'ome.body':      'Cada comprador de Casa Árbol recibe una membresía dual de un año completo en OMé Spa — el galardonado santuario de bienestar en The Reef Playacar, a minutos de tu nuevo hogar.',
+    'ome.body':      'OMé Spa forma parte de vivir en Casa Árbol. El galardonado santuario de bienestar en The Reef Playacar — a minutos de su puerta — se convierte en una extensión del hogar. Un año completo de acceso ilimitado, para dos, incluido con la residencia.',
     'ome.p1.name':   'Acceso Ilimitado al Gimnasio y Circuito Selvático',
     'ome.p1.note':   'Acceso diario al gimnasio y al circuito de entrenamiento exterior en la selva — 7am a 9pm',
     'ome.p2.name':   'Clases de Yoga Ilimitadas',
@@ -2129,7 +2044,7 @@ var LANG = {
     'ome.gift':      'Avantage Exclusif pour l\'Acheteur',
     'ome.ey':        'Inclus avec Casa Árbol',
 
-    'ome.h2a':       'Abonnement Spa',
+    'ome.h2a':       'OMé Spa',
     'ome.h2b':       'pour Deux',
     'ome.tagline':   'Ce qui est inclus pour vous deux :',
     'ome.u.title':   'OMé Spa · Pour Deux',
@@ -2168,8 +2083,8 @@ var LANG = {
     'ome.p4.name':   'Beach Club au Reef Playacar',
     'ome.p4.note':   '6 pass journée — plage caraïbe privée, piscines et installations du resort',
     'ome.h2a_old_fr': 'Un an à',
-    'ome.h2b':       'l\'OMé Spa',
-    'ome.body':      'Chaque acquéreur de Casa Árbol reçoit un abonnement duo d\'un an complet à l\'OMé Spa — le sanctuaire de bien-être primé du Reef Playacar, à quelques minutes de votre nouveau chez-vous.',
+    'ome.h2b':       'pour Deux',
+    'ome.body':      'OMé Spa fait partie de la vie à Casa Árbol. Le sanctuaire de bien-être primé de The Reef Playacar — à quelques minutes de votre porte — devient une extension de la maison. Une année complète d\'accès illimité, pour deux, incluse avec la résidence.',
     'ome.p1.name':   'Accès Illimité Salle de Sport & Circuit Sylvatique',
     'ome.p1.note':   'Accès quotidien à la salle et au circuit d\'entraînement extérieur en jungle — 7h à 21h',
     'ome.p2.name':   'Cours de Yoga Illimités',
@@ -2496,7 +2411,7 @@ var LANG = {
     'ome.gift':      'Exclusive Buyer Benefit',
     'ome.ey':        'Included with Casa Árbol',
 
-    'ome.h2a':       'Spa Membership',
+    'ome.h2a':       'OMé Spa',
     'ome.h2b':       'for Two',
     'ome.tagline':   "What's included for both of you:",
     'ome.u.title':   'OMé Spa · For Two',
@@ -2535,7 +2450,7 @@ var LANG = {
     'ome.p4.name':   'Beach Club at The Reef Playacar',
     'ome.p4.note':   '6 complimentary day passes — private Caribbean beach, pools, all resort facilities',
 
-    'ome.body':      'Every buyer of Casa Árbol receives a complimentary full-year dual membership at OMé Spa — the award-winning wellness sanctuary at The Reef Playacar, nestled in the heart of Playacar just minutes from your new home.',
+    'ome.body':      'OMé Spa is part of living at Casa Árbol. The award-winning wellness sanctuary at The Reef Playacar — minutes from your door — becomes an extension of the home. A full year of unlimited access, for two, included with the residence.',
     'ome.p1.name':   'Unlimited Gym & Selvatic Circuit Access',
     'ome.p1.note':   'Daily access to the indoor gym and signature outdoor jungle circuit training — 7am to 9pm',
     'ome.p2.name':   'Unlimited Yoga Classes',
@@ -2825,7 +2740,7 @@ var LANG = {
     'ome.gift':      'Beneficio Exclusivo para el Comprador',
     'ome.ey':        'Incluido con Casa Árbol',
 
-    'ome.h2a':       'Membresía de Spa',
+    'ome.h2a':       'OMé Spa',
     'ome.h2b':       'para Dos',
     'ome.tagline':   'Lo que incluye para ambos:',
     'ome.u.title':   'OMé Spa · Para Dos',
@@ -2864,7 +2779,7 @@ var LANG = {
     'ome.p4.name':   'Club de Playa en The Reef Playacar',
     'ome.p4.note':   '6 pases de día — playa privada caribeña, albercas e instalaciones del resort',
 
-    'ome.body':      'Cada comprador de Casa Árbol recibe una membresía dual de un año completo en OMé Spa — el galardonado santuario de bienestar en The Reef Playacar, a minutos de tu nuevo hogar.',
+    'ome.body':      'OMé Spa forma parte de vivir en Casa Árbol. El galardonado santuario de bienestar en The Reef Playacar — a minutos de su puerta — se convierte en una extensión del hogar. Un año completo de acceso ilimitado, para dos, incluido con la residencia.',
     'ome.p1.name':   'Acceso Ilimitado al Gimnasio y Circuito Selvático',
     'ome.p1.note':   'Acceso diario al gimnasio y al circuito de entrenamiento exterior en la selva — 7am a 9pm',
     'ome.p2.name':   'Clases de Yoga Ilimitadas',
@@ -3132,7 +3047,7 @@ var LANG = {
     'ome.gift':      'Avantage Exclusif pour l\'Acheteur',
     'ome.ey':        'Inclus avec Casa Árbol',
 
-    'ome.h2a':       'Abonnement Spa',
+    'ome.h2a':       'OMé Spa',
     'ome.h2b':       'pour Deux',
     'ome.tagline':   'Ce qui est inclus pour vous deux :',
     'ome.u.title':   'OMé Spa · Pour Deux',
@@ -3171,8 +3086,8 @@ var LANG = {
     'ome.p4.name':   'Beach Club au Reef Playacar',
     'ome.p4.note':   '6 pass journée — plage caraïbe privée, piscines et installations du resort',
     'ome.h2a_old_fr': 'Un an à',
-    'ome.h2b':       'l\'OMé Spa',
-    'ome.body':      'Chaque acquéreur de Casa Árbol reçoit un abonnement duo d\'un an complet à l\'OMé Spa — le sanctuaire de bien-être primé du Reef Playacar, à quelques minutes de votre nouveau chez-vous.',
+    'ome.h2b':       'pour Deux',
+    'ome.body':      'OMé Spa fait partie de la vie à Casa Árbol. Le sanctuaire de bien-être primé de The Reef Playacar — à quelques minutes de votre porte — devient une extension de la maison. Une année complète d\'accès illimité, pour deux, incluse avec la résidence.',
     'ome.p1.name':   'Accès Illimité Salle de Sport & Circuit Sylvatique',
     'ome.p1.note':   'Accès quotidien à la salle et au circuit d\'entraînement extérieur en jungle — 7h à 21h',
     'ome.p2.name':   'Cours de Yoga Illimités',
