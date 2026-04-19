@@ -692,6 +692,12 @@ nav.sc .lang-btn.active{color:var(--gold)}
 nav:not(.sc) .lang-btn{color:rgba(253,250,246,.7);text-shadow:0 1px 2px rgba(28,23,18,.45)}
 nav:not(.sc) .lang-btn:hover{color:var(--gold-lt);border-color:rgba(201,164,106,.5)}
 nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106,.65);background:rgba(253,250,246,.08)}
+/* Brochure nav item — coming-soon state with small clock glyph + tooltip */
+.nav-brochure{display:inline-flex;align-items:center;gap:6px}
+.nav-soon-ico{display:inline-flex;align-items:center;opacity:.6;transition:opacity .3s ease}
+.nav-brochure:hover .nav-soon-ico{opacity:.9}
+.nav-soon-tooltip{position:fixed;z-index:300;transform:translate(-50%,-4px);background:var(--ink);color:var(--gold-lt);font-family:'Plus Jakarta Sans',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px;border:1px solid rgba(201,164,106,.4);box-shadow:0 6px 24px -8px rgba(28,23,18,.35);pointer-events:none;opacity:0;white-space:nowrap;transition:opacity .3s ease-out,transform .3s ease-out}
+.nav-soon-tooltip.show{opacity:1;transform:translate(-50%,0)}
 
 /* ── BACK TO TOP ── */
 .btt{position:fixed;bottom:28px;right:28px;z-index:800;width:46px;height:46px;background:var(--ink);color:var(--gold-lt);border:1px solid rgba(160,120,64,.3);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(16px);transition:all .4s ease;font-size:.9rem}
@@ -741,8 +747,8 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
     <li><a href="#wine" data-i18n="nav.wine">Wine Cellar</a></li>
     <li><a href="#ome" data-i18n="nav.ome">OMé Spa</a></li>
     <li><a href="#videos" data-i18n="nav.videos">Videos</a></li>
-    <li><a href="#plans" data-i18n="nav.plans">Plans</a></li>
-    <li><a href="#videos" data-i18n="nav.tour">3D Tour</a></li>
+    <!-- TODO: replace with href="/casa-arbol-brochure.pdf" + download attribute when PDF is ready -->
+    <li class="nav-brochure-li"><a href="#" class="nav-brochure" onclick="return showBrochureSoon(event,this)" aria-label="Brochure (coming soon)" title="Coming soon"><span data-i18n="nav.brochure">Brochure</span><span class="nav-soon-ico" aria-hidden="true"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 7 12 12 15 14"/></svg></span></a></li>
   </ul>
   <div class="lang-sw">
       <button class="lang-btn active" data-lang="en" onclick="applyLang('en')">EN</button>
@@ -1348,6 +1354,7 @@ var LANG = {
     // Nav
     'nav.gallery':   'Gallery',
     'nav.videos':    'Videos',
+    'nav.brochure':  'Brochure',
     'nav.features':  'Features',
     'nav.wine':      'Wine Cellar',
     'nav.pool':      'Pool',
@@ -1691,6 +1698,7 @@ var LANG = {
   es: {
     'nav.gallery':   'Galería',
     'nav.videos':    'Videos',
+    'nav.brochure':  'Folleto',
     'nav.features':  'Características',
     'nav.wine':      'Cava de Vinos',
     'nav.pool':      'Alberca',
@@ -1998,6 +2006,7 @@ var LANG = {
   fr: {
     'nav.gallery':   'Galerie',
     'nav.videos':    'Vidéos',
+    'nav.brochure':  'Brochure',
     'nav.features':  'Caractéristiques',
     'nav.wine':      'Cave à Vins',
     'nav.pool':      'Piscine',
@@ -2351,6 +2360,7 @@ var LANG = {
     // Nav
     'nav.gallery':   'Gallery',
     'nav.videos':    'Videos',
+    'nav.brochure':  'Brochure',
     'nav.features':  'Features',
     'nav.wine':      'Wine Cellar',
     'nav.pool':      'Pool',
@@ -2694,6 +2704,7 @@ var LANG = {
   es: {
     'nav.gallery':   'Galería',
     'nav.videos':    'Videos',
+    'nav.brochure':  'Folleto',
     'nav.features':  'Características',
     'nav.wine':      'Cava de Vinos',
     'nav.pool':      'Alberca',
@@ -3001,6 +3012,7 @@ var LANG = {
   fr: {
     'nav.gallery':   'Galerie',
     'nav.videos':    'Vidéos',
+    'nav.brochure':  'Brochure',
     'nav.features':  'Caractéristiques',
     'nav.wine':      'Cave à Vins',
     'nav.pool':      'Piscine',
@@ -3645,6 +3657,28 @@ function exportCSV(){
     hint.textContent = 'Swipe to explore';
   }
 })();
+// Brochure "coming soon" tooltip — no download yet
+window.showBrochureSoon = function(e, el){
+  e.preventDefault();
+  var messages = {en:'Coming soon', es:'Próximamente', fr:'Bientôt disponible'};
+  var msg = messages[currentLang] || messages.en;
+  var existing = document.querySelector('.nav-soon-tooltip');
+  if(existing) existing.remove();
+  var tip = document.createElement('div');
+  tip.className = 'nav-soon-tooltip';
+  tip.textContent = msg;
+  var rect = el.getBoundingClientRect();
+  tip.style.left = (rect.left + rect.width/2) + 'px';
+  tip.style.top = (rect.bottom + 10) + 'px';
+  document.body.appendChild(tip);
+  requestAnimationFrame(function(){ tip.classList.add('show'); });
+  setTimeout(function(){
+    tip.classList.remove('show');
+    setTimeout(function(){ if(tip.parentNode) tip.parentNode.removeChild(tip); }, 320);
+  }, 2000);
+  return false;
+};
+
 // Footer: dynamic year
 (function(){ var y=document.getElementById('fYear'); if(y) y.textContent=new Date().getFullYear(); })();
 
