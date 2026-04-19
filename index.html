@@ -348,9 +348,9 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .kitchen{background:var(--bg2);padding:72px 0 64px;position:relative;overflow:hidden}
 .kitchen>*{position:relative;z-index:1}
 /* Ambient chef-utensils silhouette — whisk + chef's knife crossed still-life */
-.kitchen-chef-silhouette{position:absolute;top:20px;right:-20px;width:min(600px,50vw);height:auto;z-index:0;pointer-events:none;opacity:.10;mix-blend-mode:multiply;filter:brightness(0) saturate(100%) invert(72%) sepia(18%) saturate(900%) hue-rotate(5deg) brightness(95%) contrast(85%);animation:chefBreathe 10s ease-in-out infinite alternate;transform-origin:center}
+.kitchen-chef-silhouette{position:absolute;top:20px;right:-20px;width:min(600px,50vw);height:auto;z-index:0;pointer-events:none;opacity:.25;mix-blend-mode:multiply;filter:sepia(100%) saturate(300%) hue-rotate(5deg) brightness(120%);animation:chefBreathe 10s ease-in-out infinite alternate;transform-origin:center}
 @keyframes chefBreathe{from{transform:scale(1)}to{transform:scale(1.015)}}
-@media(max-width:768px){.kitchen-chef-silhouette{width:min(320px,55vw);top:10px;right:-10px;opacity:.08}}
+@media(max-width:768px){.kitchen-chef-silhouette{width:min(320px,55vw);top:10px;right:-10px;opacity:.20}}
 @media(prefers-reduced-motion:reduce){.kitchen-chef-silhouette{animation:none}}
 /* Title block — sits at the top, section padding provides the breathing room above */
 .kitch-head{max-width:880px;margin:0 auto;padding:0 5vw;text-align:center}
