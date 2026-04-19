@@ -316,8 +316,11 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .wine-txt h2.serif em{color:var(--gold-lt)}
 .wine-txt .body-t{color:rgba(253,250,246,.6);opacity:1}
 .wine-specs{list-style:none;margin:24px 0 32px}
-.wine-specs li{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid rgba(253,250,246,.08);font-size:.75rem;color:rgba(253,250,246,.6)}
-.wine-specs li::before{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--gold-lt);flex-shrink:0}
+.wine-specs li{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid rgba(253,250,246,.08);font-size:.75rem;color:rgba(253,250,246,.6);cursor:default;transition:color 300ms ease-out,transform 300ms ease-out,text-shadow 300ms ease-out,border-color 300ms ease-out}
+.wine-specs li:hover{color:#A83A54;transform:translateX(4px);text-shadow:0 0 12px rgba(168,58,84,.28);border-bottom-color:rgba(168,58,84,.2)}
+.wine-specs li::before{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--gold-lt);flex-shrink:0;transition:background-color 300ms ease-out,box-shadow 300ms ease-out,transform 300ms ease-out}
+.wine-specs li:hover::before{background:#A83A54;box-shadow:0 0 0 3px rgba(168,58,84,.18),0 0 10px rgba(168,58,84,.45);transform:scale(1.1)}
+@media(prefers-reduced-motion:reduce){.wine-specs li{transition:none}.wine-specs li:hover{transform:none}.wine-specs li::before{transition:none}}
 
 /* POOL — cenote with water animation */
 .pool-sec{position:relative;min-height:90vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
