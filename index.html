@@ -345,7 +345,13 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .pill{background:rgba(74,175,160,.18);border:1px solid rgba(74,175,160,.4);color:var(--teal);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 16px;backdrop-filter:blur(4px)}
 
 /* KITCHEN */
-.kitchen{background:var(--bg2);padding:72px 0 64px}
+.kitchen{background:var(--bg2);padding:72px 0 64px;position:relative;overflow:hidden}
+.kitchen>*{position:relative;z-index:1}
+/* Ambient chef-utensils silhouette — whisk + chef's knife crossed still-life */
+.kitch-bg{position:absolute;top:20px;right:-40px;width:min(620px,55vw);height:auto;color:rgba(160,120,64,.08);pointer-events:none;z-index:0;animation:kitchBreathe 10s ease-in-out infinite alternate;transform-origin:center}
+@keyframes kitchBreathe{from{transform:scale(1)}to{transform:scale(1.015)}}
+@media(max-width:768px){.kitch-bg{width:min(340px,70vw);top:10px;right:-30px;color:rgba(160,120,64,.06)}}
+@media(prefers-reduced-motion:reduce){.kitch-bg{animation:none}}
 /* Title block — sits at the top, section padding provides the breathing room above */
 .kitch-head{max-width:880px;margin:0 auto;padding:0 5vw;text-align:center}
 .kitch-head .ey{justify-content:center}
@@ -1197,6 +1203,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- KITCHEN -->
 <section class="kitchen" id="kitchen">
+  <svg class="kitch-bg" viewBox="0 0 720 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><g transform="translate(60 30)"><path d="M35 30 L35 155 L65 155 L65 30 Q65 18 50 18 Q35 18 35 30 Z"/><rect x="28" y="155" width="44" height="14"/><path d="M22 180 C 8 310 20 440 50 490 C 80 440 92 310 78 180"/><path d="M50 170 C 28 270 34 430 42 480"/><path d="M50 170 C 72 270 66 430 58 480"/><path d="M50 170 C 10 290 20 430 32 470"/><path d="M50 170 C 90 290 80 430 68 470"/></g><g transform="translate(130 290) rotate(-22)"><rect x="0" y="-16" width="130" height="32" rx="3"/><circle cx="30" cy="0" r="2.5"/><circle cx="65" cy="0" r="2.5"/><circle cx="100" cy="0" r="2.5"/><path d="M130 -16 L380 -6 Q392 0 380 16 L130 16 Z"/></g></svg>
   <div class="rv kitch-head"><div class="ey" data-i18n="kitch.ey">The Kitchen</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="kitch.h2a">Where flavour</span></span><span class="split-wrap"><span class="split-inner d2">meets <em>design</em></span></span></h2><span class="rule"></span></div>
   <div class="rv kitch-body">
     <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
