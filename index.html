@@ -285,6 +285,11 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .fc-ico{width:56px;height:56px;display:flex;align-items:flex-start;justify-content:flex-start;color:var(--gold);margin:2px 0 4px;flex-shrink:0;transition:color .3s ease-out,filter .3s ease-out,transform .3s ease-out}
 .fc-ico svg{width:48px;height:48px;stroke-width:1.5}
 .fc:hover .fc-ico{filter:brightness(1.15);transform:scale(1.04)}
+/* Stroke-draw hover animation — icon retraces itself on card hover */
+.fc-ico svg path,.fc-ico svg circle,.fc-ico svg rect,.fc-ico svg line,.fc-ico svg polyline{stroke-dasharray:1000;stroke-dashoffset:0}
+.fc:hover .fc-ico svg path,.fc:hover .fc-ico svg circle,.fc:hover .fc-ico svg rect,.fc:hover .fc-ico svg line,.fc:hover .fc-ico svg polyline{animation:drawStroke 700ms ease-out}
+@keyframes drawStroke{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}
+@media(prefers-reduced-motion:reduce){.fc:hover .fc-ico svg path,.fc:hover .fc-ico svg circle,.fc:hover .fc-ico svg rect,.fc:hover .fc-ico svg line,.fc:hover .fc-ico svg polyline{animation:none}}
 .fc-nm{font-family:'Plus Jakarta Sans',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);line-height:1.45;font-variant:small-caps}
 .fc-ds{font-size:.78rem;line-height:1.7;color:var(--ink2);opacity:.68;max-width:none}
 
