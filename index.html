@@ -345,11 +345,18 @@ h2.serif em{font-style:italic;color:var(--gold)}
 
 /* KITCHEN */
 .kitchen{background:var(--bg2);padding:72px 0 64px}
-/* Hero image — flush to marquee below, no border-bottom, no top margin */
+/* Title block — sits at the top, section padding provides the breathing room above */
+.kitch-head{max-width:880px;margin:0 auto;padding:0 5vw;text-align:center}
+.kitch-head .ey{justify-content:center}
+.kitch-head .rule{margin-left:auto;margin-right:auto}
+/* Body paragraph — centered block, left-aligned text, breathing space below before the image */
+.kitch-body{max-width:760px;margin:16px auto 64px;padding:0 5vw}
+.kitch-body .body-t{text-align:left;max-width:none}
+/* Hero image — breathing space above (from body margin), flush with marquee below */
 .kitch-hero{position:relative;overflow:hidden;margin:0;border-top:1px solid rgba(160,120,64,.12)}
 .kitch-hero img{width:100%;height:clamp(320px,56vh,560px);object-fit:cover;display:block;transition:transform 1.2s ease}
 .kitch-hero:hover img{transform:scale(1.02)}
-/* Brand marquee — sits flush against hero image */
+/* Brand marquee — flush against hero image bottom */
 .kitch-mq-wrap{background:var(--ink);overflow:hidden;padding:15px 0;margin:0;border-top:1px solid rgba(160,120,64,.3);border-bottom:1px solid rgba(160,120,64,.3)}
 .kitch-mq-track{display:flex;animation:kmscroll 50s linear infinite;white-space:nowrap;width:max-content}
 .kitch-mq-track:hover{animation-play-state:paused}
@@ -357,12 +364,6 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .kitch-mi{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,164,106,.68);padding:0 28px;display:inline-flex;align-items:center;gap:28px}
 .kitch-mi .kdot{color:var(--gold);font-size:1rem;line-height:0;opacity:.7}
 @media(prefers-reduced-motion:reduce){.kitch-mq-track{animation:none}}
-/* Single-column title + body below marquee */
-.kitch-head{max-width:880px;margin:0 auto;padding:56px 5vw 0;text-align:center}
-.kitch-head .ey{justify-content:center}
-.kitch-head .rule{margin-left:auto;margin-right:auto}
-.kitch-body{max-width:760px;margin:16px auto 0;padding:0 5vw}
-.kitch-body .body-t{text-align:left;max-width:none}
 
 /* RENDERS PLACEHOLDER */
 .renders{background:var(--white);padding:72px 5vw}
@@ -1176,6 +1177,10 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- KITCHEN -->
 <section class="kitchen" id="kitchen">
+  <div class="rv kitch-head"><div class="ey" data-i18n="kitch.ey">The Kitchen</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="kitch.h2a">Where flavour</span></span><span class="split-wrap"><span class="split-inner d2">meets <em>design</em></span></span></h2><span class="rule"></span></div>
+  <div class="rv kitch-body">
+    <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
+  </div>
   <div class="rv kitch-hero">
     <img src="./images/kitchen.jpg" alt="Casa Árbol kitchen" loading="lazy">
   </div>
@@ -1183,10 +1188,6 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
     <div class="kitch-mq-track">
       <span class="kitch-mi">INIZIO<span class="kdot">·</span></span><span class="kitch-mi">HETTICH<span class="kdot">·</span></span><span class="kitch-mi">DEKTON<span class="kdot">·</span></span><span class="kitch-mi">SMEG<span class="kdot">·</span></span><span class="kitch-mi">TEKA<span class="kdot">·</span></span><span class="kitch-mi">HELVEX<span class="kdot">·</span></span><span class="kitch-mi">INIZIO<span class="kdot">·</span></span><span class="kitch-mi">HETTICH<span class="kdot">·</span></span><span class="kitch-mi">DEKTON<span class="kdot">·</span></span><span class="kitch-mi">SMEG<span class="kdot">·</span></span><span class="kitch-mi">TEKA<span class="kdot">·</span></span><span class="kitch-mi">HELVEX<span class="kdot">·</span></span>
     </div>
-  </div>
-  <div class="rv kitch-head"><div class="ey" data-i18n="kitch.ey">The Kitchen</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="kitch.h2a">Where flavour</span></span><span class="split-wrap"><span class="split-inner d2">meets <em>design</em></span></span></h2><span class="rule"></span></div>
-  <div class="rv kitch-body">
-    <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
   </div>
 </section>
 
