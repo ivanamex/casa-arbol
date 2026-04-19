@@ -605,16 +605,12 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .ome-u-divider{width:64px;height:1px;background:linear-gradient(to right,transparent,rgba(127,184,168,.55),transparent);margin:14px auto}
 .ome-u-pill{display:inline-flex;align-items:center;gap:6px;font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-lt);background:transparent;border:1px solid rgba(201,164,106,.55);padding:8px 18px;border-radius:999px;font-weight:500}
 .ome-u-label{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;font-variant:small-caps}
-/* 6 stacked benefit rows — static info card, no hover */
-.ome-u-benefits{display:flex;flex-direction:column;gap:28px;width:100%;margin:6px 0;text-align:left}
-.ome-u-row{display:flex;align-items:flex-start;gap:20px}
-.ome-u-row-ico{width:32px;height:32px;flex-shrink:0;color:#7FB8A8;display:flex;align-items:center;justify-content:center;margin-top:2px}
-.ome-u-row-ico svg{width:32px;height:32px}
-.ome-u-row-txt{flex:1 1 0;min-width:0}
-.ome-u-row-title{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:400;font-size:1.05rem;color:rgba(253,250,246,.92);line-height:1.3;margin-bottom:4px}
-.ome-u-row-desc{font-family:'Plus Jakarta Sans',sans-serif;font-weight:300;font-size:.9rem;color:rgba(253,250,246,.7);line-height:1.55}
-@media(max-width:768px){.ome-u-row-title{font-size:.98rem}.ome-u-row-desc{font-size:.82rem}.ome-u-benefits{gap:22px}}
-.ome-u-footnote{font-size:.62rem;color:rgba(253,250,246,.38);font-style:italic;line-height:1.55;margin-top:4px;max-width:360px;text-align:center}
+.ome-u-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;padding:0;margin:4px 0 6px;width:100%;max-width:420px}
+@media(max-width:520px){.ome-u-list{grid-template-columns:1fr;max-width:280px}}
+.ome-u-list li{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(253,250,246,.02);border:1px solid rgba(253,250,246,.06);border-radius:6px;font-size:.74rem;color:rgba(253,250,246,.8);text-align:left;line-height:1.4;cursor:default;transition:transform 400ms ease-out,background-color 400ms ease-out,border-color 400ms ease-out,box-shadow 400ms ease-out,color 400ms ease-out}
+.ome-u-list li:hover{transform:translateY(-3px);background:rgba(74,175,160,.08);border-color:rgba(74,175,160,.4);box-shadow:0 0 40px rgba(74,175,160,.22);color:rgba(253,250,246,.95)}
+.ome-u-dot{width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 0 3px rgba(74,175,160,.12);transition:background-color 400ms ease-out,box-shadow 400ms ease-out,filter 400ms ease-out}
+.ome-u-list li:hover .ome-u-dot{filter:brightness(1.2);box-shadow:0 0 0 3px rgba(74,175,160,.22),0 0 14px rgba(74,175,160,.55)}
 .ome-logo-box{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid rgba(74,175,160,.2)}
 .ome-hero-row{display:flex;align-items:center;justify-content:center;gap:24px;padding:8px 4px 24px;margin-bottom:24px;border-bottom:1px solid rgba(74,175,160,.2)}
 .ome-hero-row .ome-logo-box,.ome-hero-row .ome-membership-hero{margin:0;padding:0;border:none;flex:1 1 0}
@@ -1088,6 +1084,52 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <span class="rule" style="background:var(--teal)"></span>
       <p class="body-t" data-i18n="ome.body">Every buyer of Casa Árbol receives a complimentary full-year dual membership at OMé Spa — the award-winning wellness sanctuary at The Reef Playacar, minutes from your new home.</p>
 
+      <div class="ome-tag-line" data-i18n="ome.tagline">What's included for both of you:</div>
+
+      <ul class="ome-perks">
+        <div class="ome-perk rv d1">
+          <div class="ome-perk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 14c2-2 2-4 0-6M12 14c2-2 2-4 0-6M18 14c2-2 2-4 0-6"/><path d="M3 18h18M4 22h16"/></svg></div>
+          <div class="ome-perk-txt">
+            <div class="ome-perk-name" data-i18n="ome.p3.name">Spa & Wellness Access</div>
+            <div class="ome-perk-note" data-i18n="ome.p3.note">Unlimited sauna, eucalyptus steam room and hydrotherapy — included every visit</div>
+          </div>
+        </div>
+        <div class="ome-perk rv d2">
+          <div class="ome-perk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5l11 11M21 21l-1-1M3 3l1 1M18 22l4-4M2 6l4-4M7 17l-5 5M17 7l5-5"/></svg></div>
+          <div class="ome-perk-txt">
+            <div class="ome-perk-name" data-i18n="ome.p1.name">Gym & Selvatic Circuit</div>
+            <div class="ome-perk-note" data-i18n="ome.p1.note">Unlimited indoor gym + signature outdoor jungle circuit training, 7am–9pm daily</div>
+          </div>
+        </div>
+        <div class="ome-perk rv d3">
+          <div class="ome-perk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 7v5M8 22c0-3 2-5 4-5s4 2 4 5M4 14l4-2 4 2 4-2 4 2"/></svg></div>
+          <div class="ome-perk-txt">
+            <div class="ome-perk-name" data-i18n="ome.p2.name">Yoga Classes</div>
+            <div class="ome-perk-note" data-i18n="ome.p2.note">Beach yoga, sunrise & sunset sessions — Monday to Saturday with expert instructors</div>
+          </div>
+        </div>
+        <div class="ome-perk rv d4">
+          <div class="ome-perk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12c-2-2-5-2-7 0M22 19c-3 0-4.5 2-7 2s-4-2-7-2-4.5 2-7 2"/><circle cx="8" cy="8" r="3"/><path d="M10.5 5L15 10M5.5 10.5L11 8"/></svg></div>
+          <div class="ome-perk-txt">
+            <div class="ome-perk-name" data-i18n="ome.p4.name">Beach Club at The Reef Playacar</div>
+            <div class="ome-perk-note" data-i18n="ome.p4.note">6 complimentary day passes — private Caribbean beach, pools, all resort facilities</div>
+          </div>
+        </div>
+        <div class="ome-perk rv d5">
+          <div class="ome-perk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7a3 3 0 0 0 6 0V2M6 2v20M17 2a4 4 0 0 0-4 4v7h4v9"/></svg></div>
+          <div class="ome-perk-txt">
+            <div class="ome-perk-name" data-i18n="ome.p5.name">15% Dining Discount</div>
+            <div class="ome-perk-note" data-i18n="ome.p5.note">Year-round at all The Reef Resorts restaurants, including The Roof 28 rooftop bar</div>
+          </div>
+        </div>
+        <div class="ome-perk rv d6">
+          <div class="ome-perk-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14a2.5 2.5 0 1 0 5 0c0-1-.5-1.5-1-2-1-1-2-1-2-3 0-1 1-2 1-3-2 1-4 3-4 6 0 .5.5 1 1 2z"/><path d="M12 22C7 22 3 18 3 13c0-4 3-7 5-9-.5 2 .5 4 2 5 2 2 4 3 4 6 0 2-1 3-2 3-1 0-2-1-2-2"/></svg></div>
+          <div class="ome-perk-txt">
+            <div class="ome-perk-name" data-i18n="ome.p6.name">Temazcal Ceremonies</div>
+            <div class="ome-perk-note" data-i18n="ome.p6.note">Ancestral Mayan ritual guided by a traditional shaman — a singular cultural experience</div>
+          </div>
+        </div>
+      </ul>
     </div>
 
     <div class="ome-visual rv">
@@ -1106,34 +1148,14 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
         <div class="ome-u-pill" data-i18n="ome.u.pill">1 Year Full Membership</div>
         <div class="ome-u-divider" aria-hidden="true"></div>
         <div class="ome-u-label" data-i18n="ome.u.label">What's Included</div>
-        <div class="ome-u-benefits">
-          <div class="ome-u-row">
-            <div class="ome-u-row-ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22c2-3-2-5 0-8s-2-5 0-8"/><path d="M16 22c2-3-2-5 0-8s-2-5 0-8"/><path d="M22 22c2-3-2-5 0-8s-2-5 0-8"/><path d="M5 26h22"/></svg></div>
-            <div class="ome-u-row-txt"><div class="ome-u-row-title" data-i18n="ome.u.r1.title">Sauna &amp; Steam Room</div><div class="ome-u-row-desc" data-i18n="ome.u.r1.desc">Unlimited access to dry sauna and eucalyptus steam room — included with every visit</div></div>
-          </div>
-          <div class="ome-u-row">
-            <div class="ome-u-row-ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="5"/><path d="M16 5v3M16 24v3M5 16h3M24 16h3"/></svg></div>
-            <div class="ome-u-row-txt"><div class="ome-u-row-title" data-i18n="ome.u.r2.title">Unlimited Gym &amp; Selvatic Circuit Access</div><div class="ome-u-row-desc" data-i18n="ome.u.r2.desc">Daily access to the indoor gym and signature outdoor jungle circuit training — 7am to 9pm</div></div>
-          </div>
-          <div class="ome-u-row">
-            <div class="ome-u-row-ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="9" r="2.5"/><path d="M16 12v6"/><path d="M8 22c2-3 5-4 8-4s6 1 8 4"/><path d="M5 18l6-2 5 2 5-2 6 2"/></svg></div>
-            <div class="ome-u-row-txt"><div class="ome-u-row-title" data-i18n="ome.u.r3.title">Unlimited Yoga Classes</div><div class="ome-u-row-desc" data-i18n="ome.u.r3.desc">Beach yoga, sunrise sessions &amp; sunset yoga — Monday to Saturday, guided by expert instructors</div></div>
-          </div>
-          <div class="ome-u-row">
-            <div class="ome-u-row-ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="23" cy="9" r="2.5"/><path d="M23 14c-4 0-6 4-6 8"/><path d="M23 14c2 2 4 5 4 8"/><path d="M23 14c-3 1-5 4-6 8"/><path d="M4 22c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></svg></div>
-            <div class="ome-u-row-txt"><div class="ome-u-row-title" data-i18n="ome.u.r4.title">Beach Club Day Passes</div><div class="ome-u-row-desc" data-i18n="ome.u.r4.desc">6 complimentary day passes to The Reef Playacar — beach, pools, yoga, gym &amp; resort facilities</div></div>
-          </div>
-          <div class="ome-u-row">
-            <div class="ome-u-row-ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h24a12 12 0 0 1-24 0z"/><path d="M16 17v-5"/><path d="M16 12c0-3 3-5 5-5 0 3-2 5-5 5z"/><path d="M3 26h26"/></svg></div>
-            <div class="ome-u-row-txt"><div class="ome-u-row-title" data-i18n="ome.u.r5.title">15% Dining Discount</div><div class="ome-u-row-desc" data-i18n="ome.u.r5.desc">Year-round discount at all The Reef Resorts dining outlets including The Roof 28 rooftop bar</div></div>
-          </div>
-          <div class="ome-u-row">
-            <div class="ome-u-row-ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 25h20L16 10z"/><path d="M12 7c1-2 1-3 0-5M16 5c1-2 1-3 0-5M20 7c1-2 1-3 0-5"/></svg></div>
-            <div class="ome-u-row-txt"><div class="ome-u-row-title" data-i18n="ome.u.r6.title">Temazcal Ceremonies</div><div class="ome-u-row-desc" data-i18n="ome.u.r6.desc">Access to ancestral Mayan temazcal rituals guided by a traditional shaman — a singular experience</div></div>
-          </div>
-        </div>
-        <div class="ome-u-divider" aria-hidden="true"></div>
-        <div class="ome-u-footnote" data-i18n="ome.u.footnote">Valid 12 months from title transfer date. Subject to The Reef Resorts availability.</div>
+        <ul class="ome-u-list">
+          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i1">Spa &amp; Wellness</span></li>
+          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i2">Unlimited Gym</span></li>
+          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i3">Yoga Classes</span></li>
+          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i4">Beach Club</span></li>
+          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i5">Sauna &amp; Steam Room</span></li>
+          <li><span class="ome-u-dot" aria-hidden="true"></span><span data-i18n="ome.u.i6">Selvatic Circuit Access</span></li>
+        </ul>
       </div>
     </div>
   </div>
