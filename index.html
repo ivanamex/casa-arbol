@@ -304,7 +304,9 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .wine-ring-photo{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.82) saturate(.95)}
 .wine-ring-stain{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:512px;height:512px;pointer-events:none;z-index:2}
 .wine-ring-splatter{position:absolute;left:calc(50% + 218px);top:50%;transform:translateY(-32%);width:200px;height:320px;pointer-events:none;z-index:2}
-@media(max-width:768px){.wine-ring-frame{width:280px;height:280px}.wine-ring-stain{width:304px;height:304px}.wine-ring-splatter{left:calc(50% + 128px);width:140px;height:220px}}
+/* Edge splash — small burst bursting from 2-o'clock point on the ring */
+.wine-ring-splash{position:absolute;top:50%;left:50%;transform:translate(calc(-50% + 196px),calc(-50% - 148px));width:160px;height:160px;pointer-events:none;z-index:3}
+@media(max-width:768px){.wine-ring-frame{width:280px;height:280px}.wine-ring-stain{width:304px;height:304px}.wine-ring-splatter{left:calc(50% + 128px);width:140px;height:220px}.wine-ring-splash{transform:translate(calc(-50% + 112px),calc(-50% - 92px));width:100px;height:100px}.wine-ring-splash .wine-splash-4,.wine-ring-splash .wine-splash-5{display:none}}
 .wine-txt{padding:68px 6vw;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:3}
 @media(max-width:768px){.wine-txt{padding:52px 6vw}}
 .wine-txt .ey{color:var(--gold-lt)}
@@ -1120,8 +1122,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 <section class="wine" id="wine">
   <div class="wine-ring-wrap">
     <div class="wine-ring-frame">
-      <!-- TODO: replace with Casa Árbol wine cellar render / photo -->
-      <img class="wine-ring-photo" src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?auto=format&fit=crop&w=900&q=80" alt="Wine cellar interior" loading="lazy">
+      <img class="wine-ring-photo" src="./images/wine-cellar.jpg" alt="Casa Árbol wine cellar" loading="lazy">
     </div>
     <svg class="wine-ring-stain" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <defs>
@@ -1131,6 +1132,17 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
         <circle cx="250" cy="250" r="238" stroke="rgba(110,15,30,.82)" stroke-width="7" stroke-dasharray="140 6 80 4 50 8 180 3 40 2"/>
         <circle cx="250" cy="250" r="232" stroke="rgba(110,15,30,.5)" stroke-width="4" stroke-dasharray="60 3 30 8 100 2 20 4"/>
         <circle cx="250" cy="250" r="244" stroke="rgba(110,15,30,.42)" stroke-width="3" stroke-dasharray="40 6 80 4 20 8 100 5"/>
+      </g>
+    </svg>
+    <svg class="wine-ring-splash" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g fill="rgba(110,15,30,.78)">
+        <circle cx="62" cy="92" r="6.5" opacity="0.82"/>
+        <circle cx="80" cy="72" r="4" opacity="0.7"/>
+        <path d="M94 54 Q99 49 104 54 Q104 61 98 62 Q92 59 94 54 Z" opacity="0.72"/>
+        <circle class="wine-splash-4" cx="118" cy="40" r="3" opacity="0.55"/>
+        <path class="wine-splash-5" d="M128 24 Q133 20 137 24 Q135 30 130 30 Q126 28 128 24 Z" opacity="0.6"/>
+        <circle cx="86" cy="106" r="3.2" opacity="0.6"/>
+        <circle cx="115" cy="64" r="2.6" opacity="0.68"/>
       </g>
     </svg>
     <svg class="wine-ring-splatter" viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
