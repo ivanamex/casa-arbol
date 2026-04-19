@@ -381,22 +381,22 @@ h2.serif em{font-style:italic;color:var(--gold)}
 /* PLANS */
 .plans{background:var(--bg2);padding:50px 5vw;position:relative;overflow:hidden;background-image:linear-gradient(rgba(160,120,64,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(160,120,64,.04) 1px,transparent 1px);background-size:48px 48px;background-position:0 0,0 0}
 .plans>*{position:relative;z-index:1}
-.plans-tabs{display:flex;gap:0;margin:40px 0 32px;border-bottom:1px solid rgba(160,120,64,.2);overflow-x:auto;scrollbar-width:none}
-.plans-tabs::-webkit-scrollbar{display:none}
-.tab{font-family:'Plus Jakarta Sans',sans-serif;background:none;border:none;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);opacity:.5;padding:13px 22px;border-bottom:2px solid transparent;cursor:pointer;transition:all .3s;white-space:nowrap;margin-bottom:-1px}
-.tab.active{color:var(--gold);border-bottom-color:var(--gold);opacity:1}
-.panel{display:none}
-.panel.active{display:block}
-.rooms{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
-@media(max-width:600px){.rooms{grid-template-columns:1fr}}
-.rrow{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(160,120,64,.1);font-size:.76rem}
-.rrow .rn{color:var(--ink2)}
-.rrow .rm{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:1.1rem;font-weight:200;color:var(--gold)}
-.rtot{display:flex;justify-content:space-between;align-items:baseline;padding:18px 0 0}
-.rtot .rn{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--warm)}
-.rtot .rm{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:200;color:var(--gold)}
-.plan-req{background:var(--white);border:1px solid rgba(160,120,64,.18);padding:36px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.plan-req p{font-size:.68rem;color:var(--ink2);opacity:.45;letter-spacing:.12em;text-transform:uppercase}
+/* Plans two-column layout: title left, restyled request card right */
+.plans-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1200px;margin:32px auto 0}
+@media(max-width:900px){.plans-inner{grid-template-columns:1fr;gap:40px;margin-top:20px}}
+.plans-head{max-width:560px}
+/* Request Plans card — matches OMé Spa / Engineered card token palette on light bg */
+.plans-card{background:rgba(253,250,246,.6);border:1px solid rgba(160,120,64,.22);border-radius:6px;padding:40px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;box-shadow:0 1px 2px rgba(28,23,18,.05),0 8px 24px -12px rgba(28,23,18,.18);transition:transform .3s ease-out,box-shadow .3s ease-out,border-color .3s ease-out}
+@media(max-width:560px){.plans-card{padding:32px 24px}}
+.plans-card:hover{transform:translateY(-3px);border-color:rgba(160,120,64,.35);box-shadow:0 2px 6px rgba(28,23,18,.08),0 18px 40px -12px rgba(28,23,18,.25)}
+.plans-card-head{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:1.2rem;font-weight:300;font-style:italic;color:var(--ink2);line-height:1.4}
+.plans-card-sub{font-size:.62rem;color:var(--ink2);opacity:.5;letter-spacing:.2em;text-transform:uppercase;font-variant:small-caps}
+.plans-card-cta{margin-top:6px}
+/* Ambient blueprint floor-plan silhouette */
+.plans-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(880px,85vw);height:auto;color:rgba(160,120,64,.08);pointer-events:none;z-index:0;animation:plansBreathe 10s ease-in-out infinite alternate;transform-origin:center}
+@keyframes plansBreathe{from{transform:translate(-50%,-50%) scale(1)}to{transform:translate(-50%,-50%) scale(1.015)}}
+@media(max-width:768px){.plans-bg{width:min(560px,95vw);color:rgba(160,120,64,.06)}}
+@media(prefers-reduced-motion:reduce){.plans-bg{animation:none}}
 
 /* FINISHES */
 .finishes{background:var(--white);padding:72px 5vw}
@@ -1193,50 +1193,19 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- PLANS -->
 <section class="plans" id="plans">
-  <div class="rv"><div class="ey" data-i18n="plans.ey">Floor Plans</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="plans.h2a">476 m² of</span></span><span class="split-wrap"><span class="split-inner d2"><em>spatial mastery</em></span></span></h2><span class="rule"></span></div>
-  <div class="plans-tabs">
-    <button class="tab active" onclick="switchTab(this,'p-ground')" data-i18n="plans.tab1">Ground Floor</button>
-    <button class="tab" onclick="switchTab(this,'p-upper')" data-i18n="plans.tab2">Upper Level</button>
-    <button class="tab" onclick="switchTab(this,'p-ext')" data-i18n="plans.tab3">Exterior & Pool</button>
+  <svg class="plans-bg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 40 L760 40 L760 460 L40 460 Z"/><path d="M280 40 L280 210 M280 270 L280 460"/><path d="M520 40 L520 180 M520 250 L520 460"/><path d="M40 240 L120 240 M180 240 L280 240"/><path d="M280 240 L520 240"/><path d="M520 300 L600 300 M660 300 L760 300"/><circle cx="650" cy="395" r="42"/><path d="M360 310 L360 395 L440 395 L440 310 Z"/><path d="M360 330 L440 330 M360 350 L440 350 M360 370 L440 370"/><path d="M140 100 L240 100 M140 140 L240 140"/><path d="M600 95 L720 95 M600 125 L720 125 M600 155 L720 155"/></svg>
+  <div class="plans-inner">
+    <div class="rv plans-head">
+      <div class="ey" data-i18n="plans.ey">Floor Plans</div>
+      <h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="plans.h2a">476 m² of</span></span><span class="split-wrap"><span class="split-inner d2"><em>spatial mastery</em></span></span></h2>
+      <span class="rule"></span>
+    </div>
+    <div class="plans-card rv">
+      <div class="plans-card-head" data-i18n="plans.card.head">Full architectural plans available on request</div>
+      <p class="plans-card-sub" data-i18n="plans.excl">Shared exclusively with qualified buyers</p>
+      <button class="btn btn-dark plans-card-cta" onclick="openModal()" data-i18n="plans.card.cta">Request Plans →</button>
+    </div>
   </div>
-  <div class="panel active" id="p-ground"><div class="rooms">
-    <div>
-      <div class="rrow"><span class="rn" data-i18n="room.living">Grand Living Room</span><span class="rm">48 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.kitchen">Gourmet Kitchen</span><span class="rm">32 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.dining">Dining Room</span><span class="rm">22 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.wine">Wine Cellar</span><span class="rm">14 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.guest1">Guest Suite I</span><span class="rm">28 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.guest2">Guest Suite II</span><span class="rm">26 m²</span></div>
-      <div class="rrow"><span class="rn">Suite IV (Ground)</span><span class="rm">26 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.service">Service Room</span><span class="rm">14 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.laundry">Laundry & Storage</span><span class="rm">12 m²</span></div>
-      <div class="rtot"><span class="rn" data-i18n="room.gftotal">Ground Floor Total</span><span class="rm">~222 m²</span></div>
-    </div>
-    <div class="plan-req"><div style="font-family:'Fraunces',serif;font-size:1.15rem;font-weight:200;font-style:italic;color:var(--ink2)">Full architectural plans available on request</div><p data-i18n="plans.excl">Shared exclusively with qualified buyers</p><button class="btn btn-dark" onclick="openModal()">Request Plans →</button></div>
-  </div></div>
-  <div class="panel" id="p-upper"><div class="rooms">
-    <div>
-      <div class="rrow"><span class="rn" data-i18n="room.master">Master Suite</span><span class="rm">62 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.mbath">Master Bathroom</span><span class="rm">18 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.walkin">Walk-in Wardrobe</span><span class="rm">14 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.suite3">Suite III</span><span class="rm">30 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.media">Media Lounge</span><span class="rm">24 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.terrace">Private Terrace</span><span class="rm">38 m²</span></div>
-      <div class="rtot"><span class="rn" data-i18n="room.uptotal">Upper Level Total</span><span class="rm">~197 m²</span></div>
-    </div>
-    <div class="plan-req"><div style="font-family:'Fraunces',serif;font-size:1.15rem;font-weight:200;font-style:italic;color:var(--ink2)">Full architectural plans available on request</div><p>Shared exclusively with qualified buyers</p><button class="btn btn-dark" onclick="openModal()">Request Plans →</button></div>
-  </div></div>
-  <div class="panel" id="p-ext"><div class="rooms">
-    <div>
-      <div class="rrow"><span class="rn" data-i18n="room.pool">Cenote Pool</span><span class="rm">28.5 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.pterrace">Pool Terrace</span><span class="rm">45 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.garden">Tropical Garden</span><span class="rm">~80 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.outdoor">Outdoor Dining</span><span class="rm">20 m²</span></div>
-      <div class="rrow"><span class="rn" data-i18n="room.garage">Garage (2 cars)</span><span class="rm">36 m²</span></div>
-      <div class="rtot"><span class="rn" data-i18n="room.extotal">Exterior Total</span><span class="rm">~210 m²</span></div>
-    </div>
-    <div class="plan-req"><div style="font-family:'Fraunces',serif;font-size:1.15rem;font-weight:200;font-style:italic;color:var(--ink2)">Site plan & landscaping available on request</div><p>Shared exclusively with qualified buyers</p><button class="btn btn-dark" onclick="openModal()">Request Site Plan →</button></div>
-  </div></div>
 </section>
 
 
@@ -1600,36 +1569,13 @@ var LANG = {
     'plans.ey':      'Floor Plans',
     'plans.h2a':     '476 m² of',
     'plans.h2b':     'spatial mastery',
-    'plans.tab1':    'Ground Floor',
-    'plans.tab2':    'Upper Level',
-    'plans.tab3':    'Exterior & Pool',
     'plans.avail':   'Full architectural plans available on request',
     'plans.excl':    'Shared exclusively with qualified buyers',
+    'plans.card.head':'Full architectural plans available on request',
+    'plans.card.cta':'Request Plans →',
     'plans.btn':     'Request Plans →',
     'plans.site':    'Site plan & landscaping available on request',
     'plans.sitebtn': 'Request Site Plan →',
-    'room.living':   'Grand Living Room',
-    'room.kitchen':  'Gourmet Kitchen',
-    'room.dining':   'Dining Room',
-    'room.wine':     'Wine Cellar',
-    'room.guest1':   'Guest Suite I',
-    'room.guest2':   'Guest Suite II',
-    'room.service':  'Service Room',
-    'room.laundry':  'Laundry & Storage',
-    'room.gftotal':  'Ground Floor Total',
-    'room.master':   'Master Suite',
-    'room.mbath':    'Master Bathroom',
-    'room.walkin':   'Walk-in Wardrobe',
-    'room.suite3':   'Suite III',
-    'room.media':    'Media Lounge',
-    'room.terrace':  'Private Terrace',
-    'room.uptotal':  'Upper Level Total',
-    'room.pool':     'Cenote Pool',
-    'room.pterrace': 'Pool Terrace',
-    'room.garden':   'Tropical Garden',
-    'room.outdoor':  'Outdoor Dining',
-    'room.garage':   'Garage (2 cars)',
-    'room.extotal':  'Exterior Total',
 
     // Finishes
     'fin.ey':        'Material Palette',
@@ -1917,36 +1863,13 @@ var LANG = {
     'plans.ey':      'Planos',
     'plans.h2a':     '476 m² de',
     'plans.h2b':     'maestría espacial',
-    'plans.tab1':    'Planta Baja',
-    'plans.tab2':    'Nivel Superior',
-    'plans.tab3':    'Exterior y Alberca',
     'plans.avail':   'Planos arquitectónicos completos disponibles bajo solicitud',
     'plans.excl':    'Compartidos exclusivamente con compradores calificados',
+    'plans.card.head':'Planos arquitectónicos completos disponibles bajo solicitud',
+    'plans.card.cta':'Solicitar Planos →',
     'plans.btn':     'Solicitar Planos →',
     'plans.site':    'Plano de sitio y paisajismo disponible bajo solicitud',
     'plans.sitebtn': 'Solicitar Plano de Sitio →',
-    'room.living':   'Gran Sala de Estar',
-    'room.kitchen':  'Cocina Gourmet',
-    'room.dining':   'Comedor',
-    'room.wine':     'Cava de Vinos',
-    'room.guest1':   'Suite de Huéspedes I',
-    'room.guest2':   'Suite de Huéspedes II',
-    'room.service':  'Cuarto de Servicio',
-    'room.laundry':  'Lavandería y Bodega',
-    'room.gftotal':  'Total Planta Baja',
-    'room.master':   'Suite Principal',
-    'room.mbath':    'Baño Principal',
-    'room.walkin':   'Vestidor',
-    'room.suite3':   'Suite III',
-    'room.media':    'Sala de Medios',
-    'room.terrace':  'Terraza Privada',
-    'room.uptotal':  'Total Nivel Superior',
-    'room.pool':     'Alberca Cenote',
-    'room.pterrace': 'Terraza de Alberca',
-    'room.garden':   'Jardín Tropical',
-    'room.outdoor':  'Comedor Exterior',
-    'room.garage':   'Garage (2 autos)',
-    'room.extotal':  'Total Exterior',
     'fin.ey':        'Paleta de Materiales',
     'fin.h2a':       'Acabados de',
     'fin.h2b':       'distinción',
@@ -2225,36 +2148,13 @@ var LANG = {
     'plans.ey':      'Plans',
     'plans.h2a':     '476 m² de',
     'plans.h2b':     'maîtrise spatiale',
-    'plans.tab1':    'Rez-de-chaussée',
-    'plans.tab2':    'Niveau Supérieur',
-    'plans.tab3':    'Extérieur & Piscine',
     'plans.avail':   'Plans architecturaux complets disponibles sur demande',
     'plans.excl':    'Partagés exclusivement avec les acheteurs qualifiés',
+    'plans.card.head':'Plans architecturaux complets disponibles sur demande',
+    'plans.card.cta':'Demander les Plans →',
     'plans.btn':     'Demander les Plans →',
     'plans.site':    'Plan de masse et aménagement paysager disponibles sur demande',
     'plans.sitebtn': 'Demander le Plan de Masse →',
-    'room.living':   'Grand Salon',
-    'room.kitchen':  'Cuisine Gastronomique',
-    'room.dining':   'Salle à Manger',
-    'room.wine':     'Cave à Vins',
-    'room.guest1':   'Suite Invités I',
-    'room.guest2':   'Suite Invités II',
-    'room.service':  'Chambre de Service',
-    'room.laundry':  'Buanderie & Rangement',
-    'room.gftotal':  'Total Rez-de-chaussée',
-    'room.master':   'Suite Principale',
-    'room.mbath':    'Salle de Bain Principale',
-    'room.walkin':   'Dressing',
-    'room.suite3':   'Suite III',
-    'room.media':    'Salon Multimédia',
-    'room.terrace':  'Terrasse Privée',
-    'room.uptotal':  'Total Niveau Supérieur',
-    'room.pool':     'Piscine Cenote',
-    'room.pterrace': 'Terrasse Piscine',
-    'room.garden':   'Jardin Tropical',
-    'room.outdoor':  'Repas Extérieur',
-    'room.garage':   'Garage (2 voitures)',
-    'room.extotal':  'Total Extérieur',
     'fin.ey':        'Palette de Matériaux',
     'fin.h2a':       'Des finitions',
     'fin.h2b':       'd\'exception',
@@ -2603,36 +2503,13 @@ var LANG = {
     'plans.ey':      'Floor Plans',
     'plans.h2a':     '476 m² of',
     'plans.h2b':     'spatial mastery',
-    'plans.tab1':    'Ground Floor',
-    'plans.tab2':    'Upper Level',
-    'plans.tab3':    'Exterior & Pool',
     'plans.avail':   'Full architectural plans available on request',
     'plans.excl':    'Shared exclusively with qualified buyers',
+    'plans.card.head':'Full architectural plans available on request',
+    'plans.card.cta':'Request Plans →',
     'plans.btn':     'Request Plans →',
     'plans.site':    'Site plan & landscaping available on request',
     'plans.sitebtn': 'Request Site Plan →',
-    'room.living':   'Grand Living Room',
-    'room.kitchen':  'Gourmet Kitchen',
-    'room.dining':   'Dining Room',
-    'room.wine':     'Wine Cellar',
-    'room.guest1':   'Guest Suite I',
-    'room.guest2':   'Guest Suite II',
-    'room.service':  'Service Room',
-    'room.laundry':  'Laundry & Storage',
-    'room.gftotal':  'Ground Floor Total',
-    'room.master':   'Master Suite',
-    'room.mbath':    'Master Bathroom',
-    'room.walkin':   'Walk-in Wardrobe',
-    'room.suite3':   'Suite III',
-    'room.media':    'Media Lounge',
-    'room.terrace':  'Private Terrace',
-    'room.uptotal':  'Upper Level Total',
-    'room.pool':     'Cenote Pool',
-    'room.pterrace': 'Pool Terrace',
-    'room.garden':   'Tropical Garden',
-    'room.outdoor':  'Outdoor Dining',
-    'room.garage':   'Garage (2 cars)',
-    'room.extotal':  'Exterior Total',
 
     // Finishes
     'fin.ey':        'Material Palette',
@@ -2920,36 +2797,13 @@ var LANG = {
     'plans.ey':      'Planos',
     'plans.h2a':     '476 m² de',
     'plans.h2b':     'maestría espacial',
-    'plans.tab1':    'Planta Baja',
-    'plans.tab2':    'Nivel Superior',
-    'plans.tab3':    'Exterior y Alberca',
     'plans.avail':   'Planos arquitectónicos completos disponibles bajo solicitud',
     'plans.excl':    'Compartidos exclusivamente con compradores calificados',
+    'plans.card.head':'Planos arquitectónicos completos disponibles bajo solicitud',
+    'plans.card.cta':'Solicitar Planos →',
     'plans.btn':     'Solicitar Planos →',
     'plans.site':    'Plano de sitio y paisajismo disponible bajo solicitud',
     'plans.sitebtn': 'Solicitar Plano de Sitio →',
-    'room.living':   'Gran Sala de Estar',
-    'room.kitchen':  'Cocina Gourmet',
-    'room.dining':   'Comedor',
-    'room.wine':     'Cava de Vinos',
-    'room.guest1':   'Suite de Huéspedes I',
-    'room.guest2':   'Suite de Huéspedes II',
-    'room.service':  'Cuarto de Servicio',
-    'room.laundry':  'Lavandería y Bodega',
-    'room.gftotal':  'Total Planta Baja',
-    'room.master':   'Suite Principal',
-    'room.mbath':    'Baño Principal',
-    'room.walkin':   'Vestidor',
-    'room.suite3':   'Suite III',
-    'room.media':    'Sala de Medios',
-    'room.terrace':  'Terraza Privada',
-    'room.uptotal':  'Total Nivel Superior',
-    'room.pool':     'Alberca Cenote',
-    'room.pterrace': 'Terraza de Alberca',
-    'room.garden':   'Jardín Tropical',
-    'room.outdoor':  'Comedor Exterior',
-    'room.garage':   'Garage (2 autos)',
-    'room.extotal':  'Total Exterior',
     'fin.ey':        'Paleta de Materiales',
     'fin.h2a':       'Acabados de',
     'fin.h2b':       'distinción',
@@ -3228,36 +3082,13 @@ var LANG = {
     'plans.ey':      'Plans',
     'plans.h2a':     '476 m² de',
     'plans.h2b':     'maîtrise spatiale',
-    'plans.tab1':    'Rez-de-chaussée',
-    'plans.tab2':    'Niveau Supérieur',
-    'plans.tab3':    'Extérieur & Piscine',
     'plans.avail':   'Plans architecturaux complets disponibles sur demande',
     'plans.excl':    'Partagés exclusivement avec les acheteurs qualifiés',
+    'plans.card.head':'Plans architecturaux complets disponibles sur demande',
+    'plans.card.cta':'Demander les Plans →',
     'plans.btn':     'Demander les Plans →',
     'plans.site':    'Plan de masse et aménagement paysager disponibles sur demande',
     'plans.sitebtn': 'Demander le Plan de Masse →',
-    'room.living':   'Grand Salon',
-    'room.kitchen':  'Cuisine Gastronomique',
-    'room.dining':   'Salle à Manger',
-    'room.wine':     'Cave à Vins',
-    'room.guest1':   'Suite Invités I',
-    'room.guest2':   'Suite Invités II',
-    'room.service':  'Chambre de Service',
-    'room.laundry':  'Buanderie & Rangement',
-    'room.gftotal':  'Total Rez-de-chaussée',
-    'room.master':   'Suite Principale',
-    'room.mbath':    'Salle de Bain Principale',
-    'room.walkin':   'Dressing',
-    'room.suite3':   'Suite III',
-    'room.media':    'Salon Multimédia',
-    'room.terrace':  'Terrasse Privée',
-    'room.uptotal':  'Total Niveau Supérieur',
-    'room.pool':     'Piscine Cenote',
-    'room.pterrace': 'Terrasse Piscine',
-    'room.garden':   'Jardin Tropical',
-    'room.outdoor':  'Repas Extérieur',
-    'room.garage':   'Garage (2 voitures)',
-    'room.extotal':  'Total Extérieur',
     'fin.ey':        'Palette de Matériaux',
     'fin.h2a':       'Des finitions',
     'fin.h2b':       'd\'exception',
@@ -3507,14 +3338,6 @@ var clipObs = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('in'); });
 },{threshold:0.08});
 document.querySelectorAll('.clip-reveal').forEach(function(el){ clipObs.observe(el); });
-
-// ── Plans tabs ────────────────────────────────────────────────────
-function switchTab(btn, id){
-  document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
-  document.querySelectorAll('.panel').forEach(function(p){ p.classList.remove('active'); });
-  btn.classList.add('active');
-  document.getElementById(id).classList.add('active');
-}
 
 // ── Modal ─────────────────────────────────────────────────────────
 function openModal(){ document.getElementById('modalOverlay').classList.add('on'); }
