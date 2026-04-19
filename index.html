@@ -428,8 +428,8 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .virtual-exp::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:0;height:1px;background:linear-gradient(to right,transparent,var(--gold-lt),transparent);animation:veDivIn 1.2s .2s ease forwards}
 @keyframes veDivIn{to{width:min(520px,80%)}}
 .ve-head{max-width:760px;margin:0 auto 64px;text-align:center}
-.ve-head .ve-divider{width:40px;height:1px;background:var(--gold-lt);margin:0 auto 20px}
 .ve-head .ey{color:var(--gold-lt);justify-content:center}
+.ve-head .rule{width:80px;height:2px;margin:24px auto;background:var(--gold-lt)}
 .ve-head .ey::before{background:var(--gold-lt)}
 .ve-head h2{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:200;font-size:clamp(2rem,4.2vw,3.6rem);line-height:1.05;color:var(--white);margin:8px 0 22px}
 .ve-head h2 em{color:var(--gold-lt);font-style:italic}
@@ -1212,7 +1212,6 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 <!-- VIRTUAL EXPERIENCE (video + 3D tour) -->
 <section class="virtual-exp" id="videos">
   <div class="ve-head rv">
-    <div class="ve-divider" aria-hidden="true"></div>
     <div class="ey" data-i18n="ve.ey">Virtual Experience</div>
     <h2 class="serif"><span data-i18n="ve.h2a">Step Inside,</span> <em data-i18n="ve.h2b">From Anywhere</em></h2>
     <span class="rule"></span>
