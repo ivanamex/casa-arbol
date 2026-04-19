@@ -345,35 +345,24 @@ h2.serif em{font-style:italic;color:var(--gold)}
 
 /* KITCHEN */
 .kitchen{background:var(--bg2);padding:72px 0 64px}
-.kitchen .rv,.kitchen .kitch-body-wrap{padding:0 5vw}
-.kitch-hero{position:relative;overflow:hidden;margin:44px 0 0;border-top:1px solid rgba(160,120,64,.12);border-bottom:1px solid rgba(160,120,64,.12)}
+/* Hero image — flush to marquee below, no border-bottom, no top margin */
+.kitch-hero{position:relative;overflow:hidden;margin:0;border-top:1px solid rgba(160,120,64,.12)}
 .kitch-hero img{width:100%;height:clamp(320px,56vh,560px);object-fit:cover;display:block;transition:transform 1.2s ease}
 .kitch-hero:hover img{transform:scale(1.02)}
-.kitch-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 55%,rgba(28,23,18,.55));pointer-events:none}
-.kitch-tag{position:absolute;bottom:18px;left:5vw;color:var(--gold-lt);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;background:rgba(28,23,18,.55);border:1px solid rgba(201,164,106,.35);padding:8px 16px;backdrop-filter:blur(4px)}
-.kitch-body-wrap{margin-top:40px;display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
-@media(max-width:768px){.kitch-body-wrap{grid-template-columns:1fr;gap:28px}}
-.kitch-logos{display:flex;flex-wrap:wrap;gap:28px 48px;align-items:center;justify-content:space-between;padding:26px 8px;background:transparent;border:none;border-top:1px solid rgba(160,120,64,.22);border-bottom:1px solid rgba(160,120,64,.22);position:relative}
-@media(max-width:560px){.kitch-logos{justify-content:center;gap:22px 32px}}
-/* Kitchen APPLIANCES kicker + rotating brand marquee */
-.kitch-appliances-head{padding:56px 5vw 18px;text-align:center}
-.kitch-appliances-head .ey{justify-content:center;color:var(--gold-lt);margin-bottom:0}
-.kitch-appliances-head .ey::before{background:var(--gold-lt)}
-.kitch-mq-wrap{background:var(--ink);overflow:hidden;padding:15px 0;border-top:1px solid rgba(160,120,64,.3);border-bottom:1px solid rgba(160,120,64,.3)}
+/* Brand marquee — sits flush against hero image */
+.kitch-mq-wrap{background:var(--ink);overflow:hidden;padding:15px 0;margin:0;border-top:1px solid rgba(160,120,64,.3);border-bottom:1px solid rgba(160,120,64,.3)}
 .kitch-mq-track{display:flex;animation:kmscroll 50s linear infinite;white-space:nowrap;width:max-content}
 .kitch-mq-track:hover{animation-play-state:paused}
 @keyframes kmscroll{to{transform:translateX(-50%)}}
 .kitch-mi{font-family:'Fraunces',serif;font-optical-sizing:auto;font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,164,106,.68);padding:0 28px;display:inline-flex;align-items:center;gap:28px}
 .kitch-mi .kdot{color:var(--gold);font-size:1rem;line-height:0;opacity:.7}
 @media(prefers-reduced-motion:reduce){.kitch-mq-track{animation:none}}
-/* TODO: replace each .klogo text with real inline SVG logos from TEKA / Supra / KELE / Blum */
-.klogo{font-family:'Fraunces',serif;font-weight:300;color:var(--ink);letter-spacing:.14em;font-size:1.15rem;text-transform:uppercase;opacity:.7;transition:opacity .3s ease,color .3s ease,transform .3s ease}
-.klogo:hover{opacity:1;color:var(--gold);transform:translateY(-2px)}
-.klogo small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:.5rem;font-weight:400;letter-spacing:.22em;color:var(--ink2);opacity:.45;margin-top:3px;text-transform:uppercase}
-.klogo--teka{letter-spacing:.32em;font-weight:400}
-.klogo--supra{font-style:italic}
-.klogo--kele{font-weight:500;letter-spacing:.24em}
-.klogo--blum{font-size:1rem;letter-spacing:.16em}
+/* Single-column title + body below marquee */
+.kitch-head{max-width:880px;margin:0 auto;padding:56px 5vw 0;text-align:center}
+.kitch-head .ey{justify-content:center}
+.kitch-head .rule{margin-left:auto;margin-right:auto}
+.kitch-body{max-width:760px;margin:16px auto 0;padding:0 5vw}
+.kitch-body .body-t{text-align:left;max-width:none}
 
 /* RENDERS PLACEHOLDER */
 .renders{background:var(--white);padding:72px 5vw}
@@ -1187,30 +1176,17 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- KITCHEN -->
 <section class="kitchen" id="kitchen">
-  <div class="rv"><div class="ey" data-i18n="kitch.ey">The Kitchen</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="kitch.h2a">Where flavour</span></span><span class="split-wrap"><span class="split-inner d2">meets <em>design</em></span></span></h2><span class="rule"></span></div>
   <div class="rv kitch-hero">
-      <img src="./images/kitchen.jpg" alt="Casa Árbol kitchen" loading="lazy">
-    <div class="kitch-tag" data-i18n="kitch.tag">Kitchen render coming soon</div>
-  </div>
-  <div class="kitch-body-wrap">
-    <div class="rv">
-      <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
-    </div>
-    <div class="kitch-logos rv">
-      <!-- TODO: replace styled text placeholders with real brand SVG logos (TEKA / Supra / KELE / Blum) -->
-      <div class="klogo klogo--teka">TEKA<small data-i18n="brand.teka.short">Oven · Hob · Extractor</small></div>
-      <div class="klogo klogo--supra">Supra<small data-i18n="brand.supra.short">Premium Refrigeration</small></div>
-      <div class="klogo klogo--kele">KELE<small data-i18n="brand.kele.short">Stainless Sinks</small></div>
-      <div class="klogo klogo--blum">Blum / Hettich<small data-i18n="brand.blum.short">Push-to-Open Hardware</small></div>
-    </div>
-  </div>
-  <div class="kitch-appliances-head rv">
-    <div class="ey" data-i18n="kitch.appliances">Appliances</div>
+    <img src="./images/kitchen.jpg" alt="Casa Árbol kitchen" loading="lazy">
   </div>
   <div class="kitch-mq-wrap" aria-hidden="true">
     <div class="kitch-mq-track">
       <span class="kitch-mi">INIZIO<span class="kdot">·</span></span><span class="kitch-mi">HETTICH<span class="kdot">·</span></span><span class="kitch-mi">DEKTON<span class="kdot">·</span></span><span class="kitch-mi">SMEG<span class="kdot">·</span></span><span class="kitch-mi">TEKA<span class="kdot">·</span></span><span class="kitch-mi">HELVEX<span class="kdot">·</span></span><span class="kitch-mi">INIZIO<span class="kdot">·</span></span><span class="kitch-mi">HETTICH<span class="kdot">·</span></span><span class="kitch-mi">DEKTON<span class="kdot">·</span></span><span class="kitch-mi">SMEG<span class="kdot">·</span></span><span class="kitch-mi">TEKA<span class="kdot">·</span></span><span class="kitch-mi">HELVEX<span class="kdot">·</span></span>
     </div>
+  </div>
+  <div class="rv kitch-head"><div class="ey" data-i18n="kitch.ey">The Kitchen</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="kitch.h2a">Where flavour</span></span><span class="split-wrap"><span class="split-inner d2">meets <em>design</em></span></span></h2><span class="rule"></span></div>
+  <div class="rv kitch-body">
+    <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
   </div>
 </section>
 
@@ -1600,8 +1576,6 @@ var LANG = {
     'kitch.h2a':     'Where flavour',
     'kitch.h2b':     'meets design',
     'kitch.body':    'The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.',
-    'kitch.tag':     'Kitchen render coming soon',
-    'kitch.appliances':'Appliances',
     'brand.teka':    'Integrated oven, hob & extractor. Professional-grade performance, seamless design.',
     'brand.supra':   'Premium refrigeration system. Custom panel-integrated for a seamless look.',
     'brand.kele':    'Architectural stainless sinks. Precision crafted, built to last generations.',
@@ -1923,8 +1897,6 @@ var LANG = {
     'kitch.h2a':     'Donde el sabor',
     'kitch.h2b':     'se encuentra con el diseño',
     'kitch.body':    'La cocina gourmet de Casa Árbol está totalmente equipada con los mejores electrodomésticos europeos. Gabinetes cappuccino sin manijas, herrajes Blum y una generosa isla la convierten en el corazón social del hogar.',
-    'kitch.tag':     'Render de cocina próximamente',
-    'kitch.appliances':'Electrodomésticos',
     'brand.teka':    'Horno, placa y extractor integrados. Rendimiento profesional, diseño impecable.',
     'brand.supra':   'Sistema de refrigeración premium. Panel integrado para una apariencia perfecta.',
     'brand.kele':    'Tarjas de acero inoxidable arquitectónicas. Precisión para durar generaciones.',
@@ -2233,8 +2205,6 @@ var LANG = {
     'kitch.h2a':     'Où la saveur',
     'kitch.h2b':     'rencontre le design',
     'kitch.body':    'La cuisine gastronomique de Casa Árbol est entièrement équipée des meilleurs électroménagers européens. Mobilier cappuccino sans poignées, quincaillerie Blum et un généreux îlot en font le cœur social de la maison.',
-    'kitch.tag':     'Rendu cuisine à venir',
-    'kitch.appliances':'Électroménager',
     'brand.teka':    'Four, plaque et hotte intégrés. Performance professionnelle, design épuré.',
     'brand.supra':   'Système de réfrigération premium. Panneau intégré pour un rendu parfait.',
     'brand.kele':    'Éviers en inox architectural. Précision conçue pour durer des générations.',
@@ -2609,8 +2579,6 @@ var LANG = {
     'kitch.h2a':     'Where flavour',
     'kitch.h2b':     'meets design',
     'kitch.body':    'The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.',
-    'kitch.tag':     'Kitchen render coming soon',
-    'kitch.appliances':'Appliances',
     'brand.teka':    'Integrated oven, hob & extractor. Professional-grade performance, seamless design.',
     'brand.supra':   'Premium refrigeration system. Custom panel-integrated for a seamless look.',
     'brand.kele':    'Architectural stainless sinks. Precision crafted, built to last generations.',
@@ -2932,8 +2900,6 @@ var LANG = {
     'kitch.h2a':     'Donde el sabor',
     'kitch.h2b':     'se encuentra con el diseño',
     'kitch.body':    'La cocina gourmet de Casa Árbol está totalmente equipada con los mejores electrodomésticos europeos. Gabinetes cappuccino sin manijas, herrajes Blum y una generosa isla la convierten en el corazón social del hogar.',
-    'kitch.tag':     'Render de cocina próximamente',
-    'kitch.appliances':'Electrodomésticos',
     'brand.teka':    'Horno, placa y extractor integrados. Rendimiento profesional, diseño impecable.',
     'brand.supra':   'Sistema de refrigeración premium. Panel integrado para una apariencia perfecta.',
     'brand.kele':    'Tarjas de acero inoxidable arquitectónicas. Precisión para durar generaciones.',
@@ -3242,8 +3208,6 @@ var LANG = {
     'kitch.h2a':     'Où la saveur',
     'kitch.h2b':     'rencontre le design',
     'kitch.body':    'La cuisine gastronomique de Casa Árbol est entièrement équipée des meilleurs électroménagers européens. Mobilier cappuccino sans poignées, quincaillerie Blum et un généreux îlot en font le cœur social de la maison.',
-    'kitch.tag':     'Rendu cuisine à venir',
-    'kitch.appliances':'Électroménager',
     'brand.teka':    'Four, plaque et hotte intégrés. Performance professionnelle, design épuré.',
     'brand.supra':   'Système de réfrigération premium. Panneau intégré pour un rendu parfait.',
     'brand.kele':    'Éviers en inox architectural. Précision conçue pour durer des générations.',
