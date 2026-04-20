@@ -787,27 +787,17 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 <!-- Broker referral modal: EmailJS SDK (credentials set in script block near bottom of file) -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <style>
-/* Broker referral modal */
-.br-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);z-index:9999;align-items:center;justify-content:center;padding:20px}
+/* Broker referral modal — visual mirrors Private Enquiry (.overlay / .modal / .form / .f / .submit).
+   Broker-only styles below are additions: section headings, privacy notice, consent checkbox, copy-link icon, success panel. */
+.br-ov{display:none;position:fixed;inset:0;background:rgba(28,23,18,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);z-index:300;align-items:center;justify-content:center;padding:20px}
 .br-ov.on{display:flex}
-.br-m{background:var(--white);max-width:560px;width:92%;padding:32px 36px;position:relative;max-height:90vh;overflow-y:auto;border-radius:4px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);animation:brFade .3s ease-out}
-@media(max-width:520px){.br-m{padding:24px 20px}}
+.br-m{animation:brFade .3s ease-out}
 @keyframes brFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.br-cl{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--ink2);cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .3s;padding:0}
-.br-cl:hover{opacity:1}
-.br-cl svg{width:22px;height:22px;stroke-width:1.4}
-.br-m h3{font-family:'Fraunces',serif;font-weight:300;font-size:1.55rem;color:var(--ink);margin:0 0 6px;letter-spacing:-.005em}
-.br-sub{font-size:.85rem;line-height:1.5;color:var(--ink2);opacity:.7;margin:0 0 14px}
-.br-div{height:1px;background:linear-gradient(to right,transparent,rgba(160,120,64,.5),transparent);margin:0}
-.br-sec{font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:16px 0 8px;font-weight:500;display:flex;align-items:center;gap:10px}
+.br-m h3[id="brTitle"]{margin-bottom:4px}
+.br-sub{font-size:.78rem;line-height:1.5;color:var(--ink2);opacity:.7;margin:6px 0 18px;font-style:italic}
+.br-div{height:1px;background:linear-gradient(to right,transparent,rgba(160,120,64,.5),transparent);margin:0 0 14px}
+.br-sec{font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:10px 0 6px;font-weight:500;display:flex;align-items:center;gap:10px}
 .br-sec::before{content:'';flex:0 0 18px;height:1px;background:rgba(160,120,64,.45)}
-.br-f{display:flex;flex-direction:column;gap:14px}
-.br-fld{display:flex;flex-direction:column;gap:7px}
-.br-fld label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);opacity:.72}
-.br-fld .req{color:var(--gold);margin-left:2px;opacity:.9}
-.br-f input,.br-f select{font-family:inherit;font-size:.95rem;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(28,23,18,.25);padding:2px 0 10px;outline:none;transition:border-color 200ms ease,border-bottom-width 200ms ease;border-radius:0;-webkit-appearance:none;appearance:none}
-.br-f input::placeholder,.br-f select::placeholder{color:var(--ink);opacity:.4}
-.br-f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 14px) 15px,calc(100% - 9px) 15px;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
 /* Privacy notice + consent checkbox */
 .br-privacy{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;line-height:1.5;color:var(--ink2);opacity:.6;font-style:italic;margin:14px 0 0}
 .br-consent{display:flex;align-items:flex-start;gap:10px;margin-top:12px}
@@ -815,24 +805,29 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 .br-consent input[type=checkbox]:hover{border-color:var(--gold-lt)}
 .br-consent input[type=checkbox]:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
 .br-consent input[type=checkbox]:checked{background:var(--gold-lt);border-color:var(--gold-lt)}
-.br-consent input[type=checkbox]:checked::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid var(--white);border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
+.br-consent input[type=checkbox]:checked::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid var(--white);border-width:0 1.5px 1.5px 0;transform:rotate(45deg);pointer-events:none}
+.br-consent input[type=checkbox]::before,.br-consent input[type=checkbox]::after{pointer-events:none}
+.br-consent label{cursor:pointer}
 .br-consent label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;line-height:1.4;color:var(--ink2);opacity:.85;cursor:pointer;letter-spacing:0;text-transform:none}
-.br-f input:focus,.br-f select:focus{border-bottom-color:var(--gold);border-bottom-width:1.5px;padding-bottom:9.5px}
 .br-help{font-size:.62rem;color:var(--ink2);opacity:.55;font-style:italic;margin-top:2px}
 .br-err{color:#a03030;font-size:.72rem;margin-top:10px;line-height:1.4;display:none}
 .br-err.on{display:block}
-.br-sbt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:none;padding:16px;cursor:pointer;width:100%;margin-top:16px;transition:background 300ms ease,color 300ms ease,opacity 300ms ease}
-.br-sbt:hover{background:var(--gold-lt)}
-.br-sbt:disabled{opacity:.4;cursor:not-allowed}
+/* Broker submit reuses .submit + .modal .submit (dark, light text). Disabled state needs one rule. */
+.br-m .submit:disabled{opacity:.4;cursor:not-allowed}
+.br-m .submit{width:100%;margin-top:18px}
 .br-ok{display:none;text-align:center;padding:32px 0}
 .br-ok.on{display:block}
 .br-ok .chk{width:52px;height:52px;border-radius:50%;border:1.2px solid var(--gold);display:inline-flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:18px}
 .br-ok .chk svg{width:22px;height:22px;stroke-width:1.6}
 .br-ok .msg{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;font-weight:300;color:var(--ink2);line-height:1.4}
-/* Footer broker referral link — inherits .f-contact token set so it reads as a natural footer link */
-.f-broker{margin:0;padding:0;background:none;border:none;font-family:inherit;font-size:.72rem;color:rgba(253,250,246,.55);line-height:1.75;letter-spacing:0;text-align:left;cursor:pointer;transition:color .3s ease;text-decoration:none;display:inline-block}
-.f-broker:hover{color:var(--gold-lt)}
-/* Modal header icon-only "copy shareable link" button */
+/* Footer broker referral button — square outlined, mirrors .f-lang button + .f-social a visual language */
+.f-broker{background:none;border:1px solid rgba(160,120,64,.25);color:rgba(253,250,246,.55);font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;padding:12px 20px;cursor:pointer;transition:all .3s ease;text-decoration:none;display:inline-block;align-self:flex-start;margin-top:6px}
+.f-broker:hover{color:var(--gold-lt);border-color:rgba(201,164,106,.5)}
+/* Close X — thin-stroke SVG, mirrors .mcl placement */
+.br-cl{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--ink2);cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .3s;padding:0;z-index:3}
+.br-cl:hover{opacity:1}
+.br-cl svg{width:22px;height:22px;stroke-width:1.4}
+/* Modal header icon-only "copy shareable link" button — sits to the LEFT of .br-cl close */
 .br-copy-ic{position:absolute;top:10px;right:66px;width:44px;height:44px;background:none;border:none;color:var(--ink2);cursor:pointer;opacity:.55;transition:opacity .3s ease,color .3s ease;padding:0;display:flex;align-items:center;justify-content:center;z-index:2}
 .br-copy-ic:hover{opacity:1}
 .br-copy-ic.copied{opacity:1;color:var(--gold)}
@@ -1460,7 +1455,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- BROKER REFERRAL MODAL -->
 <div class="br-ov" id="brOv" role="dialog" aria-modal="true" aria-labelledby="brTitle" aria-hidden="true">
-  <div class="br-m" id="brM">
+  <div class="br-m modal" id="brM">
     <span class="br-copy-toast" id="brCopyToast" aria-live="polite" data-i18n="br.copy.done">Link Copied ✓</span>
     <button class="br-copy-ic" type="button" onclick="brCopyLink(this)" aria-label="Copy link to this form" data-i18n-aria="br.copy.aria">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
@@ -1470,14 +1465,15 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
     </button>
     <div id="brForm">
       <h3 id="brTitle" data-i18n="br.title">Register Your Client</h3>
+      <div class="modal-sub" data-i18n="modal.sub">Casa Árbol · Playacar Phase II</div>
       <p class="br-sub" data-i18n="br.sub">For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.</p>
       <div class="br-div"></div>
-      <form class="br-f" onsubmit="event.preventDefault();submitBrokerReferral();" novalidate>
+      <form class="form" onsubmit="event.preventDefault();submitBrokerReferral();" novalidate>
         <div class="br-sec" data-i18n="br.sec.client">Client Information</div>
-        <div class="br-fld"><label for="brClientName" data-i18n="br.client.name">Client Name<span class="req" aria-hidden="true">*</span></label><input id="brClientName" type="text" required autocomplete="off"></div>
-        <div class="br-fld"><label for="brClientPhone" data-i18n="br.client.phone">Last 4 Digits of Client's Phone<span class="req" aria-hidden="true">*</span></label><input id="brClientPhone" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" minlength="4" required autocomplete="off"><div class="br-help" data-i18n="br.client.phone.help">For identification — full number not required</div></div>
-        <div class="br-fld"><label for="brClientCountry" data-i18n="br.client.country">Client Country<span class="req" aria-hidden="true">*</span></label><input id="brClientCountry" type="text" required autocomplete="off"></div>
-        <div class="br-fld"><label for="brClientBudget" data-i18n="br.client.budget">Client Budget (USD)<span class="req" aria-hidden="true">*</span></label>
+        <div class="f"><label for="brClientName" data-i18n="br.client.name">Client Name<span class="req" aria-hidden="true">*</span></label><input id="brClientName" type="text" required autocomplete="off"></div>
+        <div class="f"><label for="brClientPhone" data-i18n="br.client.phone">Last 4 Digits of Client's Phone<span class="req" aria-hidden="true">*</span></label><input id="brClientPhone" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" minlength="4" required autocomplete="off"><div class="br-help" data-i18n="br.client.phone.help">For identification — full number not required</div></div>
+        <div class="f"><label for="brClientCountry" data-i18n="br.client.country">Client Country<span class="req" aria-hidden="true">*</span></label><input id="brClientCountry" type="text" required autocomplete="off"></div>
+        <div class="f"><label for="brClientBudget" data-i18n="br.client.budget">Client Budget (USD)<span class="req" aria-hidden="true">*</span></label>
           <select id="brClientBudget" required>
             <option value="" disabled selected data-i18n="br.budget.choose">Select…</option>
             <option value="Under $1M" data-i18n="br.budget.u1">Under $1M</option>
@@ -1488,18 +1484,18 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
           </select>
         </div>
         <div class="br-sec" data-i18n="br.sec.broker">Broker Information</div>
-        <div class="br-fld"><label for="brBrokerName" data-i18n="br.broker.name">Your Name<span class="req" aria-hidden="true">*</span></label><input id="brBrokerName" type="text" required autocomplete="name"></div>
-        <div class="br-fld"><label for="brBrokerEmail" data-i18n="br.broker.email">Your Email<span class="req" aria-hidden="true">*</span></label><input id="brBrokerEmail" type="email" required autocomplete="email"></div>
-        <div class="br-fld"><label for="brBrokerPhone" data-i18n="br.broker.phone">Your Phone<span class="req" aria-hidden="true">*</span></label><input id="brBrokerPhone" type="tel" required autocomplete="tel"></div>
-        <div class="br-fld"><label for="brBrokerAgency" data-i18n="br.broker.agency">Agency (optional)</label><input id="brBrokerAgency" type="text" autocomplete="organization"></div>
-        <div class="br-fld"><label for="brBrokerLicense" data-i18n="br.broker.license">License Number (optional)</label><input id="brBrokerLicense" type="text" autocomplete="off"></div>
+        <div class="f"><label for="brBrokerName" data-i18n="br.broker.name">Your Name<span class="req" aria-hidden="true">*</span></label><input id="brBrokerName" type="text" required autocomplete="name"></div>
+        <div class="f"><label for="brBrokerEmail" data-i18n="br.broker.email">Your Email<span class="req" aria-hidden="true">*</span></label><input id="brBrokerEmail" type="email" required autocomplete="email"></div>
+        <div class="f"><label for="brBrokerPhone" data-i18n="br.broker.phone">Your Phone<span class="req" aria-hidden="true">*</span></label><input id="brBrokerPhone" type="tel" required autocomplete="tel"></div>
+        <div class="f"><label for="brBrokerAgency" data-i18n="br.broker.agency">Agency (optional)</label><input id="brBrokerAgency" type="text" autocomplete="organization"></div>
+        <div class="f"><label for="brBrokerLicense" data-i18n="br.broker.license">License Number (optional)</label><input id="brBrokerLicense" type="text" autocomplete="off"></div>
         <p class="br-privacy" data-i18n="br.privacy">Client details are stored securely and used solely for commission protection purposes. Last 4 digits of phone are collected for identity verification only.</p>
         <div class="br-consent">
           <input type="checkbox" id="brConsent" required>
           <label for="brConsent" data-i18n="br.consent">I confirm I represent this client and agree to Weber-Burić commission terms for co-brokerage.</label>
         </div>
         <div class="br-err" id="brErr" role="alert"></div>
-        <button class="br-sbt" id="brSbt" type="submit" data-i18n="br.submit" disabled>Submit Referral</button>
+        <button class="submit" id="brSbt" type="submit" data-i18n="br.submit" disabled>Submit Referral →</button>
       </form>
     </div>
     <div class="br-ok" id="brOk" aria-live="polite">
@@ -1867,7 +1863,7 @@ var LANG = {
     'br.broker.phone':      'Your Phone',
     'br.broker.agency':     'Agency (optional)',
     'br.broker.license':    'License Number (optional)',
-    'br.submit':            'Submit Referral',
+    'br.submit':            'Submit Referral →',
     'br.success':           "Thank you. We'll be in touch shortly.",
     'br.err.required':      'Please complete all required fields.',
     'br.err.phone4':        'Please enter exactly 4 digits.',
@@ -2186,7 +2182,7 @@ var LANG = {
     'br.broker.phone':      'Su Teléfono',
     'br.broker.agency':     'Agencia (opcional)',
     'br.broker.license':    'Número de Licencia (opcional)',
-    'br.submit':            'Enviar Referencia',
+    'br.submit':            'Enviar Referencia →',
     'br.success':           'Gracias. Nos pondremos en contacto pronto.',
     'br.err.required':      'Por favor complete todos los campos obligatorios.',
     'br.err.phone4':        'Por favor ingrese exactamente 4 dígitos.',
@@ -2506,7 +2502,7 @@ var LANG = {
     'br.broker.phone':      'Votre Téléphone',
     'br.broker.agency':     'Agence (optionnel)',
     'br.broker.license':    'Numéro de Licence (optionnel)',
-    'br.submit':            'Soumettre la Référence',
+    'br.submit':            'Soumettre la Référence →',
     'br.success':           'Merci. Nous vous contacterons sous peu.',
     'br.err.required':      'Veuillez remplir tous les champs requis.',
     'br.err.phone4':        'Veuillez entrer exactement 4 chiffres.',
@@ -2911,7 +2907,7 @@ var LANG = {
     'br.broker.phone':      'Your Phone',
     'br.broker.agency':     'Agency (optional)',
     'br.broker.license':    'License Number (optional)',
-    'br.submit':            'Submit Referral',
+    'br.submit':            'Submit Referral →',
     'br.success':           "Thank you. We'll be in touch shortly.",
     'br.err.required':      'Please complete all required fields.',
     'br.err.phone4':        'Please enter exactly 4 digits.',
@@ -3230,7 +3226,7 @@ var LANG = {
     'br.broker.phone':      'Su Teléfono',
     'br.broker.agency':     'Agencia (opcional)',
     'br.broker.license':    'Número de Licencia (opcional)',
-    'br.submit':            'Enviar Referencia',
+    'br.submit':            'Enviar Referencia →',
     'br.success':           'Gracias. Nos pondremos en contacto pronto.',
     'br.err.required':      'Por favor complete todos los campos obligatorios.',
     'br.err.phone4':        'Por favor ingrese exactamente 4 dígitos.',
@@ -3550,7 +3546,7 @@ var LANG = {
     'br.broker.phone':      'Votre Téléphone',
     'br.broker.agency':     'Agence (optionnel)',
     'br.broker.license':    'Numéro de Licence (optionnel)',
-    'br.submit':            'Soumettre la Référence',
+    'br.submit':            'Soumettre la Référence →',
     'br.success':           'Merci. Nous vous contacterons sous peu.',
     'br.err.required':      'Veuillez remplir tous les champs requis.',
     'br.err.phone4':        'Veuillez entrer exactement 4 chiffres.',
