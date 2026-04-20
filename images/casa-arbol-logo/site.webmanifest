@@ -1,0 +1,23 @@
+{
+  "name": "Casa Árbol",
+  "short_name": "Casa Árbol",
+  "description": "Luxury residence at Playacar Fase II — Where memories are made. Where generations grow.",
+  "icons": [
+    {
+      "src": "/images/casa-arbol-logo/android-chrome-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/casa-arbol-logo/android-chrome-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "theme_color": "#1C1712",
+  "background_color": "#F7F3EE",
+  "display": "standalone",
+  "start_url": "/"
+}

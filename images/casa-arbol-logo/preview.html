@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa Árbol — Logo & Favicon Assets</title>
+
+  <!-- The actual favicon tags you'll paste into casa_arbol_v4.html -->
+  <link rel="icon" type="image/svg+xml" href="casa-arbol-mark.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#B08648">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold: #B08648;
+      --cream: #f4ede0;
+      --ink: #2a2a2a;
+      --navy: #141e2d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: #fafafa;
+      line-height: 1.5;
+    }
+    header {
+      padding: 48px 32px;
+      text-align: center;
+      background: var(--cream);
+      border-bottom: 1px solid rgba(176,134,72,0.2);
+    }
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      margin: 0 0 8px;
+      font-size: 36px;
+    }
+    header p {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      margin: 0;
+      color: #6b6b6b;
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 32px; }
+    section { margin-bottom: 64px; }
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      font-size: 20px;
+      margin: 0 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(176,134,72,0.25);
+    }
+    h3 { margin: 24px 0 8px; font-size: 14px; color: #777; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; }
+    .row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+    .card { padding: 32px; border-radius: 10px; }
+    .card.light  { background: #fff;       border: 1px solid #eee; }
+    .card.cream  { background: var(--cream); }
+    .card.navy   { background: var(--navy); }
+    .card.navy h3 { color: rgba(255,255,255,0.55); }
+
+    .tab-preview {
+      display: flex; align-items: center; gap: 8px;
+      background: #e8e8e8; border-radius: 6px 6px 0 0;
+      padding: 8px 12px; border: 1px solid #d5d5d5;
+      font-size: 13px; color: #444; max-width: 260px;
+    }
+    .tab-preview img { width: 16px; height: 16px; }
+    .tab-preview.dark { background: #2b2b2b; color: #ddd; border-color: #3a3a3a; }
+
+    .grid-16 { display: grid; grid-template-columns: repeat(6, auto); gap: 28px; align-items: end; justify-content: start; }
+    .grid-16 .item { text-align: center; }
+    .grid-16 .item img { display: block; image-rendering: pixelated; }
+    .grid-16 .label { font-size: 11px; color: #888; margin-top: 8px; letter-spacing: 0.05em; }
+    .checkered {
+      padding: 12px; border-radius: 6px;
+      background-image:
+        linear-gradient(45deg, #eee 25%, transparent 25%),
+        linear-gradient(-45deg, #eee 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #eee 75%),
+        linear-gradient(-45deg, transparent 75%, #eee 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+      background-color: #fff;
+    }
+
+    code { background: #f1efea; padding: 2px 6px; border-radius: 3px; font-size: 13px; }
+    pre {
+      background: #1e1e1e; color: #e0e0e0; padding: 20px; border-radius: 6px;
+      overflow-x: auto; font-size: 13px; line-height: 1.65;
+    }
+    pre .tag   { color: #6ec8ff; }
+    pre .attr  { color: #f3b261; }
+    pre .str   { color: #c6e06b; }
+    pre .com   { color: #888; }
+
+    .assets-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 12px; }
+    .asset-item {
+      padding: 10px 14px; background: #fff; border: 1px solid #eee; border-radius: 4px;
+      font-family: ui-monospace, monospace; font-size: 13px;
+    }
+    .asset-item .size { color: #999; font-size: 11px; display: block; margin-top: 2px; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>CASA ÁRBOL</h1>
+  <p>Logo & Favicon Asset Preview</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>Logo Lockup · Horizontal</h2>
+
+    <h3>On cream</h3>
+    <div class="card cream">
+      <img src="casa-arbol-logo-horizontal.svg" alt="Casa Árbol logo" style="max-width: 100%; height: auto; display: block;">
+    </div>
+
+    <h3>On white</h3>
+    <div class="card light">
+      <img src="casa-arbol-logo-horizontal.svg" alt="Casa Árbol logo" style="max-width: 100%; height: auto; display: block;">
+    </div>
+
+    <h3>On navy</h3>
+    <div class="card navy">
+      <img src="casa-arbol-logo-horizontal.svg" alt="Casa Árbol logo" style="max-width: 100%; height: auto; display: block; filter: brightness(1.0);">
+    </div>
+  </section>
+
+  <section>
+    <h2>Logo Lockup · Stacked</h2>
+    <h3>On cream</h3>
+    <div class="card cream" style="display: flex; justify-content: center;">
+      <img src="casa-arbol-logo-stacked.svg" alt="Casa Árbol logo stacked" style="max-width: 400px; height: auto; display: block;">
+    </div>
+  </section>
+
+  <section>
+    <h2>Favicon · Browser Tab Preview</h2>
+
+    <h3>Light tab (most browsers)</h3>
+    <div class="tab-preview">
+      <img src="favicon-16.png" alt="">
+      <span>Casa Árbol — Playacar Fase II</span>
+    </div>
+
+    <h3>Dark tab</h3>
+    <div class="tab-preview dark">
+      <img src="favicon-16.png" alt="">
+      <span>Casa Árbol — Playacar Fase II</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Favicon · All Sizes</h2>
+
+    <h3>Actual size (pixel-perfect)</h3>
+    <div class="card light">
+      <div class="grid-16">
+        <div class="item"><div class="checkered"><img src="favicon-16.png" width="16" height="16"></div><div class="label">16 × 16</div></div>
+        <div class="item"><div class="checkered"><img src="favicon-32.png" width="32" height="32"></div><div class="label">32 × 32</div></div>
+        <div class="item"><div class="checkered"><img src="favicon-48.png" width="48" height="48"></div><div class="label">48 × 48</div></div>
+        <div class="item"><div class="checkered"><img src="favicon-64.png" width="64" height="64"></div><div class="label">64 × 64</div></div>
+        <div class="item"><div class="checkered"><img src="favicon-96.png" width="96" height="96"></div><div class="label">96 × 96</div></div>
+        <div class="item"><div class="checkered"><img src="apple-touch-icon.png" width="180" height="180"></div><div class="label">180 × 180 (iOS)</div></div>
+      </div>
+    </div>
+
+    <h3>Zoomed 4× (to see detail)</h3>
+    <div class="card light">
+      <div class="grid-16">
+        <div class="item"><img src="favicon-16.png" width="64" height="64" style="image-rendering: pixelated;"><div class="label">16 × 16 (4×)</div></div>
+        <div class="item"><img src="favicon-32.png" width="128" height="128" style="image-rendering: pixelated;"><div class="label">32 × 32 (4×)</div></div>
+        <div class="item"><img src="favicon-48.png" width="192" height="192" style="image-rendering: pixelated;"><div class="label">48 × 48 (4×)</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Integration · Paste into <code>&lt;head&gt;</code> of casa_arbol_v4.html</h2>
+<pre><span class="com">&lt;!-- Favicon set --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"icon"</span> <span class="attr">type</span>=<span class="str">"image/svg+xml"</span> <span class="attr">href</span>=<span class="str">"casa-arbol-mark.svg"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"icon"</span> <span class="attr">type</span>=<span class="str">"image/png"</span> <span class="attr">sizes</span>=<span class="str">"32x32"</span> <span class="attr">href</span>=<span class="str">"favicon-32.png"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"icon"</span> <span class="attr">type</span>=<span class="str">"image/png"</span> <span class="attr">sizes</span>=<span class="str">"16x16"</span> <span class="attr">href</span>=<span class="str">"favicon-16.png"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"shortcut icon"</span> <span class="attr">href</span>=<span class="str">"favicon.ico"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"apple-touch-icon"</span> <span class="attr">sizes</span>=<span class="str">"180x180"</span> <span class="attr">href</span>=<span class="str">"apple-touch-icon.png"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="str">"manifest"</span> <span class="attr">href</span>=<span class="str">"site.webmanifest"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="str">"theme-color"</span> <span class="attr">content</span>=<span class="str">"#B08648"</span><span class="tag">&gt;</span></pre>
+  </section>
+
+  <section>
+    <h2>Files</h2>
+    <p>All files belong in the site root next to <code>casa_arbol_v4.html</code>.</p>
+    <div class="assets-list">
+      <div class="asset-item">casa-arbol-mark.svg<span class="size">vector · master mark</span></div>
+      <div class="asset-item">casa-arbol-mark.png<span class="size">1024×1024 · transparent</span></div>
+      <div class="asset-item">casa-arbol-logo-horizontal.svg<span class="size">vector · lockup</span></div>
+      <div class="asset-item">casa-arbol-logo-horizontal.png<span class="size">2460×660 · for social</span></div>
+      <div class="asset-item">casa-arbol-logo-horizontal-dark.png<span class="size">for dark backgrounds</span></div>
+      <div class="asset-item">casa-arbol-logo-stacked.svg<span class="size">vector · stacked variant</span></div>
+      <div class="asset-item">favicon.ico<span class="size">16 + 32 + 48</span></div>
+      <div class="asset-item">favicon-16.png<span class="size">browser tab</span></div>
+      <div class="asset-item">favicon-32.png<span class="size">high-DPI tab</span></div>
+      <div class="asset-item">favicon-48.png<span class="size">Windows taskbar</span></div>
+      <div class="asset-item">favicon-64.png</div>
+      <div class="asset-item">favicon-96.png</div>
+      <div class="asset-item">apple-touch-icon.png<span class="size">180×180 · iOS home screen</span></div>
+      <div class="asset-item">android-chrome-192.png<span class="size">Android · PWA</span></div>
+      <div class="asset-item">android-chrome-512.png<span class="size">Android splash · PWA</span></div>
+      <div class="asset-item">site.webmanifest<span class="size">PWA manifest</span></div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
