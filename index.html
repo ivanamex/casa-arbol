@@ -828,8 +828,17 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 .br-ok .chk svg{width:22px;height:22px;stroke-width:1.6}
 .br-ok .msg{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;font-weight:300;color:var(--ink2);line-height:1.4}
 /* Footer broker referral link — inherits .f-contact token set so it reads as a natural footer link */
-.f-broker{margin:0;padding:0;background:none;border:none;font-family:inherit;font-size:.72rem;color:rgba(253,250,246,.55);line-height:1.75;letter-spacing:0;text-align:left;cursor:pointer;transition:color .3s ease;text-decoration:none;display:inline-block;align-self:flex-start}
+.f-broker{margin:0;padding:0;background:none;border:none;font-family:inherit;font-size:.72rem;color:rgba(253,250,246,.55);line-height:1.75;letter-spacing:0;text-align:left;cursor:pointer;transition:color .3s ease;text-decoration:none;display:inline-block}
 .f-broker:hover{color:var(--gold-lt)}
+/* Footer broker + copy-link inline pair */
+.f-broker-row{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;align-self:flex-start}
+.f-sep{color:rgba(253,250,246,.35);font-size:.72rem;line-height:1;pointer-events:none;user-select:none}
+.f-broker.copied{color:var(--gold-lt)}
+/* Modal "Copy Link" subtle share action */
+.br-share-row{display:flex;justify-content:flex-end;margin:-4px 0 10px}
+.br-share{background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.68rem;letter-spacing:.04em;color:var(--ink2);opacity:.55;cursor:pointer;padding:2px 0;transition:color .25s,opacity .25s}
+.br-share:hover{opacity:1;color:var(--gold)}
+.br-share.copied{opacity:1;color:var(--gold)}
 /* WhatsApp phone number — keep on single line; allow "WhatsApp:" label to wrap if ever needed */
 .f-wa-num{white-space:nowrap;letter-spacing:-.005em}
 </style>
@@ -1402,7 +1411,11 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <div class="f-contact f-emails">
         <a href="mailto:weber.buric@gmail.com">weber.buric@gmail.com</a>
         <a href="mailto:casaarbolplayacar@gmail.com">casaarbolplayacar@gmail.com</a>
-        <button type="button" class="f-broker" onclick="openBrokerModal()" data-i18n="footer.broker">Register Your Client</button>
+        <div class="f-broker-row">
+          <button type="button" class="f-broker" onclick="openBrokerModal()" data-i18n="footer.broker">Register Your Client</button>
+          <span class="f-sep" aria-hidden="true">·</span>
+          <button type="button" class="f-broker" onclick="brCopyLink(this)" data-i18n="br.copy">Copy Link</button>
+        </div>
       </div>
     </div>
     <div class="f-col">
@@ -1458,6 +1471,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
     <div id="brForm">
       <h3 id="brTitle" data-i18n="br.title">Register Your Client</h3>
       <p class="br-sub" data-i18n="br.sub">For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.</p>
+      <div class="br-share-row"><button type="button" class="br-share" onclick="brCopyLink(this)" data-i18n="br.copy">Copy Link</button></div>
       <div class="br-div"></div>
       <form class="br-f" onsubmit="event.preventDefault();submitBrokerReferral();" novalidate>
         <div class="br-sec" data-i18n="br.sec.client">Client Information</div>
@@ -1863,6 +1877,9 @@ var LANG = {
     'br.err.consent':       'Please confirm the commission terms to continue.',
     'br.privacy':           'Client details are stored securely and used solely for commission protection purposes. Last 4 digits of phone are collected for identity verification only.',
     'br.consent':           'I confirm I represent this client and agree to Weber-Burić commission terms for co-brokerage.',
+    'br.copy':              'Copy Link',
+    'br.copy.done':         'Link Copied ✓',
+    'br.copy.manual':       'Copy this link to share:',
   },
 
   es: {
@@ -2178,6 +2195,9 @@ var LANG = {
     'br.err.consent':       'Por favor confirme los términos de comisión para continuar.',
     'br.privacy':           'Los datos del cliente se almacenan de forma segura y se utilizan únicamente para fines de protección de comisión. Los últimos 4 dígitos del teléfono se recopilan solo para verificación de identidad.',
     'br.consent':           'Confirmo que represento a este cliente y acepto los términos de comisión de Weber-Burić para co-corretaje.',
+    'br.copy':              'Copiar Enlace',
+    'br.copy.done':         'Enlace Copiado ✓',
+    'br.copy.manual':       'Copie este enlace para compartir:',
   },
 
   fr: {
@@ -2494,6 +2514,9 @@ var LANG = {
     'br.err.consent':       'Veuillez confirmer les conditions de commission pour continuer.',
     'br.privacy':           "Les coordonnées du client sont stockées de manière sécurisée et utilisées uniquement à des fins de protection de la commission. Les 4 derniers chiffres du téléphone sont collectés uniquement pour vérification d'identité.",
     'br.consent':           "Je confirme représenter ce client et j'accepte les conditions de commission Weber-Burić pour le co-courtage.",
+    'br.copy':              'Copier le Lien',
+    'br.copy.done':         'Lien Copié ✓',
+    'br.copy.manual':       'Copiez ce lien à partager :',
   }
 };
 
@@ -2895,6 +2918,9 @@ var LANG = {
     'br.err.consent':       'Please confirm the commission terms to continue.',
     'br.privacy':           'Client details are stored securely and used solely for commission protection purposes. Last 4 digits of phone are collected for identity verification only.',
     'br.consent':           'I confirm I represent this client and agree to Weber-Burić commission terms for co-brokerage.',
+    'br.copy':              'Copy Link',
+    'br.copy.done':         'Link Copied ✓',
+    'br.copy.manual':       'Copy this link to share:',
   },
 
   es: {
@@ -3210,6 +3236,9 @@ var LANG = {
     'br.err.consent':       'Por favor confirme los términos de comisión para continuar.',
     'br.privacy':           'Los datos del cliente se almacenan de forma segura y se utilizan únicamente para fines de protección de comisión. Los últimos 4 dígitos del teléfono se recopilan solo para verificación de identidad.',
     'br.consent':           'Confirmo que represento a este cliente y acepto los términos de comisión de Weber-Burić para co-corretaje.',
+    'br.copy':              'Copiar Enlace',
+    'br.copy.done':         'Enlace Copiado ✓',
+    'br.copy.manual':       'Copie este enlace para compartir:',
   },
 
   fr: {
@@ -3526,6 +3555,9 @@ var LANG = {
     'br.err.consent':       'Veuillez confirmer les conditions de commission pour continuer.',
     'br.privacy':           "Les coordonnées du client sont stockées de manière sécurisée et utilisées uniquement à des fins de protection de la commission. Les 4 derniers chiffres du téléphone sont collectés uniquement pour vérification d'identité.",
     'br.consent':           "Je confirme représenter ce client et j'accepte les conditions de commission Weber-Burić pour le co-courtage.",
+    'br.copy':              'Copier le Lien',
+    'br.copy.done':         'Lien Copié ✓',
+    'br.copy.manual':       'Copiez ce lien à partager :',
   }
 };
 
@@ -3925,9 +3957,13 @@ var BROKER_RECIPIENT_EMAIL     = 'casaarbolplayacar@gmail.com';
   }
 })();
 
-window.openBrokerModal = function(){
+window.openBrokerModal = function(fromHash){
   var ov = document.getElementById('brOv');
   if(!ov) return;
+  // Keep URL in sync with open state (pushState so Back button closes the modal)
+  if(!fromHash && window.location.hash !== '#register-client'){
+    try{ history.pushState({brOpen:true}, '', '#register-client'); }catch(e){}
+  }
   // Reset state each open
   var form = document.getElementById('brForm');
   var ok = document.getElementById('brOk');
@@ -3947,7 +3983,7 @@ window.openBrokerModal = function(){
     if(first) first.focus();
   }, 60);
 };
-window.closeBrokerModal = function(){
+window.closeBrokerModal = function(fromHash){
   var ov = document.getElementById('brOv');
   if(!ov) return;
   ov.classList.remove('on');
@@ -3956,6 +3992,10 @@ window.closeBrokerModal = function(){
   var drawer = document.getElementById('navDrawer');
   if(!drawer || !drawer.classList.contains('open')){
     document.body.classList.remove('nav-open');
+  }
+  // Strip the hash from the URL unless we're closing *because* the hash changed (back button / forward nav)
+  if(!fromHash && window.location.hash === '#register-client'){
+    try{ history.replaceState({}, '', window.location.pathname + window.location.search); }catch(e){}
   }
 };
 (function(){
@@ -4056,6 +4096,60 @@ window.submitBrokerReferral = function(){
     }catch(e){ onErr(); }
   }
 };
+
+// ── Broker referral: shareable URL + copy-link ────────────────────
+// Deep link: https://<host>/#register-client auto-opens the modal.
+// Clicking "Register Your Client" pushes the hash so Back closes the modal.
+(function(){
+  var HASH = '#register-client';
+  function getShareUrl(){
+    return window.location.origin + window.location.pathname + HASH;
+  }
+  window.brCopyLink = function(btn){
+    if(!btn) return;
+    var originalKey = btn.getAttribute('data-i18n') || 'br.copy';
+    var doneKey     = 'br.copy.done';
+    var url = getShareUrl();
+    function showDone(){
+      btn.textContent = t(doneKey);
+      btn.classList.add('copied');
+      clearTimeout(btn._copyTimer);
+      btn._copyTimer = setTimeout(function(){
+        btn.textContent = t(originalKey);
+        btn.classList.remove('copied');
+      }, 2000);
+    }
+    function fallback(){
+      try{ window.prompt(t('br.copy.manual'), url); }catch(e){}
+    }
+    if(navigator.clipboard && typeof navigator.clipboard.writeText === 'function'){
+      navigator.clipboard.writeText(url).then(showDone, fallback);
+    } else {
+      fallback();
+    }
+  };
+
+  function checkHash(){
+    var ov = document.getElementById('brOv');
+    if(!ov) return;
+    if(window.location.hash === HASH){
+      if(!ov.classList.contains('on') && typeof window.openBrokerModal === 'function'){
+        window.openBrokerModal(true); // fromHash=true → don't pushState again
+      }
+    } else {
+      if(ov.classList.contains('on') && typeof window.closeBrokerModal === 'function'){
+        window.closeBrokerModal(true); // fromHash=true → don't replaceState again
+      }
+    }
+  }
+  window.addEventListener('hashchange', checkHash);
+  // On initial load, honor the hash
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', checkHash);
+  } else {
+    checkHash();
+  }
+})();
 
 // Footer: dynamic year
 (function(){ var y=document.getElementById('fYear'); if(y) y.textContent=new Date().getFullYear(); })();
