@@ -510,6 +510,9 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .lead h2.serif{color:var(--white)}
 .lead h2.serif em{color:var(--gold-lt)}
 .lead-p{font-size:.78rem;line-height:1.9;color:rgba(253,250,246,.48);margin-bottom:32px}
+.lead-price{margin:28px 0 36px}
+.lead-price-amt{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:300;font-size:clamp(1.4rem,2.2vw,1.8rem);letter-spacing:.01em;color:var(--white);line-height:1.2}
+.lead-price-ccy{margin-top:8px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:300;font-size:clamp(.72rem,.85vw,.8rem);letter-spacing:.15em;text-transform:uppercase;color:rgba(253,250,246,.58)}
 .cline{display:flex;align-items:center;gap:14px;margin-bottom:10px;font-size:.73rem;color:rgba(253,250,246,.5)}
 .cline-ico{color:var(--gold-lt);flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px}
 .cline-ico svg{width:20px;height:20px}
@@ -1381,6 +1384,10 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="lead.h2a">Begin your</span></span><span class="split-wrap"><span class="split-inner d2" data-i18n="lead.h2b"><em>Casa Árbol</em> journey</span></span></h2>
       <span class="rule" style="background:var(--gold-lt)"></span>
       <p class="lead-p" data-i18n="lead.body">A rare opportunity to acquire an extraordinary estate in Playacar's most coveted enclave. We invite serious enquiries from qualified buyers.</p>
+      <div class="lead-price">
+        <div class="lead-price-amt" data-i18n="lead.price.amt">$1,650,000 USD</div>
+        <div class="lead-price-ccy" data-i18n="lead.price.ccy">USD / MXN / EUR / CRYPTO</div>
+      </div>
       <div class="cline"><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span data-i18n="lead.loc">Playacar Phase II, Playa del Carmen, Q.R., Mexico</span></div>
       <div class="cline"><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span data-i18n="lead.appt">Private viewings by appointment · WhatsApp available</span></div>
       <div class="cline"><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg></span><span data-i18n="lead.intl">International buyers welcome · USD / MXN / EUR · Crypto accepted</span></div>
@@ -1798,6 +1805,8 @@ var LANG = {
     'lead.loc':      'Playacar Phase II, Playa del Carmen, Q.R., Mexico',
     'lead.appt':     'Private viewings by appointment · WhatsApp available',
     'lead.intl':     'International buyers welcome · USD / MXN / EUR · Crypto accepted',
+    'lead.price.amt':'$1,650,000 USD',
+    'lead.price.ccy':'USD / MXN / EUR / CRYPTO',
     'f.firstname':   'First Name',
     'f.lastname':    'Last Name',
     'f.email':       'Email Address',
@@ -2126,6 +2135,8 @@ var LANG = {
     'lead.loc':      'Playacar Fase II, Playa del Carmen, Q.R., México',
     'lead.appt':     'Visitas privadas con cita previa · WhatsApp disponible',
     'lead.intl':     'Compradores internacionales bienvenidos · USD / MXN / EUR · Se acepta cripto',
+    'lead.price.amt':'$1,650,000 USD',
+    'lead.price.ccy':'USD / MXN / EUR / CRIPTO',
     'f.firstname':   'Nombre',
     'f.lastname':    'Apellido',
     'f.email':       'Correo Electrónico',
@@ -2451,6 +2462,8 @@ var LANG = {
     'lead.loc':      'Playacar Phase II, Playa del Carmen, Q.R., Mexique',
     'lead.appt':     'Visites privées sur rendez-vous · WhatsApp disponible',
     'lead.intl':     'Acheteurs internationaux bienvenus · USD / MXN / EUR · Crypto accepté',
+    'lead.price.amt':'$1,650,000 USD',
+    'lead.price.ccy':'USD / MXN / EUR / CRYPTO',
     'f.firstname':   'Prénom',
     'f.lastname':    'Nom de famille',
     'f.email':       'Adresse e-mail',
@@ -2859,6 +2872,8 @@ var LANG = {
     'lead.loc':      'Playacar Phase II, Playa del Carmen, Q.R., Mexico',
     'lead.appt':     'Private viewings by appointment · WhatsApp available',
     'lead.intl':     'International buyers welcome · USD / MXN / EUR · Crypto accepted',
+    'lead.price.amt':'$1,650,000 USD',
+    'lead.price.ccy':'USD / MXN / EUR / CRYPTO',
     'f.firstname':   'First Name',
     'f.lastname':    'Last Name',
     'f.email':       'Email Address',
@@ -3187,6 +3202,8 @@ var LANG = {
     'lead.loc':      'Playacar Fase II, Playa del Carmen, Q.R., México',
     'lead.appt':     'Visitas privadas con cita previa · WhatsApp disponible',
     'lead.intl':     'Compradores internacionales bienvenidos · USD / MXN / EUR · Se acepta cripto',
+    'lead.price.amt':'$1,650,000 USD',
+    'lead.price.ccy':'USD / MXN / EUR / CRIPTO',
     'f.firstname':   'Nombre',
     'f.lastname':    'Apellido',
     'f.email':       'Correo Electrónico',
@@ -3512,6 +3529,8 @@ var LANG = {
     'lead.loc':      'Playacar Phase II, Playa del Carmen, Q.R., Mexique',
     'lead.appt':     'Visites privées sur rendez-vous · WhatsApp disponible',
     'lead.intl':     'Acheteurs internationaux bienvenus · USD / MXN / EUR · Crypto accepté',
+    'lead.price.amt':'$1,650,000 USD',
+    'lead.price.ccy':'USD / MXN / EUR / CRYPTO',
     'f.firstname':   'Prénom',
     'f.lastname':    'Nom de famille',
     'f.email':       'Adresse e-mail',
