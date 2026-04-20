@@ -809,7 +809,11 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 /* Privacy notice + consent checkbox */
 .br-privacy{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;line-height:1.4;color:var(--ink2);opacity:.6;font-style:italic;margin:14px 0 0}
 .br-consent{display:flex;align-items:flex-start;gap:10px;margin-top:12px}
-.br-consent input[type=checkbox]{width:16px;height:16px;margin:2px 0 0;flex-shrink:0;cursor:pointer;accent-color:var(--gold)}
+.br-consent input[type=checkbox]{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1.5px solid rgba(28,23,18,.3);border-radius:2px;background:transparent;cursor:pointer;position:relative;flex-shrink:0;margin:2px 0 0;transition:border-color .2s ease,background .2s ease}
+.br-consent input[type=checkbox]:hover{border-color:var(--gold-lt)}
+.br-consent input[type=checkbox]:focus-visible{outline:2px solid var(--gold-lt);outline-offset:2px}
+.br-consent input[type=checkbox]:checked{background:var(--gold-lt);border-color:var(--gold-lt)}
+.br-consent input[type=checkbox]:checked::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid var(--white);border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
 .br-consent label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;line-height:1.4;color:var(--ink2);opacity:.85;cursor:pointer;letter-spacing:0;text-transform:none}
 .br-f input:focus,.br-f select:focus{border-bottom-color:var(--gold)}
 .br-help{font-size:.62rem;color:var(--ink2);opacity:.55;font-style:italic;margin-top:2px}
