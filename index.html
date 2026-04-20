@@ -830,15 +830,13 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 /* Footer broker referral link — inherits .f-contact token set so it reads as a natural footer link */
 .f-broker{margin:0;padding:0;background:none;border:none;font-family:inherit;font-size:.72rem;color:rgba(253,250,246,.55);line-height:1.75;letter-spacing:0;text-align:left;cursor:pointer;transition:color .3s ease;text-decoration:none;display:inline-block}
 .f-broker:hover{color:var(--gold-lt)}
-/* Footer broker + copy-link inline pair */
-.f-broker-row{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;align-self:flex-start}
-.f-sep{color:rgba(253,250,246,.35);font-size:.72rem;line-height:1;pointer-events:none;user-select:none}
-.f-broker.copied{color:var(--gold-lt)}
-/* Modal "Copy Link" subtle share action */
-.br-share-row{display:flex;justify-content:flex-end;margin:-4px 0 10px}
-.br-share{background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.68rem;letter-spacing:.04em;color:var(--ink2);opacity:.55;cursor:pointer;padding:2px 0;transition:color .25s,opacity .25s}
-.br-share:hover{opacity:1;color:var(--gold)}
-.br-share.copied{opacity:1;color:var(--gold)}
+/* Modal header icon-only "copy shareable link" button */
+.br-copy-ic{position:absolute;top:10px;right:66px;width:44px;height:44px;background:none;border:none;color:var(--ink2);cursor:pointer;opacity:.55;transition:opacity .3s ease,color .3s ease;padding:0;display:flex;align-items:center;justify-content:center;z-index:2}
+.br-copy-ic:hover{opacity:1}
+.br-copy-ic.copied{opacity:1;color:var(--gold)}
+.br-copy-ic svg{width:20px;height:20px;stroke-width:1.4}
+.br-copy-toast{position:absolute;top:32px;right:118px;transform:translateY(-50%);font-family:'Plus Jakarta Sans',sans-serif;font-size:.75rem;font-style:italic;color:var(--ink2);opacity:0;pointer-events:none;transition:opacity .3s ease;white-space:nowrap}
+.br-copy-toast.on{opacity:.85}
 /* WhatsApp phone number — keep on single line; allow "WhatsApp:" label to wrap if ever needed */
 .f-wa-num{white-space:nowrap;letter-spacing:-.005em}
 </style>
@@ -1411,11 +1409,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <div class="f-contact f-emails">
         <a href="mailto:weber.buric@gmail.com">weber.buric@gmail.com</a>
         <a href="mailto:casaarbolplayacar@gmail.com">casaarbolplayacar@gmail.com</a>
-        <div class="f-broker-row">
-          <button type="button" class="f-broker" onclick="openBrokerModal()" data-i18n="footer.broker">Register Your Client</button>
-          <span class="f-sep" aria-hidden="true">·</span>
-          <button type="button" class="f-broker" onclick="brCopyLink(this)" data-i18n="br.copy">Copy Link</button>
-        </div>
+        <button type="button" class="f-broker" onclick="openBrokerModal()" data-i18n="footer.broker">Register Your Client</button>
       </div>
     </div>
     <div class="f-col">
@@ -1465,13 +1459,16 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 <!-- BROKER REFERRAL MODAL -->
 <div class="br-ov" id="brOv" role="dialog" aria-modal="true" aria-labelledby="brTitle" aria-hidden="true">
   <div class="br-m" id="brM">
+    <span class="br-copy-toast" id="brCopyToast" aria-live="polite" data-i18n="br.copy.done">Link Copied ✓</span>
+    <button class="br-copy-ic" type="button" onclick="brCopyLink(this)" aria-label="Copy link to this form" data-i18n-aria="br.copy.aria">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </button>
     <button class="br-cl" type="button" onclick="closeBrokerModal()" aria-label="Close" data-i18n-aria="br.close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
     </button>
     <div id="brForm">
       <h3 id="brTitle" data-i18n="br.title">Register Your Client</h3>
       <p class="br-sub" data-i18n="br.sub">For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.</p>
-      <div class="br-share-row"><button type="button" class="br-share" onclick="brCopyLink(this)" data-i18n="br.copy">Copy Link</button></div>
       <div class="br-div"></div>
       <form class="br-f" onsubmit="event.preventDefault();submitBrokerReferral();" novalidate>
         <div class="br-sec" data-i18n="br.sec.client">Client Information</div>
@@ -1880,6 +1877,7 @@ var LANG = {
     'br.copy':              'Copy Link',
     'br.copy.done':         'Link Copied ✓',
     'br.copy.manual':       'Copy this link to share:',
+    'br.copy.aria':         'Copy link to this form',
   },
 
   es: {
@@ -2198,6 +2196,7 @@ var LANG = {
     'br.copy':              'Copiar Enlace',
     'br.copy.done':         'Enlace Copiado ✓',
     'br.copy.manual':       'Copie este enlace para compartir:',
+    'br.copy.aria':         'Copiar enlace a este formulario',
   },
 
   fr: {
@@ -2517,6 +2516,7 @@ var LANG = {
     'br.copy':              'Copier le Lien',
     'br.copy.done':         'Lien Copié ✓',
     'br.copy.manual':       'Copiez ce lien à partager :',
+    'br.copy.aria':         'Copier le lien vers ce formulaire',
   }
 };
 
@@ -2921,6 +2921,7 @@ var LANG = {
     'br.copy':              'Copy Link',
     'br.copy.done':         'Link Copied ✓',
     'br.copy.manual':       'Copy this link to share:',
+    'br.copy.aria':         'Copy link to this form',
   },
 
   es: {
@@ -3239,6 +3240,7 @@ var LANG = {
     'br.copy':              'Copiar Enlace',
     'br.copy.done':         'Enlace Copiado ✓',
     'br.copy.manual':       'Copie este enlace para compartir:',
+    'br.copy.aria':         'Copiar enlace a este formulario',
   },
 
   fr: {
@@ -3558,6 +3560,7 @@ var LANG = {
     'br.copy':              'Copier le Lien',
     'br.copy.done':         'Lien Copié ✓',
     'br.copy.manual':       'Copiez ce lien à partager :',
+    'br.copy.aria':         'Copier le lien vers ce formulaire',
   }
 };
 
@@ -4107,16 +4110,15 @@ window.submitBrokerReferral = function(){
   }
   window.brCopyLink = function(btn){
     if(!btn) return;
-    var originalKey = btn.getAttribute('data-i18n') || 'br.copy';
-    var doneKey     = 'br.copy.done';
     var url = getShareUrl();
+    var toast = document.getElementById('brCopyToast');
     function showDone(){
-      btn.textContent = t(doneKey);
       btn.classList.add('copied');
+      if(toast) toast.classList.add('on');
       clearTimeout(btn._copyTimer);
       btn._copyTimer = setTimeout(function(){
-        btn.textContent = t(originalKey);
         btn.classList.remove('copied');
+        if(toast) toast.classList.remove('on');
       }, 2000);
     }
     function fallback(){
