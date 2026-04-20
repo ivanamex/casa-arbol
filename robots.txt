@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://casaarbol.mx/sitemap.xml
+Sitemap: https://casaarbolplayacar.com/sitemap.xml
