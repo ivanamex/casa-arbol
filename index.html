@@ -784,6 +784,44 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
   <link rel="alternate" hreflang="es" href="https://casaarbol.mx/es/">
   <link rel="alternate" hreflang="fr" href="https://casaarbol.mx/fr/">
   <link rel="alternate" hreflang="x-default" href="https://casaarbol.mx/">
+<!-- Broker referral modal: EmailJS SDK (credentials set in script block near bottom of file) -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<style>
+/* Broker referral modal */
+.br-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);z-index:9999;align-items:center;justify-content:center;padding:20px}
+.br-ov.on{display:flex}
+.br-m{background:var(--white);max-width:560px;width:92%;padding:48px 40px;position:relative;max-height:90vh;overflow-y:auto;border-radius:4px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);animation:brFade .3s ease-out}
+@media(max-width:520px){.br-m{padding:32px 22px}}
+@keyframes brFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.br-cl{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--ink2);cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .3s;padding:0}
+.br-cl:hover{opacity:1}
+.br-cl svg{width:22px;height:22px;stroke-width:1.4}
+.br-m h3{font-family:'Fraunces',serif;font-weight:300;font-size:1.55rem;color:var(--ink);margin:0 0 8px;letter-spacing:-.005em}
+.br-sub{font-size:.78rem;line-height:1.5;color:var(--ink2);opacity:.75;margin:0 0 20px}
+.br-div{height:1px;background:linear-gradient(to right,transparent,rgba(160,120,64,.5),transparent);margin:2px 0}
+.br-sec{font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:24px 0 12px;font-weight:500}
+.br-f{display:flex;flex-direction:column;gap:14px}
+.br-fld{display:flex;flex-direction:column;gap:4px}
+.br-fld label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);opacity:.85}
+.br-fld .req{color:var(--gold);margin-left:2px;opacity:.9}
+.br-f input,.br-f select{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(28,23,18,.2);padding:10px 0;outline:none;transition:border-color .25s;border-radius:0;-webkit-appearance:none;appearance:none}
+.br-f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 14px) 18px,calc(100% - 9px) 18px;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
+.br-f input:focus,.br-f select:focus{border-bottom-color:var(--gold)}
+.br-help{font-size:.62rem;color:var(--ink2);opacity:.55;font-style:italic;margin-top:2px}
+.br-err{color:#a03030;font-size:.72rem;margin-top:10px;line-height:1.4;display:none}
+.br-err.on{display:block}
+.br-sbt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;background:var(--ink);color:var(--white);border:none;padding:16px 24px;cursor:pointer;width:100%;margin-top:22px;transition:background .3s,opacity .3s}
+.br-sbt:hover{background:var(--gold)}
+.br-sbt:disabled{opacity:.5;cursor:wait}
+.br-ok{display:none;text-align:center;padding:32px 0}
+.br-ok.on{display:block}
+.br-ok .chk{width:52px;height:52px;border-radius:50%;border:1.2px solid var(--gold);display:inline-flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:18px}
+.br-ok .chk svg{width:22px;height:22px;stroke-width:1.6}
+.br-ok .msg{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;font-weight:300;color:var(--ink2);line-height:1.4}
+/* Footer broker referral link — subtle, below emails in Enquiries column */
+.f-broker{margin-top:10px;padding:0;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.66rem;color:rgba(253,250,246,.4);letter-spacing:.04em;text-align:left;cursor:pointer;transition:color .3s;text-decoration:none;display:inline-block}
+.f-broker:hover{color:var(--gold-lt)}
+</style>
 </head>
 <body>
 
@@ -1354,6 +1392,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
         <a href="mailto:weber.buric@gmail.com">weber.buric@gmail.com</a>
         <a href="mailto:casaarbolplayacar@gmail.com">casaarbolplayacar@gmail.com</a>
       </div>
+      <button type="button" class="f-broker" onclick="openBrokerModal()" data-i18n="footer.broker">Register Your Client</button>
     </div>
     <div class="f-col">
       <div class="f-head" data-i18n="footer.follow">Follow</div>
@@ -1396,6 +1435,48 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <button class="submit" style="background:var(--ink);color:var(--white)" onclick="submitModal()" data-i18n="mf.submit">Submit Request →</button>
     </div>
     <div class="success" id="modalSuccess" style="color:var(--gold)"><div style="font-size:1.8rem;margin-bottom:8px">✨</div data-i18n="mf.success" data-i18n="mf.success">Thank you! We'll contact you within 24 hours.</div>
+  </div>
+</div>
+
+<!-- BROKER REFERRAL MODAL -->
+<div class="br-ov" id="brOv" role="dialog" aria-modal="true" aria-labelledby="brTitle" aria-hidden="true">
+  <div class="br-m" id="brM">
+    <button class="br-cl" type="button" onclick="closeBrokerModal()" aria-label="Close" data-i18n-aria="br.close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <div id="brForm">
+      <h3 id="brTitle" data-i18n="br.title">Register Your Client</h3>
+      <p class="br-sub" data-i18n="br.sub">For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.</p>
+      <div class="br-div"></div>
+      <form class="br-f" onsubmit="event.preventDefault();submitBrokerReferral();" novalidate>
+        <div class="br-sec" data-i18n="br.sec.client">Client Information</div>
+        <div class="br-fld"><label for="brClientName" data-i18n="br.client.name">Client Name<span class="req" aria-hidden="true">*</span></label><input id="brClientName" type="text" required autocomplete="off"></div>
+        <div class="br-fld"><label for="brClientPhone" data-i18n="br.client.phone">Last 4 Digits of Client's Phone<span class="req" aria-hidden="true">*</span></label><input id="brClientPhone" type="text" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" minlength="4" required autocomplete="off"><div class="br-help" data-i18n="br.client.phone.help">For identification — full number not required</div></div>
+        <div class="br-fld"><label for="brClientCountry" data-i18n="br.client.country">Client Country<span class="req" aria-hidden="true">*</span></label><input id="brClientCountry" type="text" required autocomplete="off"></div>
+        <div class="br-fld"><label for="brClientBudget" data-i18n="br.client.budget">Client Budget (USD)<span class="req" aria-hidden="true">*</span></label>
+          <select id="brClientBudget" required>
+            <option value="" disabled selected data-i18n="br.budget.choose">Select…</option>
+            <option value="Under $1M" data-i18n="br.budget.u1">Under $1M</option>
+            <option value="$1M – $1.5M">$1M – $1.5M</option>
+            <option value="$1.5M – $2M">$1.5M – $2M</option>
+            <option value="$2M – $3M">$2M – $3M</option>
+            <option value="Over $3M" data-i18n="br.budget.o3">Over $3M</option>
+          </select>
+        </div>
+        <div class="br-sec" data-i18n="br.sec.broker">Broker Information</div>
+        <div class="br-fld"><label for="brBrokerName" data-i18n="br.broker.name">Your Name<span class="req" aria-hidden="true">*</span></label><input id="brBrokerName" type="text" required autocomplete="name"></div>
+        <div class="br-fld"><label for="brBrokerEmail" data-i18n="br.broker.email">Your Email<span class="req" aria-hidden="true">*</span></label><input id="brBrokerEmail" type="email" required autocomplete="email"></div>
+        <div class="br-fld"><label for="brBrokerPhone" data-i18n="br.broker.phone">Your Phone<span class="req" aria-hidden="true">*</span></label><input id="brBrokerPhone" type="tel" required autocomplete="tel"></div>
+        <div class="br-fld"><label for="brBrokerAgency" data-i18n="br.broker.agency">Agency (optional)</label><input id="brBrokerAgency" type="text" autocomplete="organization"></div>
+        <div class="br-fld"><label for="brBrokerLicense" data-i18n="br.broker.license">License Number (optional)</label><input id="brBrokerLicense" type="text" autocomplete="off"></div>
+        <div class="br-err" id="brErr" role="alert"></div>
+        <button class="br-sbt" id="brSbt" type="submit" data-i18n="br.submit">Submit Referral</button>
+      </form>
+    </div>
+    <div class="br-ok" id="brOk" aria-live="polite">
+      <div class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="msg" data-i18n="br.success">Thank you. We'll be in touch shortly.</div>
+    </div>
   </div>
 </div>
 
@@ -1738,6 +1819,31 @@ var LANG = {
     'footer.language':'Language',
     'footer.crypto': 'Crypto Accepted',
     'footer.made':   'Crafted at the edge of the Caribbean',
+    'footer.broker': 'Register Your Client',
+    'br.title':      'Register Your Client',
+    'br.sub':        "For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.",
+    'br.close':      'Close',
+    'br.sec.client': 'Client Information',
+    'br.sec.broker': 'Broker Information',
+    'br.client.name':       'Client Name',
+    'br.client.phone':      "Last 4 Digits of Client's Phone",
+    'br.client.phone.help': 'For identification — full number not required',
+    'br.client.country':    'Client Country',
+    'br.client.budget':     'Client Budget (USD)',
+    'br.budget.choose':     'Select…',
+    'br.budget.u1':         'Under $1M',
+    'br.budget.o3':         'Over $3M',
+    'br.broker.name':       'Your Name',
+    'br.broker.email':      'Your Email',
+    'br.broker.phone':      'Your Phone',
+    'br.broker.agency':     'Agency (optional)',
+    'br.broker.license':    'License Number (optional)',
+    'br.submit':            'Submit Referral',
+    'br.success':           "Thank you. We'll be in touch shortly.",
+    'br.err.required':      'Please complete all required fields.',
+    'br.err.phone4':        'Please enter exactly 4 digits.',
+    'br.err.email':         'Please enter a valid email address.',
+    'br.err.generic':       'Something went wrong. Please try again or contact us directly at casaarbolplayacar@gmail.com.',
   },
 
   es: {
@@ -2025,6 +2131,31 @@ var LANG = {
     'footer.language':'Idioma',
     'footer.crypto': 'Pagos en Cripto Aceptados',
     'footer.made':   'Creada al borde del Caribe',
+    'footer.broker': 'Registrar a su Cliente',
+    'br.title':      'Registrar a su Cliente',
+    'br.sub':        'Para profesionales inmobiliarios que presentan un comprador calificado a Casa Árbol. Su referencia está protegida.',
+    'br.close':      'Cerrar',
+    'br.sec.client': 'Información del Cliente',
+    'br.sec.broker': 'Información del Bróker',
+    'br.client.name':       'Nombre del Cliente',
+    'br.client.phone':      'Últimos 4 Dígitos del Teléfono del Cliente',
+    'br.client.phone.help': 'Para identificación — no se requiere el número completo',
+    'br.client.country':    'País del Cliente',
+    'br.client.budget':     'Presupuesto del Cliente (USD)',
+    'br.budget.choose':     'Seleccionar…',
+    'br.budget.u1':         'Menos de $1M',
+    'br.budget.o3':         'Más de $3M',
+    'br.broker.name':       'Su Nombre',
+    'br.broker.email':      'Su Correo Electrónico',
+    'br.broker.phone':      'Su Teléfono',
+    'br.broker.agency':     'Agencia (opcional)',
+    'br.broker.license':    'Número de Licencia (opcional)',
+    'br.submit':            'Enviar Referencia',
+    'br.success':           'Gracias. Nos pondremos en contacto pronto.',
+    'br.err.required':      'Por favor complete todos los campos obligatorios.',
+    'br.err.phone4':        'Por favor ingrese exactamente 4 dígitos.',
+    'br.err.email':         'Por favor ingrese un correo válido.',
+    'br.err.generic':       'Algo salió mal. Intente de nuevo o contáctenos directamente en casaarbolplayacar@gmail.com.',
   },
 
   fr: {
@@ -2313,6 +2444,31 @@ var LANG = {
     'footer.language':'Langue',
     'footer.crypto': 'Paiements Crypto Acceptés',
     'footer.made':   'Façonnée aux portes des Caraïbes',
+    'footer.broker': 'Enregistrer votre Client',
+    'br.title':      'Enregistrer votre Client',
+    'br.sub':        "Pour les professionnels de l'immobilier présentant un acheteur qualifié à Casa Árbol. Votre référence est protégée.",
+    'br.close':      'Fermer',
+    'br.sec.client': 'Informations du Client',
+    'br.sec.broker': 'Informations du Courtier',
+    'br.client.name':       'Nom du Client',
+    'br.client.phone':      'Derniers 4 Chiffres du Téléphone du Client',
+    'br.client.phone.help': 'Pour identification — numéro complet non requis',
+    'br.client.country':    'Pays du Client',
+    'br.client.budget':     'Budget du Client (USD)',
+    'br.budget.choose':     'Sélectionner…',
+    'br.budget.u1':         'Moins de $1M',
+    'br.budget.o3':         'Plus de $3M',
+    'br.broker.name':       'Votre Nom',
+    'br.broker.email':      'Votre Email',
+    'br.broker.phone':      'Votre Téléphone',
+    'br.broker.agency':     'Agence (optionnel)',
+    'br.broker.license':    'Numéro de Licence (optionnel)',
+    'br.submit':            'Soumettre la Référence',
+    'br.success':           'Merci. Nous vous contacterons sous peu.',
+    'br.err.required':      'Veuillez remplir tous les champs requis.',
+    'br.err.phone4':        'Veuillez entrer exactement 4 chiffres.',
+    'br.err.email':         'Veuillez entrer un email valide.',
+    'br.err.generic':       "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement à casaarbolplayacar@gmail.com.",
   }
 };
 
@@ -2686,6 +2842,31 @@ var LANG = {
     'footer.language':'Language',
     'footer.crypto': 'Crypto Accepted',
     'footer.made':   'Crafted at the edge of the Caribbean',
+    'footer.broker': 'Register Your Client',
+    'br.title':      'Register Your Client',
+    'br.sub':        "For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.",
+    'br.close':      'Close',
+    'br.sec.client': 'Client Information',
+    'br.sec.broker': 'Broker Information',
+    'br.client.name':       'Client Name',
+    'br.client.phone':      "Last 4 Digits of Client's Phone",
+    'br.client.phone.help': 'For identification — full number not required',
+    'br.client.country':    'Client Country',
+    'br.client.budget':     'Client Budget (USD)',
+    'br.budget.choose':     'Select…',
+    'br.budget.u1':         'Under $1M',
+    'br.budget.o3':         'Over $3M',
+    'br.broker.name':       'Your Name',
+    'br.broker.email':      'Your Email',
+    'br.broker.phone':      'Your Phone',
+    'br.broker.agency':     'Agency (optional)',
+    'br.broker.license':    'License Number (optional)',
+    'br.submit':            'Submit Referral',
+    'br.success':           "Thank you. We'll be in touch shortly.",
+    'br.err.required':      'Please complete all required fields.',
+    'br.err.phone4':        'Please enter exactly 4 digits.',
+    'br.err.email':         'Please enter a valid email address.',
+    'br.err.generic':       'Something went wrong. Please try again or contact us directly at casaarbolplayacar@gmail.com.',
   },
 
   es: {
@@ -2973,6 +3154,31 @@ var LANG = {
     'footer.language':'Idioma',
     'footer.crypto': 'Pagos en Cripto Aceptados',
     'footer.made':   'Creada al borde del Caribe',
+    'footer.broker': 'Registrar a su Cliente',
+    'br.title':      'Registrar a su Cliente',
+    'br.sub':        'Para profesionales inmobiliarios que presentan un comprador calificado a Casa Árbol. Su referencia está protegida.',
+    'br.close':      'Cerrar',
+    'br.sec.client': 'Información del Cliente',
+    'br.sec.broker': 'Información del Bróker',
+    'br.client.name':       'Nombre del Cliente',
+    'br.client.phone':      'Últimos 4 Dígitos del Teléfono del Cliente',
+    'br.client.phone.help': 'Para identificación — no se requiere el número completo',
+    'br.client.country':    'País del Cliente',
+    'br.client.budget':     'Presupuesto del Cliente (USD)',
+    'br.budget.choose':     'Seleccionar…',
+    'br.budget.u1':         'Menos de $1M',
+    'br.budget.o3':         'Más de $3M',
+    'br.broker.name':       'Su Nombre',
+    'br.broker.email':      'Su Correo Electrónico',
+    'br.broker.phone':      'Su Teléfono',
+    'br.broker.agency':     'Agencia (opcional)',
+    'br.broker.license':    'Número de Licencia (opcional)',
+    'br.submit':            'Enviar Referencia',
+    'br.success':           'Gracias. Nos pondremos en contacto pronto.',
+    'br.err.required':      'Por favor complete todos los campos obligatorios.',
+    'br.err.phone4':        'Por favor ingrese exactamente 4 dígitos.',
+    'br.err.email':         'Por favor ingrese un correo válido.',
+    'br.err.generic':       'Algo salió mal. Intente de nuevo o contáctenos directamente en casaarbolplayacar@gmail.com.',
   },
 
   fr: {
@@ -3261,6 +3467,31 @@ var LANG = {
     'footer.language':'Langue',
     'footer.crypto': 'Paiements Crypto Acceptés',
     'footer.made':   'Façonnée aux portes des Caraïbes',
+    'footer.broker': 'Enregistrer votre Client',
+    'br.title':      'Enregistrer votre Client',
+    'br.sub':        "Pour les professionnels de l'immobilier présentant un acheteur qualifié à Casa Árbol. Votre référence est protégée.",
+    'br.close':      'Fermer',
+    'br.sec.client': 'Informations du Client',
+    'br.sec.broker': 'Informations du Courtier',
+    'br.client.name':       'Nom du Client',
+    'br.client.phone':      'Derniers 4 Chiffres du Téléphone du Client',
+    'br.client.phone.help': 'Pour identification — numéro complet non requis',
+    'br.client.country':    'Pays du Client',
+    'br.client.budget':     'Budget du Client (USD)',
+    'br.budget.choose':     'Sélectionner…',
+    'br.budget.u1':         'Moins de $1M',
+    'br.budget.o3':         'Plus de $3M',
+    'br.broker.name':       'Votre Nom',
+    'br.broker.email':      'Votre Email',
+    'br.broker.phone':      'Votre Téléphone',
+    'br.broker.agency':     'Agence (optionnel)',
+    'br.broker.license':    'Numéro de Licence (optionnel)',
+    'br.submit':            'Soumettre la Référence',
+    'br.success':           'Merci. Nous vous contacterons sous peu.',
+    'br.err.required':      'Veuillez remplir tous les champs requis.',
+    'br.err.phone4':        'Veuillez entrer exactement 4 chiffres.',
+    'br.err.email':         'Veuillez entrer un email valide.',
+    'br.err.generic':       "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement à casaarbolplayacar@gmail.com.",
   }
 };
 
@@ -3636,6 +3867,149 @@ window.toggleNavMenu = function(forceState){
     }
   });
 })();
+
+// ── Broker referral modal ─────────────────────────────────────────
+// TODO: Supabase integration — also insert form data into `broker_referrals` table
+// Schema will be: client_name, client_phone_last4, client_country, client_budget,
+//                 broker_name, broker_email, broker_phone, broker_agency,
+//                 broker_license, submitted_at, source
+// Supabase client init pending user decision on project
+//
+// NOTE: The existing contact forms on this site submit via mailto: (see sendLeadEmail).
+// EmailJS was requested for this form. Until credentials are filled in below, the
+// handler falls back to mailto: so the form works out of the box. Replace the three
+// TODO_ placeholders with the real EmailJS account values to activate EmailJS delivery.
+var BROKER_EMAILJS_SERVICE_ID  = 'TODO_FILL_EMAILJS_SERVICE_ID';
+var BROKER_EMAILJS_TEMPLATE_ID = 'TODO_FILL_EMAILJS_TEMPLATE_ID';
+var BROKER_EMAILJS_PUBLIC_KEY  = 'TODO_FILL_EMAILJS_PUBLIC_KEY';
+var BROKER_RECIPIENT_EMAIL     = 'casaarbolplayacar@gmail.com';
+
+(function(){
+  if(window.emailjs && typeof emailjs.init === 'function'
+     && BROKER_EMAILJS_PUBLIC_KEY && BROKER_EMAILJS_PUBLIC_KEY.indexOf('TODO_') !== 0){
+    try{ emailjs.init({publicKey: BROKER_EMAILJS_PUBLIC_KEY}); }catch(e){}
+  }
+})();
+
+window.openBrokerModal = function(){
+  var ov = document.getElementById('brOv');
+  if(!ov) return;
+  // Reset state each open
+  var form = document.getElementById('brForm');
+  var ok = document.getElementById('brOk');
+  var err = document.getElementById('brErr');
+  if(form) form.style.display = '';
+  if(ok) ok.classList.remove('on');
+  if(err){ err.classList.remove('on'); err.textContent=''; }
+  ov.classList.add('on');
+  ov.setAttribute('aria-hidden','false');
+  document.body.classList.add('nav-open'); // reuses existing scroll-lock style
+  setTimeout(function(){
+    var first = document.getElementById('brClientName');
+    if(first) first.focus();
+  }, 60);
+};
+window.closeBrokerModal = function(){
+  var ov = document.getElementById('brOv');
+  if(!ov) return;
+  ov.classList.remove('on');
+  ov.setAttribute('aria-hidden','true');
+  // Only release scroll lock if the mobile nav drawer is not also open
+  var drawer = document.getElementById('navDrawer');
+  if(!drawer || !drawer.classList.contains('open')){
+    document.body.classList.remove('nav-open');
+  }
+};
+(function(){
+  var ov = document.getElementById('brOv');
+  if(!ov) return;
+  ov.addEventListener('click', function(e){ if(e.target === ov) window.closeBrokerModal(); });
+  document.addEventListener('keydown', function(e){
+    if(!ov.classList.contains('on')) return;
+    if(e.key === 'Escape'){ window.closeBrokerModal(); return; }
+    if(e.key === 'Tab'){
+      var focusables = ov.querySelectorAll('a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])');
+      var visible = Array.prototype.filter.call(focusables, function(n){ return !n.disabled && n.offsetParent !== null; });
+      if(visible.length === 0) return;
+      var first = visible[0], last = visible[visible.length-1];
+      if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+
+window.submitBrokerReferral = function(){
+  var err = document.getElementById('brErr');
+  function showErr(key){ err.textContent = t(key); err.classList.add('on'); }
+  err.classList.remove('on'); err.textContent = '';
+
+  var data = {
+    client_name:        document.getElementById('brClientName').value.trim(),
+    client_phone_last4: document.getElementById('brClientPhone').value.trim(),
+    client_country:     document.getElementById('brClientCountry').value.trim(),
+    client_budget:      document.getElementById('brClientBudget').value,
+    broker_name:        document.getElementById('brBrokerName').value.trim(),
+    broker_email:       document.getElementById('brBrokerEmail').value.trim(),
+    broker_phone:       document.getElementById('brBrokerPhone').value.trim(),
+    broker_agency:      document.getElementById('brBrokerAgency').value.trim(),
+    broker_license:     document.getElementById('brBrokerLicense').value.trim(),
+    timestamp:          new Date().toISOString(),
+    source:             'casaarbolplayacar.com'
+  };
+
+  var req = ['client_name','client_phone_last4','client_country','client_budget','broker_name','broker_email','broker_phone'];
+  for(var i=0;i<req.length;i++){ if(!data[req[i]]){ showErr('br.err.required'); return; } }
+  if(!/^[0-9]{4}$/.test(data.client_phone_last4)){ showErr('br.err.phone4'); return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.broker_email)){ showErr('br.err.email'); return; }
+
+  var subject = 'New Broker Referral — ' + data.client_name;
+  data.subject  = subject;
+  data.to_email = BROKER_RECIPIENT_EMAIL;
+
+  var btn = document.getElementById('brSbt');
+  btn.disabled = true;
+
+  function onOk(){
+    document.getElementById('brForm').style.display = 'none';
+    document.getElementById('brOk').classList.add('on');
+    btn.disabled = false;
+    setTimeout(window.closeBrokerModal, 4000);
+  }
+  function onErr(){ showErr('br.err.generic'); btn.disabled = false; }
+
+  var emailjsConfigured = window.emailjs
+    && typeof emailjs.send === 'function'
+    && BROKER_EMAILJS_SERVICE_ID  && BROKER_EMAILJS_SERVICE_ID.indexOf('TODO_')  !== 0
+    && BROKER_EMAILJS_TEMPLATE_ID && BROKER_EMAILJS_TEMPLATE_ID.indexOf('TODO_') !== 0;
+
+  if(emailjsConfigured){
+    emailjs.send(BROKER_EMAILJS_SERVICE_ID, BROKER_EMAILJS_TEMPLATE_ID, data).then(onOk, onErr);
+  } else {
+    // Fallback: mailto — matches existing site pattern (sendLeadEmail) until EmailJS IDs are configured
+    try{
+      var body = 'NEW BROKER REFERRAL — Casa Árbol\n\n'
+        + 'CLIENT\n'
+        + 'Name: ' + data.client_name + '\n'
+        + 'Phone (last 4): ' + data.client_phone_last4 + '\n'
+        + 'Country: ' + data.client_country + '\n'
+        + 'Budget: ' + data.client_budget + '\n\n'
+        + 'BROKER\n'
+        + 'Name: '    + data.broker_name + '\n'
+        + 'Email: '   + data.broker_email + '\n'
+        + 'Phone: '   + data.broker_phone + '\n'
+        + 'Agency: '  + (data.broker_agency  || '—') + '\n'
+        + 'License: ' + (data.broker_license || '—') + '\n\n'
+        + 'Submitted: ' + data.timestamp + '\n'
+        + 'Source: '    + data.source;
+      var href = 'mailto:' + BROKER_RECIPIENT_EMAIL
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body='    + encodeURIComponent(body);
+      var w = window.open(href, '_blank');
+      if(!w) window.location.href = href;
+      onOk();
+    }catch(e){ onErr(); }
+  }
+};
 
 // Footer: dynamic year
 (function(){ var y=document.getElementById('fYear'); if(y) y.textContent=new Date().getFullYear(); })();
