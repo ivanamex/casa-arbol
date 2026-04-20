@@ -161,13 +161,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(28,23,18,.55),rgba(28,23,18,.2) 55%,transparent);pointer-events:none;z-index:-1;transition:opacity .45s ease}
 nav.sc::before{opacity:0}
 nav.sc{background:rgba(247,243,238,.93);backdrop-filter:blur(18px);padding:13px 5vw;border-bottom:1px solid rgba(160,120,64,.18)}
-.nav-logo{display:inline-flex;align-items:center;height:44px;flex-shrink:0;cursor:pointer;text-decoration:none;background:none;border:0;padding:0;filter:drop-shadow(0 1px 2px rgba(28,23,18,.35));transition:filter .45s ease}
+.nav-logo{display:inline-flex;flex-direction:column;align-items:flex-start;flex-shrink:0;cursor:pointer;text-decoration:none;background:none;border:0;padding:0;filter:drop-shadow(0 1px 2px rgba(28,23,18,.35));transition:filter .45s ease}
 nav.sc .nav-logo{filter:none}
+.nav-logo-mark{display:inline-flex;align-items:center;height:40px}
 .nav-logo-img{height:100%;width:auto;display:block;object-fit:contain;pointer-events:none}
 .nav-logo-on-light{display:none}
 nav.sc .nav-logo-on-dark{display:none}
 nav.sc .nav-logo-on-light{display:block}
-@media(max-width:768px){.nav-logo{height:36px}}
+.nav-logo-tagline{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(.65rem,.75vw,.78rem);font-weight:400;letter-spacing:.12em;line-height:1.2;margin-top:3px;text-align:left;color:rgba(253,250,246,.88);text-shadow:0 1px 2px rgba(28,23,18,.45);pointer-events:none;transition:color .45s ease,text-shadow .45s ease}
+nav.sc .nav-logo-tagline{color:var(--ink2);text-shadow:none}
+@media(max-width:768px){.nav-logo-mark{height:32px}.nav-logo-tagline{display:none}}
 .nav-links{display:flex;gap:clamp(14px,2vw,26px);list-style:none;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;flex-wrap:nowrap}
 .nav-links li{white-space:nowrap}
 /* Desktop: drawer passes its children through to .nav-right */
@@ -862,7 +865,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- NAV -->
 <nav id="nav">
-  <a class="nav-logo" role="button" tabindex="0" aria-label="Casa Árbol — Back to top" onclick="if(window.toggleNavMenu)toggleNavMenu(false);window.scrollTo({top:0,behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();if(window.toggleNavMenu)toggleNavMenu(false);window.scrollTo({top:0,behavior:'smooth'})}"><img class="nav-logo-img nav-logo-on-dark" src="/images/casa-arbol-logo/casa-arbol-logo-horizontal-dark.png" alt="Casa Árbol"><img class="nav-logo-img nav-logo-on-light" src="/images/casa-arbol-logo/casa-arbol-logo-horizontal.svg" alt="" aria-hidden="true"></a>
+  <a class="nav-logo" role="button" tabindex="0" aria-label="Casa Árbol — Back to top" onclick="if(window.toggleNavMenu)toggleNavMenu(false);window.scrollTo({top:0,behavior:'smooth'})" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();if(window.toggleNavMenu)toggleNavMenu(false);window.scrollTo({top:0,behavior:'smooth'})}"><span class="nav-logo-mark"><img class="nav-logo-img nav-logo-on-dark" src="/images/casa-arbol-logo/casa-arbol-logo-horizontal-dark.png?v=2" alt="Casa Árbol"><img class="nav-logo-img nav-logo-on-light" src="/images/casa-arbol-logo/casa-arbol-logo-horizontal.svg?v=2" alt="" aria-hidden="true"></span><span class="nav-logo-tagline" data-i18n="nav.tagline">Where generations grow.</span></a>
   <div class="nav-right">
     <div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Navigation menu">
       <button class="nav-drawer-close" type="button" data-i18n-aria="nav.menu.close" aria-label="Close menu" onclick="toggleNavMenu(false)">
@@ -1557,6 +1560,7 @@ var LANG = {
     'nav.tour':      '3D Tour',
     'nav.ome':       'OMé Spa',
     'nav.cta':       'Private Enquiry',
+    'nav.tagline':   'Where generations grow.',
 
     // Hero
     'hero.eyebrow':  'Playacar Phase II · Riviera Maya',
@@ -1919,6 +1923,7 @@ var LANG = {
     'nav.tour':      'Tour 3D',
     'nav.ome':       'OMé Spa',
     'nav.cta':       'Consulta Privada',
+    'nav.tagline':   'Donde crecen las generaciones.',
     'hero.eyebrow':  'Playacar Fase II · Riviera Maya',
     'hero.sub':      'Donde se hacen los recuerdos. Donde crecen las generaciones. Un hogar que todos desean tener. Zapatos opcionales. La playa está así de cerca.',
     'hero.btn1':     'Agendar Visita',
@@ -2245,6 +2250,7 @@ var LANG = {
     'nav.tour':      'Visite 3D',
     'nav.ome':       'OMé Spa',
     'nav.cta':       'Demande Privée',
+    'nav.tagline':   'Où les générations grandissent.',
     'hero.eyebrow':  'Playacar Phase II · Riviera Maya',
     'hero.sub':      'Où les souvenirs se créent. Où les générations grandissent. Une maison que tout le monde rêverait d\'avoir. Chaussures facultatives. La plage est si proche.',
     'hero.btn1':     'Planifier une Visite',
@@ -2624,6 +2630,7 @@ var LANG = {
     'nav.tour':      '3D Tour',
     'nav.ome':       'OMé Spa',
     'nav.cta':       'Private Enquiry',
+    'nav.tagline':   'Where generations grow.',
 
     // Hero
     'hero.eyebrow':  'Playacar Phase II · Riviera Maya',
@@ -2986,6 +2993,7 @@ var LANG = {
     'nav.tour':      'Tour 3D',
     'nav.ome':       'OMé Spa',
     'nav.cta':       'Consulta Privada',
+    'nav.tagline':   'Donde crecen las generaciones.',
     'hero.eyebrow':  'Playacar Fase II · Riviera Maya',
     'hero.sub':      'Donde se hacen los recuerdos. Donde crecen las generaciones. Un hogar que todos desean tener. Zapatos opcionales. La playa está así de cerca.',
     'hero.btn1':     'Agendar Visita',
@@ -3312,6 +3320,7 @@ var LANG = {
     'nav.tour':      'Visite 3D',
     'nav.ome':       'OMé Spa',
     'nav.cta':       'Demande Privée',
+    'nav.tagline':   'Où les générations grandissent.',
     'hero.eyebrow':  'Playacar Phase II · Riviera Maya',
     'hero.sub':      'Où les souvenirs se créent. Où les générations grandissent. Une maison que tout le monde rêverait d\'avoir. Chaussures facultatives. La plage est si proche.',
     'hero.btn1':     'Planifier une Visite',
