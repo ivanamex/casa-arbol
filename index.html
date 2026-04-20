@@ -348,10 +348,11 @@ h2.serif em{font-style:italic;color:var(--gold)}
 .kitchen{background:var(--bg2);padding:72px 0 64px;position:relative;overflow:hidden}
 .kitchen>*{position:relative;z-index:1}
 /* Ambient chef-utensils silhouette — whisk + chef's knife crossed still-life */
-.kitchen-chef-silhouette{position:absolute;top:40px;right:4%;width:min(220px,22vw);height:auto;z-index:0;pointer-events:none;opacity:.12;mix-blend-mode:darken;filter:sepia(100%) saturate(300%) hue-rotate(5deg) brightness(120%);image-rendering:auto;animation:chefBreathe 10s ease-in-out infinite alternate;transform-origin:center}
+.chef-silhouette-bg{position:absolute;top:0;right:4%;width:min(600px,45vw);height:auto;z-index:0;pointer-events:none;opacity:.12;filter:brightness(0) saturate(100%) invert(72%) sepia(20%) saturate(800%) hue-rotate(5deg) brightness(95%) contrast(85%);animation:chefBreathe 10s ease-in-out infinite alternate;transform-origin:center}
 @keyframes chefBreathe{from{transform:scale(1)}to{transform:scale(1.015)}}
-@media(max-width:768px){.kitchen-chef-silhouette{width:min(140px,30vw);top:20px;right:3%;opacity:.10}}
-@media(prefers-reduced-motion:reduce){.kitchen-chef-silhouette{animation:none}}
+@media(max-width:768px){.chef-silhouette-bg{width:min(300px,55vw);right:2%;opacity:.10}}
+@media(max-width:640px){.chef-silhouette-bg{display:none}}
+@media(prefers-reduced-motion:reduce){.chef-silhouette-bg{animation:none}}
 /* Title block — sits at the top, section padding provides the breathing room above */
 .kitch-head{max-width:880px;margin:0 auto;padding:0 5vw;text-align:center}
 .kitch-head .ey{justify-content:center}
@@ -1203,7 +1204,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 
 <!-- KITCHEN -->
 <section class="kitchen" id="kitchen">
-  <img src="./images/chef.jpg" alt="" class="kitchen-chef-silhouette" aria-hidden="true" loading="lazy">
+  <img src="./images/chef.png" alt="" class="chef-silhouette-bg" aria-hidden="true" loading="lazy">
   <div class="rv kitch-head"><div class="ey" data-i18n="kitch.ey">The Kitchen</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="kitch.h2a">Where flavour</span></span><span class="split-wrap"><span class="split-inner d2">meets <em>design</em></span></span></h2><span class="rule"></span></div>
   <div class="rv kitch-body">
     <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
