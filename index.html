@@ -790,27 +790,32 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 /* Broker referral modal */
 .br-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);z-index:9999;align-items:center;justify-content:center;padding:20px}
 .br-ov.on{display:flex}
-.br-m{background:var(--white);max-width:560px;width:92%;padding:48px 40px;position:relative;max-height:90vh;overflow-y:auto;border-radius:4px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);animation:brFade .3s ease-out}
-@media(max-width:520px){.br-m{padding:32px 22px}}
+.br-m{background:var(--white);max-width:560px;width:92%;padding:32px 36px;position:relative;max-height:90vh;overflow-y:auto;border-radius:4px;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);animation:brFade .3s ease-out}
+@media(max-width:520px){.br-m{padding:24px 20px}}
 @keyframes brFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .br-cl{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--ink2);cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .3s;padding:0}
 .br-cl:hover{opacity:1}
 .br-cl svg{width:22px;height:22px;stroke-width:1.4}
-.br-m h3{font-family:'Fraunces',serif;font-weight:300;font-size:1.55rem;color:var(--ink);margin:0 0 8px;letter-spacing:-.005em}
-.br-sub{font-size:.78rem;line-height:1.5;color:var(--ink2);opacity:.75;margin:0 0 20px}
-.br-div{height:1px;background:linear-gradient(to right,transparent,rgba(160,120,64,.5),transparent);margin:2px 0}
-.br-sec{font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:24px 0 12px;font-weight:500}
-.br-f{display:flex;flex-direction:column;gap:14px}
+.br-m h3{font-family:'Fraunces',serif;font-weight:300;font-size:1.55rem;color:var(--ink);margin:0 0 6px;letter-spacing:-.005em}
+.br-sub{font-size:.78rem;line-height:1.45;color:var(--ink2);opacity:.75;margin:0 0 14px}
+.br-div{height:1px;background:linear-gradient(to right,transparent,rgba(160,120,64,.5),transparent);margin:0}
+.br-sec{font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:16px 0 8px;font-weight:500}
+.br-f{display:flex;flex-direction:column;gap:10px}
 .br-fld{display:flex;flex-direction:column;gap:4px}
 .br-fld label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);opacity:.85}
 .br-fld .req{color:var(--gold);margin-left:2px;opacity:.9}
-.br-f input,.br-f select{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(28,23,18,.2);padding:10px 0;outline:none;transition:border-color .25s;border-radius:0;-webkit-appearance:none;appearance:none}
-.br-f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 14px) 18px,calc(100% - 9px) 18px;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
+.br-f input,.br-f select{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(28,23,18,.2);padding:8px 0;outline:none;transition:border-color .25s;border-radius:0;-webkit-appearance:none;appearance:none}
+.br-f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 14px) 16px,calc(100% - 9px) 16px;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
+/* Privacy notice + consent checkbox */
+.br-privacy{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;line-height:1.4;color:var(--ink2);opacity:.6;font-style:italic;margin:14px 0 0}
+.br-consent{display:flex;align-items:flex-start;gap:10px;margin-top:12px}
+.br-consent input[type=checkbox]{width:16px;height:16px;margin:2px 0 0;flex-shrink:0;cursor:pointer;accent-color:var(--gold)}
+.br-consent label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;line-height:1.4;color:var(--ink2);opacity:.85;cursor:pointer;letter-spacing:0;text-transform:none}
 .br-f input:focus,.br-f select:focus{border-bottom-color:var(--gold)}
 .br-help{font-size:.62rem;color:var(--ink2);opacity:.55;font-style:italic;margin-top:2px}
 .br-err{color:#a03030;font-size:.72rem;margin-top:10px;line-height:1.4;display:none}
 .br-err.on{display:block}
-.br-sbt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;background:var(--ink);color:var(--white);border:none;padding:16px 24px;cursor:pointer;width:100%;margin-top:22px;transition:background .3s,opacity .3s}
+.br-sbt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;background:var(--ink);color:var(--white);border:none;padding:14px 24px;cursor:pointer;width:100%;margin-top:16px;transition:background .3s,opacity .3s}
 .br-sbt:hover{background:var(--gold)}
 .br-sbt:disabled{opacity:.5;cursor:wait}
 .br-ok{display:none;text-align:center;padding:32px 0}
@@ -818,9 +823,11 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 .br-ok .chk{width:52px;height:52px;border-radius:50%;border:1.2px solid var(--gold);display:inline-flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:18px}
 .br-ok .chk svg{width:22px;height:22px;stroke-width:1.6}
 .br-ok .msg{font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;font-weight:300;color:var(--ink2);line-height:1.4}
-/* Footer broker referral link — subtle, below emails in Enquiries column */
-.f-broker{margin-top:10px;padding:0;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:.66rem;color:rgba(253,250,246,.4);letter-spacing:.04em;text-align:left;cursor:pointer;transition:color .3s;text-decoration:none;display:inline-block}
+/* Footer broker referral link — inherits .f-contact token set so it reads as a natural footer link */
+.f-broker{margin:0;padding:0;background:none;border:none;font-family:inherit;font-size:.72rem;color:rgba(253,250,246,.55);line-height:1.75;letter-spacing:0;text-align:left;cursor:pointer;transition:color .3s ease;text-decoration:none;display:inline-block;align-self:flex-start}
 .f-broker:hover{color:var(--gold-lt)}
+/* WhatsApp phone number — keep on single line; allow "WhatsApp:" label to wrap if ever needed */
+.f-wa-num{white-space:nowrap;letter-spacing:-.005em}
 </style>
 </head>
 <body>
@@ -1383,7 +1390,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <div class="f-head" data-i18n="footer.contact">Contact</div>
       <div class="f-contact">
         <span data-i18n="footer.addr">Playacar Phase II · Playa del Carmen · México</span>
-        <a class="f-wa-line" href="https://wa.me/5219841803527" target="_blank" rel="noopener"><span data-i18n="footer.whatsapp">WhatsApp</span>: +52 984 180 3527</a>
+        <a class="f-wa-line" href="https://wa.me/5219841803527" target="_blank" rel="noopener"><span data-i18n="footer.whatsapp">WhatsApp</span>: <span class="f-wa-num">+52 984 180 3527</span></a>
       </div>
     </div>
     <div class="f-col">
@@ -1391,8 +1398,8 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <div class="f-contact f-emails">
         <a href="mailto:weber.buric@gmail.com">weber.buric@gmail.com</a>
         <a href="mailto:casaarbolplayacar@gmail.com">casaarbolplayacar@gmail.com</a>
+        <button type="button" class="f-broker" onclick="openBrokerModal()" data-i18n="footer.broker">Register Your Client</button>
       </div>
-      <button type="button" class="f-broker" onclick="openBrokerModal()" data-i18n="footer.broker">Register Your Client</button>
     </div>
     <div class="f-col">
       <div class="f-head" data-i18n="footer.follow">Follow</div>
@@ -1469,8 +1476,13 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
         <div class="br-fld"><label for="brBrokerPhone" data-i18n="br.broker.phone">Your Phone<span class="req" aria-hidden="true">*</span></label><input id="brBrokerPhone" type="tel" required autocomplete="tel"></div>
         <div class="br-fld"><label for="brBrokerAgency" data-i18n="br.broker.agency">Agency (optional)</label><input id="brBrokerAgency" type="text" autocomplete="organization"></div>
         <div class="br-fld"><label for="brBrokerLicense" data-i18n="br.broker.license">License Number (optional)</label><input id="brBrokerLicense" type="text" autocomplete="off"></div>
+        <p class="br-privacy" data-i18n="br.privacy">Client details are stored securely and used solely for commission protection purposes. Last 4 digits of phone are collected for identity verification only.</p>
+        <div class="br-consent">
+          <input type="checkbox" id="brConsent" required>
+          <label for="brConsent" data-i18n="br.consent">I confirm I represent this client and agree to Weber-Burić commission terms for co-brokerage.</label>
+        </div>
         <div class="br-err" id="brErr" role="alert"></div>
-        <button class="br-sbt" id="brSbt" type="submit" data-i18n="br.submit">Submit Referral</button>
+        <button class="br-sbt" id="brSbt" type="submit" data-i18n="br.submit" disabled>Submit Referral</button>
       </form>
     </div>
     <div class="br-ok" id="brOk" aria-live="polite">
@@ -1844,6 +1856,9 @@ var LANG = {
     'br.err.phone4':        'Please enter exactly 4 digits.',
     'br.err.email':         'Please enter a valid email address.',
     'br.err.generic':       'Something went wrong. Please try again or contact us directly at casaarbolplayacar@gmail.com.',
+    'br.err.consent':       'Please confirm the commission terms to continue.',
+    'br.privacy':           'Client details are stored securely and used solely for commission protection purposes. Last 4 digits of phone are collected for identity verification only.',
+    'br.consent':           'I confirm I represent this client and agree to Weber-Burić commission terms for co-brokerage.',
   },
 
   es: {
@@ -2156,6 +2171,9 @@ var LANG = {
     'br.err.phone4':        'Por favor ingrese exactamente 4 dígitos.',
     'br.err.email':         'Por favor ingrese un correo válido.',
     'br.err.generic':       'Algo salió mal. Intente de nuevo o contáctenos directamente en casaarbolplayacar@gmail.com.',
+    'br.err.consent':       'Por favor confirme los términos de comisión para continuar.',
+    'br.privacy':           'Los datos del cliente se almacenan de forma segura y se utilizan únicamente para fines de protección de comisión. Los últimos 4 dígitos del teléfono se recopilan solo para verificación de identidad.',
+    'br.consent':           'Confirmo que represento a este cliente y acepto los términos de comisión de Weber-Burić para co-corretaje.',
   },
 
   fr: {
@@ -2469,6 +2487,9 @@ var LANG = {
     'br.err.phone4':        'Veuillez entrer exactement 4 chiffres.',
     'br.err.email':         'Veuillez entrer un email valide.',
     'br.err.generic':       "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement à casaarbolplayacar@gmail.com.",
+    'br.err.consent':       'Veuillez confirmer les conditions de commission pour continuer.',
+    'br.privacy':           "Les coordonnées du client sont stockées de manière sécurisée et utilisées uniquement à des fins de protection de la commission. Les 4 derniers chiffres du téléphone sont collectés uniquement pour vérification d'identité.",
+    'br.consent':           "Je confirme représenter ce client et j'accepte les conditions de commission Weber-Burić pour le co-courtage.",
   }
 };
 
@@ -2867,6 +2888,9 @@ var LANG = {
     'br.err.phone4':        'Please enter exactly 4 digits.',
     'br.err.email':         'Please enter a valid email address.',
     'br.err.generic':       'Something went wrong. Please try again or contact us directly at casaarbolplayacar@gmail.com.',
+    'br.err.consent':       'Please confirm the commission terms to continue.',
+    'br.privacy':           'Client details are stored securely and used solely for commission protection purposes. Last 4 digits of phone are collected for identity verification only.',
+    'br.consent':           'I confirm I represent this client and agree to Weber-Burić commission terms for co-brokerage.',
   },
 
   es: {
@@ -3179,6 +3203,9 @@ var LANG = {
     'br.err.phone4':        'Por favor ingrese exactamente 4 dígitos.',
     'br.err.email':         'Por favor ingrese un correo válido.',
     'br.err.generic':       'Algo salió mal. Intente de nuevo o contáctenos directamente en casaarbolplayacar@gmail.com.',
+    'br.err.consent':       'Por favor confirme los términos de comisión para continuar.',
+    'br.privacy':           'Los datos del cliente se almacenan de forma segura y se utilizan únicamente para fines de protección de comisión. Los últimos 4 dígitos del teléfono se recopilan solo para verificación de identidad.',
+    'br.consent':           'Confirmo que represento a este cliente y acepto los términos de comisión de Weber-Burić para co-corretaje.',
   },
 
   fr: {
@@ -3492,6 +3519,9 @@ var LANG = {
     'br.err.phone4':        'Veuillez entrer exactement 4 chiffres.',
     'br.err.email':         'Veuillez entrer un email valide.',
     'br.err.generic':       "Une erreur s'est produite. Veuillez réessayer ou nous contacter directement à casaarbolplayacar@gmail.com.",
+    'br.err.consent':       'Veuillez confirmer les conditions de commission pour continuer.',
+    'br.privacy':           "Les coordonnées du client sont stockées de manière sécurisée et utilisées uniquement à des fins de protection de la commission. Les 4 derniers chiffres du téléphone sont collectés uniquement pour vérification d'identité.",
+    'br.consent':           "Je confirme représenter ce client et j'accepte les conditions de commission Weber-Burić pour le co-courtage.",
   }
 };
 
@@ -3898,9 +3928,13 @@ window.openBrokerModal = function(){
   var form = document.getElementById('brForm');
   var ok = document.getElementById('brOk');
   var err = document.getElementById('brErr');
+  var consent = document.getElementById('brConsent');
+  var submit = document.getElementById('brSbt');
   if(form) form.style.display = '';
   if(ok) ok.classList.remove('on');
   if(err){ err.classList.remove('on'); err.textContent=''; }
+  if(consent) consent.checked = false;
+  if(submit) submit.disabled = true;
   ov.classList.add('on');
   ov.setAttribute('aria-hidden','false');
   document.body.classList.add('nav-open'); // reuses existing scroll-lock style
@@ -3924,6 +3958,12 @@ window.closeBrokerModal = function(){
   var ov = document.getElementById('brOv');
   if(!ov) return;
   ov.addEventListener('click', function(e){ if(e.target === ov) window.closeBrokerModal(); });
+  // Consent checkbox gates the submit button
+  var consent = document.getElementById('brConsent');
+  var submit  = document.getElementById('brSbt');
+  if(consent && submit){
+    consent.addEventListener('change', function(){ submit.disabled = !this.checked; });
+  }
   document.addEventListener('keydown', function(e){
     if(!ov.classList.contains('on')) return;
     if(e.key === 'Escape'){ window.closeBrokerModal(); return; }
@@ -3961,6 +4001,8 @@ window.submitBrokerReferral = function(){
   for(var i=0;i<req.length;i++){ if(!data[req[i]]){ showErr('br.err.required'); return; } }
   if(!/^[0-9]{4}$/.test(data.client_phone_last4)){ showErr('br.err.phone4'); return; }
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.broker_email)){ showErr('br.err.email'); return; }
+  var consentEl = document.getElementById('brConsent');
+  if(!consentEl || !consentEl.checked){ showErr('br.err.consent'); return; }
 
   var subject = 'New Broker Referral — ' + data.client_name;
   data.subject  = subject;
