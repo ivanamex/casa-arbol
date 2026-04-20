@@ -797,17 +797,19 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 .br-cl:hover{opacity:1}
 .br-cl svg{width:22px;height:22px;stroke-width:1.4}
 .br-m h3{font-family:'Fraunces',serif;font-weight:300;font-size:1.55rem;color:var(--ink);margin:0 0 6px;letter-spacing:-.005em}
-.br-sub{font-size:.78rem;line-height:1.45;color:var(--ink2);opacity:.75;margin:0 0 14px}
+.br-sub{font-size:.85rem;line-height:1.5;color:var(--ink2);opacity:.7;margin:0 0 14px}
 .br-div{height:1px;background:linear-gradient(to right,transparent,rgba(160,120,64,.5),transparent);margin:0}
-.br-sec{font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:16px 0 8px;font-weight:500}
-.br-f{display:flex;flex-direction:column;gap:10px}
-.br-fld{display:flex;flex-direction:column;gap:4px}
-.br-fld label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);opacity:.85}
+.br-sec{font-family:'Plus Jakarta Sans',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:16px 0 8px;font-weight:500;display:flex;align-items:center;gap:10px}
+.br-sec::before{content:'';flex:0 0 18px;height:1px;background:rgba(160,120,64,.45)}
+.br-f{display:flex;flex-direction:column;gap:14px}
+.br-fld{display:flex;flex-direction:column;gap:7px}
+.br-fld label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);opacity:.72}
 .br-fld .req{color:var(--gold);margin-left:2px;opacity:.9}
-.br-f input,.br-f select{font-family:'Plus Jakarta Sans',sans-serif;font-size:.88rem;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(28,23,18,.2);padding:8px 0;outline:none;transition:border-color .25s;border-radius:0;-webkit-appearance:none;appearance:none}
-.br-f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 14px) 16px,calc(100% - 9px) 16px;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
+.br-f input,.br-f select{font-family:inherit;font-size:.95rem;color:var(--ink);background:transparent;border:none;border-bottom:1px solid rgba(28,23,18,.25);padding:2px 0 10px;outline:none;transition:border-color 200ms ease,border-bottom-width 200ms ease;border-radius:0;-webkit-appearance:none;appearance:none}
+.br-f input::placeholder,.br-f select::placeholder{color:var(--ink);opacity:.4}
+.br-f select{background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 14px) 15px,calc(100% - 9px) 15px;background-size:5px 5px;background-repeat:no-repeat;padding-right:28px}
 /* Privacy notice + consent checkbox */
-.br-privacy{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;line-height:1.4;color:var(--ink2);opacity:.6;font-style:italic;margin:14px 0 0}
+.br-privacy{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;line-height:1.5;color:var(--ink2);opacity:.6;font-style:italic;margin:14px 0 0}
 .br-consent{display:flex;align-items:flex-start;gap:10px;margin-top:12px}
 .br-consent input[type=checkbox]{appearance:none;-webkit-appearance:none;width:18px;height:18px;border:1.5px solid rgba(28,23,18,.3);border-radius:2px;background:transparent;cursor:pointer;position:relative;flex-shrink:0;margin:2px 0 0;transition:border-color .2s ease,background .2s ease}
 .br-consent input[type=checkbox]:hover{border-color:var(--gold-lt)}
@@ -815,12 +817,12 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 .br-consent input[type=checkbox]:checked{background:var(--gold-lt);border-color:var(--gold-lt)}
 .br-consent input[type=checkbox]:checked::after{content:'';position:absolute;left:5px;top:1px;width:5px;height:10px;border:solid var(--white);border-width:0 1.5px 1.5px 0;transform:rotate(45deg)}
 .br-consent label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;line-height:1.4;color:var(--ink2);opacity:.85;cursor:pointer;letter-spacing:0;text-transform:none}
-.br-f input:focus,.br-f select:focus{border-bottom-color:var(--gold)}
+.br-f input:focus,.br-f select:focus{border-bottom-color:var(--gold);border-bottom-width:1.5px;padding-bottom:9.5px}
 .br-help{font-size:.62rem;color:var(--ink2);opacity:.55;font-style:italic;margin-top:2px}
 .br-err{color:#a03030;font-size:.72rem;margin-top:10px;line-height:1.4;display:none}
 .br-err.on{display:block}
-.br-sbt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;background:var(--gold);color:var(--white);border:none;padding:14px 24px;cursor:pointer;width:100%;margin-top:16px;transition:background 300ms ease,transform 300ms ease,opacity 300ms ease}
-.br-sbt:hover{background:var(--warm);transform:translateY(-1px)}
+.br-sbt{font-family:'Plus Jakarta Sans',sans-serif;font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;background:var(--gold);color:var(--ink);border:none;padding:16px;cursor:pointer;width:100%;margin-top:16px;transition:background 300ms ease,color 300ms ease,opacity 300ms ease}
+.br-sbt:hover{background:var(--gold-lt)}
 .br-sbt:disabled{opacity:.4;cursor:not-allowed}
 .br-ok{display:none;text-align:center;padding:32px 0}
 .br-ok.on{display:block}
