@@ -912,10 +912,17 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 /* WhatsApp phone number — keep on single line; allow "WhatsApp:" label to wrap if ever needed */
 .f-wa-num{white-space:nowrap;letter-spacing:-.005em}
 /* Brokers Portal chooser — content inside the existing .br-ov/.br-m modal shell (no new modal system) */
+#brokers-portal-modal .modal::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--gold) 50%,transparent 100%);opacity:.5}
+#brokers-portal-modal .bpm-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+#brokers-portal-modal .bpm-logo{width:28px;height:28px;opacity:.8;flex:0 0 28px;vertical-align:middle}
+#brokers-portal-modal .bpm-head h3{margin:0}
 #brokers-portal-modal .modal-sub{margin-bottom:20px}
 .bpm-opts{display:flex;flex-direction:column;gap:12px;margin:18px 0 4px}
-.bpm-opt{display:block;text-align:left;background:none;border:1px solid rgba(184,150,90,.35);padding:18px 20px;color:var(--ink);text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:border-color .3s ease,background .3s ease,transform .3s ease;width:100%}
-.bpm-opt:hover{border-color:#b8965a;background:rgba(184,150,90,.06);transform:translateY(-1px)}
+.bpm-opt{display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:1px solid rgba(184,150,90,.35);padding:18px 20px;color:var(--ink);text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:border-color .3s ease,background .3s ease,transform .3s ease,box-shadow .3s ease;width:100%}
+.bpm-opt:hover{border-color:#b8965a;background:rgba(184,150,90,.08);transform:translateY(-1px);box-shadow:inset 3px 0 0 var(--gold),0 0 24px rgba(184,150,90,.08)}
+.bpm-opt-txt{flex:1 1 auto;min-width:0}
+.bpm-opt-ic{flex:0 0 44px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(184,150,90,.35);display:flex;align-items:center;justify-content:center;color:#b8965a;transition:border-color .3s ease,background .3s ease}
+.bpm-opt:hover .bpm-opt-ic{border-color:#b8965a;background:rgba(184,150,90,.08)}
 .bpm-opt-t{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#b8965a;margin-bottom:6px}
 .bpm-opt-s{font-size:.78rem;font-weight:300;color:var(--ink2);opacity:.75;line-height:1.4;font-style:italic}
 .bpm-share{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:8px}
@@ -1612,19 +1619,31 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
     <button class="br-cl" type="button" onclick="closeBrokersPortal()" aria-label="Close" data-i18n-aria="br.close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
     </button>
-    <h3 id="bpmTitle" data-i18n="portal.title">BROKERS PORTAL</h3>
+    <div class="bpm-head">
+      <img class="bpm-logo" src="/images/casa-arbol-logo/casa-arbol-mark.png" alt="" loading="lazy" decoding="async">
+      <h3 id="bpmTitle" data-i18n="portal.title">BROKERS PORTAL</h3>
+    </div>
     <div class="modal-sub" data-i18n="portal.subtitle">Welcome. Choose how you'd like to proceed.</div>
     <div class="bpm-opts">
       <button type="button" class="bpm-opt" onclick="bpmGoRegister()">
-        <div class="bpm-opt-t" data-i18n="portal.register">REGISTER YOUR CLIENT</div>
-        <div class="bpm-opt-s" data-i18n="portal.register_sub">Protect your commission</div>
+        <div class="bpm-opt-txt">
+          <div class="bpm-opt-t" data-i18n="portal.register">REGISTER YOUR CLIENT</div>
+          <div class="bpm-opt-s" data-i18n="portal.register_sub">Protect your commission</div>
+        </div>
+        <span class="bpm-opt-ic" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg>
+        </span>
       </button>
       <a class="bpm-opt" href="https://wa.me/529841803527?text=Hi%2C%20I%27m%20a%20broker%20interested%20in%20Casa%20%C3%81rbol.%20Please%20send%20me%20the%20drive%20access." target="_blank" rel="noopener" onclick="closeBrokersPortal()">
-        <div class="bpm-opt-t" data-i18n="portal.drive">REQUEST DRIVE ACCESS</div>
-        <div class="bpm-opt-s" data-i18n="portal.drive_sub">Full marketing package via WhatsApp</div>
+        <div class="bpm-opt-txt">
+          <div class="bpm-opt-t" data-i18n="portal.drive">REQUEST DRIVE ACCESS</div>
+          <div class="bpm-opt-s" data-i18n="portal.drive_sub">Full marketing package via WhatsApp</div>
+        </div>
+        <span class="bpm-opt-ic" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </span>
       </a>
     </div>
-    <div class="br-div"></div>
     <div class="bpm-share">
       <span class="bpm-share-l" data-i18n="portal.share">SHARE THIS PORTAL:</span>
       <button type="button" class="bpm-copy" id="bpmCopy" onclick="bpmCopyLink(this)">
