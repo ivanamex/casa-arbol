@@ -743,8 +743,6 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
 .f-col{display:flex;flex-direction:column;gap:14px}
 .f-logo{height:38px;object-fit:contain;align-self:flex-start}
 .f-tagline{font-family:'Fraunces',serif;font-style:italic;font-size:.95rem;font-weight:300;color:rgba(253,250,246,.55);line-height:1.55;max-width:260px}
-.footer-mark{display:block;width:70px;height:auto;margin-top:12px;opacity:.35;filter:drop-shadow(1px 1px 0 rgba(255,255,255,.06)) drop-shadow(-1px -1px 0 rgba(0,0,0,.6))}
-@media(max-width:768px){.footer-mark{width:60px}}
 .f-head{font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-lt);font-weight:500;margin-bottom:4px;font-variant:small-caps}
 .f-links{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
 .f-links a{font-size:.72rem;color:rgba(253,250,246,.55);text-decoration:none;letter-spacing:.04em;transition:color .3s ease,transform .3s ease;display:inline-flex;align-items:center;gap:6px}
@@ -1482,7 +1480,6 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
     <div class="f-col">
       <img class="f-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Ctext x='0' y='28' font-family='Georgia,serif' font-size='22' fill='%23C9A46A' font-style='italic'%3ECasa %C3%81rbol%3C/text%3E%3C/svg%3E" alt="Casa Árbol" />
       <p class="f-tagline" data-i18n="footer.tagline">Where memories are made.</p>
-      <img src="/images/casa-arbol-logo/casa-arbol-mark.png" alt="" aria-hidden="true" class="footer-mark" loading="lazy" decoding="async">
     </div>
     <div class="f-col">
       <div class="f-head" data-i18n="footer.contact">Contact</div>
@@ -1524,6 +1521,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
     </div>
   </div>
   <div class="f-bottom">
+    <div style="width:100%;text-align:center"><img src="/images/casa-arbol-logo/casa-arbol-mark.png" alt="Casa Árbol" style="display:inline-block;width:32px;height:32px;opacity:0.4;margin-bottom:8px" loading="lazy" decoding="async"></div>
     <div class="f-bottom-l"><span data-i18n="footer.sale">By Private Sale Only</span> · © <span id="fYear">2026</span> Casa Árbol</div>
   </div>
 </footer>
