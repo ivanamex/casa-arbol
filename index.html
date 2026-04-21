@@ -921,7 +921,8 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 .bpm-opt{display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;background:none;border:1px solid rgba(184,150,90,.35);padding:18px 20px;color:var(--ink);text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:border-color .3s ease,background .3s ease,transform .3s ease,box-shadow .3s ease;width:100%}
 .bpm-opt:hover{border-color:#b8965a;background:rgba(184,150,90,.08);transform:translateY(-1px);box-shadow:inset 3px 0 0 var(--gold),0 0 24px rgba(184,150,90,.08)}
 .bpm-opt-txt{flex:1 1 auto;min-width:0}
-.bpm-opt-ic{flex:0 0 44px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(184,150,90,.35);display:flex;align-items:center;justify-content:center;color:#b8965a;transition:border-color .3s ease,background .3s ease}
+.bpm-opt-ic{flex:0 0 44px;flex-shrink:0;width:44px;height:44px;min-width:44px;min-height:44px;border-radius:50%;border:1px solid rgba(184,150,90,.35);display:inline-flex;align-items:center;justify-content:center;color:var(--gold);transition:border-color .3s ease,background .3s ease}
+.bpm-opt-ic svg{flex-shrink:0;width:18px;height:18px;color:var(--gold);stroke:currentColor}
 .bpm-opt:hover .bpm-opt-ic{border-color:#b8965a;background:rgba(184,150,90,.08)}
 .bpm-opt-t{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#b8965a;margin-bottom:6px}
 .bpm-opt-s{font-size:.78rem;font-weight:300;color:var(--ink2);opacity:.75;line-height:1.4;font-style:italic}
