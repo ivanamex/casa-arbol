@@ -911,26 +911,19 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
 .br-copy-toast.on{opacity:.85}
 /* WhatsApp phone number — keep on single line; allow "WhatsApp:" label to wrap if ever needed */
 .f-wa-num{white-space:nowrap;letter-spacing:-.005em}
-/* Brokers Portal modal — hub with two action cards + shareable link. Namespaced .bp-* to avoid collision with .br-* broker referral modal */
-.bp-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);z-index:320;align-items:center;justify-content:center;padding:20px}
-.bp-ov.on{display:flex}
-.bp-m{background:var(--ink);color:var(--white);max-width:480px;width:100%;padding:40px;position:relative;border:1px solid rgba(184,150,90,.3);box-shadow:0 20px 60px rgba(0,0,0,.5);animation:brFade .3s ease-out;max-height:92svh;overflow-y:auto}
-.bp-cl{position:absolute;top:10px;right:10px;background:none;border:none;color:rgba(253,250,246,.55);cursor:pointer;width:44px;height:44px;font-size:1.6rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:color .3s;padding:0}
-.bp-cl:hover{color:var(--gold-lt)}
-.bp-m h3{font-family:'Fraunces',serif;font-optical-sizing:auto;font-weight:200;font-size:1.8rem;color:var(--white);margin:0 0 6px;letter-spacing:.02em}
-.bp-sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:.82rem;line-height:1.5;color:rgba(253,250,246,.6);margin:0 0 22px;font-style:italic}
-.bp-cards{display:flex;flex-direction:column;gap:12px}
-.bp-card{display:block;text-align:left;background:none;border:1px solid rgba(184,150,90,.3);padding:20px;color:var(--white);text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:border-color .3s ease,background .3s ease,transform .3s ease;width:100%}
-.bp-card:hover{border-color:var(--gold-lt);background:rgba(201,164,106,.06);transform:translateY(-1px)}
-.bp-card-t{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:6px}
-.bp-card-s{font-size:.78rem;font-weight:300;color:rgba(253,250,246,.65);line-height:1.4;font-style:italic}
-.bp-divider{height:1px;background:linear-gradient(to right,transparent,rgba(160,120,64,.4),transparent);margin:22px 0 16px}
-.bp-share{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.bp-share-l{font-family:'Plus Jakarta Sans',sans-serif;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(253,250,246,.5)}
-.bp-copy{background:none;border:1px solid rgba(160,120,64,.4);color:rgba(253,250,246,.75);font-family:'Plus Jakarta Sans',sans-serif;font-size:.68rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px}
-.bp-copy:hover{color:var(--gold-lt);border-color:rgba(201,164,106,.6)}
-.bp-copy svg{width:13px;height:13px;stroke-width:1.6}
-.bp-copy.done{color:var(--gold);border-color:var(--gold)}
+/* Brokers Portal chooser — content inside the existing .br-ov/.br-m modal shell (no new modal system) */
+#brokers-portal-modal .modal-sub{margin-bottom:20px}
+.bpm-opts{display:flex;flex-direction:column;gap:12px;margin:18px 0 4px}
+.bpm-opt{display:block;text-align:left;background:none;border:1px solid rgba(184,150,90,.35);padding:18px 20px;color:var(--ink);text-decoration:none;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:border-color .3s ease,background .3s ease,transform .3s ease;width:100%}
+.bpm-opt:hover{border-color:#b8965a;background:rgba(184,150,90,.06);transform:translateY(-1px)}
+.bpm-opt-t{font-size:.78rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#b8965a;margin-bottom:6px}
+.bpm-opt-s{font-size:.78rem;font-weight:300;color:var(--ink2);opacity:.75;line-height:1.4;font-style:italic}
+.bpm-share{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:8px}
+.bpm-share-l{font-family:'Plus Jakarta Sans',sans-serif;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink2);opacity:.65}
+.bpm-copy{background:none;border:1px solid rgba(184,150,90,.4);color:var(--ink2);font-family:'Plus Jakarta Sans',sans-serif;font-size:.64rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;padding:8px 14px;cursor:pointer;transition:all .3s ease;display:inline-flex;align-items:center;gap:8px}
+.bpm-copy:hover{color:#b8965a;border-color:#b8965a}
+.bpm-copy svg{width:12px;height:12px;stroke-width:1.6}
+.bpm-copy.done{color:var(--gold);border-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -1514,8 +1507,7 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
       <div class="f-contact f-emails">
         <a href="mailto:weber.buric@gmail.com">weber.buric@gmail.com</a>
         <a href="mailto:casaarbolplayacar@gmail.com">casaarbolplayacar@gmail.com</a>
-        <a class="f-broker" href="https://wa.me/529841803527?text=Hi%2C%20I%27m%20a%20broker%20interested%20in%20Casa%20%C3%81rbol.%20Please%20send%20me%20the%20drive%20access." target="_blank" rel="noopener" data-i18n="footer.brokers_portal">BROKERS PORTAL</a>
-        <a href="#" onclick="event.preventDefault();openBrokerModal();" data-i18n="footer.register_link" style="font-size:.64rem;letter-spacing:.04em;text-decoration:underline;margin-top:-2px;align-self:flex-start">Register your client</a>
+        <button type="button" class="f-broker" onclick="openBrokersPortal()" data-i18n="footer.brokers_portal">BROKERS PORTAL</button>
       </div>
     </div>
     <div class="f-col">
@@ -1614,28 +1606,30 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(201,164,106
   </div>
 </div>
 
-<!-- BROKERS PORTAL MODAL -->
-<div class="bp-ov" id="bpOv" role="dialog" aria-modal="true" aria-labelledby="bpTitle" aria-hidden="true">
-  <div class="bp-m" id="bpM">
-    <button class="bp-cl" type="button" onclick="closeBrokersPortal()" aria-label="Close" data-i18n-aria="br.close">×</button>
-    <h3 id="bpTitle" data-i18n="brokers.title">BROKERS PORTAL</h3>
-    <div class="bp-sub" data-i18n="brokers.subtitle">Welcome. Choose how you'd like to proceed.</div>
-    <div class="bp-cards">
-      <button type="button" class="bp-card" onclick="bpGoRegister()">
-        <div class="bp-card-t" data-i18n="brokers.register">REGISTER YOUR CLIENT</div>
-        <div class="bp-card-s" data-i18n="brokers.register_sub">Protect your commission</div>
+<!-- BROKERS PORTAL CHOOSER MODAL — reuses .br-ov/.br-m/.modal/.br-cl from the Register Your Client modal system -->
+<div class="br-ov" id="brokers-portal-modal" role="dialog" aria-modal="true" aria-labelledby="bpmTitle" aria-hidden="true">
+  <div class="br-m modal">
+    <button class="br-cl" type="button" onclick="closeBrokersPortal()" aria-label="Close" data-i18n-aria="br.close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <h3 id="bpmTitle" data-i18n="portal.title">BROKERS PORTAL</h3>
+    <div class="modal-sub" data-i18n="portal.subtitle">Welcome. Choose how you'd like to proceed.</div>
+    <div class="bpm-opts">
+      <button type="button" class="bpm-opt" onclick="bpmGoRegister()">
+        <div class="bpm-opt-t" data-i18n="portal.register">REGISTER YOUR CLIENT</div>
+        <div class="bpm-opt-s" data-i18n="portal.register_sub">Protect your commission</div>
       </button>
-      <a class="bp-card" href="https://wa.me/529841803527?text=Hi%2C%20I%27m%20a%20broker%20interested%20in%20Casa%20%C3%81rbol.%20Please%20send%20me%20the%20drive%20access." target="_blank" rel="noopener" onclick="closeBrokersPortal()">
-        <div class="bp-card-t" data-i18n="brokers.drive">REQUEST DRIVE ACCESS</div>
-        <div class="bp-card-s" data-i18n="brokers.drive_sub">Full marketing package via WhatsApp</div>
+      <a class="bpm-opt" href="https://wa.me/529841803527?text=Hi%2C%20I%27m%20a%20broker%20interested%20in%20Casa%20%C3%81rbol.%20Please%20send%20me%20the%20drive%20access." target="_blank" rel="noopener" onclick="closeBrokersPortal()">
+        <div class="bpm-opt-t" data-i18n="portal.drive">REQUEST DRIVE ACCESS</div>
+        <div class="bpm-opt-s" data-i18n="portal.drive_sub">Full marketing package via WhatsApp</div>
       </a>
     </div>
-    <div class="bp-divider"></div>
-    <div class="bp-share">
-      <span class="bp-share-l" data-i18n="brokers.share">Share this portal:</span>
-      <button type="button" class="bp-copy" id="bpCopy" onclick="bpCopyPortalLink(this)">
+    <div class="br-div"></div>
+    <div class="bpm-share">
+      <span class="bpm-share-l" data-i18n="portal.share">SHARE THIS PORTAL:</span>
+      <button type="button" class="bpm-copy" id="bpmCopy" onclick="bpmCopyLink(this)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-        <span class="bp-copy-t" data-i18n="brokers.copy">COPY LINK</span>
+        <span class="bpm-copy-t" data-i18n="portal.copy">COPY LINK</span>
       </button>
     </div>
   </div>
@@ -1994,16 +1988,15 @@ var LANG = {
     'footer.made':   'Crafted at the edge of the Caribbean',
     'footer.broker': 'Register Your Client',
     'footer.brokers_portal': 'BROKERS PORTAL',
-    'footer.register_link':  'Register your client',
-    'brokers.title':        'BROKERS PORTAL',
-    'brokers.subtitle':     "Welcome. Choose how you'd like to proceed.",
-    'brokers.register':     'REGISTER YOUR CLIENT',
-    'brokers.register_sub': 'Protect your commission',
-    'brokers.drive':        'REQUEST DRIVE ACCESS',
-    'brokers.drive_sub':    'Full marketing package via WhatsApp',
-    'brokers.share':        'Share this portal:',
-    'brokers.copy':         'COPY LINK',
-    'brokers.copied':       'COPIED ✓',
+    'portal.title':         'BROKERS PORTAL',
+    'portal.subtitle':      "Welcome. Choose how you'd like to proceed.",
+    'portal.register':      'REGISTER YOUR CLIENT',
+    'portal.register_sub':  'Protect your commission',
+    'portal.drive':         'REQUEST DRIVE ACCESS',
+    'portal.drive_sub':     'Full marketing package via WhatsApp',
+    'portal.share':         'SHARE THIS PORTAL:',
+    'portal.copy':          'COPY LINK',
+    'portal.copied':        'COPIED',
     'br.title':      'Register Your Client',
     'br.sub':        "For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.",
     'br.close':      'Close',
@@ -2336,16 +2329,15 @@ var LANG = {
     'footer.made':   'Creada al borde del Caribe',
     'footer.broker': 'Registrar a su Cliente',
     'footer.brokers_portal': 'PORTAL DE BROKERS',
-    'footer.register_link':  'Registra tu cliente',
-    'brokers.title':        'PORTAL DE BROKERS',
-    'brokers.subtitle':     'Bienvenido. Elige cómo deseas continuar.',
-    'brokers.register':     'REGISTRA A TU CLIENTE',
-    'brokers.register_sub': 'Protege tu comisión',
-    'brokers.drive':        'SOLICITAR ACCESO AL DRIVE',
-    'brokers.drive_sub':    'Paquete de marketing completo por WhatsApp',
-    'brokers.share':        'Comparte este portal:',
-    'brokers.copy':         'COPIAR ENLACE',
-    'brokers.copied':       'COPIADO ✓',
+    'portal.title':         'PORTAL DE BROKERS',
+    'portal.subtitle':      'Bienvenido. Elige cómo deseas continuar.',
+    'portal.register':      'REGISTRAR TU CLIENTE',
+    'portal.register_sub':  'Protege tu comisión',
+    'portal.drive':         'SOLICITAR ACCESO AL DRIVE',
+    'portal.drive_sub':     'Paquete completo de marketing por WhatsApp',
+    'portal.share':         'COMPARTIR ESTE PORTAL:',
+    'portal.copy':          'COPIAR ENLACE',
+    'portal.copied':        'COPIADO',
     'br.title':      'Registrar a su Cliente',
     'br.sub':        'Para profesionales inmobiliarios que presentan un comprador calificado a Casa Árbol. Su referencia está protegida.',
     'br.close':      'Cerrar',
@@ -2679,16 +2671,15 @@ var LANG = {
     'footer.made':   'Façonnée aux portes des Caraïbes',
     'footer.broker': 'Enregistrer votre Client',
     'footer.brokers_portal': 'PORTAIL COURTIERS',
-    'footer.register_link':  'Enregistrer votre client',
-    'brokers.title':        'PORTAIL COURTIERS',
-    'brokers.subtitle':     'Bienvenue. Choisissez comment vous souhaitez procéder.',
-    'brokers.register':     'ENREGISTRER VOTRE CLIENT',
-    'brokers.register_sub': 'Protégez votre commission',
-    'brokers.drive':        "DEMANDER L'ACCÈS AU DRIVE",
-    'brokers.drive_sub':    'Pack marketing complet par WhatsApp',
-    'brokers.share':        'Partagez ce portail :',
-    'brokers.copy':         'COPIER LE LIEN',
-    'brokers.copied':       'COPIÉ ✓',
+    'portal.title':         'PORTAIL COURTIERS',
+    'portal.subtitle':      'Bienvenue. Choisissez comment vous souhaitez procéder.',
+    'portal.register':      'ENREGISTRER VOTRE CLIENT',
+    'portal.register_sub':  'Protégez votre commission',
+    'portal.drive':         "DEMANDER L'ACCÈS AU DRIVE",
+    'portal.drive_sub':     'Package marketing complet via WhatsApp',
+    'portal.share':         'PARTAGER CE PORTAIL :',
+    'portal.copy':          'COPIER LE LIEN',
+    'portal.copied':        'COPIÉ',
     'br.title':      'Enregistrer votre Client',
     'br.sub':        "Pour les professionnels de l'immobilier présentant un acheteur qualifié à Casa Árbol. Votre référence est protégée.",
     'br.close':      'Fermer',
@@ -3121,16 +3112,15 @@ var LANG = {
     'footer.made':   'Crafted at the edge of the Caribbean',
     'footer.broker': 'Register Your Client',
     'footer.brokers_portal': 'BROKERS PORTAL',
-    'footer.register_link':  'Register your client',
-    'brokers.title':        'BROKERS PORTAL',
-    'brokers.subtitle':     "Welcome. Choose how you'd like to proceed.",
-    'brokers.register':     'REGISTER YOUR CLIENT',
-    'brokers.register_sub': 'Protect your commission',
-    'brokers.drive':        'REQUEST DRIVE ACCESS',
-    'brokers.drive_sub':    'Full marketing package via WhatsApp',
-    'brokers.share':        'Share this portal:',
-    'brokers.copy':         'COPY LINK',
-    'brokers.copied':       'COPIED ✓',
+    'portal.title':         'BROKERS PORTAL',
+    'portal.subtitle':      "Welcome. Choose how you'd like to proceed.",
+    'portal.register':      'REGISTER YOUR CLIENT',
+    'portal.register_sub':  'Protect your commission',
+    'portal.drive':         'REQUEST DRIVE ACCESS',
+    'portal.drive_sub':     'Full marketing package via WhatsApp',
+    'portal.share':         'SHARE THIS PORTAL:',
+    'portal.copy':          'COPY LINK',
+    'portal.copied':        'COPIED',
     'br.title':      'Register Your Client',
     'br.sub':        "For licensed real estate professionals introducing a qualified buyer to Casa Árbol. Your referral is protected.",
     'br.close':      'Close',
@@ -3463,16 +3453,15 @@ var LANG = {
     'footer.made':   'Creada al borde del Caribe',
     'footer.broker': 'Registrar a su Cliente',
     'footer.brokers_portal': 'PORTAL DE BROKERS',
-    'footer.register_link':  'Registra tu cliente',
-    'brokers.title':        'PORTAL DE BROKERS',
-    'brokers.subtitle':     'Bienvenido. Elige cómo deseas continuar.',
-    'brokers.register':     'REGISTRA A TU CLIENTE',
-    'brokers.register_sub': 'Protege tu comisión',
-    'brokers.drive':        'SOLICITAR ACCESO AL DRIVE',
-    'brokers.drive_sub':    'Paquete de marketing completo por WhatsApp',
-    'brokers.share':        'Comparte este portal:',
-    'brokers.copy':         'COPIAR ENLACE',
-    'brokers.copied':       'COPIADO ✓',
+    'portal.title':         'PORTAL DE BROKERS',
+    'portal.subtitle':      'Bienvenido. Elige cómo deseas continuar.',
+    'portal.register':      'REGISTRAR TU CLIENTE',
+    'portal.register_sub':  'Protege tu comisión',
+    'portal.drive':         'SOLICITAR ACCESO AL DRIVE',
+    'portal.drive_sub':     'Paquete completo de marketing por WhatsApp',
+    'portal.share':         'COMPARTIR ESTE PORTAL:',
+    'portal.copy':          'COPIAR ENLACE',
+    'portal.copied':        'COPIADO',
     'br.title':      'Registrar a su Cliente',
     'br.sub':        'Para profesionales inmobiliarios que presentan un comprador calificado a Casa Árbol. Su referencia está protegida.',
     'br.close':      'Cerrar',
@@ -3806,16 +3795,15 @@ var LANG = {
     'footer.made':   'Façonnée aux portes des Caraïbes',
     'footer.broker': 'Enregistrer votre Client',
     'footer.brokers_portal': 'PORTAIL COURTIERS',
-    'footer.register_link':  'Enregistrer votre client',
-    'brokers.title':        'PORTAIL COURTIERS',
-    'brokers.subtitle':     'Bienvenue. Choisissez comment vous souhaitez procéder.',
-    'brokers.register':     'ENREGISTRER VOTRE CLIENT',
-    'brokers.register_sub': 'Protégez votre commission',
-    'brokers.drive':        "DEMANDER L'ACCÈS AU DRIVE",
-    'brokers.drive_sub':    'Pack marketing complet par WhatsApp',
-    'brokers.share':        'Partagez ce portail :',
-    'brokers.copy':         'COPIER LE LIEN',
-    'brokers.copied':       'COPIÉ ✓',
+    'portal.title':         'PORTAIL COURTIERS',
+    'portal.subtitle':      'Bienvenue. Choisissez comment vous souhaitez procéder.',
+    'portal.register':      'ENREGISTRER VOTRE CLIENT',
+    'portal.register_sub':  'Protégez votre commission',
+    'portal.drive':         "DEMANDER L'ACCÈS AU DRIVE",
+    'portal.drive_sub':     'Package marketing complet via WhatsApp',
+    'portal.share':         'PARTAGER CE PORTAIL :',
+    'portal.copy':          'COPIER LE LIEN',
+    'portal.copied':        'COPIÉ',
     'br.title':      'Enregistrer votre Client',
     'br.sub':        "Pour les professionnels de l'immobilier présentant un acheteur qualifié à Casa Árbol. Votre référence est protégée.",
     'br.close':      'Fermer',
@@ -4453,50 +4441,43 @@ window.submitBrokerReferral = function(){
   }
 })();
 
-// Brokers Portal modal — hub with two action cards + shareable link. Deep link: #brokers auto-opens.
+// Brokers Portal chooser modal — mirrors openBrokerModal pattern. Deep link: ?portal=brokers auto-opens.
 (function(){
-  var HASH = '#brokers';
-  var ov = document.getElementById('bpOv');
+  var ov = document.getElementById('brokers-portal-modal');
   if(!ov) return;
 
-  window.openBrokersPortal = function(fromHash){
-    if(!fromHash && window.location.hash !== HASH){
-      try{ history.pushState({bpOpen:true}, '', HASH); }catch(e){}
-    }
+  window.openBrokersPortal = function(){
     ov.classList.add('on');
     ov.setAttribute('aria-hidden','false');
     document.body.classList.add('nav-open');
   };
-  window.closeBrokersPortal = function(fromHash){
+  window.closeBrokersPortal = function(){
     ov.classList.remove('on');
     ov.setAttribute('aria-hidden','true');
     var drawer = document.getElementById('navDrawer');
     if(!drawer || !drawer.classList.contains('open')){
       document.body.classList.remove('nav-open');
     }
-    if(!fromHash && window.location.hash === HASH){
-      try{ history.replaceState({}, '', window.location.pathname + window.location.search); }catch(e){}
-    }
   };
-  // Card 1: close portal, open the existing Register Your Client (broker referral) modal
-  window.bpGoRegister = function(){
+  // Option 1: close chooser, then open existing Register Your Client modal
+  window.bpmGoRegister = function(){
     window.closeBrokersPortal();
     if(typeof window.openBrokerModal === 'function'){
       setTimeout(function(){ window.openBrokerModal(); }, 60);
     }
   };
-  window.bpCopyPortalLink = function(btn){
-    var url = 'https://casaarbolplayacar.com/#brokers';
-    var label = btn.querySelector('.bp-copy-t');
+  window.bpmCopyLink = function(btn){
+    var url = 'https://casaarbolplayacar.com/?portal=brokers';
+    var label = btn.querySelector('.bpm-copy-t');
     function showDone(){
       if(!label) return;
-      var original = (typeof t === 'function' ? t('brokers.copy') : 'COPY LINK');
-      label.textContent = (typeof t === 'function' ? t('brokers.copied') : 'COPIED ✓');
+      var original = (typeof t === 'function' ? t('portal.copy') : 'COPY LINK');
+      label.textContent = (typeof t === 'function' ? t('portal.copied') : 'COPIED');
       btn.classList.add('done');
       setTimeout(function(){
         label.textContent = original;
         btn.classList.remove('done');
-      }, 1500);
+      }, 2000);
     }
     function fallback(){ try{ window.prompt('Copy this link:', url); }catch(e){} }
     if(navigator.clipboard && typeof navigator.clipboard.writeText === 'function'){
@@ -4514,18 +4495,17 @@ window.submitBrokerReferral = function(){
     if(e.key === 'Escape'){ window.closeBrokersPortal(); }
   });
 
-  function checkHash(){
-    if(window.location.hash === HASH){
-      if(!ov.classList.contains('on')) window.openBrokersPortal(true);
-    } else {
-      if(ov.classList.contains('on')) window.closeBrokersPortal(true);
-    }
+  // Deep link: ?portal=brokers auto-opens on page load
+  function checkPortalParam(){
+    try{
+      var params = new URLSearchParams(window.location.search);
+      if(params.get('portal') === 'brokers') window.openBrokersPortal();
+    }catch(e){}
   }
-  window.addEventListener('hashchange', checkHash);
   if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', checkHash);
+    document.addEventListener('DOMContentLoaded', checkPortalParam);
   } else {
-    checkHash();
+    checkPortalParam();
   }
 })();
 
