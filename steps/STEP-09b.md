@@ -18,3 +18,8 @@ Between the last cenote beat (OMé Spa) and the Surface heading ("Begin your Cas
 At 1440×900 and 390×844, scrolling slowly from the OMé beat to the enquiry form, no frame shows more than about a third of the screen empty. The cenote still fades to light; nothing else changes.
 
 Also: RUN-ORDER.md's Done list has STEP-06/07/08 written several times — keep one line each.
+
+## Second fix: the vault beat shows the wrong photo
+- The "Vault Brick Ceilings" beat uses room-1-ground-floor, which has no brick vault. Swap it (poster, WebGL texture, fallback) to **room-2-guest-suite-1** — the brick vault fills the top third, so the rising-light shader still lands on the bricks.
+- In the rooms ribbon, room-1-ground-floor's alt text claims a brick vault. Change it to "Ground floor guest bedroom at Casa Árbol — natural textures and garden light".
+- Ivana will add more photos later; keep the image list easy to extend (one array of image names).

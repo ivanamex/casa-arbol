@@ -4,7 +4,7 @@
 - STEP-09 — mobile, fallback, performance, ES/FR QA
 
 ## Next
-- STEP-09b — close the empty gap after the cenote (only this fix)
+- STEP-09b — close the empty gap after the cenote + real brick-vault photo in the vault beat
 
 ## Done
 - STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
