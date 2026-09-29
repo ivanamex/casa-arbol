@@ -1,6 +1,6 @@
 # STEP-10 — The cellar: the wall opens (Ivana, 2026-09-29)
 
-Do after STEP-09b. Photos: `images/wine-wall-on.jpg` is in the repo (2026-09-29). `images/wine-wall-off.jpg` (same frame, light off) is coming from Ivana; until it exists, derive a temporary off state in the shader (darken + cool the on photo) so the motion ships. Make web versions like STEP-02, and grade the photo slightly toward the site (a touch less orange, lighter floor) so it sits with the other renders.
+Do after STEP-09b. Photos: `images/wine-wall-on.jpg` is in the repo (2026-09-29). `images/wine-wall-off.jpg` is in too — same frame, pixel-aligned with the on photo, so the wipe can blend them directly. The off photo is very blue: warm it toward a dusk lilac/earth grey in the shader so it belongs to the palette. Make web versions like STEP-02, and grade the photo slightly toward the site (a touch less orange, lighter floor) so it sits with the other renders.
 
 ## Order
 - Cenote beats become: pool → OMé Spa. Remove the wine beat and the rippling wine window from the cenote (keep its text keys).
