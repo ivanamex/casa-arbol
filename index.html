@@ -369,38 +369,36 @@ html.no-gl .vault-poster{display:block}
 }
 @media(prefers-reduced-motion:reduce){.rib-hd,.rib-caps,.vault,.rib-fallback{transition:none}}
 
-/* FEATURES */
-.features{background:transparent;padding:72px 5vw;position:relative;overflow:hidden}
-.features>.feat-hd,.features>.feat-grid{position:relative;z-index:1}
-/* Ambient gear silhouette — two overlapping gears, muted gold, behind content */
-.feat-gears{position:absolute;top:-80px;left:-150px;width:min(900px,75vw);height:900px;pointer-events:none;z-index:0;color:rgba(154,74,38,.06)}
-.feat-gear{position:absolute;display:block}
-.feat-gear-lg{top:0;left:0;width:700px;height:700px;animation:featGearBreathe 10s ease-in-out infinite alternate;transform-origin:center}
-.feat-gear-sm{top:380px;left:340px;width:400px;height:400px;animation:featGearBreathe 10s ease-in-out infinite alternate -5s;transform-origin:center}
-@keyframes featGearBreathe{0%{transform:scale(1)}100%{transform:scale(1.015)}}
-@media(max-width:768px){.feat-gears{width:min(560px,95vw);height:640px;top:-30px;left:-90px;color:rgba(154,74,38,.05)}.feat-gear-lg{width:420px;height:420px}.feat-gear-sm{width:240px;height:240px;top:210px;left:180px}}
-@media(prefers-reduced-motion:reduce){.feat-gear-lg,.feat-gear-sm{animation:none}}
-.feat-hd{max-width:540px;margin-bottom:48px}
-/* 3×2 grid (was 6×1) */
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;background:transparent;border:none;max-width:1200px;margin:0 auto}
-@media(max-width:900px){.feat-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
-@media(max-width:560px){.feat-grid{grid-template-columns:1fr;gap:20px}}
-/* Card style — mirrors .ome-perk structure with gold (not teal) accent, on light bg */
-.fc{background:var(--surface);padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-align:left;border:1px solid rgba(154,74,38,.18);border-radius:6px;box-shadow:0 1px 2px rgba(42,30,21,.05),0 8px 24px -12px rgba(42,30,21,.2);transition:transform .3s ease-out,border-color .3s ease-out,background .3s ease-out,box-shadow .3s ease-out;position:relative}
-@media(max-width:560px){.fc{padding:20px}}
-.fc::before{display:none}
-.fc::after{display:none}
-.fc:hover{transform:translateY(-3px);background:var(--surface);border-color:rgba(154,74,38,.45);box-shadow:0 2px 4px rgba(42,30,21,.08),0 0 40px rgba(154,74,38,.25),0 18px 40px -12px rgba(154,74,38,.28)}
-.fc-ico{width:56px;height:56px;display:flex;align-items:flex-start;justify-content:flex-start;color:var(--gold);margin:2px 0 4px;flex-shrink:0;transition:color .3s ease-out,filter .3s ease-out,transform .3s ease-out}
-.fc-ico svg{width:48px;height:48px;stroke-width:1.5}
-.fc:hover .fc-ico{filter:brightness(1.15);transform:scale(1.04)}
-/* Stroke-draw hover animation — icon retraces itself on card hover */
-.fc-ico svg path,.fc-ico svg circle,.fc-ico svg rect,.fc-ico svg line,.fc-ico svg polyline{stroke-dasharray:1000;stroke-dashoffset:0}
-.fc:hover .fc-ico svg path,.fc:hover .fc-ico svg circle,.fc:hover .fc-ico svg rect,.fc:hover .fc-ico svg line,.fc:hover .fc-ico svg polyline{animation:drawStroke 700ms ease-out}
-@keyframes drawStroke{0%{stroke-dashoffset:1000}100%{stroke-dashoffset:0}}
-@media(prefers-reduced-motion:reduce){.fc:hover .fc-ico svg path,.fc:hover .fc-ico svg circle,.fc:hover .fc-ico svg rect,.fc:hover .fc-ico svg line,.fc:hover .fc-ico svg polyline{animation:none}}
-.fc-nm{font-family:var(--font-body);font-size:.66rem;font-weight:500;letter-spacing:.01em;text-transform:none;color:var(--ink);line-height:1.45;}
-.fc-ds{font-size:.78rem;line-height:1.7;color:var(--ink2);opacity:.68;max-width:none}
+
+/* ROOTS — the systems beneath */
+.roots{position:relative;background:transparent}
+.roots-scroll{height:420svh}
+.roots-pin{position:sticky;top:0;height:100svh;overflow:hidden}
+.roots-svg{position:absolute;inset:0;width:100%;height:100%;display:none;pointer-events:none}
+html.no-gl .roots-svg{display:block}
+.roots-svg path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.roots-hd{position:absolute;left:5vw;top:9vh;max-width:46vw;z-index:2;pointer-events:none}
+.roots-title{font-family:var(--font-display);font-weight:200;font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.04em;color:var(--text);margin:0}
+.roots-title em{color:var(--corten)}
+.root-sys{position:absolute;left:calc(var(--x) * 100% + 14px);top:calc(var(--y) * 100% + 6px);width:min(300px,40vw);z-index:2;padding:12px 14px 14px;background:rgba(239,232,220,.86);border-left:1px solid rgba(141,104,70,.5);opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.root-sys.on{opacity:1;transform:none;pointer-events:auto}
+.root-t{font-family:var(--font-display);font-weight:300;font-size:clamp(1.05rem,1.4vw,1.35rem);line-height:1.15;letter-spacing:-.02em;color:var(--text);margin:0 0 8px}
+.root-b{font-weight:300;font-size:14px;line-height:1.5;color:var(--text-2);margin:0;max-width:34ch}
+.roots-cta{position:absolute;left:0;right:0;bottom:9vh;display:flex;justify-content:center;z-index:2;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.roots-cta.on{opacity:1;transform:none;pointer-events:auto}
+.roots-dark{position:absolute;inset:0;background:var(--earth);opacity:var(--rd,0);z-index:3;pointer-events:none}
+@media(max-width:768px){
+  .roots-scroll{height:380svh}
+  .roots-hd{max-width:84vw;top:9vh;transition:opacity .5s ease}
+  .roots-title{font-size:clamp(1.6rem,6.8vw,2.3rem)}
+  .roots.cta-on .roots-hd{opacity:0}
+  .roots.cta-on .root-sys.on{transform:translateY(-12vh)}
+  .root-sys{left:10vw;width:80vw;top:calc(var(--y) * 100% + 4px);padding:10px 12px 12px}
+  .root-b{font-size:13px;line-height:1.45}
+  .root-t{font-size:1.05rem;margin-bottom:6px}
+  .roots-cta{bottom:calc(54px + env(safe-area-inset-bottom))}
+}
+@media(prefers-reduced-motion:reduce){.root-sys,.roots-cta{transition:none}}
 
 /* WINE CELLAR */
 /* TODO: replace Unsplash placeholder with final editorial wine photo */
@@ -451,26 +449,6 @@ html.no-gl .vault-poster{display:block}
 .pool-big strong{font-style:normal;font-weight:300;color:var(--teal)}
 .pool-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
 .pill{background:rgba(154,74,38,.18);border:1px solid rgba(154,74,38,.4);color:var(--teal);font-size:.62rem;letter-spacing:.01em;text-transform:none;padding:7px 16px;backdrop-filter:blur(4px)}
-
-/* PLANS */
-.plans{background:var(--bg2);padding:50px 5vw;position:relative;overflow:hidden;background-image:linear-gradient(rgba(154,74,38,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(154,74,38,.04) 1px,transparent 1px);background-size:48px 48px;background-position:0 0,0 0}
-.plans>*{position:relative;z-index:1}
-/* Plans two-column layout: title left, restyled request card right */
-.plans-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1200px;margin:32px auto 0}
-@media(max-width:900px){.plans-inner{grid-template-columns:1fr;gap:40px;margin-top:20px}}
-.plans-head{max-width:560px}
-/* Request Plans card — matches OMé Spa / Engineered card token palette on light bg */
-.plans-card{background:rgba(239,232,220,.6);border:1px solid rgba(154,74,38,.22);border-radius:6px;padding:40px 36px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;box-shadow:0 1px 2px rgba(42,30,21,.05),0 8px 24px -12px rgba(42,30,21,.18);transition:transform .3s ease-out,box-shadow .3s ease-out,border-color .3s ease-out}
-@media(max-width:560px){.plans-card{padding:32px 24px}}
-.plans-card:hover{transform:translateY(-3px);border-color:rgba(154,74,38,.35);box-shadow:0 2px 6px rgba(42,30,21,.08),0 18px 40px -12px rgba(42,30,21,.25)}
-.plans-card-head{font-family:var(--font-display);font-size:1.2rem;font-weight:300;color:var(--ink2);line-height:1.4}
-.plans-card-sub{font-size:.62rem;color:var(--ink2);opacity:.5;letter-spacing:.01em;text-transform:none;}
-.plans-card-cta{margin-top:6px}
-/* Ambient blueprint floor-plan silhouette */
-.plans-bg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(880px,85vw);height:auto;color:rgba(154,74,38,.08);pointer-events:none;z-index:0;animation:plansBreathe 10s ease-in-out infinite alternate;transform-origin:center}
-@keyframes plansBreathe{from{transform:translate(-50%,-50%) scale(1)}to{transform:translate(-50%,-50%) scale(1.015)}}
-@media(max-width:768px){.plans-bg{width:min(560px,95vw);color:rgba(154,74,38,.06)}}
-@media(prefers-reduced-motion:reduce){.plans-bg{animation:none}}
 
 /* VIRTUAL EXPERIENCE */
 .virtual-exp{background:var(--earth);padding:88px 5vw 96px;position:relative;overflow:hidden}
@@ -1030,20 +1008,19 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features" id="features" data-chapter="roots">
-  <div class="feat-gears" aria-hidden="true">
-    <svg class="feat-gear feat-gear-lg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><circle cx="100" cy="100" r="62"/><rect x="93" y="4" width="14" height="34" rx="1"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(30 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(60 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(90 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(120 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(150 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(180 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(210 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(240 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(270 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(300 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(330 100 100)"/></g></svg>
-    <svg class="feat-gear feat-gear-sm" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g fill="currentColor"><circle cx="100" cy="100" r="62"/><rect x="93" y="4" width="14" height="34" rx="1"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(30 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(60 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(90 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(120 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(150 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(180 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(210 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(240 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(270 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(300 100 100)"/><rect x="93" y="4" width="14" height="34" rx="1" transform="rotate(330 100 100)"/></g></svg>
-  </div>
-  <div class="feat-hd rv"><div class="ey" data-i18n="feat.ey">Premium Specifications</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="feat.h2a">Engineered for</span></span><span class="split-wrap"><span class="split-inner d2" data-i18n="feat.h2b"><em>extraordinary</em> living</span></span></h2><span class="rule"></span></div>
-  <div class="feat-grid">
-    <div class="fc rv d1"><div class="fc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div><div class="fc-nm" data-i18n="feat.f1.name">Inverse Osmosis Water</div><div class="fc-ds" data-i18n="feat.f1.desc">Crystal-pure drinking water at every tap — including bathrooms. A whole-house RO system delivers spa-quality water throughout the entire estate.</div></div>
-    <div class="fc rv d2"><div class="fc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg></div><div class="fc-nm" data-i18n="feat.f2.name">20+ kW Solar System</div><div class="fc-ds" data-i18n="feat.f2.desc">Hybrid solar installation powers the entire estate. Near-zero electricity cost, full energy independence, dramatically reduced environmental impact.</div></div>
-    <div class="fc rv d3"><div class="fc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M4 12h16M12 3v18"/></svg></div><div class="fc-nm" data-i18n="feat.f3.name">European Windows Serie 150</div><div class="fc-ds" data-i18n="feat.f3.desc">Eurovent aluminum with solar-filtering glass, superior acoustic insulation and integrated mosquito screens — designed for the tropics, crafted in Europe.</div></div>
-    <div class="fc rv d4"><div class="fc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 12c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2"/></svg></div><div class="fc-nm" data-i18n="feat.f4.name">Cenote Pool & Waterfall</div><div class="fc-ds" data-i18n="feat.f4.desc">A naturalistic cenote-inspired pool with cascading waterfall, evoking the sacred underground pools of the Yucatán Peninsula in your own garden.</div></div>
-    <div class="fc rv d5"><div class="fc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 22h18"/><path d="M5 22V9l7-5 7 5v13"/><path d="M8 22V12M12 22V12M16 22V12"/><path d="M5 9h14"/></svg></div><div class="fc-nm" data-i18n="feat.f7.name">Vault Brick Ceilings</div><div class="fc-ds" data-i18n="feat.f7.desc">Handcrafted exposed brick vaults glow at golden hour, illuminated by warm LED strips — architecture that transforms with every quality of light.</div></div>
-    <div class="fc rv d6"><div class="fc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.8 2c1.2 1.5 2 4 2 5.5 0 6.5-3.5 10-9.8 10.5-3 .5-6 0-8-2"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div><div class="fc-nm" data-i18n="feat.f9.name">Biophilic Design</div><div class="fc-ds" data-i18n="feat.f9.desc">Every room opens to tropical gardens. Giant fenestration and curated planting dissolve the line between interior sanctuary and paradise.</div></div>
+<!-- ROOTS — the systems beneath: procedural roots grow down on scroll and land on the four systems; the page darkens to earth into the cenote -->
+<section class="roots" id="features" data-chapter="roots">
+  <div class="roots-scroll">
+    <div class="roots-pin">
+      <svg class="roots-svg" id="rootsSvg" aria-hidden="true" preserveAspectRatio="none"></svg>
+      <div class="roots-hd"><div class="ey" data-i18n="feat.ey">Premium Specifications</div><h2 class="roots-title"><span data-i18n="feat.h2a">Engineered for</span><br><span data-i18n="feat.h2b"><em>extraordinary</em> living</span></h2></div>
+      <div class="root-sys" data-sys="0"><h3 class="root-t" data-i18n="feat.f2.name">20+ kW Solar System</h3><p class="root-b" data-i18n="feat.f2.desc">Hybrid solar installation powers the entire estate. Near-zero electricity cost, full energy independence, dramatically reduced environmental impact.</p></div>
+      <div class="root-sys" data-sys="1"><h3 class="root-t" data-i18n="feat.f1.name">Inverse Osmosis Water</h3><p class="root-b" data-i18n="feat.f1.desc">Crystal-pure drinking water at every tap — including bathrooms. A whole-house RO system delivers spa-quality water throughout the entire estate.</p></div>
+      <div class="root-sys" data-sys="2"><h3 class="root-t" data-i18n="feat.f3.name">European Windows Serie 150</h3><p class="root-b" data-i18n="feat.f3.desc">Eurovent aluminum with solar-filtering glass, superior acoustic insulation and integrated mosquito screens — designed for the tropics, crafted in Europe.</p></div>
+      <div class="root-sys" data-sys="3"><h3 class="root-t" data-i18n="feat.f9.name">Biophilic Design</h3><p class="root-b" data-i18n="feat.f9.desc">Every room opens to tropical gardens. Giant fenestration and curated planting dissolve the line between interior sanctuary and paradise.</p></div>
+      <div class="roots-cta"><button class="btn btn-lt" onclick="openModal()" data-i18n="arch.btn">Request Architectural Plans</button></div>
+      <div class="roots-dark" aria-hidden="true"></div>
+    </div>
   </div>
 </section>
 
@@ -1185,24 +1162,6 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
     <button class="btn btn-outline-lt" onclick="openModal()" data-i18n="wine.btn">Request Brochure</button>
   </div>
 </section>
-
-<!-- PLANS -->
-<section class="plans" id="plans">
-  <svg class="plans-bg" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 40 L760 40 L760 460 L40 460 Z"/><path d="M280 40 L280 210 M280 270 L280 460"/><path d="M520 40 L520 180 M520 250 L520 460"/><path d="M40 240 L120 240 M180 240 L280 240"/><path d="M280 240 L520 240"/><path d="M520 300 L600 300 M660 300 L760 300"/><circle cx="650" cy="395" r="42"/><path d="M360 310 L360 395 L440 395 L440 310 Z"/><path d="M360 330 L440 330 M360 350 L440 350 M360 370 L440 370"/><path d="M140 100 L240 100 M140 140 L240 140"/><path d="M600 95 L720 95 M600 125 L720 125 M600 155 L720 155"/></svg>
-  <div class="plans-inner">
-    <div class="rv plans-head">
-      <div class="ey" data-i18n="plans.ey">Floor Plans</div>
-      <h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="plans.h2a">476 m² of</span></span><span class="split-wrap"><span class="split-inner d2" data-i18n="plans.h2b"><em>spatial mastery</em></span></span></h2>
-      <span class="rule"></span>
-    </div>
-    <div class="plans-card rv">
-      <div class="plans-card-head" data-i18n="plans.card.head">Full architectural plans available on request</div>
-      <p class="plans-card-sub" data-i18n="plans.excl">Shared exclusively with qualified buyers</p>
-      <button class="btn btn-dark plans-card-cta" onclick="openModal()" data-i18n="plans.card.cta">Request Plans →</button>
-    </div>
-  </div>
-</section>
-
 
 <!-- VIRTUAL EXPERIENCE (video + 3D tour) -->
 <section class="virtual-exp" id="videos">
@@ -3236,6 +3195,7 @@ window.submitBrokerReferral = function(){
       for(var i=0;i<stack.length;i++){
         var el=stack[i];
         if(g.contains(el)||el.id==='gl'||el.tagName==='NAV'||el.classList.contains('wa-float')) continue;
+        if(parseFloat(getComputedStyle(el).opacity)<0.5) continue;
         for(var n=el;n&&n!==document.documentElement;n=n.parentElement){
           if(n.tagName==='IMG'||n.tagName==='CANVAS'||n.tagName==='VIDEO') return true;
           var cs=getComputedStyle(n), bg=cs.backgroundColor, m=bg.match(/[\d.]+/g);
@@ -3318,6 +3278,97 @@ window.submitBrokerReferral = function(){
   window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
   window.addEventListener('resize', update);
   update();
+})();
+</script>
+<script>
+// ── Roots: procedural root system (shared by the WebGL chapter and the SVG fallback) + scroll phase ──
+(function(){
+  var sec=document.getElementById('features'); if(!sec) return;
+  var pin=sec.querySelector('.roots-pin'), svg=document.getElementById('rootsSvg');
+  var sysEls=Array.prototype.slice.call(sec.querySelectorAll('.root-sys')), cta=sec.querySelector('.roots-cta');
+  var LAND=[0.30,0.47,0.64,0.80];                       // scroll progress at which each main root lands
+  function rng(seed){ var t=seed>>>0; return function(){ t+=0x6D2B79F5; var r=Math.imul(t^(t>>>15),1|t); r^=r+Math.imul(r^(r>>>7),61|r); return ((r^(r>>>14))>>>0)/4294967296; }; }
+  function bez(p0,p1,p2,p3,t){ var u=1-t; return [u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0], u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]]; }
+  function qbez(p0,p1,p2,t){ var u=1-t; return [u*u*p0[0]+2*u*t*p1[0]+t*t*p2[0], u*u*p0[1]+2*u*t*p1[1]+t*t*p2[1]]; }
+  // build: returns {lines:[{pts:[[x,y]...] (px), w0,w1, s,e}], targets:[[fx,fy]]}
+  function build(W,H,phone){
+    var R=rng(20260929), lines=[], targets;
+    if(phone) targets=[[0.10,0.27],[0.10,0.44],[0.10,0.61],[0.10,0.78]];
+    else targets=[[0.14,0.30],[0.66,0.34],[0.22,0.62],[0.70,0.68]];
+    var starts=phone?[0.40,0.50,0.58,0.66]:[0.44,0.48,0.53,0.57];
+    function branch(pts,w0,w1,s,e,depth){
+      lines.push({pts:pts,w0:w0,w1:w1,s:s,e:e});
+      if(depth>2) return;
+      var n=2+Math.floor(R()*2);
+      for(var k=0;k<n;k++){
+        var tb=0.22+R()*0.62, i=Math.floor(tb*(pts.length-1)), p=pts[i], q=pts[Math.min(pts.length-1,i+2)];
+        var tx=q[0]-p[0], ty=q[1]-p[1], L=Math.hypot(tx,ty)||1; tx/=L; ty/=L;
+        var ang=(R()<0.5?-1:1)*(0.55+R()*0.7), c=Math.cos(ang), sn=Math.sin(ang);
+        var dx=tx*c-ty*sn, dy=tx*sn+ty*c; if(dy<0.15){ dy=0.15+R()*0.3; dx=(dx<0?-1:1)*Math.sqrt(Math.max(0,1-dy*dy)); }
+        var len=(0.06+R()*0.09)*Math.min(W,H)/(depth+1);
+        var end=[p[0]+dx*len, p[1]+dy*len], mid=[p[0]+dx*len*0.5+ (-ty)*len*0.25*(R()-0.5), p[1]+dy*len*0.55];
+        var bp=[]; for(var j=0;j<=14;j++) bp.push(qbez(p,mid,end,j/14));
+        var bs=s+tb*(e-s), be=Math.min(1,bs+0.10);
+        branch(bp, w1+0.5*(w0-w1)*0.6, 0.45, bs, be, depth+1);
+      }
+    }
+    for(var i=0;i<4;i++){
+      var S=[starts[i]*W,-0.02*H], T=[targets[i][0]*W,targets[i][1]*H], dy=T[1]-S[1];
+      var P1=[S[0]+(R()-0.5)*0.18*W, S[1]+dy*(0.35+R()*0.15)], P2=[T[0]+(R()-0.5)*0.22*W, T[1]-dy*(0.30+R()*0.15)];
+      var pts=[]; for(var j=0;j<=48;j++){ var t=j/48, p=bez(S,P1,P2,T,t); p[0]+=Math.sin(t*9+i*2)*W*0.008*(1-t); pts.push(p); }
+      var e=LAND[i], st=Math.max(0,e-0.34);
+      branch(pts, 2.4, 1.0, st, e, 0);
+    }
+    // two minor roots that just fade into the ground
+    var minors=phone?[[0.30,-0.02,0.34,0.5],[0.72,-0.02,0.88,0.55]]:[[0.50,-0.02,0.46,0.86],[0.60,-0.02,0.86,0.50]];
+    minors.forEach(function(m,i){
+      var S=[m[0]*W,m[1]*H], T=[m[2]*W,m[3]*H], dy=T[1]-S[1];
+      var P1=[S[0]+(R()-0.5)*0.2*W, S[1]+dy*0.4], P2=[T[0]+(R()-0.5)*0.2*W, T[1]-dy*0.3];
+      var pts=[]; for(var j=0;j<=40;j++) pts.push(bez(S,P1,P2,T,j/40));
+      branch(pts, 1.6, 0.4, 0.12+i*0.2, 0.62+i*0.24, 1);
+    });
+    return {lines:lines, targets:targets};
+  }
+  window.CA_ROOTS={build:build, LAND:LAND};
+
+  // system blocks sit where the roots land
+  var phone=matchMedia('(max-width:768px)').matches, built=null;
+  function place(){
+    phone=matchMedia('(max-width:768px)').matches;
+    var W=pin.clientWidth||innerWidth, H=pin.clientHeight||innerHeight;
+    built=build(W,H,phone);
+    sysEls.forEach(function(el,i){ el.style.setProperty('--x', built.targets[i][0]); el.style.setProperty('--y', built.targets[i][1]); });
+    if(!window.CA_GL && svg){
+      svg.setAttribute('viewBox','0 0 '+W+' '+H);
+      svg.innerHTML=built.lines.map(function(l){
+        var d='M'+l.pts.map(function(p){ return p[0].toFixed(1)+' '+p[1].toFixed(1); }).join('L');
+        var mid=l.pts[l.pts.length>>1], dep=Math.min(1,Math.max(0,mid[1]/H));
+        var col=dep<0.45?'#8D6846':dep<0.75?'#9A4A26':'#2A1E15';
+        var len=0; for(var i=1;i<l.pts.length;i++) len+=Math.hypot(l.pts[i][0]-l.pts[i-1][0],l.pts[i][1]-l.pts[i-1][1]);
+        return '<path d="'+d+'" stroke="'+col+'" stroke-width="'+((l.w0+l.w1)/2).toFixed(2)+'" stroke-dasharray="'+len.toFixed(1)+'" stroke-dashoffset="'+len.toFixed(1)+'" data-len="'+len.toFixed(1)+'" data-s="'+l.s+'" data-e="'+l.e+'"/>';
+      }).join('');
+    }
+  }
+  var raf=0;
+  function update(){
+    raf=0;
+    var sc=sec.querySelector('.roots-scroll'), r=sc.getBoundingClientRect(), vh=innerHeight;
+    var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
+    sec.__p=p;
+    var on=r.top<vh&&r.bottom>0;
+    sysEls.forEach(function(el,i){ el.classList.toggle('on', on && p>=LAND[i]-0.01); });
+    cta.classList.toggle('on', on && p>=0.86);
+    sec.classList.toggle('cta-on', on && p>=0.86);
+    var d=Math.min(1,Math.max(0,(p-0.9)/0.1)); d=d*d*(3-2*d);
+    pin.style.setProperty('--rd', d.toFixed(3));
+    if(!window.CA_GL && svg){
+      var paths=svg.children;
+      for(var i=0;i<paths.length;i++){ var el=paths[i], s0=+el.dataset.s, e0=+el.dataset.e, g=Math.min(1,Math.max(0,(p-s0)/Math.max(1e-3,e0-s0))), len=+el.dataset.len; el.style.strokeDashoffset=(len*(1-g)).toFixed(1); }
+    }
+  }
+  window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
+  window.addEventListener('resize', function(){ place(); update(); });
+  place(); update();
 })();
 </script>
 <script type="module">
@@ -3875,6 +3926,94 @@ if (window.CA_GL) {
     }, {passive: true});
   }
   stage.register('inside', api);
+}
+</script>
+
+<script type="module">
+// ── Chapter: ROOTS — the root system as soft ribbons, growing with scroll; wood → Corten → earth with depth ──
+if (window.CA_GL) {
+  const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
+  const {THREE} = stage;
+  const sec = document.getElementById('features'), pin = sec.querySelector('.roots-pin');
+  const VERT = /* glsl */`
+    attribute vec2 aNormal; attribute float aSide, aW, aT, aS, aE;
+    uniform vec2 uRes; uniform float uP;
+    varying float vDist, vHalf, vDepth, vGrow, vT;
+    void main(){
+      float grow = clamp((uP - aS) / max(1e-3, aE - aS), 0.0, 1.0);
+      grow = grow * grow * (3.0 - 2.0 * grow);
+      vGrow = grow; vT = aT;
+      float hw = aW * 0.5 + 0.8;
+      vec2 p = position.xy + aNormal * aSide * hw;
+      vDist = aSide * hw; vHalf = aW * 0.5; vDepth = position.y / uRes.y;
+      gl_Position = vec4(p.x / uRes.x * 2.0 - 1.0, 1.0 - p.y / uRes.y * 2.0, 0.0, 1.0);
+    }`;
+  const FRAG = /* glsl */`
+    precision mediump float;
+    varying float vDist, vHalf, vDepth, vGrow, vT;
+    void main(){
+      if (vT > vGrow) discard;
+      float a = 1.0 - smoothstep(vHalf - 0.7, vHalf + 0.7, abs(vDist));
+      a *= smoothstep(0.0, 0.05, vGrow - vT);            // soft growing tip
+      vec3 wood = vec3(0.553, 0.408, 0.275), corten = vec3(0.604, 0.290, 0.149), earth = vec3(0.165, 0.118, 0.082);
+      vec3 col = mix(wood, corten, smoothstep(0.12, 0.5, vDepth));
+      col = mix(col, earth, smoothstep(0.5, 0.95, vDepth));
+      gl_FragColor = vec4(col, a * 0.92);
+    }`;
+  let scene, cam, mesh, mat, ready = false;
+  function buildGeometry(w, h) {
+    const {lines} = window.CA_ROOTS.build(w, h, stage.phone);
+    const pos = [], nor = [], side = [], wid = [], tt = [], ss = [], ee = [], idx = [];
+    let base = 0;
+    for (const l of lines) {
+      const n = l.pts.length; let len = 0; const cum = [0];
+      for (let i = 1; i < n; i++) { len += Math.hypot(l.pts[i][0] - l.pts[i-1][0], l.pts[i][1] - l.pts[i-1][1]); cum.push(len); }
+      for (let i = 0; i < n; i++) {
+        const a = l.pts[Math.max(0, i - 1)], b = l.pts[Math.min(n - 1, i + 1)];
+        let dx = b[0] - a[0], dy = b[1] - a[1]; const L = Math.hypot(dx, dy) || 1; dx /= L; dy /= L;
+        const t = cum[i] / (len || 1), w = l.w0 + (l.w1 - l.w0) * t;
+        for (const sd of [-1, 1]) { pos.push(l.pts[i][0], l.pts[i][1], 0); nor.push(-dy, dx); side.push(sd); wid.push(w); tt.push(t); ss.push(l.s); ee.push(l.e); }
+        if (i < n - 1) { const k = base + i * 2; idx.push(k, k + 1, k + 2, k + 1, k + 3, k + 2); }
+      }
+      base += n * 2;
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    g.setAttribute('aNormal', new THREE.Float32BufferAttribute(nor, 2));
+    g.setAttribute('aSide', new THREE.Float32BufferAttribute(side, 1));
+    g.setAttribute('aW', new THREE.Float32BufferAttribute(wid, 1));
+    g.setAttribute('aT', new THREE.Float32BufferAttribute(tt, 1));
+    g.setAttribute('aS', new THREE.Float32BufferAttribute(ss, 1));
+    g.setAttribute('aE', new THREE.Float32BufferAttribute(ee, 1));
+    g.setIndex(idx);
+    return g;
+  }
+  const api = {
+    order: -1,
+    init(st) {
+      scene = new THREE.Scene(); cam = new THREE.Camera();
+      mat = new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, transparent: true, depthTest: false, depthWrite: false,
+        uniforms: { uRes: {value: new THREE.Vector2(pin.clientWidth, pin.clientHeight)}, uP: {value: 0} } });
+      mesh = new THREE.Mesh(buildGeometry(pin.clientWidth, pin.clientHeight), mat); mesh.frustumCulled = false;
+      scene.add(mesh); ready = true;
+    },
+    resize() { if (!ready) return; mesh.geometry.dispose(); mesh.geometry = buildGeometry(pin.clientWidth, pin.clientHeight); mat.uniforms.uRes.value.set(pin.clientWidth, pin.clientHeight); },
+    update() { if (ready) mat.uniforms.uP.value = sec.__p || 0; },
+    render(renderer) {
+      if (!ready) return;
+      const r = pin.getBoundingClientRect(), vh = innerHeight, vw = innerWidth;
+      const top = Math.max(0, r.top), bottom = Math.min(vh, r.bottom);
+      if (bottom - top < 1) return;
+      // the ribbons live in the pin's own pixel space: offset the viewport to where the pin sits
+      renderer.setViewport(0, vh - r.top - r.height, vw, r.height);
+      renderer.setScissorTest(true); renderer.setScissor(0, vh - bottom, vw, bottom - top);
+      renderer.render(scene, cam);
+      renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
+    },
+    debug() { return { ready, p: sec.__p, verts: mesh && mesh.geometry.attributes.position.count }; },
+    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mat.dispose(); } }
+  };
+  stage.register('roots', api);
 }
 </script>
 </body>
