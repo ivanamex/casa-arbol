@@ -22,6 +22,7 @@ At 1440×900 and 390×844, scrolling slowly from the OMé beat to the enquiry fo
 Also: RUN-ORDER.md's Done list has STEP-06/07/08 written several times — keep one line each.
 
 ## Second fix: the vault beat shows the wrong photo
-- The "Vault Brick Ceilings" beat uses room-1-ground-floor, which has no brick vault. Swap it (poster, WebGL texture, fallback) to **room-2-guest-suite-1** — the brick vault fills the top third, so the rising-light shader still lands on the bricks.
+- The "Vault Brick Ceilings" beat uses room-1-ground-floor, which has no brick vault. Swap it (poster, WebGL texture, fallback) to **images/suite-vault-front.jpg** (new from Ivana, 2026-09-29): frontal, the brick vault fills the whole top of the frame, so the rising light lands on the bricks. It's 1200 px wide — make web versions as in STEP-02 and keep the vault beat's image layer no wider than the photo allows (light grain from the shader hides the softness on big screens).
 - In the rooms ribbon, room-1-ground-floor's alt text claims a brick vault. Change it to "Ground floor guest bedroom at Casa Árbol — natural textures and garden light".
-- Ivana will add more photos later; keep the image list easy to extend (one array of image names).
+- Add **images/suite-sculpted-wall.jpg** (new, 1320 px) to the rooms ribbon as a 9th photo, after the upper-floor suites. Caption key `img.suite-sculpted`: EN "Suite with sculpted chukum wall", ES "Suite con muro esculpido de chukum", FR "Suite au mur sculpté en chukum". Alt: "Suite at Casa Árbol — brick vault, sculpted chukum wall with a backlit wood inlay, garden terrace".
+- Keep the image list easy to extend (one array of image names) — more photos are coming.
