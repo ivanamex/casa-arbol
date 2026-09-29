@@ -5,6 +5,7 @@
 
 ## Next
 - STEP-09b — close the empty gap after the cenote + real brick-vault photo in the vault beat
+- STEP-09c — text colliding with images: hero subtitle + price, gallery title vs ribbon
 - STEP-10 — the cellar: wine moves out of the cenote into its own chapter, the wall opens, the backlight fills up (needs Ivana's 2 Gemini photos)
 
 ## Done
@@ -35,6 +36,7 @@
 - Type: Unbounded (display) + Sora (everything you read). Geist Mono only for the footer coordinates.
 - 20°N signature: the property's coordinates, small and quiet, in the footer next to "Site by 20°N" — never in the header or hero.
 - Phone first: the link goes out on WhatsApp. Poster image visible in < 2.5 s on 4G; WebGL loads after.
+- Text never overlaps a photo or WebGL image unless it sits on a panel; check 1440×900, 1280×720, 390×844.
 - Keep every data-i18n key, EN/ES/FR, both enquiry forms, Brokers Portal, admin leads panel, WhatsApp button.
 - Metric units. Surname "Buric". Agency "Weber-Buric Real Estate".
 - Before merge: delete old.html, compare.html, steps/, RUN-ORDER.md.
