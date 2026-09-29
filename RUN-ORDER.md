@@ -1,12 +1,15 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-08 — Surface: closing CTA, price, enquiry drawer, footer "Site by 20°N"
-
-## Next
 - STEP-09 — mobile, fallback, performance, ES/FR QA
 
+## Next
+
 ## Done
+- STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
+- STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
+- STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
+- STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
 - STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)
 - STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)
 - STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)

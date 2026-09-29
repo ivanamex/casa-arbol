@@ -447,80 +447,6 @@ html.no-gl .cenote-fallback{display:block}
 }
 @media(prefers-reduced-motion:reduce){.cbeat-inner{animation:none}.cenote-fallback::after{animation:none}}
 
-/* VIRTUAL EXPERIENCE */
-.virtual-exp{background:var(--earth);padding:88px 5vw 96px;position:relative;overflow:hidden}
-.virtual-exp::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:0;height:1px;background:linear-gradient(to right,transparent,var(--gold-lt),transparent);animation:veDivIn 1.2s .2s ease forwards}
-@keyframes veDivIn{to{width:min(520px,80%)}}
-.ve-head{max-width:760px;margin:0 auto 64px;text-align:center}
-.ve-head .ey{color:var(--gold-lt);justify-content:center}
-.ve-head .rule{margin-left:auto;margin-right:auto}
-.ve-head .ey::before{background:var(--gold-lt)}
-.ve-head h2{font-family:var(--font-display);font-weight:200;font-size:clamp(2rem,4.2vw,3.6rem);line-height:1.2;color:var(--white);margin:8px 0 22px;padding-bottom:.08em}
-.ve-head h2 em{color:var(--gold-lt);}
-.ve-sub{font-family:var(--font-display);font-weight:300;font-size:clamp(1rem,1.6vw,1.3rem);line-height:1.6;color:rgba(239,232,220,.65);max-width:600px;margin:0 auto}
-.ve-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;max-width:1400px;margin:0 auto}
-@media(max-width:860px){.ve-grid{grid-template-columns:1fr;gap:28px}}
-.ve-card{display:flex;flex-direction:column;gap:14px}
-.ve-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(141,104,70,.22);cursor:pointer;background:#2A1E15;outline:none;transition:border-color .35s ease,transform .35s ease}
-.ve-frame:hover{border-color:var(--gold-lt);transform:translateY(-3px)}
-.ve-frame:focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
-.ve-frame .ve-player,.ve-frame img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.65);transition:filter .5s ease,transform .9s ease}
-.ve-frame:hover .ve-player,.ve-frame:hover img{filter:brightness(.5);transform:scale(1.02)}
-.ve-3d-thumb{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#3A2A1E 0%,transparent 55%),linear-gradient(160deg,#2A1E15 0%,#3A2A1E 45%,#8D6846 100%);filter:brightness(.7);transition:filter .5s ease,transform .9s ease}
-.ve-3d-frame:hover .ve-3d-thumb{filter:brightness(.55);transform:scale(1.02)}
-.ve-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;pointer-events:none}
-.ve-play-btn{width:64px;height:64px;border-radius:50%;border:1px solid rgba(239,232,220,.6);display:flex;align-items:center;justify-content:center;color:var(--white);transition:all .4s ease}
-.ve-play-btn svg{transform:translateX(1px)}
-.ve-frame:hover .ve-play-btn{background:var(--gold);border-color:var(--gold);color:var(--on-corten);transform:scale(1.08)}
-.ve-lbl{font-size:.62rem;letter-spacing:.01em;text-transform:none;color:rgba(239,232,220,.82);padding:6px 16px;background:rgba(42,30,21,.5);border:1px solid rgba(141,104,70,.3);backdrop-filter:blur(4px)}
-.ve-meta{font-size:.58rem;letter-spacing:.01em;text-transform:none;color:rgba(239,232,220,.4);text-align:center}
-
-/* LEAD */
-.lead{background:var(--earth);padding:72px 5vw;position:relative;overflow:hidden}
-.lead::before{content:'ÁRBOL';position:absolute;right:-4vw;bottom:-50px;font-family:var(--font-display);font-size:clamp(7rem,17vw,17rem);font-weight:200;color:rgba(239,232,220,.022);pointer-events:none;line-height:1;white-space:nowrap}
-.lead-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;position:relative;z-index:2}
-@media(max-width:768px){.lead-grid{grid-template-columns:1fr;gap:44px}}
-.lead-info .ey{color:var(--gold-lt)}
-.lead-info .ey::before{background:var(--gold-lt)}
-.lead h2.serif{color:var(--white)}
-.lead h2.serif em{color:var(--gold-lt)}
-.lead-p{font-size:.78rem;line-height:1.9;color:rgba(239,232,220,.48);margin-bottom:32px}
-.lead-price{margin:28px 0 36px}
-.lead-price-amt{font-family:var(--font-display);font-weight:300;font-size:clamp(1.4rem,2.2vw,1.8rem);letter-spacing:.01em;color:var(--gold-lt);line-height:1.2}
-.lead-price-ccy{margin-top:8px;font-family:var(--font-body);font-weight:300;font-size:clamp(.72rem,.85vw,.8rem);letter-spacing:.01em;text-transform:none;color:rgba(239,232,220,.58)}
-.cline{display:flex;align-items:center;gap:14px;margin-bottom:10px;font-size:.73rem;color:rgba(239,232,220,.5)}
-.cline-ico{color:var(--gold-lt);flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px}
-.cline-ico svg{width:20px;height:20px}
-/* Compact main enquiry form */
-#mainForm{gap:10px;max-width:480px}
-#mainForm .frow{gap:10px}
-#mainForm .f input,#mainForm .f textarea,#mainForm .f select{padding:9px 14px;font-size:.76rem}
-#mainForm .f select{padding-right:34px}
-#mainForm .f textarea{height:72px}
-#mainForm .f{gap:4px}
-#mainForm .f label{font-size:.54rem;letter-spacing:.01em}
-#mainForm .submit{padding:13px;margin-top:2px}
-.form{display:flex;flex-direction:column;gap:13px}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-@media(max-width:420px){.frow{grid-template-columns:1fr}}
-.f{display:flex;flex-direction:column;gap:5px}
-.f label{font-size:.56rem;letter-spacing:.01em;text-transform:none;color:var(--gold-lt);opacity:.7}
-.f input,.f textarea{background:rgba(239,232,220,.05);border:1px solid rgba(239,232,220,.1);color:var(--white);padding:12px 15px;font-family:var(--font-body);font-size:.78rem;font-weight:300;outline:none;transition:border-color .3s;width:100%}
-.f input:focus,.f textarea:focus{border-color:var(--gold-lt)}
-.f input::placeholder,.f textarea::placeholder{color:rgba(239,232,220,.18)}
-.f textarea{resize:none;height:82px}
-.f select{appearance:none;-webkit-appearance:none;background:rgba(239,232,220,.05) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238D6846' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;border:1px solid rgba(239,232,220,.1);color:var(--white);padding:12px 36px 12px 15px;font-family:var(--font-body);font-size:.78rem;font-weight:300;outline:none;transition:all .3s;width:100%;cursor:pointer}
-.f select:focus{border-color:var(--gold-lt);background-color:rgba(239,232,220,.08)}
-.f select:hover{border-color:rgba(141,104,70,.35)}
-.f select option{background:#3A2A1E;color:var(--white);padding:8px}
-.f select.has-value{color:var(--white)}
-.f select:invalid,.f select option[value=""]{color:rgba(239,232,220,.32)}
-.submit{background:var(--gold);color:var(--on-corten);border:none;padding:16px;font-family:var(--font-body);font-size:.66rem;letter-spacing:.01em;text-transform:none;font-weight:500;cursor:pointer;transition:all .35s;margin-top:4px}
-.submit:hover{background:var(--gold-lt)}
-.success{display:none;text-align:center;padding:52px 0;font-family:var(--font-display);font-size:1.7rem;font-weight:200;color:var(--gold-lt)}
-
-
-
 /* ═══════════════════════════════════════════════
    OBSIDIAN-INSPIRED EFFECTS
 ═══════════════════════════════════════════════ */
@@ -556,51 +482,114 @@ html.no-gl .cenote-fallback{display:block}
 }
 
 
-/* FOOTER */
-footer{background:var(--earth);position:relative;padding:56px 5vw 28px}
-footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;background:linear-gradient(to right,transparent,rgba(154,74,38,.35),transparent)}
-.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1.2fr 1fr 1fr;gap:44px;max-width:1400px;margin:0 auto;align-items:start}
-@media(max-width:1024px){.f-grid{grid-template-columns:1fr 1fr 1fr;gap:40px 32px}}
-@media(max-width:640px){.f-grid{grid-template-columns:1fr 1fr;gap:32px}}
-@media(max-width:420px){.f-grid{grid-template-columns:1fr;gap:28px}}
-.f-col{display:flex;flex-direction:column;gap:14px}
-.f-logo{height:38px;object-fit:contain;align-self:flex-start}
-.f-tagline{font-family:var(--font-display);font-size:.95rem;font-weight:300;color:rgba(239,232,220,.55);line-height:1.55;max-width:260px}
-.f-head{font-size:.56rem;letter-spacing:.01em;text-transform:none;color:var(--gold-lt);font-weight:500;margin-bottom:4px;}
-.f-links{display:flex;flex-direction:column;gap:10px;list-style:none;padding:0;margin:0}
-.f-links a{font-size:.72rem;color:rgba(239,232,220,.55);text-decoration:none;letter-spacing:.04em;transition:color .3s ease,transform .3s ease;display:inline-flex;align-items:center;gap:6px}
-.f-links a:hover{color:var(--gold-lt);transform:translateX(3px)}
-.f-contact{font-size:.72rem;color:rgba(239,232,220,.55);line-height:1.75}
-.f-contact b{display:block;color:rgba(239,232,220,.8);font-weight:400;margin-top:10px;font-size:.68rem;letter-spacing:.01em;text-transform:none}
-.f-contact a{color:rgba(239,232,220,.55);text-decoration:none;transition:color .3s ease}
-.f-contact a:hover{color:var(--gold-lt)}
-.f-social{display:flex;align-items:center;gap:14px;margin-top:4px}
-.f-social a{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid rgba(154,74,38,.25);color:rgba(239,232,220,.55);transition:all .3s ease;text-decoration:none}
-.f-social a:hover{color:var(--on-corten);background:var(--gold-lt);border-color:var(--gold-lt)}
-.f-lang{display:flex;gap:4px;margin-top:4px}
-.f-lang button{background:none;border:1px solid rgba(154,74,38,.25);color:rgba(239,232,220,.55);font-family:var(--font-body);font-size:.58rem;letter-spacing:.01em;text-transform:none;padding:5px 10px;cursor:pointer;transition:all .3s ease}
-.f-lang button:hover{color:var(--gold-lt);border-color:rgba(141,104,70,.5)}
-.f-lang button.active{color:var(--gold-lt);background:rgba(141,104,70,.08);border-color:rgba(141,104,70,.55)}
-.f-bottom{max-width:1400px;margin:48px auto 0;padding-top:26px;position:relative;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:14px;text-align:center}
-.f-bottom::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(420px,70%);height:1px;background:linear-gradient(to right,transparent,rgba(141,104,70,.45),transparent)}
-.f-bottom-l{font-size:.58rem;letter-spacing:.01em;text-transform:none;color:rgba(239,232,220,.42);}
 
-/* MODAL */
-.overlay{display:none;position:fixed;inset:0;background:rgba(42,30,21,.88);z-index:300;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
-.overlay.on{display:flex}
-.modal{background:var(--surface);max-width:500px;width:92%;padding:48px 40px;position:relative;max-height:92svh;overflow-y:auto}
-@media(max-width:480px){.modal{padding:36px 24px}}
-.mcl{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.4rem;color:var(--ink2);cursor:pointer;opacity:.45;transition:opacity .3s;line-height:1}
+/* SURFACE — back in the light */
+.surface{position:relative;background:var(--chukum);color:var(--earth)}
+.surface-rise{position:absolute;left:0;right:0;top:0;height:70vh;background:radial-gradient(ellipse 70% 70% at 50% 0%,rgba(255,240,210,.7),transparent 70%);pointer-events:none}
+.surface-inner{position:relative;max-width:1400px;margin:0 auto;padding:20vh 5vw 14vh;display:grid;grid-template-columns:1.1fr .9fr;gap:6vw;align-items:start}
+.surface-h2{font-family:var(--font-display);font-weight:200;font-size:clamp(3rem,7.4vw,7.2rem);line-height:.98;letter-spacing:-.04em;color:var(--earth);margin:0 0 28px}
+.surface-h2 em{color:var(--corten)}
+.surface-body{font-weight:300;font-size:clamp(1.05rem,1.4vw,1.35rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0}
+.price{margin:38px 0 6px;font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,3.4vw,3.2rem);letter-spacing:-.03em;line-height:1.1;color:var(--earth)}
+.price-ccy{font-size:13px;color:var(--text-3)}
+.slines{list-style:none;margin:30px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;font-size:14.5px;color:var(--text-2)}
+.slines li{display:flex;align-items:center;gap:14px}
+.slines .cline-ico{color:var(--corten);flex:0 0 20px;display:inline-flex;width:20px;height:20px}
+.slines .cline-ico svg{width:20px;height:20px}
+.surface-form{padding-top:8px}
+.ve-row{display:flex;flex-direction:column;gap:10px;margin-bottom:38px}
+.ve-row .ey{margin-bottom:4px}
+.ve-btn{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;padding:16px 18px;border:1px solid rgba(141,104,70,.45);background:rgba(223,201,171,.3);color:var(--earth);text-align:left;font:inherit;cursor:pointer;border-radius:4px;transition:border-color .3s,background .3s}
+.ve-btn:hover{border-color:var(--corten);background:rgba(223,201,171,.6)}
+.ve-btn>span:first-child{display:flex;flex-direction:column;gap:2px}
+.ve-btn-t{font-weight:500;font-size:15px}
+.ve-btn-m{font-size:12.5px;color:var(--text-3)}
+.ve-btn-ico{width:38px;height:38px;border-radius:50%;border:1px solid rgba(141,104,70,.5);display:flex;align-items:center;justify-content:center;color:var(--corten);flex:0 0 38px}
+/* the form: underline fields, earth text, one Corten button */
+.form{display:flex;flex-direction:column;gap:18px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.f{display:flex;flex-direction:column;gap:4px}
+.f label{font-size:12.5px;color:var(--text-3)}
+.f input,.f textarea,.f select{appearance:none;-webkit-appearance:none;background:transparent;border:0;border-bottom:1px solid rgba(141,104,70,.5);border-radius:0;padding:10px 0;color:var(--earth);font-family:var(--font-body);font-size:.98rem;font-weight:400;outline:none;width:100%;transition:border-color .3s}
+.f input:focus,.f textarea:focus,.f select:focus{border-bottom-color:var(--corten)}
+.f input::placeholder,.f textarea::placeholder{color:rgba(42,30,21,.38)}
+.f textarea{resize:none;height:84px}
+.f select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238D6846' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 4px center;padding-right:28px;cursor:pointer}
+.f select option{background:var(--chukum);color:var(--earth)}
+.f select:invalid,.f select option[value=""]{color:rgba(42,30,21,.5)}
+.submit{margin-top:10px;background:var(--corten);color:var(--on-corten);border:0;border-radius:999px;padding:17px 24px;font-family:var(--font-body);font-size:14px;font-weight:500;cursor:pointer;transition:background .3s,transform .3s}
+.submit:hover{background:var(--earth)}
+.submit:disabled{opacity:.4;cursor:not-allowed}
+.success{display:none;text-align:center;padding:52px 0;font-family:var(--font-display);font-size:1.7rem;font-weight:200;color:var(--corten)}
+@media(max-width:768px){
+  .surface-inner{grid-template-columns:1fr;gap:48px;padding:14vh 6vw 10vh}
+  .surface-h2{font-size:clamp(2.4rem,11vw,4rem)}
+  .frow{grid-template-columns:1fr;gap:18px}
+}
+/* footer in sand: the tree comes back small; contacts, portal, socials, languages; the 20°N signature */
+footer{background:var(--sand);position:relative;padding:72px 5vw 28px;color:var(--earth)}
+.f-tree{position:relative;width:min(240px,56vw);aspect-ratio:1;margin:0 auto 52px}
+.f-mark{display:block;width:100%;height:100%;color:var(--earth);fill:currentColor;opacity:.85;transition:opacity 1s ease}
+html.gl.surface-live .f-mark{opacity:0}
+html.gl.surface-live .surface,html.gl.surface-live footer{background:transparent}
+.f-grid{display:grid;grid-template-columns:1.3fr 1fr 1.2fr .8fr .8fr;gap:40px;max-width:1400px;margin:0 auto;align-items:start}
+.f-col{display:flex;flex-direction:column;gap:12px}
+.f-logo-row{display:inline-flex;align-items:center;gap:10px;color:var(--earth)}
+.f-tagline{font-family:var(--font-display);font-weight:300;font-size:1rem;line-height:1.5;color:var(--text-2);max-width:240px;margin:0}
+.f-head{font-size:13px;font-weight:500;color:var(--corten);margin-bottom:2px}
+.f-contact{font-size:14px;line-height:1.7;color:var(--text-2)}
+.f-contact a{color:var(--text-2);text-decoration:none;transition:color .3s}
+.f-contact a:hover{color:var(--corten)}
+.f-emails{display:flex;flex-direction:column;gap:6px}
+.f-wa-line{display:block;margin-top:4px}
+footer .f-broker{margin-top:10px;align-self:flex-start;background:none;border:1px solid rgba(141,104,70,.55);border-radius:999px;padding:8px 14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--earth);cursor:pointer;transition:all .3s}
+footer .f-broker:hover{background:var(--corten);border-color:var(--corten);color:var(--on-corten)}
+.f-social{display:flex;align-items:center;gap:10px}
+.f-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(141,104,70,.5);border-radius:50%;color:var(--earth);transition:all .3s;text-decoration:none}
+.f-social a:hover{background:var(--corten);border-color:var(--corten);color:var(--on-corten)}
+.f-lang{display:flex;gap:6px}
+.f-lang button{background:none;border:1px solid rgba(141,104,70,.45);border-radius:3px;color:var(--text-2);font-family:var(--font-body);font-size:12px;padding:6px 10px;cursor:pointer;transition:all .3s}
+.f-lang button:hover{color:var(--corten);border-color:var(--corten)}
+.f-lang button.active{color:var(--corten);border-color:var(--corten);background:rgba(154,74,38,.08)}
+.f-bottom{max-width:1400px;margin:52px auto 0;padding-top:22px;border-top:1px solid rgba(141,104,70,.35);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;font-size:12.5px;color:var(--text-3)}
+.f-coords{font-family:var(--font-coords);font-size:11.5px;letter-spacing:.02em;color:var(--earth);opacity:.45}
+@media(max-width:1024px){.f-grid{grid-template-columns:1fr 1fr 1fr;gap:36px 28px}}
+@media(max-width:640px){.f-grid{grid-template-columns:1fr 1fr;gap:30px 20px}.f-bottom{justify-content:flex-start}}
+@media(max-width:420px){.f-grid{grid-template-columns:1fr}}
+/* the enquiry as a right-side drawer in chukum; the broker modals share it */
+.overlay,.br-ov{display:none;position:fixed;inset:0;background:rgba(42,30,21,.45);z-index:300;justify-content:flex-end;align-items:stretch;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.overlay.on,.br-ov.on{display:flex}
+.modal{background:var(--chukum);color:var(--earth);width:min(540px,100%);max-width:none;height:100%;max-height:none;padding:76px 48px 48px;overflow-y:auto;position:relative;box-shadow:-24px 0 60px rgba(42,30,21,.25);animation:drawerIn .5s cubic-bezier(.16,1,.3,1)}
+@keyframes drawerIn{from{transform:translateX(48px);opacity:0}to{transform:none;opacity:1}}
+@media(max-width:480px){.modal{padding:68px 24px 32px}}
+.mcl{position:absolute;top:18px;right:20px;background:none;border:none;font-size:1.6rem;color:var(--earth);cursor:pointer;opacity:.5;transition:opacity .3s;line-height:1;width:40px;height:40px}
 .mcl:hover{opacity:1}
-.modal h3{font-family:var(--font-display);font-size:1.9rem;font-weight:200;margin-bottom:4px;color:var(--ink)}
-.modal-sub{font-size:.65rem;color:var(--gold);letter-spacing:.01em;text-transform:none;margin-bottom:28px}
-.modal .f input{border-color:rgba(42,30,21,.15);background:var(--bg);color:var(--ink)}
-.modal .f select{border-color:rgba(42,30,21,.15);background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238D6846' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;color:var(--ink)}
-.modal .f select:focus{border-color:var(--gold);background-color:var(--bg2)}
-.modal .f select option{background:var(--surface);color:var(--ink)}
-.modal .f label{color:var(--gold)}
-.modal .submit{background:var(--corten);color:var(--on-corten)}
-.modal .submit:hover{background:var(--gold)}
+.modal h3{font-family:var(--font-display);font-size:clamp(1.8rem,2.6vw,2.4rem);font-weight:200;letter-spacing:-.03em;margin:0 0 4px;color:var(--earth)}
+.modal-sub{font-size:13px;color:var(--text-3);margin-bottom:30px}
+.modal .form{gap:18px}
+.modal .success{color:var(--corten)}
+@media(prefers-reduced-motion:reduce){.modal{animation:none}}
+/* WhatsApp float: earth disc, chukum icon, Corten on hover */
+.wa-float:hover{background:var(--corten);color:var(--on-corten)}
+/* menu side column */
+.menu-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:6vw;align-items:end;width:100%;max-width:1400px}
+.menu-i{display:inline-block;width:2.2em;font-family:var(--font-body);font-weight:400;font-size:12px;letter-spacing:0;color:rgba(239,232,220,.5);vertical-align:.9em}
+.menu-side{display:flex;flex-direction:column;gap:22px;color:rgba(239,232,220,.72);font-size:14px;padding-bottom:1.2vw}
+.menu-side .lang-btn{color:rgba(239,232,220,.6)}
+.menu-side .lang-btn:hover{color:var(--chukum)}
+.menu-side .lang-btn.active{color:var(--sand);border-color:rgba(223,201,171,.5)}
+.menu-contact{display:flex;flex-direction:column;gap:6px}
+.menu-contact a,.menu-more a{color:rgba(239,232,220,.72);text-decoration:none;transition:color .3s}
+.menu-contact a:hover,.menu-more a:hover{color:var(--chukum)}
+.menu-more{list-style:none;margin:0;padding:14px 0 0;border-top:1px solid rgba(239,232,220,.16);display:flex;flex-wrap:wrap;gap:6px 18px;font-size:13px}
+.menu-side .nav-cta{align-self:flex-start;color:var(--chukum);border-color:rgba(239,232,220,.4);margin-top:6px}
+.menu-side .nav-cta:hover{background:var(--corten);border-color:var(--corten);color:var(--on-corten)}
+@media(max-width:768px){
+  .nav-drawer.open{justify-content:flex-start;padding:80px 24px 40px}
+  .menu-grid{grid-template-columns:1fr;gap:28px;align-items:start}
+  .nav-drawer .nav-links a{font-size:clamp(2rem,9.5vw,3rem);line-height:1.15}
+  .menu-side{gap:16px;font-size:13.5px}
+}
 
 /* ADMIN */
 .adm-panel{display:none;position:fixed;inset:0;background:rgba(42,30,21,.97);z-index:400;flex-direction:column}
@@ -626,7 +615,7 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
 @media(prefers-reduced-motion:reduce){.wa-float{transition:none}.wa-float:hover{transform:none}}
 /* Emails stack with small gap */
 .f-emails{display:flex;flex-direction:column;gap:8px}
-.f-wa-line{display:inline-block;margin-top:6px}
+.f-wa-line{display:block;margin-top:4px}
 
 
 
@@ -698,15 +687,15 @@ nav.sc{padding:12px 24px}
 @media(max-width:380px){.nav-name{display:none}}
 /* Menu drawer — full screen, all widths */
 .nav-drawer{display:none}
-.nav-drawer.open{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:fixed;inset:0;width:100vw;height:100vh;background:rgba(239,232,220,.96);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);padding:88px clamp(24px,8vw,120px) 48px;z-index:9998;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:drawerFadeIn .3s ease-out}
+.nav-drawer.open{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;position:fixed;inset:0;width:100vw;height:100vh;background:rgba(42,30,21,.97);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);padding:88px clamp(24px,8vw,120px) 48px;z-index:9998;overflow-y:auto;-webkit-overflow-scrolling:touch;animation:drawerFadeIn .3s ease-out}
 @keyframes drawerFadeIn{from{opacity:0}to{opacity:1}}
 .nav-drawer-close{display:none}
-.nav-drawer.open .nav-drawer-close{display:flex;position:absolute;top:14px;right:14px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;color:var(--text);cursor:pointer;z-index:1}
+.nav-drawer.open .nav-drawer-close{display:flex;position:absolute;top:14px;right:14px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;color:var(--chukum);cursor:pointer;z-index:1}
 .nav-drawer-close svg{width:22px;height:22px;stroke-width:1.5}
 .nav-drawer .nav-links{list-style:none;display:flex;flex-direction:column;gap:2px;margin:0;padding:0}
-.nav-drawer .nav-links a{font-family:var(--font-display);font-weight:200;font-size:clamp(1.7rem,4.6vw,3.2rem);letter-spacing:-.04em;line-height:1.2;color:var(--text);text-decoration:none;opacity:.85;transition:opacity .3s,color .3s;display:block;padding:3px 0}
-.nav-drawer .nav-links a:hover{opacity:1;color:var(--corten)}
-.nav-drawer .lang-sw{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);gap:8px}
+.nav-drawer .nav-links a{font-family:var(--font-display);font-weight:200;font-size:clamp(2.2rem,6.4vw,5.4rem);letter-spacing:-.04em;line-height:1.12;color:var(--chukum);text-decoration:none;opacity:.85;transition:opacity .3s,color .3s;display:block;padding:3px 0}
+.nav-drawer .nav-links a:hover{opacity:1;color:var(--sand)}
+.nav-drawer .lang-sw{gap:8px}
 .nav-drawer .lang-btn{font-size:13px;padding:7px 12px}
 .nav-drawer .nav-cta{margin-top:22px;padding:12px 22px;font-size:14px}
 body.nav-open{overflow:hidden}
@@ -751,30 +740,6 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
   .gauge-marker{transition:none}
 }
 
-/* STEP-04c — light everywhere but the cenote: videos, lead (surface) and footer until their own steps rebuild them */
-.virtual-exp,.lead{background:var(--chukum)}
-footer{background:var(--surface-2)}
-.lead::before{color:rgba(42,30,21,.045)}
-.lead-p,.cline,.lead-price-ccy,.ve-sub,.ve-meta,.f-tagline,.f-links a,.f-contact,.f-contact a,.f-social a,.f-lang button,.f-bottom-l{color:var(--text-2)}
-.ve-meta,.lead-price-ccy,.f-bottom-l,.f-contact b{color:var(--text-3)}
-.lead h2.serif,.ve-head h2,.lead-price-amt,.f-contact b{color:var(--text)}
-.lead h2.serif em,.ve-head h2 em,.lead-info .ey,.ve-head .ey,.cline-ico,.f-head,.success{color:var(--corten)}
-.lead-info .ey::before,.ve-head .ey::before{background:var(--corten)}
-.f label{color:var(--text-3);opacity:1}
-.f input,.f textarea,.f select{background:rgba(42,30,21,.04);border-color:rgba(141,104,70,.4);color:var(--text)}
-.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--corten);background-color:rgba(42,30,21,.06)}
-.f input::placeholder,.f textarea::placeholder{color:rgba(42,30,21,.42)}
-.f select option{background:var(--chukum);color:var(--text)}
-.f select:invalid,.f select option[value=""]{color:rgba(42,30,21,.5)}
-.submit:hover{background:var(--earth)}
-.ve-frame{background:var(--sand);border-color:rgba(141,104,70,.35)}
-.ve-3d-thumb{background:radial-gradient(ellipse at 50% 40%,var(--sand) 0%,transparent 55%),linear-gradient(160deg,var(--surface-2) 0%,var(--sand) 45%,var(--wood) 100%);filter:none}
-.ve-play-btn{border-color:rgba(42,30,21,.45);color:var(--text)}
-.ve-lbl{color:var(--text);background:rgba(239,232,220,.85);border-color:rgba(141,104,70,.35)}
-.f-social a,.f-lang button{border-color:rgba(141,104,70,.4)}
-.f-links a:hover,.f-contact a:hover,.f-lang button:hover{color:var(--corten)}
-.f-lang button.active{color:var(--corten);border-color:var(--corten);background:rgba(154,74,38,.06)}
-footer::before{background:linear-gradient(to right,transparent,rgba(141,104,70,.45),transparent)}
 </style>
 
 <!-- Broker referral modal: EmailJS SDK (credentials set in script block near bottom of file) -->
@@ -782,7 +747,7 @@ footer::before{background:linear-gradient(to right,transparent,rgba(141,104,70,.
 <style>
 /* Broker referral modal — visual mirrors Private Enquiry (.overlay / .modal / .form / .f / .submit).
    Broker-only styles below are additions: section headings, privacy notice, consent checkbox, copy-link icon, success panel. */
-.br-ov{display:none;position:fixed;inset:0;background:rgba(42,30,21,.88);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);z-index:300;align-items:center;justify-content:center;padding:20px}
+.br-ov{display:none;position:fixed;inset:0;background:rgba(42,30,21,.45);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);z-index:300;align-items:stretch;justify-content:flex-end;padding:0}
 .br-ov.on{display:flex}
 .br-m{animation:brFade .3s ease-out}
 @keyframes brFade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
@@ -895,28 +860,42 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
     <button class="nav-drawer-close" type="button" data-i18n-aria="nav.menu.close" aria-label="Close menu" onclick="toggleNavMenu(false)">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
     </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
-      <li><a href="#features" data-i18n="nav.features">Features</a></li>
-      <li><a href="#kitchen" data-i18n="nav.kitchen">Kitchen</a></li>
-      <li><a href="#pool" data-i18n="nav.pool">Pool</a></li>
-      <li><a href="#wine-cellar" data-i18n="nav.wine">Wine Cellar</a></li>
-      <li><a href="#ome-spa" data-i18n="nav.ome">OMé Spa</a></li>
-      <li><a href="#videos" data-i18n="nav.videos">Videos</a></li>
-      <!-- TODO: replace with href="/casa-arbol-brochure.pdf" and download attribute when PDF is ready -->
-      <li><a href="#" onclick="event.preventDefault()" data-i18n="nav.brochure">Brochure</a></li>
-    </ul>
-    <div class="lang-sw">
+    <div class="menu-grid">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#canopy"><span class="menu-i">01</span>canopy</a></li>
+        <li><a href="#houseSection"><span class="menu-i">02</span>ground</a></li>
+        <li><a href="#gallery"><span class="menu-i">03</span>inside</a></li>
+        <li><a href="#features"><span class="menu-i">04</span>roots</a></li>
+        <li><a href="#pool"><span class="menu-i">05</span>cenote</a></li>
+        <li><a href="#contact"><span class="menu-i">06</span>surface</a></li>
+      </ul>
+      <aside class="menu-side">
+        <div class="lang-sw">
       <button class="lang-btn active" data-lang="en" onclick="applyLang('en')">EN</button>
       <button class="lang-btn" data-lang="es" onclick="applyLang('es')">ES</button>
       <button class="lang-btn" data-lang="fr" onclick="applyLang('fr')">FR</button>
     </div>
-    <button class="nav-cta" data-i18n="nav.cta" onclick="openModal()">Private Enquiry</button>
+        <div class="menu-contact">
+          <a href="https://wa.me/5219841803527" target="_blank" rel="noopener">Ivana · +52 984 180 3527</a>
+          <a href="https://wa.me/5219841179918" target="_blank" rel="noopener">Yannick · +52 984 117 9918</a>
+          <a href="mailto:weber.buric@gmail.com">weber.buric@gmail.com</a>
+          <a href="mailto:casaarbolplayacar@gmail.com">casaarbolplayacar@gmail.com</a>
+        </div>
+        <ul class="menu-more">
+          <li><a href="#kitchen" data-i18n="nav.kitchen">Kitchen</a></li>
+          <li><a href="#wine-cellar" data-i18n="nav.wine">Wine Cellar</a></li>
+          <li><a href="#ome-spa" data-i18n="nav.ome">OMé Spa</a></li>
+          <li><a href="#videos" data-i18n="nav.videos">Videos</a></li>
+          <li><a href="#" onclick="event.preventDefault()" data-i18n="nav.brochure">Brochure</a></li>
+        </ul>
+        <button class="nav-cta" data-i18n="nav.cta" onclick="openModal()">Private Enquiry</button>
+      </aside>
+    </div>
   </div>
 </nav>
 
 <!-- HERO — exterior night shot -->
-<section class="hero" data-chapter="canopy">
+<section class="hero" id="canopy" data-chapter="canopy">
   <div class="hero-poster" aria-hidden="true"><picture><source type="image/webp" srcset="/images/web/casa-arbol-exterior-m.webp 816w, /images/web/casa-arbol-exterior.webp 1387w" sizes="100vw"><img src="/images/web/casa-arbol-exterior-m.jpg" srcset="/images/web/casa-arbol-exterior-m.jpg 816w, /images/web/casa-arbol-exterior.jpg 1387w" sizes="100vw" width="1387" height="1734" class="hero-bg" alt="Casa Árbol at night" fetchpriority="high" decoding="async" style="background:url(data:image/webp;base64,UklGRvABAABXRUJQVlA4IOQBAABQDgCdASozAEAAPqVGmUmmJCKhN/asAMAUiUAYA/MCQg6n1+7Cr7DikYZv1r7RBA2Xj3f1aaXSVSxQGwHlDBgVOP27IjfNGq+rSNXnCvxYIgo2j+a6EVXth9FM88Hgr2POIt5btnmwP9ILeGyDQDIPvtHmT4eHHaZMIYAA/vlBR9kw+B9dmlzauY4g99AukPHd0KVpCzU0oo/We2GOOU05chzb948ptzHzSa9CBBdmsb9jvvcxyxHF3gdDJXq31vvM/sD++ygbAEpmKZYmaMyGZ96Np/qzyqTfkK7I+sa7SKa6hTizC3j8RtPCEU+1fwvC9XV/sLrXhmNGUWFH/BvE1Ct6tGfCz+zrLDpXoH2wpTRy5HTpwtyoqNJW22wS9fCPD0D0YwfQI0S+fw7XiJSO95V1UQNT+Ojyqejm1v/MB3Or3dk/2XReWJChA5b3dU1Qo0uBvfUP0BCjogIY0ag0G+wjTB8zG3YRoYSHGMqOJVdfbM2uBIfj/1GWhu5KrUapU7dlFxQ38r2Sihljfw3hKcgLhRP2HLA5vRxVvITdaWLEggf0Cz6j9JoOtJG4jMEXqmNUUdAjRFGKiUfwrtdmV1tHi/SgEnc0Sc254P9WtU9Ho+DUZhOX88PuEcB0MvlYh/AA) center/cover"></picture><div class="hero-grad"></div></div>
   <svg class="hero-mark" viewBox="0 0 352 352" aria-hidden="true" focusable="false"><use href="#ca-mark"/></svg>
   <div class="hero-content">
@@ -1035,57 +1014,28 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
   </div>
 </section>
 
-<!-- VIRTUAL EXPERIENCE (video + 3D tour) -->
-<section class="virtual-exp" id="videos">
-  <div class="ve-head rv">
-    <div class="ey" data-i18n="ve.ey">Virtual Experience</div>
-    <h2 class="serif"><span data-i18n="ve.h2a">Step Inside,</span> <em data-i18n="ve.h2b">From Anywhere</em></h2>
-    <span class="rule"></span>
-    <p class="ve-sub" data-i18n="ve.sub">Walk the grounds. Cross the cenote. Feel the quiet. Experience Casa Árbol in full before you ever arrive in Playacar.</p>
-  </div>
-  <div class="ve-grid">
-    <div class="ve-card rv">
-      <!-- TODO: add <source src="..." type="video/mp4"> when production video is ready -->
-      <div class="ve-frame" role="button" tabindex="0" aria-label="Play cinematic walkthrough" onclick="openModal()">
-        <picture><source type="image/webp" srcset="/images/web/tour-preview-m.webp 1200w" sizes="(max-width:860px) 100vw, 50vw"><img src="/images/web/tour-preview-m.jpg" srcset="/images/web/tour-preview-m.jpg 1200w" sizes="(max-width:860px) 100vw, 50vw" width="1200" height="900" alt="Virtual Tour" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRloBAABXRUJQVlA4IE4BAABwCwCdASpAADAAPp1AmUmlpCKhN/jtULATiWMAsR/V0KJbQUXzSpVaPJEKDMlJ4RbkCr3uBd38PE6VTh3YlCvGUEMx0PSYVZYZU5RKeTu9YG731mu0CgGXpekPnLJJnWPMHnfwAP6G3y0OXyNZmkJJ2S2qj8sSrdu50ejal+hooawH+cHQAIPr6e/L2pAnOwnECzUPTnhY24qka6NyolmlDigqUXO21JtPt+4gGUC1ZOlAhKlMFXBnQhLURIP5JYLOLkGFpfmssTjh7B21/9jd2rBX6NzLZ1zwmfBBmT+ZmP8bnARF4v4MF/afVEpeZYVU3QZv5/NOkOzbufq+qD12pG7DNJUvD8dmc3pgws1JabFgAgcvLYrKC/42AKQl2RApwZGFNCjlELCUxDHL/1GX/mnpYCvekJ0MumV6Wow5FfNvb50Me6MTmKR+gAAA) center/cover"></picture>
-        <div class="ve-overlay">
-          <div class="ve-play-btn" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="ve-lbl" data-i18n="ve.video.cta">Play Cinematic Walkthrough</div>
-        </div>
-      </div>
-      <div class="ve-meta"><span data-i18n="ve.video.meta">Cinematic film · 360° · HD</span></div>
-    </div>
-    <div class="ve-card rv" id="tour">
-      <!-- TODO: replace .ve-3d-thumb with <iframe src="https://my.matterport.com/show/?m=XXXXX" allow="fullscreen; xr-spatial-tracking" allowfullscreen></iframe> -->
-      <div class="ve-frame ve-3d-frame" role="button" tabindex="0" aria-label="Launch 3D walkthrough" onclick="openModal()">
-        <div class="ve-3d-thumb" aria-hidden="true"></div>
-        <div class="ve-overlay">
-          <div class="ve-play-btn" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M3 7l9 5 9-5M12 12v10"/></svg></div>
-          <div class="ve-lbl" data-i18n="ve.tour.cta">Launch 3D Tour</div>
-        </div>
-      </div>
-      <div class="ve-meta"><span data-i18n="ve.tour.meta">Matterport · Walk every room · 360°</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- LEAD -->
-<section class="lead" id="contact" data-chapter="surface">
-  <div class="lead-grid">
-    <div class="lead-info rl">
+<!-- SURFACE — back in the light: the closing, the enquiry, the footer with the small tree and the 20°N signature -->
+<section class="surface" id="contact" data-chapter="surface">
+  <div class="surface-rise" aria-hidden="true"></div>
+  <div class="surface-inner">
+    <div class="surface-txt">
       <div class="ey" data-i18n="lead.ey">Private Enquiry</div>
-      <h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="lead.h2a">Begin your</span></span><span class="split-wrap"><span class="split-inner d2" data-i18n="lead.h2b"><em>Casa Árbol</em> journey</span></span></h2>
-      <span class="rule" style="background:var(--gold-lt)"></span>
-      <p class="lead-p" data-i18n="lead.body">A rare opportunity to acquire an extraordinary estate in Playacar's most coveted enclave. We invite serious enquiries from qualified buyers.</p>
-      <div class="lead-price">
-        <div class="lead-price-amt" data-i18n="lead.price.amt">$1.675M USD</div>
-        <div class="lead-price-ccy" data-i18n="lead.price.ccy">USD / MXN / EUR / CRYPTO</div>
-      </div>
-      <div class="cline"><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span data-i18n="lead.loc">Playacar Phase II, Playa del Carmen, Q.R., Mexico</span></div>
-      <div class="cline"><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span data-i18n="lead.appt">Private viewings by appointment · WhatsApp available</span></div>
-      <div class="cline"><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg></span><span data-i18n="lead.intl">International buyers welcome · USD / MXN / EUR · Crypto accepted</span></div>
+      <h2 class="surface-h2"><span data-i18n="lead.h2a">Begin your</span><br><span data-i18n="lead.h2b"><em>Casa Árbol</em> journey</span></h2>
+      <p class="surface-body" data-i18n="lead.body">A rare opportunity to acquire an extraordinary estate in Playacar's most coveted enclave. We invite serious enquiries from qualified buyers.</p>
+      <div class="price" data-i18n="lead.price.amt">$1.675M USD</div>
+      <div class="price-ccy" data-i18n="lead.price.ccy">USD / MXN / EUR / CRYPTO</div>
+      <ul class="slines">
+        <li><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 7-8 13-8 13s-8-6-8-13a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span data-i18n="lead.loc">Playacar Phase II, Playa del Carmen, Q.R., Mexico</span></li>
+        <li><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span data-i18n="lead.appt">Private viewings by appointment · WhatsApp available</span></li>
+        <li><span class="cline-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/></svg></span><span data-i18n="lead.intl">International buyers welcome · USD / MXN / EUR · Crypto accepted</span></li>
+      </ul>
     </div>
-    <div class="rv">
+    <div class="surface-form">
+      <div class="ve-row" id="videos">
+        <div class="ey" data-i18n="ve.ey">Virtual Experience</div>
+        <button type="button" class="ve-btn" onclick="openModal()" aria-label="Play cinematic walkthrough"><span><span class="ve-btn-t" data-i18n="ve.video.cta">Play Cinematic Walkthrough</span><span class="ve-btn-m" data-i18n="ve.video.meta">Cinematic film · 360° · HD</span></span><span class="ve-btn-ico" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></button>
+        <button type="button" class="ve-btn" id="tour" onclick="openModal()" aria-label="Launch 3D walkthrough"><span><span class="ve-btn-t" data-i18n="ve.tour.cta">Launch 3D Tour</span><span class="ve-btn-m" data-i18n="ve.tour.meta">Matterport · Walk every room · 360°</span></span><span class="ve-btn-ico" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 22V12L3 7M12 12l9-5"/></svg></span></button>
+      </div>
       <div class="form" id="mainForm">
         <div class="frow"><div class="f"><label data-i18n="f.firstname">First Name</label><input type="text" id="fn" placeholder="Alexandre"></div><div class="f"><label data-i18n="f.lastname">Last Name</label><input type="text" id="ln" placeholder="Moreau"></div></div>
         <div class="f"><label data-i18n="f.email">Email Address</label><input type="email" id="em" placeholder="alex@email.com"></div>
@@ -1098,16 +1048,14 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
       <div class="success" id="mainSuccess"><div style="font-size:2.2rem;margin-bottom:10px">🌿</div data-i18n="f.success" data-i18n="f.success">Thank you — we'll be in touch<br><span style="font-family:var(--font-body);font-size:.7rem;font-style:normal;letter-spacing:.1em;color:var(--gold-lt)" data-i18n="f.success2" data-i18n="f.success2">within 24 hours</span></div>
     </div>
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="f-grid">
-    <div class="f-col">
-      <span class="f-logo-row"><span class="mark" aria-hidden="true"></span><span class="nav-name">Casa Árbol</span></span>
-      <p class="f-tagline" data-i18n="footer.tagline">Where memories are made.</p>
-    </div>
-    <div class="f-col">
+  <footer>
+    <div class="f-tree" id="fTree" aria-hidden="true"><svg class="f-mark" viewBox="0 0 352 352" focusable="false"><use href="#ca-mark"/></svg></div>
+    <div class="f-grid">
+      <div class="f-col">
+        <span class="f-logo-row"><span class="mark" aria-hidden="true"></span><span class="nav-name">Casa Árbol</span></span>
+        <p class="f-tagline" data-i18n="footer.tagline">Where memories are made.</p>
+      </div>
+      <div class="f-col">
       <div class="f-head" data-i18n="footer.contact">Contact</div>
       <div class="f-contact">
         <span data-i18n="footer.addr">Playacar Phase II · Playa del Carmen · México</span>
@@ -1145,11 +1093,14 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
         <button type="button" data-lang="fr" onclick="applyLang('fr')">FR</button>
       </div>
     </div>
-  </div>
-  <div class="f-bottom">
-    <div class="f-bottom-l"><span data-i18n="footer.sale">By Private Sale Only</span><span class="mark mark-sm" role="img" aria-label="Casa Árbol"></span>© <span id="fYear">2026</span> Casa Árbol</div>
-  </div>
-</footer>
+    </div>
+    <div class="f-bottom">
+      <div class="f-bottom-l"><span data-i18n="footer.sale">By Private Sale Only</span>. © <span id="fYear">2026</span> Casa Árbol · Weber-Buric Real Estate · Site by 20°N</div>
+      <div class="f-coords" aria-label="Coordinates">20.6296°N 87.0739°W</div>
+    </div>
+  </footer>
+</section>
+
 
 <!-- MODAL -->
 <div class="overlay" id="modalOverlay" data-lenis-prevent>
@@ -4085,6 +4036,97 @@ if (window.CA_GL) {
   addEventListener('touchmove', e => { const c = e.touches[0]; if (c) setPointer(c.clientX, c.clientY); }, {passive: true});
   addEventListener('touchstart', e => { const c = e.touches[0]; if (c) { pointer.lx = -1; setPointer(c.clientX, c.clientY); } }, {passive: true});
   stage.register('cenote', api);
+}
+</script>
+
+<script type="module">
+// ── Chapter: SURFACE — the particle tree comes back small in the footer and assembles once more ──
+if (window.CA_GL) {
+  const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
+  const {THREE} = stage;
+  const box = document.getElementById('fTree'), foot = document.querySelector('.surface footer'), sec = document.getElementById('contact');
+  const COUNT = stage.phone ? 3500 : 9000;
+  async function sampleMark(n) {
+    const d = document.getElementById('ca-mark-path').getAttribute('d'), S = 256;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 352" width="${S}" height="${S}"><path fill="#fff" fill-rule="evenodd" d="${d}"/></svg>`;
+    const url = URL.createObjectURL(new Blob([svg], {type: 'image/svg+xml'})), img = new Image();
+    await new Promise((res, rej) => { img.onload = res; img.onerror = rej; img.src = url; });
+    const c = document.createElement('canvas'); c.width = c.height = S; const ctx = c.getContext('2d', {willReadFrequently: true}); ctx.drawImage(img, 0, 0, S, S); URL.revokeObjectURL(url);
+    const px = ctx.getImageData(0, 0, S, S).data, filled = [];
+    for (let i = 3; i < px.length; i += 4) if (px[i] > 128) filled.push((i - 3) >> 2);
+    const out = new Float32Array(n * 2);
+    for (let k = 0; k < n; k++) { const p = filled[(Math.random() * filled.length) | 0]; out[k*2] = ((p % S) + Math.random()) / S - 0.5; out[k*2+1] = -(((p / S) | 0) + Math.random()) / S + 0.5; }
+    return out;
+  }
+  const VERT = /* glsl */`
+    attribute vec3 aRand; attribute float aMix; uniform float uPR, uSize; varying float vA; varying vec3 vC;
+    void main(){
+      gl_PointSize = uSize * (0.6 + aRand.y * 0.8) * uPR;
+      gl_Position = vec4(position.xy, 0.0, 1.0);
+      float cz = aRand.z;
+      vC = cz < 0.05 ? vec3(0.561, 0.584, 0.769) : cz < 0.45 ? vec3(0.553, 0.408, 0.275) : cz < 0.80 ? vec3(0.604, 0.290, 0.149) : vec3(0.165, 0.118, 0.082);
+      vA = mix(0.3, 0.85, aMix);
+    }`;
+  const FRAG = /* glsl */`precision mediump float; varying float vA; varying vec3 vC; void main(){ float d = length(gl_PointCoord - 0.5); float a = smoothstep(0.5, 0.1, d); gl_FragColor = vec4(vC, a * vA); }`;
+  let scene, cam, geo, posAttr, mixAttr, pos, vel, start, tw, delay, mixArr, ready = false, started = false, t = 0, sandScene, chukumScene;
+  const api = {
+    order: 1,
+    async init(st) {
+      tw = await sampleMark(COUNT);
+      pos = new Float32Array(COUNT * 3); vel = new Float32Array(COUNT * 3); start = new Float32Array(COUNT * 3); delay = new Float32Array(COUNT); mixArr = new Float32Array(COUNT);
+      const rand = new Float32Array(COUNT * 3);
+      for (let i = 0; i < COUNT; i++) {
+        start[i*3] = pos[i*3] = (Math.random() * 2 - 1) * 1.4; start[i*3+1] = pos[i*3+1] = (Math.random() * 2 - 1) * 1.4; delay[i] = Math.random() * 0.9;
+        rand[i*3] = Math.random(); rand[i*3+1] = Math.random(); rand[i*3+2] = Math.random();
+      }
+      geo = new THREE.BufferGeometry();
+      posAttr = new THREE.BufferAttribute(pos, 3).setUsage(THREE.DynamicDrawUsage); mixAttr = new THREE.BufferAttribute(mixArr, 1).setUsage(THREE.DynamicDrawUsage);
+      geo.setAttribute('position', posAttr); geo.setAttribute('aMix', mixAttr); geo.setAttribute('aRand', new THREE.BufferAttribute(rand, 3));
+      const mat = new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, transparent: true, depthTest: false, depthWrite: false, uniforms: { uPR: {value: st.renderer.getPixelRatio()}, uSize: {value: stage.phone ? 1.9 : 1.7} } });
+      const pts = new THREE.Points(geo, mat); pts.frustumCulled = false;
+      scene = new THREE.Scene(); cam = new THREE.Camera(); scene.add(pts);
+      const flat = rgb => { const sc = new THREE.Scene(); const m = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: 'void main(){ gl_Position = vec4(position.xy, 0.0, 1.0); }', fragmentShader: 'void main(){ gl_FragColor = vec4(' + rgb + ', 1.0); }', depthTest: false, depthWrite: false })); m.frustumCulled = false; sc.add(m); return sc; };
+      sandScene = flat('0.875, 0.788, 0.671'); chukumScene = flat('0.937, 0.910, 0.863');
+      ready = true; document.documentElement.classList.add('surface-live');
+    },
+    update(progress, velocity, dt) {
+      if (!ready) return;
+      dt = Math.min(dt, 1 / 30);
+      const r = box.getBoundingClientRect();
+      if (!started && r.top < innerHeight * 0.88) started = true;
+      if (started) t += dt;
+      const k = 16, damp = 1 - Math.min(1, 6 * dt);
+      for (let i = 0; i < COUNT; i++) {
+        const i3 = i * 3, a = started ? Math.min(1, Math.max(0, (t - delay[i]) * 1.3)) : 0;
+        mixArr[i] = a;
+        const wob = Math.sin(i * 0.37 + t * 0.8) * 0.004;
+        const tx = tw[i*2] * 1.7 + wob, ty = tw[i*2+1] * 1.7;
+        const dx = start[i3] + (tx - start[i3]) * a + (1 - a) * Math.sin(t * 0.5 + i) * 0.02, dy = start[i3+1] + (ty - start[i3+1]) * a + (1 - a) * Math.cos(t * 0.4 + i * 1.3) * 0.02;
+        let vx = (vel[i3] + (dx - pos[i3]) * k * dt) * damp, vy = (vel[i3+1] + (dy - pos[i3+1]) * k * dt) * damp;
+        vel[i3] = vx; vel[i3+1] = vy; pos[i3] += vx * dt; pos[i3+1] += vy * dt;
+      }
+      posAttr.needsUpdate = true; mixAttr.needsUpdate = true;
+    },
+    render(renderer) {
+      if (!ready) return;
+      const vh = innerHeight, vw = innerWidth, sr = sec.getBoundingClientRect(), f = foot.getBoundingClientRect();
+      if (sr.bottom < 0 || sr.top > vh) return;
+      // the section's chukum and the footer's sand are painted by the stage (both are transparent once live, so the canvas shows through)
+      renderer.setScissorTest(true);
+      const paint = (rect, scn) => { const t0 = Math.max(0, rect.top), b0 = Math.min(vh, rect.bottom); if (b0 - t0 < 1) return; renderer.setScissor(0, vh - b0, vw, b0 - t0); renderer.setViewport(0, vh - rect.bottom, vw, rect.height); renderer.render(scn, cam); };
+      paint(sr, chukumScene); paint(f, sandScene);
+      const r = box.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < vh) {
+        const bt = Math.max(0, r.top), bb = Math.min(vh, r.bottom);
+        renderer.setViewport(r.left, vh - r.bottom, r.width, r.height); renderer.setScissor(r.left, vh - bb, r.width, bb - bt);
+        renderer.render(scene, cam);
+      }
+      renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
+    },
+    debug() { return { ready, started, t: +t.toFixed(2), count: COUNT }; },
+    dispose() { ready = false; geo && geo.dispose(); document.documentElement.classList.remove('surface-live'); }
+  };
+  stage.register('surface', api);
 }
 </script>
 </body>
