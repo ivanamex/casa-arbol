@@ -2,7 +2,7 @@
 
 The extravagant moment. We are below the water, looking up.
 
-- Full-screen shader: the underwater view of a cenote. Deep water gradient (#0A3440 → #03161B), animated caustics (layered Voronoi/noise), volumetric light shafts from an opening above (radial blur of a bright disc), floating particles (dust/bubbles drifting up).
+- Full-screen shader: the underwater view of a cenote. Earth-dark water (#2A1E15 → #1A140F); the only turquoise comes from the pool photo mixed into the shader, animated caustics (layered Voronoi/noise), volumetric light shafts from an opening above (radial blur of a bright disc), floating particles (dust/bubbles drifting up).
 - Pointer/touch makes ripples on the surface above: a small ripple simulation (ping-pong render targets) that bends the light shafts and caustics.
 - The cenote-pool photo (aerial) appears as the view through the surface when you look up: mix it in at the top of the frame, distorted by the ripples.
 - Chapters inside the cenote, text floating in the water, one after another:
