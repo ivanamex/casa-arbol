@@ -215,7 +215,7 @@
 :root {
   /* palette — earth, from the renders (2026-09-29): chukum day, one dark moment */
   --chukum:#EFE8DC; --sand:#DFC9AB; --wood:#8D6846; --corten:#9A4A26; --on-corten:#FBF6EE; --earth:#2A1E15; --lilac:#8F95C4;
-  --text:var(--earth); --text-2:rgba(42,30,21,.78); --text-3:var(--wood);
+  --text:var(--earth); --text-2:rgba(42,30,21,.78); --text-3:#6F4E38; /* deep wood: small text at AA */
   --line:rgba(141,104,70,.28); --surface:var(--sand); --surface-2:#E7DCC8;
   --font-display:'Unbounded',sans-serif; --font-body:'Sora',sans-serif; --font-coords:'Geist Mono',ui-monospace,monospace; /* --font-coords: footer 20°N signature only */
   /* legacy tokens, remapped so modal / broker / admin components keep rendering */
@@ -534,7 +534,7 @@ html.no-gl .vault-poster{display:block}
 .f input:focus,.f textarea:focus{border-color:var(--gold-lt)}
 .f input::placeholder,.f textarea::placeholder{color:rgba(239,232,220,.18)}
 .f textarea{resize:none;height:82px}
-.f select{appearance:none;-webkit-appearance:none;background:rgba(239,232,220,.05) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A46A' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;border:1px solid rgba(239,232,220,.1);color:var(--white);padding:12px 36px 12px 15px;font-family:var(--font-body);font-size:.78rem;font-weight:300;outline:none;transition:all .3s;width:100%;cursor:pointer}
+.f select{appearance:none;-webkit-appearance:none;background:rgba(239,232,220,.05) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238D6846' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;border:1px solid rgba(239,232,220,.1);color:var(--white);padding:12px 36px 12px 15px;font-family:var(--font-body);font-size:.78rem;font-weight:300;outline:none;transition:all .3s;width:100%;cursor:pointer}
 .f select:focus{border-color:var(--gold-lt);background-color:rgba(239,232,220,.08)}
 .f select:hover{border-color:rgba(141,104,70,.35)}
 .f select option{background:#3A2A1E;color:var(--white);padding:8px}
@@ -648,7 +648,7 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
 .modal h3{font-family:var(--font-display);font-size:1.9rem;font-weight:200;margin-bottom:4px;color:var(--ink)}
 .modal-sub{font-size:.65rem;color:var(--gold);letter-spacing:.01em;text-transform:none;margin-bottom:28px}
 .modal .f input{border-color:rgba(42,30,21,.15);background:var(--bg);color:var(--ink)}
-.modal .f select{border-color:rgba(42,30,21,.15);background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A07840' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;color:var(--ink)}
+.modal .f select{border-color:rgba(42,30,21,.15);background:var(--bg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238D6846' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 14px center;color:var(--ink)}
 .modal .f select:focus{border-color:var(--gold);background-color:var(--bg2)}
 .modal .f select option{background:var(--surface);color:var(--ink)}
 .modal .f label{color:var(--gold)}
@@ -766,7 +766,7 @@ body.nav-open{overflow:hidden}
 body.nav-open nav{transform:none!important;filter:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 
 /* Depth gauge — the scroll indicator */
-.gauge{position:fixed;z-index:150;pointer-events:none;font-family:var(--font-body);font-weight:400;font-size:12px;color:var(--wood);text-shadow:0 0 6px rgba(239,232,220,.9),0 0 12px rgba(239,232,220,.7)}
+.gauge{position:fixed;z-index:150;pointer-events:none;font-family:var(--font-body);font-weight:400;font-size:12px;color:var(--text-3);text-shadow:0 0 3px rgba(239,232,220,.95),0 0 8px rgba(239,232,220,.9),0 0 16px rgba(239,232,220,.8)}
 .gauge-layers{margin:0;padding:0;list-style:none}
 .gauge li{position:absolute;pointer-events:auto;cursor:pointer;white-space:nowrap;transition:color .4s ease}
 .gauge li:hover{color:var(--text-2)}
@@ -788,6 +788,10 @@ body.nav-open nav{transform:none!important;filter:none!important;-webkit-backdro
   .gauge li{font-size:11px;left:calc(7% + var(--i)*17.2%);transform:translateX(-50%)}
 }
 body.nav-open .gauge{opacity:0;transition:opacity .2s}
+.gauge.on-dark{color:rgba(239,232,220,.72);text-shadow:none}
+.gauge.on-dark li.active{color:var(--chukum)}
+.gauge.on-dark .gauge-line{background:rgba(239,232,220,.3)}
+.gauge.on-dark .gauge-marker{box-shadow:0 0 0 3px rgba(239,232,220,.18)}
 
 /* Chapters — posters fade in with CSS only (works without WebGL / with reduced motion) */
 [data-chapter] .pool-bg{animation-name:hzoom,posterIn;animation-duration:22s,1.4s;animation-timing-function:ease-in-out,ease;animation-iteration-count:infinite,1;animation-direction:alternate,normal;animation-fill-mode:none,both}
@@ -799,6 +803,31 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
   .rv,.rl,.split-inner,.clip-reveal,.draw-path,.draw-fill{transition:none!important;opacity:1!important;transform:none!important;clip-path:none!important;stroke-dashoffset:0!important}
   .gauge-marker{transition:none}
 }
+
+/* STEP-04c — light everywhere but the cenote: videos, lead (surface) and footer until their own steps rebuild them */
+.virtual-exp,.lead{background:var(--chukum)}
+footer{background:var(--surface-2)}
+.lead::before{color:rgba(42,30,21,.045)}
+.lead-p,.cline,.lead-price-ccy,.ve-sub,.ve-meta,.f-tagline,.f-links a,.f-contact,.f-contact a,.f-social a,.f-lang button,.f-bottom-l{color:var(--text-2)}
+.ve-meta,.lead-price-ccy,.f-bottom-l,.f-contact b{color:var(--text-3)}
+.lead h2.serif,.ve-head h2,.lead-price-amt,.f-contact b{color:var(--text)}
+.lead h2.serif em,.ve-head h2 em,.lead-info .ey,.ve-head .ey,.cline-ico,.f-head,.success{color:var(--corten)}
+.lead-info .ey::before,.ve-head .ey::before{background:var(--corten)}
+.f label{color:var(--text-3);opacity:1}
+.f input,.f textarea,.f select{background:rgba(42,30,21,.04);border-color:rgba(141,104,70,.4);color:var(--text)}
+.f input:focus,.f textarea:focus,.f select:focus{border-color:var(--corten);background-color:rgba(42,30,21,.06)}
+.f input::placeholder,.f textarea::placeholder{color:rgba(42,30,21,.42)}
+.f select option{background:var(--chukum);color:var(--text)}
+.f select:invalid,.f select option[value=""]{color:rgba(42,30,21,.5)}
+.submit:hover{background:var(--earth)}
+.ve-frame{background:var(--sand);border-color:rgba(141,104,70,.35)}
+.ve-3d-thumb{background:radial-gradient(ellipse at 50% 40%,var(--sand) 0%,transparent 55%),linear-gradient(160deg,var(--surface-2) 0%,var(--sand) 45%,var(--wood) 100%);filter:none}
+.ve-play-btn{border-color:rgba(42,30,21,.45);color:var(--text)}
+.ve-lbl{color:var(--text);background:rgba(239,232,220,.85);border-color:rgba(141,104,70,.35)}
+.f-social a,.f-lang button{border-color:rgba(141,104,70,.4)}
+.f-links a:hover,.f-contact a:hover,.f-lang button:hover{color:var(--corten)}
+.f-lang button.active{color:var(--corten);border-color:var(--corten);background:rgba(154,74,38,.06)}
+footer::before{background:linear-gradient(to right,transparent,rgba(141,104,70,.45),transparent)}
 </style>
 
 <!-- Broker referral modal: EmailJS SDK (credentials set in script block near bottom of file) -->
@@ -874,6 +903,9 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
 .bpm-copy:hover{color:#9A4A26;border-color:#9A4A26}
 .bpm-copy svg{width:12px;height:12px;stroke-width:1.6}
 .bpm-copy.done{color:var(--gold);border-color:var(--gold)}
+/* STEP-04c: footer button on sand */
+footer .f-broker{color:var(--text-2);border-color:rgba(141,104,70,.45)}
+footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
 </style>
 </head>
 <body>
@@ -3192,6 +3224,30 @@ window.submitBrokerReferral = function(){
     marker.style.setProperty('--p', pos.toFixed(4));
     items.forEach(function(li,i){ li.classList.toggle('active', i===idx); });
     document.documentElement.setAttribute('data-layer', names[idx]);
+    g.classList.toggle('on-dark', darkUnderGauge());
+  }
+  // is the surface under the gauge dark? (photos and earth sections flip the labels to light)
+  function darkUnderGauge(){
+    try{
+      var gr=g.getBoundingClientRect();
+      var x=Math.min(window.innerWidth-2, gr.right-2), y=Math.round(window.innerHeight*0.5);
+      if(window.innerWidth<=768){ x=Math.round(window.innerWidth*0.5); y=Math.max(1, gr.top-4); }
+      var stack=document.elementsFromPoint(x,y);
+      for(var i=0;i<stack.length;i++){
+        var el=stack[i];
+        if(g.contains(el)||el.id==='gl'||el.tagName==='NAV'||el.classList.contains('wa-float')) continue;
+        for(var n=el;n&&n!==document.documentElement;n=n.parentElement){
+          if(n.tagName==='IMG'||n.tagName==='CANVAS'||n.tagName==='VIDEO') return true;
+          var cs=getComputedStyle(n), bg=cs.backgroundColor, m=bg.match(/[\d.]+/g);
+          if(m&&m.length>=3&&(m.length<4||parseFloat(m[3])>0.5)){
+            return (0.2126*m[0]+0.7152*m[1]+0.0722*m[2])<120;
+          }
+          if(cs.backgroundImage&&cs.backgroundImage!=='none'&&cs.backgroundImage.indexOf('url(')===0) return true;
+        }
+        return false;
+      }
+    }catch(e){}
+    return false;
   }
   function onScroll(){ if(!raf) raf=requestAnimationFrame(update); }
   window.addEventListener('scroll', onScroll, {passive:true});

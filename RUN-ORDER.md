@@ -10,7 +10,7 @@
 
 ## Done
 - STEP-05 — Inside: 8 photos on a curved WebGL ribbon (scroll turns it, velocity bends it + RGB split, hover/tap straightens with caption + index), vault beat with rising light (feat.f7), kitchen + brand list close; phone swipe ribbon; scroll-snap fallback
-- STEP-04c — earth palette: chukum/sand/wood/Corten/earth/lilac tokens, legacy tokens remapped, old teal/petrol removed; line-art mark as the hero poster, seed-coloured particles (normal blending), ground beats in earth on a chukum band, wood/Corten gauge, earth WhatsApp disc
+- STEP-04c — earth palette: chukum/sand/wood/Corten/earth/lilac tokens, legacy tokens remapped, old teal/petrol removed; line-art mark as the hero poster, seed-coloured particles (normal blending), ground beats in earth on a chukum band, wood/Corten gauge, earth WhatsApp disc; videos, lead and footer light (only the cenote stays dark), small text in deep wood #6F4E38 for AA
 - STEP-04b — Sora 300/400/500 for all reading text (subtitles 300, gauge 12 px); Geist Mono reserved for the footer 20°N signature (--font-coords); coordinates removed from the hero
 - STEP-04 — Ground: facade on a cover-fit plane, golden-hour sweep + grain, scroll push-in to the door, three pinned beats (x.r1–3, EN/ES/FR), facts line, noise dissolve into the first interior; CSS push-in/crossfade fallback
 - STEP-03 — Canopy: mark sampled into 30k/10k particles, pollen → tree assembly, wordmark, pointer spring, scroll dissolve; SVG stroke-draw fallback
