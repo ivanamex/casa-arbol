@@ -1,6 +1,9 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
+- STEP-11 — review round 1: slower ground→inside dissolve, facade as a picture not a stripe, water dripping from the roots into the cenote (more notes coming)
+
+## Later
 - Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
 
 ## Done
