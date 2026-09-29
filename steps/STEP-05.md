@@ -1,10 +1,10 @@
-# STEP-05 — Spaces: pinned horizontal scroll
+# STEP-05 — Inside (rooms ribbon)
 
-Replace the gallery with an ERA-style horizontal walk through the rooms.
-
-- Section height = track width − viewport width + viewport height. Inner container sticky, 100svh.
-- Vertical scroll moves the track sideways (translateX). Thin progress bar under it in pink-ink.
-- First panel: heading "Crafted in every detail" + hint "Scroll to walk through" (touch: "Swipe").
-- Then 8 photos, each with caption (existing img.* keys) and "01/08"-style index on the right of the caption: exterior (narrow/portrait), ground floor bedroom, guest suite ×2, upper suite ×3, guest bathroom.
-- Below 820 px, or with reduced motion: no pinning — native horizontal swipe with scroll-snap.
-- Keep the nav link #gallery pointing here.
+- The 8 interior/exterior photos as WebGL planes on a curved ribbon (part of a cylinder, the camera inside it) that moves sideways with vertical scroll (pinned chapter).
+- Scroll velocity bends the ribbon and adds a slight RGB split at the edges; it settles back when scrolling stops.
+- Hover/tap on a photo: it straightens, grows a little, and its caption appears (img.* keys) with an index "03 / 08" in Geist Mono.
+- Chapter title, left, Unbounded 200: gallery.heading ("Crafted in every detail").
+- Brick vault ceilings get their own beat after the ribbon: the ground-floor bedroom photo full screen, a warm light slowly rising on the vault (shader brightens the top third), with feat.f7.name + feat.f7.desc.
+- The kitchen (kitch.body) and brand list (Inizio · Hettich · Dekton · Smeg · Teka · Helvex, Geist Mono) close the chapter.
+- Phones: the ribbon becomes a horizontal swipe with the same bend on swipe velocity.
+- Fallback: native horizontal scroll-snap gallery.
