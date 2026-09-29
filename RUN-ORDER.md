@@ -1,12 +1,10 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-09c — text colliding with images: hero subtitle + price, gallery title vs ribbon
-
-## Next
 - STEP-10 — the cellar: wine moves out of the cenote into its own chapter, the wall opens, the backlight fills up (needs Ivana's 2 Gemini photos)
 
 ## Done
+- STEP-09c — hero block anchored from the bottom (wordmark min(12.6vw, 22vh)), price clears the gauge; the rooms ribbon hangs from the measured title bottom (+32 px, shrinks on short screens), title on one line on desktop when it fits; rule added: text never overlaps a photo or WebGL image unless set on a panel
 - STEP-09b — Surface slides up over the fading cenote (−100svh overlap, transparent-to-chukum top, beats end 0.90 / fade 0.88→1, padding 10vh/8vh): no frame more than a third empty at 1440 and 390; vault beat on suite-vault-front (web versions, top-anchored crop); 9th ribbon photo suite-sculpted-wall with img.suite-sculpted EN/ES/FR; honest alt for the ground-floor room; anchors re-tuned
 - STEP-09 — QA pass (iPhone 12 / mid Android / 1440 / 1920 / fallback both sizes, throttled 4G): poster paints in 0.5–1.1 s, page never blank while WebGL loads, no console errors, flat memory over 3 up/down cycles, heavy chapters (ground, inside, cenote) now sleep off screen and wake from cache; ES/FR: no raw keys, no overflow (beat titles hyphenate); mailto forms, admin ⚙, Brokers Portal, #register-client and ?portal=brokers deep links all work. Open, scheduled: cenote→surface gap (09b), hero/gallery text vs images (09c). Not testable here: real-GPU fps, WhatsApp in-app browser
 - STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
@@ -30,5 +28,6 @@
 - Phone first: the link goes out on WhatsApp. Poster image visible in < 2.5 s on 4G; WebGL loads after.
 - Text never overlaps a photo or WebGL image unless it sits on a panel; check 1440×900, 1280×720, 390×844.
 - Keep every data-i18n key, EN/ES/FR, both enquiry forms, Brokers Portal, admin leads panel, WhatsApp button.
+- Text never overlaps a photo or WebGL image unless it's intentionally set on a panel. Check every chapter at 1440×900, 1280×720 and 390×844 before saying done.
 - Metric units. Surname "Buric". Agency "Weber-Buric Real Estate".
 - Before merge: delete old.html, compare.html, steps/, RUN-ORDER.md.
