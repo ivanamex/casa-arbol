@@ -271,40 +271,44 @@ html.canopy-ready .hero-meta{opacity:1}
 }
 @keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
-/* MARQUEE */
-.mq-wrap{background:var(--deep);overflow:hidden;padding:15px 0;border-top:1px solid rgba(47,212,196,.3);border-bottom:1px solid rgba(47,212,196,.3)}
-.mq-track{display:flex;animation:mscroll 30s linear infinite;white-space:nowrap;width:max-content}
-.mq-track:hover{animation-play-state:paused}
-@keyframes mscroll{to{transform:translateX(-50%)}}
-.mi{font-family:var(--font-display);font-size:.7rem;letter-spacing:.01em;text-transform:none;color:rgba(237,230,216,.38);padding:0 32px;display:inline-flex;align-items:center;gap:32px}
-.mi.hl{color:var(--gold-lt)}
-.mi .dot{color:var(--gold);font-size:1.1rem;line-height:0}
-
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(5,1fr);background:var(--surface);border-bottom:1px solid rgba(47,212,196,.12)}
-@media(max-width:768px){.stats{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:400px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{padding:28px 16px;text-align:center;border-right:1px solid rgba(47,212,196,.1);transition:background .35s}
-.stat:hover{background:var(--bg2)}
-.stat:last-child{border-right:none}
-.stat-n{font-family:var(--font-display);font-size:2.4rem;font-weight:200;color:var(--gold);line-height:1;display:block;margin-bottom:4px}
-.stat-l{font-size:.58rem;letter-spacing:.01em;text-transform:none;color:var(--ink2);opacity:.5}
-
 /* ABOUT */
-.about{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
-@media(max-width:768px){.about{grid-template-columns:1fr}}
-.about-vis{overflow:hidden;min-height:340px;position:relative}
-.about-vis img{width:100%;height:100%;object-fit:cover;display:block}
-.about-txt{background:var(--surface);padding:68px 6vw;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.about-txt .ey{justify-content:center}
-.about-txt .body-t{margin-left:auto;margin-right:auto}
-@media(max-width:768px){.about-txt{padding:48px 6vw}}
 .ey{font-size:.58rem;letter-spacing:.01em;text-transform:none;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .ey::before{content:'';display:block;width:20px;height:1px;background:var(--gold)}
 h2.serif{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.4rem);font-weight:200;line-height:1.2;color:var(--ink);margin-bottom:20px;padding-bottom:.08em}
 h2.serif em{color:var(--gold)}
 .body-t{font-size:.8rem;line-height:1.9;color:var(--ink2);opacity:.7;max-width:500px}
 .rule{display:block;width:36px;height:1px;background:var(--gold);margin:24px 0}
+
+
+/* GROUND — the house */
+.ground{position:relative;height:400svh;background:transparent}
+.ground-pin{position:sticky;top:0;height:100svh;overflow:hidden}
+.ground-poster{position:absolute;inset:0;transition:opacity 1s ease}
+.gp{position:absolute;inset:0}
+.gp picture,.gp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.gp-a img{object-position:50% 58%;transform:scale(calc(1 + var(--gp,0) * .35));transform-origin:56% 65%}
+.gp-b{opacity:clamp(0,calc((var(--gp,0) - .86) * 7.2),1)}
+html.ground-live .ground-poster{opacity:0}
+.ground-pin::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(3,22,27,.7),rgba(3,22,27,.22) 52%,transparent 78%),linear-gradient(to top,rgba(3,22,27,.82),transparent 42%)}
+.ground-beats{position:absolute;inset:0;padding:0 5vw}
+.beat{position:absolute;left:5vw;right:5vw;top:50%;max-width:860px;transform:translateY(calc(-50% + 40px));opacity:0;transition:opacity .75s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.beat.active{opacity:1;transform:translateY(-50%);pointer-events:auto}
+.beat.past{transform:translateY(calc(-50% - 40px))}
+.beat-t{font-family:var(--font-display);font-weight:300;font-size:clamp(2.6rem,7.4vw,6.8rem);line-height:.98;letter-spacing:-.04em;text-transform:lowercase;color:var(--text);margin:0 0 24px}
+.beat-b{font-size:clamp(1rem,1.15vw,1.15rem);line-height:1.65;color:var(--text-2);max-width:38ch}
+.ground-facts{position:absolute;font-family:var(--font-mono);font-size:12.5px;color:var(--text-3);opacity:0;transition:opacity .6s ease;pointer-events:none;margin:0}
+.beat-idx{display:block;font-family:var(--font-mono);font-size:12.5px;color:var(--text-3);margin-bottom:22px}
+.ground-facts{left:5vw;bottom:34px}
+.ground.in .ground-facts{opacity:1}
+@media(max-width:768px){
+  .beat{left:6vw;right:6vw;top:46%}
+  .beat-t{font-size:clamp(2.3rem,11.5vw,4.2rem);margin-bottom:18px}
+  .beat-b{font-size:1rem;max-width:none}
+  .ground-pin::before{background:linear-gradient(to top,rgba(3,22,27,.88),rgba(3,22,27,.45) 45%,rgba(3,22,27,.1) 75%,transparent)}
+  .ground-facts{left:6vw;right:6vw;bottom:calc(56px + env(safe-area-inset-bottom));line-height:1.6;font-size:11.5px}
+}
+html.no-gl .gp img{filter:brightness(.82) saturate(.9)}
+@media(prefers-reduced-motion:reduce){.beat,.ground-poster,.ground-facts{transition:none}.gp-a img{transform:none}}
 
 /* GALLERY */
 .gallery{background:var(--bg2);padding:72px 0}
@@ -570,45 +574,6 @@ h2.serif em{color:var(--gold)}
 .clip-reveal.d2{transition-delay:.22s}
 .clip-reveal.d3{transition-delay:.36s}
 .clip-reveal.d4{transition-delay:.5s}
-
-/* ── SVG House Draw section ── */
-.house-draw-sec{background:transparent;padding:44px 5vw 0;overflow:hidden}
-.house-draw-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-@media(max-width:768px){.house-draw-inner{grid-template-columns:1fr;gap:36px}}
-.house-svg-wrap{position:relative;width:100%;max-width:520px;margin:0 auto}
-.house-svg-wrap svg{width:100%;height:auto;display:block}
-
-/* SVG strokes start invisible, fill in on scroll */
-.draw-path{
-  fill:none;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-  stroke-dasharray:var(--len,2000);
-  stroke-dashoffset:var(--len,2000);
-  transition:stroke-dashoffset 1.6s cubic-bezier(.16,1,.3,1);
-}
-.draw-path.in{stroke-dashoffset:0}
-.draw-fill{
-  opacity:0;
-  transition:opacity .8s ease;
-}
-.draw-fill.in{opacity:1}
-/* Stagger each path group */
-.dp0{transition-delay:.0s}
-.dp1{transition-delay:.2s}
-.dp2{transition-delay:.4s}
-.dp3{transition-delay:.55s}
-.dp4{transition-delay:.7s}
-.dp5{transition-delay:.85s}
-.dp6{transition-delay:1.0s}
-.dp7{transition-delay:1.15s}
-.dp8{transition-delay:1.3s}
-.dp9{transition-delay:1.45s}
-.dp10{transition-delay:1.6s}
-
-/* ── Horizontal scroll text ── (Obsidian does this on scroll direction) */
-.h-scroll-text{overflow:hidden;padding:0;margin:0;white-space:nowrap}
-.h-scroll-track{display:inline-block;font-family:var(--font-display);font-size:clamp(5rem,14vw,13rem);font-weight:200;color:rgba(47,212,196,.08);letter-spacing:-.02em;line-height:1;will-change:transform}
 
 /* ── Cursor expand on image hover ── */
 @media(hover:hover){
@@ -1005,209 +970,16 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="mq-wrap">
-  <div class="mq-track">
-    <span class="mi hl">Casa Árbol<span class="dot">·</span></span><span class="mi">Playacar Phase II<span class="dot">·</span></span><span class="mi hl">476 m²<span class="dot">·</span></span><span class="mi">Inverse Osmosis Water<span class="dot">·</span></span><span class="mi hl">20+ kW Solar<span class="dot">·</span></span><span class="mi">European Serie 150 Windows<span class="dot">·</span></span><span class="mi hl">Cenote Pool & Waterfall<span class="dot">·</span></span><span class="mi">State-of-the-Art Wine Cellar<span class="dot">·</span></span><span class="mi hl">Top Kitchen Appliances<span class="dot">·</span></span><span class="mi">5 Suites<span class="dot">·</span></span><span class="mi hl">Golf Course Views<span class="dot">·</span></span><span class="mi">OMé Spa Membership Included<span class="dot">·</span></span>
-    <span class="mi hl">Casa Árbol<span class="dot">·</span></span><span class="mi">Playacar Phase II<span class="dot">·</span></span><span class="mi hl">476 m²<span class="dot">·</span></span><span class="mi">Inverse Osmosis Water<span class="dot">·</span></span><span class="mi hl">20+ kW Solar<span class="dot">·</span></span><span class="mi">European Serie 150 Windows<span class="dot">·</span></span><span class="mi hl">Cenote Pool & Waterfall<span class="dot">·</span></span><span class="mi">State-of-the-Art Wine Cellar<span class="dot">·</span></span><span class="mi hl">Top Kitchen Appliances<span class="dot">·</span></span><span class="mi">5 Suites<span class="dot">·</span></span><span class="mi hl">Golf Course Views<span class="dot">·</span></span>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat rv d1"><span class="stat-n" data-t="476">0</span><span class="stat-l" data-i18n="stat.m2">m² Built</span></div>
-  <div class="stat rv d2"><span class="stat-n">5</span><span class="stat-l" data-i18n="stat.suites">Suites</span></div>
-  <div class="stat rv d3"><span class="stat-n">20+</span><span class="stat-l" data-i18n="stat.solar">kW Solar</span></div>
-  <div class="stat rv d4"><span class="stat-n">100%</span><span class="stat-l" data-i18n="stat.water">Pure Water</span></div>
-  <div class="stat rv d5"><span class="stat-n">∞</span><span class="stat-l" data-i18n="stat.golf">Golf Views</span></div>
-</div>
-
-<!-- ABOUT -->
-
-<!-- HORIZONTAL SCROLL TEXT -->
-<div class="h-scroll-text" id="hScrollText" aria-hidden="true">
-  <div class="h-scroll-track" id="hTrack">Casa&nbsp;Árbol&nbsp;&nbsp;·&nbsp;&nbsp;Playacar&nbsp;&nbsp;·&nbsp;&nbsp;Casa&nbsp;Árbol&nbsp;&nbsp;·&nbsp;&nbsp;Playacar&nbsp;&nbsp;·&nbsp;&nbsp;Casa&nbsp;Árbol&nbsp;&nbsp;·&nbsp;&nbsp;Playacar&nbsp;&nbsp;</div>
-</div>
-
-<!-- HOUSE DRAW SECTION -->
-<section class="house-draw-sec" id="houseSection" data-chapter="ground">
-  <div class="house-draw-inner">
-    <div class="rv">
-      <div class="ey" data-i18n="arch.ey">The Architecture</div>
-      <h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="arch.h2a">Drawn from</span></span><span class="split-wrap"><span class="split-inner d2" data-i18n="arch.h2b"><em>the ground up</em></span></span></h2>
-      <span class="rule"></span>
-      <p class="body-t" data-i18n="arch.body">Every line of Casa Árbol was conceived with intention — from the dramatic CNC-cut Corten steel facade panels and the exposed brick vault ceilings within, to the European aluminum windows that frame the jungle beyond. Architecture that reveals itself slowly, like the house itself.</p>
-      <br><br>
-      <button class="btn btn-outline mag" onclick="openModal()" data-i18n="arch.btn">Request Architectural Plans</button>
+<!-- GROUND — the house: facade on a full-screen plane, three beats, push-in to the door, dissolve into the first interior -->
+<section class="ground" id="houseSection" data-chapter="ground">
+  <div class="ground-pin">
+    <div class="ground-poster" aria-hidden="true"><div class="gp gp-a"><picture><source type="image/webp" srcset="/images/web/casa-arbol-exterior-m.webp 816w, /images/web/casa-arbol-exterior.webp 1387w" sizes="100vw"><img src="/images/web/casa-arbol-exterior-m.jpg" srcset="/images/web/casa-arbol-exterior-m.jpg 816w, /images/web/casa-arbol-exterior.jpg 1387w" sizes="100vw" width="1387" height="1734" alt="Casa Árbol at night" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRvABAABXRUJQVlA4IOQBAABQDgCdASozAEAAPqVGmUmmJCKhN/asAMAUiUAYA/MCQg6n1+7Cr7DikYZv1r7RBA2Xj3f1aaXSVSxQGwHlDBgVOP27IjfNGq+rSNXnCvxYIgo2j+a6EVXth9FM88Hgr2POIt5btnmwP9ILeGyDQDIPvtHmT4eHHaZMIYAA/vlBR9kw+B9dmlzauY4g99AukPHd0KVpCzU0oo/We2GOOU05chzb948ptzHzSa9CBBdmsb9jvvcxyxHF3gdDJXq31vvM/sD++ygbAEpmKZYmaMyGZ96Np/qzyqTfkK7I+sa7SKa6hTizC3j8RtPCEU+1fwvC9XV/sLrXhmNGUWFH/BvE1Ct6tGfCz+zrLDpXoH2wpTRy5HTpwtyoqNJW22wS9fCPD0D0YwfQI0S+fw7XiJSO95V1UQNT+Ojyqejm1v/MB3Or3dk/2XReWJChA5b3dU1Qo0uBvfUP0BCjogIY0ag0G+wjTB8zG3YRoYSHGMqOJVdfbM2uBIfj/1GWhu5KrUapU7dlFxQ38r2Sihljfw3hKcgLhRP2HLA5vRxVvITdaWLEggf0Cz6j9JoOtJG4jMEXqmNUUdAjRFGKiUfwrtdmV1tHi/SgEnc0Sc254P9WtU9Ho+DUZhOX88PuEcB0MvlYh/AA) center/cover"></picture></div><div class="gp gp-b"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="100vw"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="100vw" width="2040" height="1530" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture></div></div>
+    <div class="ground-beats">
+      <article class="beat" data-beat="0"><span class="beat-idx" aria-hidden="true">01 / 03</span><h2 class="beat-t" data-i18n="x.r1.t">The address</h2><p class="beat-b" data-i18n="x.r1.b">Playacar Fase II, the most coveted address on the Riviera Maya. Golf course views from the house, and the beach close enough to walk barefoot.</p></article>
+      <article class="beat" data-beat="1"><span class="beat-idx" aria-hidden="true">02 / 03</span><h2 class="beat-t" data-i18n="x.r2.t">Built for independence</h2><p class="beat-b" data-i18n="x.r2.b">More than 20 kW of hybrid solar, reverse osmosis water at every tap and European Serie 150 windows made for the tropics. Low running costs, year round.</p></article>
+      <article class="beat" data-beat="2"><span class="beat-idx" aria-hidden="true">03 / 03</span><h2 class="beat-t" data-i18n="x.r3.t">One of a kind</h2><p class="beat-b" data-i18n="x.r3.b">A cenote-inspired pool with beach entry and waterfall, handcrafted brick vault ceilings and a Corten steel facade. Nothing else in Playacar looks like it.</p></article>
     </div>
-    <div class="house-svg-wrap" id="houseSvg">
-      <!-- Simplified Casa Árbol facade SVG -->
-      <svg viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg">
-        <!-- Sky gradient -->
-        <defs>
-          <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#0A3440" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#03161B" stop-opacity="0"/>
-          </linearGradient>
-          <linearGradient id="goldG" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#FFE3AE"/>
-            <stop offset="100%" stop-color="#2FD4C4"/>
-          </linearGradient>
-          <linearGradient id="warmG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#FFE3AE"/>
-            <stop offset="100%" stop-color="#2FD4C4"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Ground -->
-        <path class="draw-path dp0" style="--len:600" stroke="#FFE3AE" stroke-width="2" d="M20 400 L500 400"/>
-        <!-- Ground accent -->
-        <path class="draw-fill dp0" fill="#2FD4C4" fill-opacity=".12" d="M20 398 L500 398 L500 405 L20 405 Z"/>
-
-        <!-- Main structure — ground floor outline -->
-        <path class="draw-path dp1" style="--len:1600" stroke="#2FD4C4" stroke-width="2.5" 
-              d="M60 400 L60 240 L460 240 L460 400"/>
-
-        <!-- Ground floor stone texture blocks (decorative fills) -->
-        <path class="draw-fill dp2" fill="#FFE3AE" fill-opacity=".06" d="M60 240 L460 240 L460 400 L60 400 Z"/>
-
-        <!-- Ground floor windows (3 large sliding doors) -->
-        <path class="draw-path dp2" style="--len:400" stroke="#EDE6D8" stroke-width="1.8"
-              d="M80 245 L80 395 M170 245 L170 395"/>
-        <path class="draw-path dp2" style="--len:400" stroke="#EDE6D8" stroke-width="1.8"
-              d="M195 245 L195 395 M285 245 L285 395"/>
-        <path class="draw-path dp3" style="--len:400" stroke="#EDE6D8" stroke-width="1.8"
-              d="M310 245 L310 395"/>
-
-        <!-- Door in center -->
-        <path class="draw-path dp3" style="--len:300" stroke="#2FD4C4" stroke-width="2.2"
-              d="M360 400 L360 290 L440 290 L440 400"/>
-        <!-- Door panel line -->
-        <path class="draw-path dp4" style="--len:200" stroke="#2FD4C4" stroke-width="1.2"
-              d="M397 290 L397 400 M360 345 L440 345"/>
-        <!-- Door handle -->
-        <circle class="draw-fill dp4" cx="373" cy="348" r="3" fill="#FFE3AE"/>
-
-        <!-- Upper floor outline -->
-        <path class="draw-path dp3" style="--len:1200" stroke="#2FD4C4" stroke-width="2.5"
-              d="M60 240 L60 105 L380 105 L380 240"/>
-
-        <!-- Upper floor fill -->
-        <path class="draw-fill dp4" fill="#FFE3AE" fill-opacity=".04" d="M60 105 L380 105 L380 240 L60 240 Z"/>
-
-        <!-- Upper floor large window left -->
-        <path class="draw-path dp4" style="--len:600" stroke="#EDE6D8" stroke-width="1.8"
-              d="M75 115 L75 235 L240 235 L240 115 L75 115"/>
-        <!-- Glass panes -->
-        <path class="draw-path dp5" style="--len:200" stroke="#2FD4C4" stroke-width="1" stroke-opacity=".5"
-              d="M157 115 L157 235"/>
-        <path class="draw-path dp5" style="--len:100" stroke="#2FD4C4" stroke-width="1" stroke-opacity=".5"
-              d="M75 175 L240 175"/>
-        <!-- Balcony railing -->
-        <path class="draw-path dp5" style="--len:400" stroke="#FFE3AE" stroke-width="1.5"
-              d="M60 240 L240 240"/>
-        <!-- Railing verticals -->
-        <path class="draw-path dp6" style="--len:300" stroke="#FFE3AE" stroke-width="1" stroke-opacity=".6"
-              d="M80 230 L80 245 M100 230 L100 245 M120 230 L120 245 M140 230 L140 245 M160 230 L160 245 M180 230 L180 245 M200 230 L200 245 M220 230 L220 245"/>
-
-        <!-- Upper window right -->
-        <path class="draw-path dp5" style="--len:400" stroke="#EDE6D8" stroke-width="1.8"
-              d="M265 125 L265 235 L375 235 L375 125 L265 125"/>
-        <path class="draw-path dp6" style="--len:120" stroke="#2FD4C4" stroke-width="1" stroke-opacity=".5"
-              d="M320 125 L320 235"/>
-
-        <!-- CNC Corten panel — right side decorative screen -->
-        <path class="draw-path dp4" style="--len:800" stroke="#2FD4C4" stroke-width="2"
-              d="M390 90 L390 280 L460 280 L460 90 L390 90"/>
-        <!-- CNC pattern dots (representing cutout design) -->
-        <circle class="draw-fill dp7" cx="410" cy="115" r="3" fill="#2FD4C4" fill-opacity=".5"/>
-        <circle class="draw-fill dp7" cx="430" cy="115" r="3" fill="#2FD4C4" fill-opacity=".5"/>
-        <circle class="draw-fill dp7" cx="450" cy="115" r="3" fill="#2FD4C4" fill-opacity=".5"/>
-        <circle class="draw-fill dp7" cx="410" cy="135" r="4" fill="#2FD4C4" fill-opacity=".4"/>
-        <circle class="draw-fill dp7" cx="430" cy="135" r="3" fill="#2FD4C4" fill-opacity=".5"/>
-        <circle class="draw-fill dp7" cx="450" cy="135" r="4" fill="#2FD4C4" fill-opacity=".4"/>
-        <circle class="draw-fill dp7" cx="410" cy="155" r="3" fill="#2FD4C4" fill-opacity=".5"/>
-        <circle class="draw-fill dp7" cx="430" cy="160" r="5" fill="#FFE3AE" fill-opacity=".4"/>
-        <circle class="draw-fill dp7" cx="450" cy="155" r="3" fill="#2FD4C4" fill-opacity=".5"/>
-        <circle class="draw-fill dp7" cx="410" cy="180" r="4" fill="#2FD4C4" fill-opacity=".4"/>
-        <circle class="draw-fill dp7" cx="430" cy="180" r="3" fill="#2FD4C4" fill-opacity=".5"/>
-        <circle class="draw-fill dp7" cx="450" cy="178" r="4" fill="#2FD4C4" fill-opacity=".3"/>
-        <circle class="draw-fill dp7" cx="420" cy="200" r="5" fill="#FFE3AE" fill-opacity=".35"/>
-        <circle class="draw-fill dp7" cx="442" cy="205" r="3" fill="#2FD4C4" fill-opacity=".4"/>
-        <circle class="draw-fill dp7" cx="410" cy="225" r="3" fill="#2FD4C4" fill-opacity=".4"/>
-        <circle class="draw-fill dp7" cx="430" cy="228" r="4" fill="#2FD4C4" fill-opacity=".3"/>
-        <circle class="draw-fill dp7" cx="450" cy="225" r="3" fill="#2FD4C4" fill-opacity=".4"/>
-        <circle class="draw-fill dp7" cx="418" cy="250" r="4" fill="#FFE3AE" fill-opacity=".3"/>
-        <circle class="draw-fill dp7" cx="440" cy="252" r="3" fill="#2FD4C4" fill-opacity=".35"/>
-
-        <!-- Roof / parapet line -->
-        <path class="draw-path dp6" style="--len:700" stroke="#2FD4C4" stroke-width="2.5"
-              d="M55 105 L460 105"/>
-        <!-- Upper parapet box right extension -->
-        <path class="draw-path dp6" style="--len:300" stroke="#2FD4C4" stroke-width="2"
-              d="M380 105 L460 105 L460 80 L380 80 L380 105"/>
-
-        <!-- LED strip under roof (warm glow line) -->
-        <path class="draw-path dp8" style="--len:350" stroke="#FFE3AE" stroke-width="3" stroke-opacity=".7"
-              d="M65 107 L375 107"/>
-        <!-- LED under parapet -->
-        <path class="draw-path dp8" style="--len:80" stroke="#FFE3AE" stroke-width="2.5" stroke-opacity=".6"
-              d="M383 107 L457 107"/>
-
-        <!-- Left gate / fence -->
-        <path class="draw-path dp5" style="--len:500" stroke="#2FD4C4" stroke-width="1.8"
-              d="M20 280 L20 400 M55 400 L55 280 L20 280"/>
-
-        <!-- Trees (simplified) -->
-        <!-- Left tree trunk -->
-        <path class="draw-path dp8" style="--len:200" stroke="#EDE6D8" stroke-width="2"
-              d="M32 400 L32 320"/>
-        <!-- Left tree canopy circles -->
-        <circle class="draw-fill dp9" cx="32" cy="295" r="28" fill="#2FD4C4" fill-opacity=".35"/>
-        <circle class="draw-fill dp9" cx="18" cy="310" r="18" fill="#2FD4C4" fill-opacity=".28"/>
-        <circle class="draw-fill dp9" cx="46" cy="308" r="20" fill="#2FD4C4" fill-opacity=".28"/>
-
-        <!-- Right tree -->
-        <path class="draw-path dp8" style="--len:200" stroke="#EDE6D8" stroke-width="2"
-              d="M490 400 L490 305"/>
-        <circle class="draw-fill dp9" cx="490" cy="278" r="32" fill="#2FD4C4" fill-opacity=".3"/>
-        <circle class="draw-fill dp9" cx="473" cy="292" r="20" fill="#2FD4C4" fill-opacity=".25"/>
-        <circle class="draw-fill dp9" cx="507" cy="289" r="22" fill="#2FD4C4" fill-opacity=".25"/>
-
-        <!-- Garden path stepping stones -->
-        <ellipse class="draw-fill dp10" cx="200" cy="400" rx="22" ry="5" fill="#FFE3AE" fill-opacity=".25"/>
-        <ellipse class="draw-fill dp10" cx="260" cy="400" rx="20" ry="5" fill="#FFE3AE" fill-opacity=".25"/>
-        <ellipse class="draw-fill dp10" cx="320" cy="400" rx="22" ry="5" fill="#FFE3AE" fill-opacity=".25"/>
-
-        <!-- Car silhouette (right) -->
-        <path class="draw-path dp9" style="--len:800" stroke="#2FD4C4" stroke-width="1.5" stroke-opacity=".4"
-              d="M410 400 L410 378 L420 365 L450 360 L490 362 L505 372 L510 378 L510 400"/>
-        <circle class="draw-fill dp10" cx="427" cy="400" r="8" fill="#EDE6D8" fill-opacity=".4"/>
-        <circle class="draw-fill dp10" cx="493" cy="400" r="8" fill="#EDE6D8" fill-opacity=".4"/>
-
-        <!-- Interior warm light glow (windows) -->
-        <path class="draw-fill dp8" fill="#FFE3AE" fill-opacity=".08" d="M76 116 L239 116 L239 234 L76 234 Z"/>
-        <path class="draw-fill dp8" fill="#FFE3AE" fill-opacity=".08" d="M266 126 L374 126 L374 234 L266 234 Z"/>
-
-        <!-- Ground floor window glow -->
-        <path class="draw-fill dp9" fill="#FFE3AE" fill-opacity=".06" d="M61 241 L169 241 L169 399 L61 399 Z"/>
-        <path class="draw-fill dp9" fill="#FFE3AE" fill-opacity=".06" d="M196 241 L284 241 L284 399 L196 399 Z"/>
-
-      </svg>
-      <div style="text-align:center;margin-top:12px;font-size:.58rem;letter-spacing:.01em;text-transform:none;color:var(--gold);opacity:.5" data-i18n="arch.caption" data-i18n="arch.caption">Architectural Illustration · Casa Árbol Facade</div>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="about-vis rl"><picture><source type="image/webp" srcset="/images/web/master-suite-m.webp 1200w" sizes="(max-width:768px) 100vw, 50vw"><img src="/images/web/master-suite-m.jpg" srcset="/images/web/master-suite-m.jpg 1200w" sizes="(max-width:768px) 100vw, 50vw" width="1200" height="900" alt="Master Suite" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnIBAABXRUJQVlA4IGYBAAAQCwCdASpAADAAPrVIoUunI6MhqBVeMOAWiWMAxyfyT4l8gCCSFyawRUhsuiCIYbsjVMajP9C6LaJ+qUtafQydWqa9ceEywzQ4FrOciFFclp73kAy2p3MSKgm9Cpt3oS+QAP5IzISElV2ZS/4AJ/8yU1Zy3CoV6qoEPAvAiGhV1ocHxm3EVUFjf6C3kak44DRBrOsN7fQhOya4khnkttAcg3DkhutmLb7/MRY714m/mdfkf3UFqy56s6NNAp7slHkhuAdpFWB6xiRFA9DpYFBLwECWzArkcWk5iFx++DvbvI9yzPh+FcSMCrUDgci9dgLxS/6usAAY4YEQfrATYTpiMaf3kY+gl0T1+zzwHubuqI9eAraHxhAKDOpCIPPBSXgZQBxj78xUfZIKhjQAKwRewrJcvnr/iEQ067PREtBCCKwyi8QDUmPE6cW8Z5T5Pjo6kgG7GPNxMS3OIi8Se9X6+FGGk4AA) center/cover"></picture></div>
-  <div class="about-txt rv">
-    <div class="ey" data-i18n="about.ey">The Residence</div>
-    <h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="about.h2a">A sanctuary</span></span><span class="split-wrap"><span class="split-inner d2" data-i18n="about.h2b">rooted in <em>nature</em></span></span></h2>
-    <span class="rule"></span>
-    <p class="body-t" data-i18n="about.body">Nestled in prestigious Playacar Phase II — the most coveted address on the Riviera Maya — Casa Árbol is a masterwork where Balinese artistry meets contemporary luxury. Handcrafted vault brick ceilings, cenote pool, and panoramic golf course vistas create an experience that cannot be replicated.</p>
-    <br><br>
-    <button class="btn btn-outline" onclick="openModal()" data-i18n="about.btn">Request Full Brochure</button>
+    <p class="ground-facts" data-i18n="x.facts">476 m² · 5 suites · 20+ kW solar · by private sale</p>
   </div>
 </section>
 
@@ -1686,7 +1458,7 @@ var LANG = {
     // Nav
     'nav.gallery':   'Gallery',
     'nav.videos':    'Videos',
-    'nav.brochure':  'Brochure','nav.menu': 'Menu',
+    'nav.brochure':  'Brochure','nav.menu': 'Menu','x.r1.t': 'The address','x.r1.b': 'Playacar Fase II, the most coveted address on the Riviera Maya. Golf course views from the house, and the beach close enough to walk barefoot.','x.r2.t': 'Built for independence','x.r2.b': 'More than 20 kW of hybrid solar, reverse osmosis water at every tap and European Serie 150 windows made for the tropics. Low running costs, year round.','x.r3.t': 'One of a kind','x.r3.b': 'A cenote-inspired pool with beach entry and waterfall, handcrafted brick vault ceilings and a Corten steel facade. Nothing else in Playacar looks like it.','x.facts': '476 m² · 5 suites · 20+ kW solar · by private sale',
 
     'nav.menu.open': 'Open menu',
     'nav.menu.close':'Close menu',
@@ -2064,7 +1836,7 @@ var LANG = {
   es: {
     'nav.gallery':   'Galería',
     'nav.videos':    'Videos',
-    'nav.brochure':  'Folleto','nav.menu': 'Menú',
+    'nav.brochure':  'Folleto','nav.menu': 'Menú','x.r1.t': 'La ubicación','x.r1.b': 'Playacar Fase II, la dirección más codiciada de la Riviera Maya. Vistas al campo de golf desde la casa y la playa tan cerca que se llega descalzo.','x.r2.t': 'Pensada para la autonomía','x.r2.b': 'Más de 20 kW de energía solar híbrida, agua de ósmosis inversa en cada llave y ventanas europeas Serie 150 hechas para el trópico. Costos de operación bajos todo el año.','x.r3.t': 'Única','x.r3.b': 'Una alberca inspirada en los cenotes con entrada de playa y cascada, bóvedas de ladrillo hechas a mano y una fachada de acero Corten. Nada en Playacar se le parece.','x.facts': '476 m² · 5 suites · 20+ kW solar · venta privada',
 
     'nav.menu.open': 'Abrir menú',
     'nav.menu.close':'Cerrar menú',
@@ -2406,7 +2178,7 @@ var LANG = {
   fr: {
     'nav.gallery':   'Galerie',
     'nav.videos':    'Vidéos',
-    'nav.brochure':  'Brochure','nav.menu': 'Menu',
+    'nav.brochure':  'Brochure','nav.menu': 'Menu','x.r1.t': 'L\'adresse','x.r1.b': 'Playacar Fase II, l\'adresse la plus convoitée de la Riviera Maya. Vue sur le golf depuis la maison, et la plage assez proche pour y aller pieds nus.','x.r2.t': 'Pensée pour l\'autonomie','x.r2.b': 'Plus de 20 kW de solaire hybride, eau osmosée à chaque robinet et fenêtres européennes Série 150 conçues pour les tropiques. Des charges réduites toute l\'année.','x.r3.t': 'Unique','x.r3.b': 'Une piscine inspirée des cenotes avec entrée plage et cascade, des voûtes en brique faites main et une façade en acier Corten. Rien d\'autre à Playacar ne lui ressemble.','x.facts': '476 m² · 5 suites · 20+ kW solaire · vente privée',
 
     'nav.menu.open': 'Ouvrir le menu',
     'nav.menu.close':'Fermer le menu',
@@ -3488,6 +3260,28 @@ window.submitBrokerReferral = function(){
   setTimeout(function(){ h.classList.add('canopy-ready'); }, 7000);
 })();
 </script>
+<script>
+// ── Ground: scroll progress → three beats, counter, facts; also drives the CSS push-in / crossfade in fallback mode ──
+(function(){
+  var sec=document.getElementById('houseSection'); if(!sec) return;
+  var pin=sec.querySelector('.ground-pin'), beats=Array.prototype.slice.call(sec.querySelectorAll('.beat'));
+  var raf=0;
+  function update(){
+    raf=0;
+    var r=sec.getBoundingClientRect(), vh=window.innerHeight;
+    var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
+    pin.style.setProperty('--gp', p.toFixed(4));
+    sec.__p=p;
+    var idx = p<0.31 ? 0 : p<0.59 ? 1 : 2;
+    var on = p>0.015 && p<0.87 && r.top<vh && r.bottom>0;
+    beats.forEach(function(b,i){ b.classList.toggle('active', on && i===idx); b.classList.toggle('past', i<idx || (!on && p>=0.87)); });
+    sec.classList.toggle('in', on);
+  }
+  window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 <script type="module">
 // ── Stage — one WebGL canvas behind the page, smooth scroll, scene manager ──
 // Chapters (STEP-03 … STEP-08) register with CA_STAGE.register(name, {init, update(progress, velocity, dt), render(renderer), resize(w,h), dispose}).
@@ -3566,11 +3360,9 @@ if (window.CA_GL) {
     renderer.setClearColor(clear, 1);
     renderer.clear();
     const dt = dtMs / 1000;
-    for (const ch of stage.chapters.values()) {
-      if (!ch.active || !ch.inited) continue;
-      ch.api.update(ch.progress, ch.velocity, dt);
-      ch.api.render && ch.api.render(renderer);
-    }
+    const live = [...stage.chapters.values()].filter(ch => ch.active && ch.inited).sort((a, b) => (a.api.order || 0) - (b.api.order || 0));
+    for (const ch of live) ch.api.update(ch.progress, ch.velocity, dt);
+    for (const ch of live) ch.api.render && ch.api.render(renderer);
   });
 
   window.CA_STAGE = stage;
@@ -3759,6 +3551,116 @@ if (window.CA_GL) {
   document.addEventListener('mouseleave', () => { pointer.on = false; });
 
   stage.register('canopy', api);
+}
+</script>
+
+<script type="module">
+// ── Chapter: GROUND — the facade on a full-screen plane: golden-hour sweep, grain, push-in to the door, noise dissolve into the first interior ──
+if (window.CA_GL) {
+  const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
+  const {THREE} = stage;
+  const sec = document.getElementById('houseSection');
+  const html = document.documentElement;
+  const VERT = /* glsl */`varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
+  const FRAG = /* glsl */`
+    precision highp float;
+    varying vec2 vUv;
+    uniform sampler2D uTexA, uTexB;
+    uniform vec2 uRes, uCenter, uFocus;
+    uniform float uAspA, uAspB, uScale, uMix, uTime, uSweep;
+    vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;} vec2 mod289(vec2 x){return x-floor(x*(1.0/289.0))*289.0;} vec3 permute(vec3 x){return mod289(((x*34.0)+1.0)*x);}
+    float snoise(vec2 v){const vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);
+      vec2 i=floor(v+dot(v,C.yy));vec2 x0=v-i+dot(i,C.xx);vec2 i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);vec4 x12=x0.xyxy+C.xxzz;x12.xy-=i1;i=mod289(i);
+      vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0);m=m*m;m=m*m;
+      vec3 x=2.0*fract(p*C.www)-1.0;vec3 h=abs(x)-0.5;vec3 ox=floor(x+0.5);vec3 a0=x-ox;m*=1.79284291400159-0.85373472095314*(a0*a0+h*h);
+      vec3 g;g.x=a0.x*x0.x+h.x*x0.y;g.yz=a0.yz*x12.xz+h.yz*x12.yw;return 130.0*dot(m,g);}
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+    // cover-fit an image of aspect a (w/h) onto the screen, cropping around focus
+    vec2 cover(vec2 uv, float a, vec2 focus){
+      float s = uRes.x / uRes.y; vec2 st = uv;
+      if (s > a) { float k = a / s; float cy = clamp(focus.y, k * 0.5, 1.0 - k * 0.5); st.y = cy + (uv.y - 0.5) * k; }
+      else       { float k = s / a; float cx = clamp(focus.x, k * 0.5, 1.0 - k * 0.5); st.x = cx + (uv.x - 0.5) * k; }
+      return st;
+    }
+    void main(){
+      vec2 uv = vUv;
+      float n = snoise(vec2(uv.x * 7.0, uv.y * 5.0) + uTime * 0.1);
+      float wipe = 0.5 * (n * 0.5 + 0.5) + 0.5 * uv.y;              // the interior rises from below, ragged with noise
+      float m = smoothstep(0.0, 0.15, uMix * 1.15 - wipe);
+      float edge = 1.0 - abs(2.0 * m - 1.0);                        // displacement only along the dissolve frontier
+      // A: the facade, pushed in toward the door
+      vec2 sa = cover(uv, uAspA, uFocus);
+      sa = uCenter + (sa - uCenter) / uScale;
+      sa += n * 0.02 * edge;
+      vec3 a = texture2D(uTexA, clamp(sa, 0.001, 0.999)).rgb;
+      // golden-hour band crossing the facade; warm Corten and bright surfaces catch it
+      float lum = dot(a, vec3(0.3, 0.59, 0.11));
+      float warm = smoothstep(0.04, 0.28, a.r - a.b);
+      float band = exp(-pow((dot(sa, vec2(0.86, 0.5)) - uSweep) / 0.085, 2.0));
+      a += vec3(1.0, 0.89, 0.68) * band * (0.05 + 0.18 * smoothstep(0.18, 0.75, lum) + 0.26 * warm);
+      // B: the first interior
+      vec2 sb = cover(uv, uAspB, vec2(0.5, 0.5));
+      sb = vec2(0.5) + (sb - 0.5) / (1.0 + 0.08 * (1.0 - uMix));
+      sb -= n * 0.02 * edge;
+      vec3 b = texture2D(uTexB, clamp(sb, 0.001, 0.999)).rgb;
+      // noise-displacement dissolve
+      vec3 col = mix(a, b, m);
+      col += vec3(1.0, 0.89, 0.68) * 0.12 * smoothstep(0.1, 0.0, abs(m - 0.5)) * step(0.001, uMix) * step(uMix, 0.999);
+      // grain + vignette
+      col += (hash(gl_FragCoord.xy + fract(uTime) * 61.0) - 0.5) * 0.05;
+      col *= 1.0 - 0.32 * smoothstep(0.45, 1.15, length((uv - 0.5) * vec2(1.25, 1.0)) * 1.35);
+      gl_FragColor = vec4(col, 1.0);
+    }`;
+  let scene, camera, mesh, u, ready = false, t = 0;
+  const loader = new THREE.TextureLoader();
+  const load = url => new Promise((res, rej) => loader.load(url, tex => { tex.colorSpace = THREE.NoColorSpace; tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = false; res(tex); }, undefined, rej));
+  const smooth = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
+  const api = {
+    order: -1,   // draws first: the canopy's falling light lands on the facade
+    async init(st) {
+      scene = new THREE.Scene(); camera = new THREE.Camera();
+      const sfx = st.phone ? '-m' : '';
+      const [ta, tb] = await Promise.all([load(`/images/web/casa-arbol-exterior${sfx}.webp`), load(`/images/web/room-1-ground-floor${sfx}.webp`)]);
+      u = {
+        uTexA: {value: ta}, uTexB: {value: tb},
+        uAspA: {value: ta.image.width / ta.image.height}, uAspB: {value: tb.image.width / tb.image.height},
+        uRes: {value: new THREE.Vector2(st.width, st.height)},
+        uCenter: {value: new THREE.Vector2(0.56, 0.35)},   // the front door (uv: y up)
+        uFocus: {value: new THREE.Vector2(0.5, 0.42)},
+        uScale: {value: 1}, uMix: {value: 0}, uTime: {value: 0}, uSweep: {value: -0.5},
+      };
+      mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({vertexShader: VERT, fragmentShader: FRAG, uniforms: u, depthTest: false, depthWrite: false}));
+      mesh.frustumCulled = false;
+      scene.add(mesh);
+      ready = true;
+      html.classList.add('ground-live');
+    },
+    resize(w, h) { if (u) u.uRes.value.set(w, h); },
+    update(progress, velocity, dt) {
+      if (!ready) return;
+      t += dt;
+      const p = sec.__p || 0;
+      u.uTime.value = t;
+      u.uScale.value = 1 + 0.35 * smooth(0, 0.86, p);
+      u.uMix.value = smooth(0.86, 1, p);
+      const T = 22, k = (t % T) / T;           // one slow pass every 22 s
+      u.uSweep.value = -0.45 + k * 2.4;
+    },
+    render(renderer) {
+      if (!ready) return;
+      const r = sec.getBoundingClientRect(), vh = innerHeight, vw = innerWidth;
+      const top = Math.max(0, r.top), bottom = Math.min(vh, r.bottom);
+      if (bottom - top < 1) return;
+      renderer.setScissorTest(true);
+      renderer.setScissor(0, vh - bottom, vw, bottom - top);   // only inside the chapter's own rect
+      renderer.render(scene, camera);
+      renderer.setScissorTest(false);
+      renderer.setScissor(0, 0, vw, vh);
+    },
+    debug() { return u; },
+    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mesh.material.dispose(); } u && u.uTexA.value.dispose(); u && u.uTexB.value.dispose(); html.classList.remove('ground-live'); }
+  };
+  stage.register('ground', api);
 }
 </script>
 </body>

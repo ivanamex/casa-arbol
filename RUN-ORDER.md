@@ -1,16 +1,16 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-04 — Ground: the house, light sweep, three reasons
+- STEP-05 — Inside: rooms ribbon (curved WebGL gallery)
 
 ## Next
-- STEP-05 — Inside: rooms ribbon (curved WebGL gallery)
 - STEP-06 — Roots: the systems beneath (solar, water, windows) + descent
 - STEP-07 — Cenote: water, caustics, light shafts, ripples (pool, wine, OMé)
 - STEP-08 — Surface: closing CTA, price, enquiry drawer, footer "Site by 20°N"
 - STEP-09 — mobile, fallback, performance, ES/FR QA
 
 ## Done
+- STEP-04 — Ground: facade on a cover-fit plane, golden-hour sweep + grain, scroll push-in to the door, three pinned beats (x.r1–3, EN/ES/FR), facts line, noise dissolve into the first interior; CSS push-in/crossfade fallback
 - STEP-03 — Canopy: mark sampled into 30k/10k particles, pollen → tree assembly, wordmark, pointer spring, scroll dissolve; SVG stroke-draw fallback
 - STEP-02 — foundation: images/web, palette + fonts, three/gsap/lenis, #gl stage + CA_STAGE scene manager, no-gl fallback, depth gauge
 - STEP-01 — compare setup (old.html + compare.html)
