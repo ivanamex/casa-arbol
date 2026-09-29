@@ -1,13 +1,16 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-07 — Cenote: water, caustics, light shafts, ripples (pool, wine, OMé)
+- STEP-08 — Surface: closing CTA, price, enquiry drawer, footer "Site by 20°N"
 
 ## Next
-- STEP-08 — Surface: closing CTA, price, enquiry drawer, footer "Site by 20°N"
 - STEP-09 — mobile, fallback, performance, ES/FR QA
 
 ## Done
+- STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)
+- STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)
+- STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)
+- STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)
 - STEP-06 — Roots: procedural root system (4 main roots + branches + 2 minors) grows with scroll as soft ribbons, wood → Corten → earth; systems (feat.f2/f1/f3/f9) appear where roots land; arch.btn; page darkens to earth into the cenote; SVG stroke-dash fallback; plans section folded in
 - STEP-06 — Roots: procedural root system (4 main roots + branches + 2 minors) grows with scroll as soft ribbons, wood → Corten → earth; systems (feat.f2/f1/f3/f9) appear where roots land; arch.btn; page darkens to earth into the cenote; SVG stroke-dash fallback; plans section folded in
 - STEP-06 — Roots: procedural root system (4 main roots + branches + 2 minors) grows with scroll as soft ribbons, wood → Corten → earth; systems (feat.f2/f1/f3/f9) appear where roots land; arch.btn; page darkens to earth into the cenote; SVG stroke-dash fallback; plans section folded in
