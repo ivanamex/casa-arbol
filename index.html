@@ -344,7 +344,7 @@ html.no-gl .inside.ph-vault .rib-fallback{opacity:0;pointer-events:none}
 .inside.ph-vault .vault{opacity:1}
 .vault-poster{position:absolute;inset:0;display:none}
 html.no-gl .vault-poster{display:block}
-.vault-poster picture,.vault-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vault-poster picture,.vault-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 .vault-poster::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,227,174,.55),rgba(255,227,174,.15) 32%,transparent 52%);mix-blend-mode:screen;opacity:var(--iq,0)}
 .vault-txt{position:absolute;left:5vw;bottom:10vh;max-width:600px;z-index:2;background:rgba(239,232,220,.94);padding:30px 34px 32px;border-radius:2px}
 .vault-t{font-family:var(--font-display);font-weight:200;font-size:clamp(2rem,4.2vw,4rem);line-height:1;letter-spacing:-.04em;margin:0 0 18px;color:var(--text)}
@@ -403,7 +403,7 @@ html.no-gl .roots-svg{display:block}
 
 /* CENOTE — the one dark chapter */
 .cenote{position:relative;background:transparent}
-.cenote-scroll{position:relative;height:640svh}
+.cenote-scroll{position:relative;height:640svh;margin-bottom:-100svh}
 .cenote-anchor{position:absolute;left:0;width:1px;height:1px;pointer-events:none}
 .cenote-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:transparent;color:var(--chukum)}
 .cenote-base{position:absolute;inset:0;background:var(--earth);transition:opacity 1.2s ease}
@@ -484,9 +484,9 @@ html.no-gl .cenote-fallback{display:block}
 
 
 /* SURFACE — back in the light */
-.surface{position:relative;background:var(--chukum);color:var(--earth)}
+.surface{position:relative;z-index:2;color:var(--earth);background:linear-gradient(to bottom,transparent 0,var(--chukum) 100svh)}
 .surface-rise{position:absolute;left:0;right:0;top:0;height:70vh;background:radial-gradient(ellipse 70% 70% at 50% 0%,rgba(255,240,210,.7),transparent 70%);pointer-events:none}
-.surface-inner{position:relative;max-width:1400px;margin:0 auto;padding:20vh 5vw 14vh;display:grid;grid-template-columns:1.1fr .9fr;gap:6vw;align-items:start}
+.surface-inner{position:relative;max-width:1400px;margin:0 auto;padding:10vh 5vw 14vh;display:grid;grid-template-columns:1.1fr .9fr;gap:6vw;align-items:start}
 .surface-h2{font-family:var(--font-display);font-weight:200;font-size:clamp(3rem,7.4vw,7.2rem);line-height:.98;letter-spacing:-.04em;color:var(--earth);margin:0 0 28px}
 .surface-h2 em{color:var(--corten)}
 .surface-body{font-weight:300;font-size:clamp(1.05rem,1.4vw,1.35rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0}
@@ -522,7 +522,7 @@ html.no-gl .cenote-fallback{display:block}
 .submit:disabled{opacity:.4;cursor:not-allowed}
 .success{display:none;text-align:center;padding:52px 0;font-family:var(--font-display);font-size:1.7rem;font-weight:200;color:var(--corten)}
 @media(max-width:768px){
-  .surface-inner{grid-template-columns:1fr;gap:48px;padding:14vh 6vw 10vh}
+  .surface-inner{grid-template-columns:1fr;gap:48px;padding:8vh 6vw 10vh}
   .surface-h2{font-size:clamp(2.4rem,11vw,4rem)}
   .frow{grid-template-columns:1fr;gap:18px}
 }
@@ -532,6 +532,7 @@ footer{background:var(--sand);position:relative;padding:72px 5vw 28px;color:var(
 .f-mark{display:block;width:100%;height:100%;color:var(--earth);fill:currentColor;opacity:.85;transition:opacity 1s ease}
 html.gl.surface-live .f-mark{opacity:0}
 html.gl.surface-live .surface,html.gl.surface-live footer{background:transparent}
+.surface-inner{padding-top:max(10vh,60px)}
 .f-grid{display:grid;grid-template-columns:1.3fr 1fr 1.2fr .8fr .8fr;gap:40px;max-width:1400px;margin:0 auto;align-items:start}
 .f-col{display:flex;flex-direction:column;gap:12px}
 .f-logo-row{display:inline-flex;align-items:center;gap:10px;color:var(--earth)}
@@ -927,20 +928,21 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
   <div class="inside-scroll">
     <div class="inside-pin">
       <div class="rib-hd"><div class="ey" data-i18n="gallery.ey">Gallery</div><h2 class="rib-title" data-i18n="gallery.heading">Crafted in<br><em>every detail</em></h2></div>
-      <div class="rib-caps" id="ribCaps" aria-live="polite"><span class="rib-idx" id="ribIdx">01 / 08</span><span class="rib-cap" data-i18n="img.exterior" data-index="0">Exterior</span><span class="rib-cap" data-i18n="img.gf" data-index="1">Ground floor guest bedroom</span><span class="rib-cap" data-i18n="img.guest-suite" data-index="2">Guest suite</span><span class="rib-cap" data-i18n="img.guest-suite" data-index="3">Guest suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="4">Upper-floor suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="5">Upper-floor suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="6">Upper-floor suite</span><span class="rib-cap" data-i18n="img.guest-bath" data-index="7">Guest suite bathroom</span></div>
+      <div class="rib-caps" id="ribCaps" aria-live="polite"><span class="rib-idx" id="ribIdx">01 / 09</span><span class="rib-cap" data-i18n="img.exterior" data-index="0">Exterior</span><span class="rib-cap" data-i18n="img.gf" data-index="1">Ground floor guest bedroom</span><span class="rib-cap" data-i18n="img.guest-suite" data-index="2">Guest suite</span><span class="rib-cap" data-i18n="img.guest-suite" data-index="3">Guest suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="4">Upper-floor suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="5">Upper-floor suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="6">Upper-floor suite</span><span class="rib-cap" data-i18n="img.suite-sculpted" data-index="7">Suite with sculpted chukum wall</span><span class="rib-cap" data-i18n="img.guest-bath" data-index="8">Guest suite bathroom</span></div>
       <div class="rib-hint" data-i18n="gallery.swipe">Swipe to explore</div>
       <div class="rib-fallback" aria-label="Gallery">
       <figure class="rib-item" data-index="0"><picture><source type="image/webp" srcset="/images/web/casa-arbol-exterior-m.webp 816w, /images/web/casa-arbol-exterior.webp 1387w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/casa-arbol-exterior-m.jpg" srcset="/images/web/casa-arbol-exterior-m.jpg 816w, /images/web/casa-arbol-exterior.jpg 1387w" sizes="(max-width:768px) 64vw, 520px" width="1387" height="1734" alt="Casa Árbol villa exterior — Playacar Fase II luxury residence" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRvABAABXRUJQVlA4IOQBAABQDgCdASozAEAAPqVGmUmmJCKhN/asAMAUiUAYA/MCQg6n1+7Cr7DikYZv1r7RBA2Xj3f1aaXSVSxQGwHlDBgVOP27IjfNGq+rSNXnCvxYIgo2j+a6EVXth9FM88Hgr2POIt5btnmwP9ILeGyDQDIPvtHmT4eHHaZMIYAA/vlBR9kw+B9dmlzauY4g99AukPHd0KVpCzU0oo/We2GOOU05chzb948ptzHzSa9CBBdmsb9jvvcxyxHF3gdDJXq31vvM/sD++ygbAEpmKZYmaMyGZ96Np/qzyqTfkK7I+sa7SKa6hTizC3j8RtPCEU+1fwvC9XV/sLrXhmNGUWFH/BvE1Ct6tGfCz+zrLDpXoH2wpTRy5HTpwtyoqNJW22wS9fCPD0D0YwfQI0S+fw7XiJSO95V1UQNT+Ojyqejm1v/MB3Or3dk/2XReWJChA5b3dU1Qo0uBvfUP0BCjogIY0ag0G+wjTB8zG3YRoYSHGMqOJVdfbM2uBIfj/1GWhu5KrUapU7dlFxQ38r2Sihljfw3hKcgLhRP2HLA5vRxVvITdaWLEggf0Cz6j9JoOtJG4jMEXqmNUUdAjRFGKiUfwrtdmV1tHi/SgEnc0Sc254P9WtU9Ho+DUZhOX88PuEcB0MvlYh/AA) center/cover"></picture><figcaption data-i18n="img.exterior">Exterior</figcaption></figure>
-      <figure class="rib-item" data-index="1"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Ground floor guest bedroom at Casa Árbol — brick vault ceiling and natural textures" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture><figcaption data-i18n="img.gf">Ground floor guest bedroom</figcaption></figure>
+      <figure class="rib-item" data-index="1"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Ground floor guest bedroom at Casa Árbol — natural textures and garden light" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture><figcaption data-i18n="img.gf">Ground floor guest bedroom</figcaption></figure>
       <figure class="rib-item" data-index="2"><picture><source type="image/webp" srcset="/images/web/room-2-guest-suite-1-m.webp 1200w, /images/web/room-2-guest-suite-1.webp 2040w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-2-guest-suite-1-m.jpg" srcset="/images/web/room-2-guest-suite-1-m.jpg 1200w, /images/web/room-2-guest-suite-1.jpg 1734w" sizes="(max-width:768px) 64vw, 520px" width="1734" height="1300" alt="Guest suite at Casa Árbol — serene palette with premium finishes" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnoBAABXRUJQVlA4IG4BAABwCwCdASpAADAAPrVMoEynI6MiJXgOYOAWiWMAuzAL6QmBSkMas0xz6hHA1dpP2nRHh45VT9QJOiNQJqOvvpeZ1EG4zqqKfLM+WSJY2XJJaUogFr+cRVteRpLmcmgjDCFE3WUAAPv0ejS0RBaYtVIEoU39jIOtJBfMz+HdAWlH3SuF/46nkceY5WKXr8uX/a4ixx9yh/xbSQTwQ5+q+pNjI1SEtTkcZmHafcpF3M+FUnhJzGk+UZdbTLVVoco5e7Cp+Ha9yLPm6CkMHnVVJi52aA8Yvki9zsE8HaVVovzqAqnZHLUQKKFQBZT4m/cnSdmnruFV/pCtyAcgj1Tyco6eaOm06SeaRTDxaZ8YGsBhrj6f+YbaJK8dv64kptgGQq11WV1piu8ooNq1kb7fPnkY4F08KtwkOTB0AW4TYRETPTLpyEvhwEB9sZ9NPaNIhmwtssCNzrzTMXLWAUGYJipOrDI+Lx0RV9WNjrhSAAA=) center/cover"></picture><figcaption data-i18n="img.guest-suite">Guest suite</figcaption></figure>
       <figure class="rib-item" data-index="3"><picture><source type="image/webp" srcset="/images/web/room-2-guest-suite-2-m.webp 1200w, /images/web/room-2-guest-suite-2.webp 2040w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-2-guest-suite-2-m.jpg" srcset="/images/web/room-2-guest-suite-2-m.jpg 1200w, /images/web/room-2-guest-suite-2.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Guest suite alternate view — Casa Árbol luxury villa Playacar Fase II" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnABAABXRUJQVlA4IGQBAADwCwCdASpAADAAPqFEmEmmJCKhN/cdUMAUCWMApAAKEfF+8IgIZHPm1BjOWSUkbkpJOa3OuJv7RW7lZM7uv1gn9+vIOQY0BJ+aiSd1cVegHxG6UY0vu/af4+OhunXw+cTlviDsoARTAAD+zWCYvqZUUKjkeUWi4s7Iq1E5Yvl44arGGb5t1PMZyC+QnHChuNWkYcTISmnVMJ47wQj6khb6AoV29UWK8pKiYF+DW8jAbmEIHEXF9Qm+ocPr3orQYin669kN7gIm7vwDjzGup81hcfUQI4NHk+W5gPEDxX729XvuzkYJXWFOuOACWOeOQJpIvFgXqbNxLnT3gVWW6S3uklrbNDnJBH2BbHr9dz7c87yvL5/0B9IiwNjg/nSO8k4w8iBkoj8013gKEFECWKDo9fMBqIAUEtWXW8fv6dx3t+WADnyBke/RDnczYCX5Yu9TQVaP17B/uCwjI9Fq3HcXjAAAAA==) center/cover"></picture><figcaption data-i18n="img.guest-suite">Guest suite</figcaption></figure>
       <figure class="rib-item" data-index="4"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-1-m.webp 1200w, /images/web/room-3-upper-suite-1.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-3-upper-suite-1-m.jpg" srcset="/images/web/room-3-upper-suite-1-m.jpg 1200w, /images/web/room-3-upper-suite-1.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Upper-floor suite at Casa Árbol — warm wood and integrated lighting" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRl4BAABXRUJQVlA4IFIBAADwCgCdASpAADAAPrVOnkunJCKhqrv8AOAWiWMAvYwBjS0JyeKtLQjxT65hm2CoUH4AFaqRZtGnEnk7kcfZemqTGepB5hq+coYUg+r3hSgRddBBhjRMIZDkCh/r+3KFpwAA5hE2Fl2OB5KZkfnwkZpvgWfXG1WW7dwbcu+ZSTQCQdNLzA2Lf7gHF+wJn9EYV8lOR8CN4VaK9qFL9nKtsCLQXphkdjzfDriYvQ6KL06xRwdKzmm3k35HxFirg+Txjcbwo6lv0RK0G3/0e/3Py7I9+P4/e8lwrXQ6qoAhoiaOIxBQ2AhZS2iUTaHVvcln71SOVrQXIlN7u6Q9RbKUBFi8I894lKu7p5HNfhrNoqI5w+oTX2aMylsvSDBZQ/GYYRWTaYBvQ4IL8Q+tQPqohpxKDVhPhuW69z5fNoMDEc1Ycgy1mNJoUYHdkzsNxf28DIAAAA==) center/cover"></picture><figcaption data-i18n="img.upper-suite">Upper-floor suite</figcaption></figure>
       <figure class="rib-item" data-index="5"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-2-m.webp 1200w, /images/web/room-3-upper-suite-2.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-3-upper-suite-2-m.jpg" srcset="/images/web/room-3-upper-suite-2-m.jpg 1200w, /images/web/room-3-upper-suite-2.jpg 2400w" sizes="(max-width:768px) 64vw, 520px" width="2400" height="1800" alt="Upper-floor suite alternate angle — Casa Árbol Playacar" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRpgBAABXRUJQVlA4IIwBAAAQDACdASpAADAAPrVOn0qnJCKhqrgM+OAWiUAYoYfJNC+3TYBm2o2SUJLEZGL72ImFzQXIhz7IEEiufkIKJjSTlD7IktSGIRMXsp/3OI+ypbuI2KF1dg6ZkVtkcEi0GqAddZKx5obeVEAA/tN+1NYDu2RYsvhTPCP27oSqPfFn3kowYEG6RPqDHBuB8tA20efhsTVC8WSRat4g52wtVNGCoeQBEayzcP/CFnDyTLpSEZEYO+CS/8illxF6TLoGNoJofn5a3cz8AmCH/kHhb0l4VEZSPupsmDhu6SDXYrCEXL74L/frxaScVhNXtK/+11BvSkfZ+NOZeRS+M/zSLf3ZPXRvZa4O4kaKP3ePltSkV3j2k0QqfDJdeOmkl8ocbV0BDKpCLoH2Wcn95apQyhc1JJTk3vnNpJB46JJZHOWBPIkG0xPZUgbT1Bh6mdkCcDK90ACLWM+GurMk8P6aigBKiRK/xfviYStdli/mlKMORpKNdRR6gDebuZdKj22ehhV00TRZwbxMQIHZAAA=) center/cover"></picture><figcaption data-i18n="img.upper-suite">Upper-floor suite</figcaption></figure>
       <figure class="rib-item" data-index="6"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-3-m.webp 1200w, /images/web/room-3-upper-suite-3.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-3-upper-suite-3-m.jpg" srcset="/images/web/room-3-upper-suite-3-m.jpg 1200w, /images/web/room-3-upper-suite-3.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Upper-floor suite detail — Casa Árbol luxury residence" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnQBAABXRUJQVlA4IGgBAACQCwCdASpAADAAPrVSo02nJCMiJXgMAOAWiWMAuzN1gkq3PUnDgNoLJbM+0Ut5L+845b3gD+1buYrSKrbi+UQMJ2sGGg9VSs8NCQxwCbFV4Siz5pOig+Pr8n6xtAQUhgaTxStSAAD+zaweguw9HbVLDWqA54Mf1VLAqwLn70Y+rImSLs/ulljDakMdMv4TwN4UjnlagFJHco3aDrhh0iTng9Gg3rXpNtTmAqzcqQWnUEb4LgHDFFVmP9ErlZGGz0UNAWOp5F0QkGAsehfiefxjblKGFlKRcMgoWePvt4+fQBAnNjGppvzG8UWcCjEpQT+m+xirtm5yt7mnd18N6Dxhss40TEn7G9hwU8QuARjEfZ3CpwI2GsfMM7w+Y4sUvPcz3aG0xEX/BI/U8UWoP5vO5p5Rwy+PNMQR/4uDuweEq/964sw741t09elKR3/58WLtdNR638eCYGsGGxLV7N0if/RffQWsAAA=) center/cover"></picture><figcaption data-i18n="img.upper-suite">Upper-floor suite</figcaption></figure>
-      <figure class="rib-item" data-index="7"><picture><source type="image/webp" srcset="/images/web/bathroom-guest-suite-m.webp 1200w, /images/web/bathroom-guest-suite.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/bathroom-guest-suite-m.jpg" srcset="/images/web/bathroom-guest-suite-m.jpg 1200w, /images/web/bathroom-guest-suite.jpg 2400w" sizes="(max-width:768px) 64vw, 520px" width="2400" height="1800" alt="Guest suite bathroom at Casa Árbol — spa-grade finishes, natural stone" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRmIBAABXRUJQVlA4IFYBAAAQCwCdASpAADAAPrVMokynI6MiLVM6SOAWiWMAtkfZRwQLXb3mudqTV3BIZAs3fXjFbP69Q9iX3DzDwvUE+QlnH+ii/qXvnebFXjcxvwgvLKE+3J2Gufbf9/Xk1VwTVn4AAP7XJv4vZzYniA2ei1IidRXPr7gKRalzsglpUmrW3GWbtAtims1YB/dHvMe0OpEUJIyqYsnxmVO9TCHmCUaqVt0RJ1PtI0/UbuVVT6sbekFzNMomrf5/3yziGFYLxRhIUuEvvAl5GCfzFMpfjp38e37l6rdt5DYvtD5JNSRW/Jqe2q8mENTl9IADD+auWw4S6ZGkC4pOA4Ij4O2WovtnJhAws1a9kMjI66f3lb77CVVrSCgAjvXzTdJ5VRQSS0q/8kdP+8uLLyEQ5jM97MmT7duQEj1wfIVm/XUYqTnyJtpv6JEhUir6p3K9nyGQpRQ0KxpOAAA=) center/cover"></picture><figcaption data-i18n="img.guest-bath">Guest suite bathroom</figcaption></figure>
+      <figure class="rib-item" data-index="7"><picture><source type="image/webp" srcset="/images/web/suite-sculpted-wall-m.webp 1200w, /images/web/suite-sculpted-wall.webp 1320w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/suite-sculpted-wall-m.jpg" srcset="/images/web/suite-sculpted-wall-m.jpg 1200w, /images/web/suite-sculpted-wall.jpg 1320w" sizes="(max-width:768px) 64vw, 520px" width="1320" height="975" alt="Suite at Casa Árbol — brick vault, sculpted chukum wall with a backlit wood inlay, garden terrace" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoABAABXRUJQVlA4IHQBAACQCwCdASpAAC8APrVGnUmnI6KhN/VYAOAWiWMAo0ulBo4Aktem2xIdwguMQ2Zkhm25BRvOZny0KdgTh7joXQI1iv9I0HrymSh1qOFoMIXsV+xNjlFnvsl++BRtPt2ZVR4IyiPLOgDV6ZxRjMGzxZ7suYYOsfVRwSZOVe5KzKE+jRXQ58btrx5IXCdLZO1lSJ/iHCLjBUJg0HKO1zM1x/DwIWs2c7+jf4KqrhHKz+SjJLrnpL50wzCOs+NdiFDYiY6EsltlNYrhfstT8Rtnv8Y/6Ggt/BrC6Os8t1NCHBqa/6qssfZwvKklagDToni6JxQS/RbW+2qkyMmynRs60K4T5xDdICHCEhBNgSRx4ynsnF87v2YU+eU2V5pYH8q6v8hc6jyOr2CDAizyd4v/GuIfIaJkTGfQJSrHnGO231t/b0W38MwXQPSzeWVwnyCnv/h6hOdNpB540ROnjcx0LWg3lfMGQoc+W1j/G0B9IwE8jGtiAAA=) center/cover"></picture><figcaption data-i18n="img.suite-sculpted">Suite with sculpted chukum wall</figcaption></figure>
+      <figure class="rib-item" data-index="8"><picture><source type="image/webp" srcset="/images/web/bathroom-guest-suite-m.webp 1200w, /images/web/bathroom-guest-suite.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/bathroom-guest-suite-m.jpg" srcset="/images/web/bathroom-guest-suite-m.jpg 1200w, /images/web/bathroom-guest-suite.jpg 2400w" sizes="(max-width:768px) 64vw, 520px" width="2400" height="1800" alt="Guest suite bathroom at Casa Árbol — spa-grade finishes, natural stone" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRmIBAABXRUJQVlA4IFYBAAAQCwCdASpAADAAPrVMokynI6MiLVM6SOAWiWMAtkfZRwQLXb3mudqTV3BIZAs3fXjFbP69Q9iX3DzDwvUE+QlnH+ii/qXvnebFXjcxvwgvLKE+3J2Gufbf9/Xk1VwTVn4AAP7XJv4vZzYniA2ei1IidRXPr7gKRalzsglpUmrW3GWbtAtims1YB/dHvMe0OpEUJIyqYsnxmVO9TCHmCUaqVt0RJ1PtI0/UbuVVT6sbekFzNMomrf5/3yziGFYLxRhIUuEvvAl5GCfzFMpfjp38e37l6rdt5DYvtD5JNSRW/Jqe2q8mENTl9IADD+auWw4S6ZGkC4pOA4Ij4O2WovtnJhAws1a9kMjI66f3lb77CVVrSCgAjvXzTdJ5VRQSS0q/8kdP+8uLLyEQ5jM97MmT7duQEj1wfIVm/XUYqTnyJtpv6JEhUir6p3K9nyGQpRQ0KxpOAAA=) center/cover"></picture><figcaption data-i18n="img.guest-bath">Guest suite bathroom</figcaption></figure>
       </div>
       <div class="vault" aria-hidden="false">
-        <div class="vault-poster" aria-hidden="true"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="100vw"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="100vw" width="2040" height="1530" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture></div>
+        <div class="vault-poster" aria-hidden="true"><picture><source type="image/webp" srcset="/images/web/suite-vault-front-m.webp 1200w" sizes="100vw"><img src="/images/web/suite-vault-front-m.jpg" srcset="/images/web/suite-vault-front-m.jpg 1200w" sizes="100vw" width="1200" height="900" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnIBAABXRUJQVlA4IGYBAAAQCwCdASpAADAAPrVIoUunI6MhqBVeMOAWiWMAxyfyT4l8gCCSFyawRUhsuiCIYbsjVMajP9C6LaJ+qUtafQydWqa9ceEywzQ4FrOciFFclp73kAy2p3MSKgm9Cpt3oS+QAP5IzISElV2ZS/4AJ/8yU1Zy3CoV6qoEPAvAiGhV1ocHxm3EVUFjf6C3kak44DRBrOsN7fQhOya4khnkttAcg3DkhutmLb7/MRY714m/mdfkf3UFqy56s6NNAp7slHkhuAdpFWB6xiRFA9DpYFBLwECWzArkcWk5iFx++DvbvI9yzPh+FcSMCrUDgci9dgLxS/6usAAY4YEQfrATYTpiMaf3kY+gl0T1+zzwHubuqI9eAraHxhAKDOpCIPPBSXgZQBxj78xUfZIKhjQAKwRewrJcvnr/iEQ067PREtBCCKwyi8QDUmPE6cW8Z5T5Pjo6kgG7GPNxMS3OIi8Se9X6+FGGk4AA) center/cover"></picture></div>
         <div class="vault-txt"><h3 class="vault-t" data-i18n="feat.f7.name">Vault Brick Ceilings</h3><p class="vault-b" data-i18n="feat.f7.desc">Handcrafted exposed brick vaults glow at golden hour, illuminated by warm LED strips — architecture that transforms with every quality of light.</p></div>
       </div>
     </div>
@@ -976,8 +978,8 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
 <!-- CENOTE — below the water, looking up: the pool, the wine cellar, OMé Spa float by in the dark water -->
 <section class="cenote" id="pool" data-chapter="cenote">
   <div class="cenote-scroll">
-    <div class="cenote-anchor" id="wine-cellar" style="top:calc(.37 * (100% - 100svh))"></div>
-    <div class="cenote-anchor" id="ome-spa" style="top:calc(.69 * (100% - 100svh))"></div>
+    <div class="cenote-anchor" id="wine-cellar" style="top:calc(.39 * (100% - 100svh))"></div>
+    <div class="cenote-anchor" id="ome-spa" style="top:calc(.71 * (100% - 100svh))"></div>
     <div class="cenote-pin dark-surface">
       <div class="cenote-base" aria-hidden="true"></div>
       <div class="cenote-fallback" aria-hidden="true">
@@ -1290,6 +1292,7 @@ var LANG = {
     'img.gf':         'Ground floor guest bedroom',
     'img.guest-suite':'Guest suite',
     'img.upper-suite':'Upper-floor suite',
+    'img.suite-sculpted': 'Suite with sculpted chukum wall',
     'img.guest-bath': 'Guest suite bathroom',
 
     // Features
@@ -1658,6 +1661,7 @@ var LANG = {
     'img.gf':         'Habitación planta baja',
     'img.guest-suite':'Suite de invitados',
     'img.upper-suite':'Suite planta alta',
+    'img.suite-sculpted': 'Suite con muro esculpido de chukum',
     'img.guest-bath': 'Baño suite de invitados',
     'feat.ey':       'Especificaciones Premium',
     'feat.h2a':      'Diseñada para',
@@ -2000,6 +2004,7 @@ var LANG = {
     'img.gf':         'Chambre rez-de-chaussée',
     'img.guest-suite':"Suite d'invités",
     'img.upper-suite':"Suite à l'étage",
+    'img.suite-sculpted': 'Suite au mur sculpté en chukum',
     'img.guest-bath': "Salle de bain suite d'invités",
     'feat.ey':       'Spécifications Premium',
     'feat.h2a':      'Conçue pour',
@@ -3200,7 +3205,7 @@ window.submitBrokerReferral = function(){
 (function(){
   var sec=document.getElementById('pool'); if(!sec) return;
   var scroll=sec.querySelector('.cenote-scroll'), pin=sec.querySelector('.cenote-pin'), beats=Array.prototype.slice.call(sec.querySelectorAll('.cbeat'));
-  var WIN=[[0.03,0.33],[0.37,0.65],[0.69,0.95]];
+  var WIN=[[0.03,0.33],[0.37,0.65],[0.69,0.90]];
   var raf=0;
   function update(){
     raf=0;
@@ -3209,7 +3214,7 @@ window.submitBrokerReferral = function(){
     sec.__p=p;
     var on=r.top<vh&&r.bottom>0;
     beats.forEach(function(b,i){ b.classList.toggle('on', on && p>=WIN[i][0] && p<WIN[i][1]); });
-    var o=Math.min(1,Math.max(0,(p-0.95)/0.05)); pin.style.setProperty('--co', (o*o).toFixed(3));
+    var o=Math.min(1,Math.max(0,(p-0.88)/0.12)); pin.style.setProperty('--co', (o*o).toFixed(3));
   }
   window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
   window.addEventListener('resize', update);
@@ -3619,7 +3624,7 @@ if (window.CA_GL) {
   const pin = sec.querySelector('.inside-pin');
   const capsEl = document.getElementById('ribCaps'), idxEl = document.getElementById('ribIdx');
   const capEls = [...capsEl.querySelectorAll('.rib-cap')];
-  const NAMES = ["casa-arbol-exterior","room-1-ground-floor","room-2-guest-suite-1","room-2-guest-suite-2","room-3-upper-suite-1","room-3-upper-suite-2","room-3-upper-suite-3","bathroom-guest-suite"];
+  const NAMES = ["casa-arbol-exterior","room-1-ground-floor","room-2-guest-suite-1","room-2-guest-suite-2","room-3-upper-suite-1","room-3-upper-suite-2","room-3-upper-suite-3","suite-sculpted-wall","bathroom-guest-suite"];
   const phone = stage.phone;
   const R = 5.2, H = phone ? 1.5 : 2.0, GAP = phone ? 0.28 : 0.36, SHIFT = phone ? 0 : 0.13;
 
@@ -3650,7 +3655,7 @@ if (window.CA_GL) {
     float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
     void main(){
       float s = uRes.x / uRes.y; vec2 st = vUv;
-      if (s > uAsp) { float k = uAsp / s; st.y = clamp(0.55, k * 0.5, 1.0 - k * 0.5) + (vUv.y - 0.5) * k; }
+      if (s > uAsp) { float k = uAsp / s; st.y = (1.0 - k * 0.5) + (vUv.y - 0.5) * k; }   // anchored to the top: the vault stays in frame
       else { float k = s / uAsp; st.x = 0.5 + (vUv.x - 0.5) * k; }
       st = vec2(0.5) + (st - 0.5) / (1.0 + 0.06 * uQ);
       vec3 col = texture2D(uTex, clamp(st, 0.001, 0.999)).rgb;
@@ -3703,7 +3708,7 @@ if (window.CA_GL) {
       });
       sweep = th;
       // the vault beat: the ground-floor bedroom full screen
-      const vt = await load(`/images/web/room-1-ground-floor${phone ? '-m' : ''}.webp`);
+      const vt = await load(`/images/web/suite-vault-front.webp`);   // 1200 px: the shader grain hides the softness on big screens
       vscene = new THREE.Scene(); vcam = new THREE.Camera();
       vu = { uTex: {value: vt}, uRes: {value: new THREE.Vector2(st.width, st.height)}, uAsp: {value: vt.image.width / vt.image.height}, uQ: {value: 0}, uAlpha: {value: 0}, uTime: {value: 0} };
       vmesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: VAULT_VERT, fragmentShader: VAULT_FRAG, uniforms: vu, transparent: true, depthTest: false, depthWrite: false }));
@@ -4018,7 +4023,7 @@ if (window.CA_GL) {
       wu.uTime.value = t; du.uTime.value = t;
       wu.uLook.value = 0.5 + 0.35 * (1 - smooth(0.33, 0.4, p)) + 0.25 * smooth(0.65, 0.7, p);
       wu.uWineMix.value = smooth(0.37, 0.42, p) * (1 - smooth(0.62, 0.67, p));
-      wu.uOut.value = smooth(0.94, 1.0, p);
+      wu.uOut.value = smooth(0.88, 1.0, p);
       // ripple sim: one step per frame; the pointer stirs the surface, and now and then a drop falls on its own
       const r = stage.renderer;
       let ds = 0, dx = -1, dy = -1;
@@ -4126,7 +4131,7 @@ if (window.CA_GL) {
       // the section's chukum and the footer's sand are painted by the stage (both are transparent once live, so the canvas shows through)
       renderer.setScissorTest(true);
       const paint = (rect, scn) => { const t0 = Math.max(0, rect.top), b0 = Math.min(vh, rect.bottom); if (b0 - t0 < 1) return; renderer.setScissor(0, vh - b0, vw, b0 - t0); renderer.setViewport(0, vh - rect.bottom, vw, rect.height); renderer.render(scn, cam); };
-      paint(sr, chukumScene); paint(f, sandScene);
+      paint({ top: sr.top + vh, bottom: sr.bottom, height: sr.height - vh }, chukumScene); paint(f, sandScene);
       const r = box.getBoundingClientRect();
       if (r.bottom > 0 && r.top < vh) {
         const bt = Math.max(0, r.top), bb = Math.min(vh, r.bottom);

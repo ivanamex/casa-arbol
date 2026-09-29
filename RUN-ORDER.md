@@ -1,13 +1,13 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-09b — close the empty gap after the cenote + real brick-vault photo in the vault beat
+- STEP-09c — text colliding with images: hero subtitle + price, gallery title vs ribbon
 
 ## Next
-- STEP-09c — text colliding with images: hero subtitle + price, gallery title vs ribbon
 - STEP-10 — the cellar: wine moves out of the cenote into its own chapter, the wall opens, the backlight fills up (needs Ivana's 2 Gemini photos)
 
 ## Done
+- STEP-09b — Surface slides up over the fading cenote (−100svh overlap, transparent-to-chukum top, beats end 0.90 / fade 0.88→1, padding 10vh/8vh): no frame more than a third empty at 1440 and 390; vault beat on suite-vault-front (web versions, top-anchored crop); 9th ribbon photo suite-sculpted-wall with img.suite-sculpted EN/ES/FR; honest alt for the ground-floor room; anchors re-tuned
 - STEP-09 — QA pass (iPhone 12 / mid Android / 1440 / 1920 / fallback both sizes, throttled 4G): poster paints in 0.5–1.1 s, page never blank while WebGL loads, no console errors, flat memory over 3 up/down cycles, heavy chapters (ground, inside, cenote) now sleep off screen and wake from cache; ES/FR: no raw keys, no overflow (beat titles hyphenate); mailto forms, admin ⚙, Brokers Portal, #register-client and ?portal=brokers deep links all work. Open, scheduled: cenote→surface gap (09b), hero/gallery text vs images (09c). Not testable here: real-GPU fps, WhatsApp in-app browser
 - STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
 - STEP-07 — Cenote: full-screen water shader (earth-dark, pool photo as the surface seen from below, Voronoi caustics, radial light shafts, dust drifting up), ping-pong ripple sim stirred by the pointer, wine cellar in a rippling window; three floating beats (pool, wine, OMé perks); fades back to chukum; SVG-turbulence fallback; no sound toggle (no loop available)
