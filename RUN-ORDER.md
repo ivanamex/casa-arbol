@@ -1,9 +1,10 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-05 — Inside: rooms ribbon (curved WebGL gallery)
+- STEP-04b — type + coordinates fix (Sora for body, coordinates only in footer)
 
 ## Next
+- STEP-05 — Inside: rooms ribbon (curved WebGL gallery)
 - STEP-06 — Roots: the systems beneath (solar, water, windows) + descent
 - STEP-07 — Cenote: water, caustics, light shafts, ripples (pool, wine, OMé)
 - STEP-08 — Surface: closing CTA, price, enquiry drawer, footer "Site by 20°N"
@@ -20,7 +21,8 @@
 - One file: index.html. Vanilla JS modules from CDN (Three.js, GSAP + ScrollTrigger, Lenis). No build, no npm, no React.
 - Concept: one continuous descent — canopy → house → rooms → roots → cenote → back to the surface.
 - Palette: abyss #03161B, deep water #0A3440, cenote #2FD4C4, limestone #EDE6D8, sunlight #FFE3AE. No green, no gold, no serif.
-- Type: Unbounded (display, 200–400) + Geist (body) + Geist Mono (gauge, coordinates, small labels).
+- Type: Unbounded (display) + Sora (everything you read). Geist Mono only for the footer coordinates.
+- 20°N signature: the property's coordinates, small and quiet, in the footer next to "Site by 20°N" — never in the header or hero.
 - Phone first: the link goes out on WhatsApp. Poster image visible in < 2.5 s on 4G; WebGL loads after.
 - Keep every data-i18n key, EN/ES/FR, both enquiry forms, Brokers Portal, admin leads panel, WhatsApp button.
 - Metric units. Surname "Buric". Agency "Weber-Buric Real Estate".

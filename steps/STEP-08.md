@@ -6,6 +6,6 @@
 - The existing main form, restyled: underline inputs, Geist, abyss text. Submit = abyss button.
 - Enquiry modal → a right-side drawer in abyss with limestone text. Broker modals restyled the same way, behaviour unchanged.
 - Virtual experience cards (ve.*) sit above the form as two wide buttons; they still open the modal until the film and Matterport exist.
-- Footer in abyss: the particle tree comes back small and assembles once more; contacts (Ivana, Yannick, both emails), Brokers Portal, socials, EN/ES/FR; bottom line "By private sale only. © year Casa Árbol · Weber-Buric Real Estate · Site by 20°N".
+- Footer in abyss: the particle tree comes back small and assembles once more; contacts (Ivana, Yannick, both emails), Brokers Portal, socials, EN/ES/FR; bottom line "By private sale only. © year Casa Árbol · Weber-Buric Real Estate · Site by 20°N", and beside it the 20°N signature: "20.6296°N 87.0739°W" in Geist Mono 11–12 px at about 45% opacity. Nowhere else on the page.
 - Menu: full-screen abyss overlay, chapter names as big links (canopy, ground, inside, roots, cenote, surface) that jump the camera to each chapter; languages and contacts on the side.
 - WhatsApp float button: abyss disc with limestone icon, cenote ring on hover. Replace the bright WhatsApp green.
