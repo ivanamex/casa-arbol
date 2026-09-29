@@ -1,10 +1,9 @@
 # RUN-ORDER — Casa Árbol ERA redesign (branch: redesign-era)
 
 ## Now
-- STEP-01 — compare setup (old.html + compare.html)
+- STEP-02 — palette, fonts, day/night tokens
 
 ## Next
-- STEP-02 — palette, fonts, day/night tokens
 - STEP-03 — hero: sky, clouds, day/night toggle
 - STEP-04 — three reasons cards + concept + facts
 - STEP-05 — spaces: pinned horizontal scroll
@@ -13,7 +12,7 @@
 - STEP-08 — menu, enquiry drawer, ES/FR keys, QA
 
 ## Done
--
+- STEP-01 — compare setup (old.html + compare.html)
 
 ## Rules
 - Work only on branch `redesign-era`. Never push to main.
