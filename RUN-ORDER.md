@@ -1,10 +1,9 @@
 # RUN-ORDER — Casa Árbol ERA redesign (branch: redesign-era)
 
 ## Now
-- STEP-03 — hero: sky, clouds, day/night toggle
+- STEP-04 — three reasons cards + concept + facts
 
 ## Next
-- STEP-04 — three reasons cards + concept + facts
 - STEP-05 — spaces: pinned horizontal scroll
 - STEP-06 — amenities list + image panel
 - STEP-07 — specs, terms, virtual tour, CTA, lead, footer
@@ -13,6 +12,7 @@
 ## Done
 - STEP-01 — compare setup (old.html + compare.html)
 - STEP-02 — palette, fonts, day/night tokens
+- STEP-03 — hero: sky, clouds, day/night toggle
 
 ## Rules
 - Work only on branch `redesign-era`. Never push to main.

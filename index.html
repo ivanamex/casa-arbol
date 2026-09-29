@@ -2,6 +2,7 @@
 <html lang="en" data-mode="day" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8">
+<script>try{var m=localStorage.getItem('ca_mode');if(m==='day'||m==='night')document.documentElement.setAttribute('data-mode',m);}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ═══════════════════════════════════════════
@@ -234,15 +235,14 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:22px 5vw;transition:all .45s ease}
-nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,48,42,.55),rgba(20,48,42,.2) 55%,transparent);pointer-events:none;z-index:-1;transition:opacity .45s ease}
-nav.sc::before{opacity:0}
-nav.sc{background:rgba(247,249,250,.93);backdrop-filter:blur(18px);padding:13px 5vw;border-bottom:1px solid rgba(178,58,99,.18)}
-.nav-logo{display:inline-flex;align-items:center;height:44px;flex-shrink:0;cursor:pointer;text-decoration:none;background:none;border:0;padding:0;filter:drop-shadow(0 1px 2px rgba(20,48,42,.35));transition:filter .45s ease}
-nav.sc .nav-logo{filter:none}
+nav{color:var(--c-ink)}
+nav.sc{background:color-mix(in srgb,var(--c-bg) 92%,transparent);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);padding:13px 5vw;border-bottom:1px solid var(--c-line)}
+.nav-logo{display:inline-flex;align-items:center;height:44px;flex-shrink:0;cursor:pointer;text-decoration:none;background:none;border:0;padding:0;}
 .nav-logo-img{height:100%;width:auto;display:block;object-fit:contain;pointer-events:none}
-.nav-logo-on-light{display:none}
-nav.sc .nav-logo-on-dark{display:none}
-nav.sc .nav-logo-on-light{display:block}
+.nav-logo-on-dark{display:none}
+.nav-logo-on-light{display:block}
+html[data-mode="night"] .nav-logo-on-dark{display:block}
+html[data-mode="night"] .nav-logo-on-light{display:none}
 @media(max-width:768px){.nav-logo{height:36px}}
 .nav-links{display:flex;gap:clamp(14px,2vw,26px);list-style:none;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;flex-wrap:nowrap}
 .nav-links li{white-space:nowrap}
@@ -254,7 +254,7 @@ nav.sc .nav-logo-on-light{display:block}
 /* Mobile hamburger toggle */
 .nav-burger{display:none;background:none;border:none;color:var(--ink2);cursor:pointer;padding:4px;width:38px;height:38px;align-items:center;justify-content:center;transition:color .3s}
 .nav-burger svg{width:22px;height:22px}
-nav:not(.sc) .nav-burger{color:rgba(251,252,253,.88);filter:drop-shadow(0 1px 2px rgba(20,48,42,.45))}
+.nav-burger{color:var(--c-ink)}
 @media(max-width:1100px){
   /* Below breakpoint, drawer (and everything inside it) is hidden until opened */
   .nav-drawer{display:none}
@@ -276,29 +276,14 @@ nav:not(.sc) .nav-burger{color:rgba(251,252,253,.88);filter:drop-shadow(0 1px 2p
   body.nav-open nav,body.nav-open nav.sc{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:transparent!important;border-bottom:none!important;transform:none!important;filter:none!important}
 }
 @keyframes drawerFadeIn{from{opacity:0}to{opacity:1}}
-.nav-links a{color:var(--ink2);text-decoration:none;opacity:.6;white-space:nowrap;transition:color .3s,opacity .3s}
+.nav-links a{color:var(--c-ink);text-decoration:none;opacity:.7;white-space:nowrap;transition:color .3s,opacity .3s}
 .nav-links a:hover{opacity:1}
-.nav-cta{font-family:var(--body);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--ink);border-radius:6px;background:none;color:var(--ink);padding:9px 20px;cursor:pointer;transition:all .35s;white-space:nowrap}
-.nav-cta:hover{background:var(--ink);color:var(--white)}
+.nav-cta{font-family:var(--body);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;border:1px solid var(--c-ink);border-radius:6px;background:none;color:var(--c-ink);padding:9px 20px;cursor:pointer;transition:all .35s;white-space:nowrap}
+.nav-cta:hover{background:var(--c-ink);color:var(--c-bg)}
 /* Initial (unscrolled) nav readability — light text over dark top-fade backdrop */
-nav:not(.sc) .nav-links a{color:rgba(251,252,253,.88);opacity:1;text-shadow:0 1px 2px rgba(20,48,42,.45)}
-nav:not(.sc) .nav-links a:hover{color:var(--gold-lt)}
-nav:not(.sc) .nav-cta{color:var(--white);border-color:rgba(251,252,253,.55);text-shadow:0 1px 2px rgba(20,48,42,.45)}
-nav:not(.sc) .nav-cta:hover{color:var(--ink);background:var(--white);border-color:var(--white);text-shadow:none}
 
-/* HERO — full bleed exterior night shot */
-.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;transform:scale(1.05);animation:hzoom 22s ease-in-out infinite alternate}
-@keyframes hzoom{to{transform:scale(1)}}
-.hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,48,42,.1) 0%,rgba(20,48,42,.08) 35%,rgba(20,48,42,.55) 65%,rgba(20,48,42,.88) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 5vw 60px;max-width:820px}
-.hero-ey{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-lt);margin-bottom:16px;display:flex;align-items:center;gap:12px;opacity:0;animation:fup 1s .2s forwards}
-.hero-ey::before{content:'';display:block;width:26px;height:1px;background:var(--gold-lt)}
-.hero-h1{font-family:var(--display);font-size:clamp(4.5rem,9vw,10rem);font-weight:500;letter-spacing:-.035em;line-height:.92;color:var(--white);margin-bottom:24px;opacity:0;animation:fup 1.1s .35s forwards}
-.hero-h1 em{font-style:normal;color:inherit}
+/* shared: visually hidden + buttons */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.hero-sub{font-family:var(--body);font-size:clamp(.8rem,.95vw,.95rem);font-weight:400;font-style:normal;line-height:1.9;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,252,253,.75);max-width:590px;margin:48px 0 32px;opacity:0;animation:fup 1.1s .5s forwards}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fup 1.1s .7s forwards}
 .btn{font-family:var(--body);font-size:.66rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:13px 28px;border:none;border-radius:6px;cursor:pointer;transition:all .35s;display:inline-flex;align-items:center;gap:8px}
 .btn-lt{background:var(--white);color:var(--ink)}
 .btn-lt:hover{background:var(--gold);color:#fff}
@@ -308,30 +293,60 @@ nav:not(.sc) .nav-cta:hover{color:var(--ink);background:var(--white);border-colo
 .btn-dark:hover{background:var(--gold);color:#fff}
 .btn-outline{background:none;border:1px solid var(--ink);color:var(--ink)}
 .btn-outline:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
+
+/* HERO — sky, clouds, day/night */
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--c-sky) 0%,var(--c-sky2) 62%,var(--c-bg) 100%);color:var(--c-ink);padding-top:clamp(96px,12vh,130px);padding-bottom:clamp(56px,8vw,110px);transition:background-color .8s ease,color .8s ease}
+.sky{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.sky::before{content:'';position:absolute;inset:0;opacity:var(--star);transition:opacity 1s;background-image:radial-gradient(1.2px 1.2px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 27% 8%,#fff 50%,transparent 51%),radial-gradient(1.4px 1.4px at 44% 22%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 63% 12%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 78% 26%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 88% 9%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 6% 34%,#fff 50%,transparent 51%),radial-gradient(1.3px 1.3px at 93% 38%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 52% 5%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 35% 36%,#fff 50%,transparent 51%),radial-gradient(1px 1px at 18% 44%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 70% 40%,#fff 50%,transparent 51%)}
+.cl{position:absolute;display:block;border-radius:50%;background:radial-gradient(closest-side,var(--cloud),transparent);filter:blur(4px);animation:drift linear infinite;will-change:transform;transition:opacity 1s}
+.cl::before,.cl::after{content:'';position:absolute;border-radius:50%;background:radial-gradient(closest-side,var(--cloud),transparent)}
+.cl::before{width:60%;height:120%;left:12%;top:-45%}
+.cl::after{width:50%;height:100%;right:8%;top:-30%}
+.c1{width:34vw;height:9vw;top:12%;left:-10%;animation-duration:140s}
+.c2{width:24vw;height:6.5vw;top:30%;left:55%;animation-duration:110s;animation-delay:-40s}
+.c3{width:40vw;height:10vw;top:48%;left:20%;animation-duration:170s;animation-delay:-90s;opacity:.8}
+.c4{width:18vw;height:5vw;top:6%;left:78%;animation-duration:95s;animation-delay:-20s}
+@keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(90vw)}}
+.hero-loc{position:absolute;z-index:2;top:clamp(100px,13vh,140px);font-size:.92rem;color:var(--c-muted);line-height:1.35;animation:fup 1s .2s both}
+.hero-loc.l{left:var(--pad)}.hero-loc.r{right:var(--pad);text-align:right}
+.hero-title{position:relative;z-index:2;text-align:center;font-size:clamp(4rem,14.2vw,17rem);font-weight:500;letter-spacing:-.055em;line-height:.86;margin:0;color:var(--c-ink);animation:fup 1s .05s both}
+.hero-title .w{display:inline-block}
+.hero-line{position:relative;z-index:2;text-align:center;font-family:var(--display);font-weight:500;letter-spacing:-.02em;font-size:clamp(1.25rem,2.3vw,2rem);line-height:1.2;margin:clamp(18px,2.4vw,32px) auto clamp(28px,4vw,52px);display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.35em;animation:fup 1s .2s both}
+.dn{display:inline-flex;border:1px solid var(--c-line);border-radius:999px;padding:4px;background:color-mix(in srgb,var(--c-bg) 55%,transparent);transition:border-color .8s,background-color .8s}
+.dn button{border:none;background:none;border-radius:999px;padding:.18em .7em;font:inherit;color:var(--c-muted);cursor:pointer;transition:background .4s,color .4s}
+.dn button[aria-pressed="true"]{background:var(--c-ink);color:var(--c-bg)}
+.hero-img{position:relative;z-index:2;margin:0 auto;width:calc(100% - var(--pad)*2);max-width:1320px;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:var(--c-panel);animation:fup 1.1s .3s both}
+.hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;transform:scale(calc(1.08 - var(--hp,0) * .08));transition:opacity 1s ease}
+.hero-img .img-day{opacity:0}
+.hero-img.has-day .img-day{opacity:1}
+.hero-img.has-day .img-night{opacity:0}
+html[data-mode="night"] .hero-img.has-day .img-day{opacity:0}
+html[data-mode="night"] .hero-img.has-day .img-night{opacity:1}
+.hero-foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap;margin-top:28px;animation:fup 1.1s .45s both}
+.hero-foot p{max-width:46ch;color:var(--c-muted);font-size:1rem;line-height:1.6}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn-dark{background:var(--c-ink);color:var(--c-bg)}
+.hero .btn-dark:hover{background:var(--c-pinkink);color:#fff}
+html[data-mode="night"] .hero .btn-dark:hover{color:#14302A}
+.hero .btn-outline{border-color:var(--c-ink);color:var(--c-ink)}
+.hero .btn-outline:hover{background:var(--c-ink);border-color:var(--c-ink);color:var(--c-bg)}
 @keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.scroll-hint{position:absolute;bottom:32px;right:5vw;z-index:3;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fup 1.4s 1.2s forwards}
-.scroll-hint span{font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(251,252,253,.5);writing-mode:vertical-rl}
-.scroll-line{width:1px;height:48px;background:linear-gradient(to bottom,var(--gold-lt),transparent);animation:sline 2.2s ease-in-out infinite}
-@keyframes sline{0%,100%{opacity:.3;transform:scaleY(.4) translateY(-40%)}50%{opacity:1;transform:scaleY(1) translateY(0)}}
-
-/* MARQUEE */
-.mq-wrap{background:var(--ink);overflow:hidden;padding:15px 0;border-top:1px solid rgba(178,58,99,.3);border-bottom:1px solid rgba(178,58,99,.3)}
-.mq-track{display:flex;animation:mscroll 30s linear infinite;white-space:nowrap;width:max-content}
-.mq-track:hover{animation-play-state:paused}
-@keyframes mscroll{to{transform:translateX(-50%)}}
-.mi{font-family:var(--body);font-size:.7rem;letter-spacing:.26em;text-transform:uppercase;color:rgba(251,252,253,.38);padding:0 32px;display:inline-flex;align-items:center;gap:32px}
-.mi.hl{color:var(--gold-lt)}
-.mi .dot{color:var(--gold);font-size:1.1rem;line-height:0}
-
-/* STATS */
-.stats{display:grid;grid-template-columns:repeat(5,1fr);background:var(--white);border-bottom:1px solid rgba(178,58,99,.12)}
-@media(max-width:768px){.stats{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:400px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{padding:28px 16px;text-align:center;border-right:1px solid rgba(178,58,99,.1);transition:background .35s}
-.stat:hover{background:var(--bg2)}
-.stat:last-child{border-right:none}
-.stat-n{font-family:var(--display);font-size:2.4rem;font-weight:500;color:var(--gold);line-height:1;display:block;margin-bottom:4px}
-.stat-l{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);opacity:.5}
+@media(max-width:760px){
+  .hero{padding-top:clamp(84px,14vh,110px)}
+  .hero-title{font-size:clamp(3.6rem,23vw,9rem)}
+  .hero-title .w{display:block}
+  .hero-title{line-height:.96}
+  .hero-img{aspect-ratio:4/5}
+  .hero-loc{display:none}
+  .c1{width:70vw;height:18vw}.c2{width:50vw;height:13vw}.c3{width:80vw;height:20vw}.c4{display:none}
+  .hero-foot{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  .cl{animation:none;transform:translateX(20vw)}
+  .hero-loc,.hero-title,.hero-line,.hero-img,.hero-foot{animation:none}
+  .hero-img img{transform:none}
+}
 
 /* ABOUT */
 .about{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
@@ -688,10 +703,6 @@ h2.serif em{font-style:normal;color:inherit}
 .dp9{transition-delay:1.45s}
 .dp10{transition-delay:1.6s}
 
-/* ── Horizontal scroll text ── (Obsidian does this on scroll direction) */
-.h-scroll-text{overflow:hidden;padding:0;margin:0;white-space:nowrap}
-.h-scroll-track{display:inline-block;font-family:var(--display);font-size:clamp(5rem,14vw,13rem);font-weight:500;color:rgba(178,58,99,.08);letter-spacing:-.02em;line-height:1;will-change:transform}
-
 /* ── Cursor expand on image hover ── */
 @media(hover:hover){
   body.on-img .cur{width:64px;height:64px;opacity:.15;background:var(--gold)}
@@ -829,11 +840,9 @@ footer::before{content:'';position:absolute;top:0;left:5vw;right:5vw;height:1px;
 .lang-btn{border-radius:6px;background:none;border:1px solid transparent;color:var(--ink2);font-family:var(--body);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 9px;cursor:pointer;transition:all .3s;line-height:1}
 .lang-btn:hover{color:var(--gold);border-color:rgba(178,58,99,.25)}
 .lang-btn.active{color:var(--gold);border-color:rgba(178,58,99,.5);background:rgba(178,58,99,.06)}
-nav.sc .lang-btn{border-radius:6px;color:var(--ink2)}
-nav.sc .lang-btn.active{color:var(--gold)}
-nav:not(.sc) .lang-btn{border-radius:6px;color:rgba(251,252,253,.7);text-shadow:0 1px 2px rgba(20,48,42,.45)}
-nav:not(.sc) .lang-btn:hover{color:var(--gold-lt);border-color:rgba(248,187,203,.5)}
-nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(248,187,203,.65);background:rgba(251,252,253,.08)}
+nav .lang-btn{border-radius:6px;color:var(--c-ink);opacity:.75}
+nav .lang-btn:hover{opacity:1;color:var(--c-pinkink);border-color:var(--c-line)}
+nav .lang-btn.active{opacity:1;color:var(--c-pinkink);border-color:var(--c-pinkink)}
 /* Nav right group — pushes all items flush right while logo stays left via justify-content:space-between */
 .nav-right{display:flex;align-items:center;gap:clamp(12px,1.6vw,20px)}
 
@@ -992,45 +1001,34 @@ nav:not(.sc) .lang-btn.active{color:var(--gold-lt);border-color:rgba(248,187,203
   </div>
 </nav>
 
-<!-- HERO — exterior night shot -->
-<section class="hero">
-  <img class="hero-bg" src="./images/casa-arbol-exterior.jpg" alt="Casa Árbol at night">
-  <div class="hero-grad"></div>
-  <div class="hero-content">
-    <div class="hero-ey" data-i18n="hero.eyebrow">Playacar Phase II · Riviera Maya</div>
-    <h1 class="hero-h1">Casa<br><em>Árbol</em><span class="sr-only"> · Luxury Villa for Sale in Playacar Fase II, Playa del Carmen</span></h1>
-    <p class="hero-sub" data-i18n="hero.sub">Where memories are made. Where generations grow. A home everyone wishes were theirs. Shoes optional. The beach is that close.</p>
+<!-- HERO — sky, clouds, day/night -->
+<section class="hero" id="top">
+  <div class="sky" aria-hidden="true">
+    <i class="cl c1"></i><i class="cl c2"></i><i class="cl c3"></i><i class="cl c4"></i>
+  </div>
+  <div class="hero-loc l" aria-hidden="true">Playacar Fase II<br>Riviera Maya</div>
+  <div class="hero-loc r" aria-hidden="true">$1.675M USD</div>
+  <h1 class="hero-title"><span class="w">Casa</span> <span class="w">Árbol</span><span class="sr-only"> · Luxury Villa for Sale in Playacar Fase II, Playa del Carmen</span></h1>
+  <p class="hero-line">
+    <span data-i18n="x.hero.a">A home</span>
+    <span class="dn" role="group" aria-label="Day or night">
+      <button type="button" data-mode-set="day" aria-pressed="true" data-i18n="x.hero.day">by day</button>
+      <button type="button" data-mode-set="night" aria-pressed="false" data-i18n="x.hero.night">by night</button>
+    </span>
+    <span data-i18n="x.hero.b">to return to</span>
+  </p>
+  <div class="hero-img" id="heroImg">
+    <img class="img-night" src="./images/casa-arbol-exterior.jpg" alt="Casa Árbol — exterior at dusk, Playacar Fase II" fetchpriority="high">
+    <img class="img-day" src="/images/casa-arbol-exterior-day.jpg" alt="" aria-hidden="true" loading="lazy">
+  </div>
+  <div class="hero-foot wrap">
+    <p data-i18n="hero.sub">Where memories are made. Where generations grow. A home everyone wishes were theirs. Shoes optional. The beach is that close.</p>
     <div class="hero-btns">
-      <button class="btn btn-lt" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="hero.btn1">Schedule a Visit</button>
-      <button class="btn btn-outline-lt" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})" data-i18n="hero.btn2">View Gallery</button>
+      <button class="btn btn-dark" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="hero.btn1">Schedule a Visit</button>
+      <button class="btn btn-outline" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})" data-i18n="hero.btn2">View Gallery</button>
     </div>
   </div>
-  <div class="scroll-hint"><div class="scroll-line"></div><span data-i18n="scroll.hint">Scroll</span></div>
 </section>
-
-<!-- MARQUEE -->
-<div class="mq-wrap">
-  <div class="mq-track">
-    <span class="mi hl">Casa Árbol<span class="dot">·</span></span><span class="mi">Playacar Phase II<span class="dot">·</span></span><span class="mi hl">476 m²<span class="dot">·</span></span><span class="mi">Inverse Osmosis Water<span class="dot">·</span></span><span class="mi hl">20+ kW Solar<span class="dot">·</span></span><span class="mi">European Serie 150 Windows<span class="dot">·</span></span><span class="mi hl">Cenote Pool & Waterfall<span class="dot">·</span></span><span class="mi">State-of-the-Art Wine Cellar<span class="dot">·</span></span><span class="mi hl">Top Kitchen Appliances<span class="dot">·</span></span><span class="mi">5 Suites<span class="dot">·</span></span><span class="mi hl">Golf Course Views<span class="dot">·</span></span><span class="mi">OMé Spa Membership Included<span class="dot">·</span></span>
-    <span class="mi hl">Casa Árbol<span class="dot">·</span></span><span class="mi">Playacar Phase II<span class="dot">·</span></span><span class="mi hl">476 m²<span class="dot">·</span></span><span class="mi">Inverse Osmosis Water<span class="dot">·</span></span><span class="mi hl">20+ kW Solar<span class="dot">·</span></span><span class="mi">European Serie 150 Windows<span class="dot">·</span></span><span class="mi hl">Cenote Pool & Waterfall<span class="dot">·</span></span><span class="mi">State-of-the-Art Wine Cellar<span class="dot">·</span></span><span class="mi hl">Top Kitchen Appliances<span class="dot">·</span></span><span class="mi">5 Suites<span class="dot">·</span></span><span class="mi hl">Golf Course Views<span class="dot">·</span></span>
-  </div>
-</div>
-
-<!-- STATS -->
-<div class="stats">
-  <div class="stat rv d1"><span class="stat-n" data-t="476">0</span><span class="stat-l" data-i18n="stat.m2">m² Built</span></div>
-  <div class="stat rv d2"><span class="stat-n">5</span><span class="stat-l" data-i18n="stat.suites">Suites</span></div>
-  <div class="stat rv d3"><span class="stat-n">20+</span><span class="stat-l" data-i18n="stat.solar">kW Solar</span></div>
-  <div class="stat rv d4"><span class="stat-n">100%</span><span class="stat-l" data-i18n="stat.water">Pure Water</span></div>
-  <div class="stat rv d5"><span class="stat-n">∞</span><span class="stat-l" data-i18n="stat.golf">Golf Views</span></div>
-</div>
-
-<!-- ABOUT -->
-
-<!-- HORIZONTAL SCROLL TEXT -->
-<div class="h-scroll-text" id="hScrollText" aria-hidden="true">
-  <div class="h-scroll-track" id="hTrack">Casa&nbsp;Árbol&nbsp;&nbsp;·&nbsp;&nbsp;Playacar&nbsp;&nbsp;·&nbsp;&nbsp;Casa&nbsp;Árbol&nbsp;&nbsp;·&nbsp;&nbsp;Playacar&nbsp;&nbsp;·&nbsp;&nbsp;Casa&nbsp;Árbol&nbsp;&nbsp;·&nbsp;&nbsp;Playacar&nbsp;&nbsp;</div>
-</div>
 
 <!-- HOUSE DRAW SECTION -->
 <section class="house-draw-sec" id="houseSection">
@@ -1707,6 +1705,10 @@ var LANG = {
     'hero.sub':      'Where memories are made. Where generations grow. A home everyone wishes were theirs. Shoes optional. The beach is that close.',
     'hero.btn1':     'Schedule a Visit',
     'hero.btn2':     'View Gallery',
+    'x.hero.a':      'A home',
+    'x.hero.day':    'by day',
+    'x.hero.night':  'by night',
+    'x.hero.b':      'to return to',
 
     // Stats
     'stat.m2':       'm² Built',
@@ -2082,6 +2084,10 @@ var LANG = {
     'hero.sub':      'Donde se hacen los recuerdos. Donde crecen las generaciones. Un hogar que todos desean tener. Zapatos opcionales. La playa está así de cerca.',
     'hero.btn1':     'Agendar Visita',
     'hero.btn2':     'Ver Galería',
+    'x.hero.a':      'Un hogar',
+    'x.hero.day':    'de día',
+    'x.hero.night':  'de noche',
+    'x.hero.b':      'al que volver',
     'stat.m2':       'm² Construidos',
     'stat.suites':   'Suites',
     'stat.solar':    'kW Solar',
@@ -2423,6 +2429,10 @@ var LANG = {
     'hero.sub':      'Où les souvenirs se créent. Où les générations grandissent. Une maison que tout le monde rêverait d\'avoir. Chaussures facultatives. La plage est si proche.',
     'hero.btn1':     'Planifier une Visite',
     'hero.btn2':     'Voir la Galerie',
+    'x.hero.a':      'Une maison',
+    'x.hero.day':    'de jour',
+    'x.hero.night':  'de nuit',
+    'x.hero.b':      'où revenir',
     'stat.m2':       'm² Construits',
     'stat.suites':   'Suites',
     'stat.solar':    'kW Solaire',
@@ -2831,6 +2841,10 @@ var LANG = {
     'hero.sub':      'Where memories are made. Where generations grow. A home everyone wishes were theirs. Shoes optional. The beach is that close.',
     'hero.btn1':     'Schedule a Visit',
     'hero.btn2':     'View Gallery',
+    'x.hero.a':      'A home',
+    'x.hero.day':    'by day',
+    'x.hero.night':  'by night',
+    'x.hero.b':      'to return to',
 
     // Stats
     'stat.m2':       'm² Built',
@@ -3206,6 +3220,10 @@ var LANG = {
     'hero.sub':      'Donde se hacen los recuerdos. Donde crecen las generaciones. Un hogar que todos desean tener. Zapatos opcionales. La playa está así de cerca.',
     'hero.btn1':     'Agendar Visita',
     'hero.btn2':     'Ver Galería',
+    'x.hero.a':      'Un hogar',
+    'x.hero.day':    'de día',
+    'x.hero.night':  'de noche',
+    'x.hero.b':      'al que volver',
     'stat.m2':       'm² Construidos',
     'stat.suites':   'Suites',
     'stat.solar':    'kW Solar',
@@ -3547,6 +3565,10 @@ var LANG = {
     'hero.sub':      'Où les souvenirs se créent. Où les générations grandissent. Une maison que tout le monde rêverait d\'avoir. Chaussures facultatives. La plage est si proche.',
     'hero.btn1':     'Planifier une Visite',
     'hero.btn2':     'Voir la Galerie',
+    'x.hero.a':      'Une maison',
+    'x.hero.day':    'de jour',
+    'x.hero.night':  'de nuit',
+    'x.hero.b':      'où revenir',
     'stat.m2':       'm² Construits',
     'stat.suites':   'Suites',
     'stat.solar':    'kW Solaire',
@@ -3995,25 +4017,50 @@ var splitObs = new IntersectionObserver(function(entries){
 },{threshold:0.15});
 document.querySelectorAll('.split-parent').forEach(function(el){ splitObs.observe(el); });
 
-// ── Counter animation ──────────────────────────────────────────────
-var counted = false;
-window.addEventListener('scroll',function(){
-  if(counted) return;
-  var stat = document.querySelector('.stats');
-  if(!stat) return;
-  if(stat.getBoundingClientRect().top < window.innerHeight){
-    counted = true;
-    document.querySelectorAll('[data-t]').forEach(function(el){
-      var target = parseInt(el.getAttribute('data-t')), st = null;
-      (function step(ts){
-        if(!st) st = ts;
-        var p = Math.min((ts-st)/1400, 1);
-        el.textContent = Math.floor(p*target);
-        if(p<1) requestAnimationFrame(step); else el.textContent = target;
-      })(performance.now());
+// ── Day / night mode ──────────────────────────────────────────────
+(function(){
+  var root = document.documentElement, KEY = 'ca_mode';
+  function setMode(m, save){
+    if(m !== 'day' && m !== 'night') return;
+    root.setAttribute('data-mode', m);
+    document.querySelectorAll('[data-mode-set]').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-mode-set') === m));
     });
+    if(save){ try{ localStorage.setItem(KEY, m); }catch(e){} }
   }
-},{passive:true});
+  setMode(root.getAttribute('data-mode') || 'day', false);
+  document.querySelectorAll('[data-mode-set]').forEach(function(b){
+    b.addEventListener('click', function(){ setMode(b.getAttribute('data-mode-set'), true); });
+  });
+  window.setMode = setMode;
+})();
+
+// ── Hero image: subtle scale on scroll + optional day render ──────
+(function(){
+  var hi = document.getElementById('heroImg');
+  if(!hi) return;
+  var reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(!reduce){
+    var ticking = false;
+    function upd(){
+      ticking = false;
+      var hero = hi.closest('.hero') || hi;
+      var p = Math.min(1, Math.max(0, window.scrollY / Math.max(1, hero.offsetHeight)));
+      hi.style.setProperty('--hp', p.toFixed(3));
+    }
+    window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(upd); } }, {passive:true});
+    upd();
+  }
+  var day = hi.querySelector('.img-day');
+  if(day){
+    var ok = function(){ if(day.naturalWidth > 0) hi.classList.add('has-day'); else day.remove(); };
+    if(day.complete){ ok(); }
+    else{
+      day.addEventListener('load', ok);
+      day.addEventListener('error', function(){ day.remove(); });
+    }
+  }
+})();
 
 // ── SVG house draw on scroll ───────────────────────────────────────
 var houseObs = new IntersectionObserver(function(entries){
@@ -4026,16 +4073,6 @@ var houseObs = new IntersectionObserver(function(entries){
 },{threshold:0.15});
 var houseSvg = document.getElementById('houseSvg');
 if(houseSvg) houseObs.observe(houseSvg);
-
-// ── Horizontal scroll text parallax ───────────────────────────────
-var hTrack = document.getElementById('hTrack');
-if(hTrack){
-  var hw = hTrack.scrollWidth/2;
-  window.addEventListener('scroll',function(){
-    var offset = (window.scrollY * 0.3) % hw;
-    hTrack.style.transform = 'translateX(-'+offset+'px)';
-  },{passive:true});
-}
 
 // ── Magnetic buttons ───────────────────────────────────────────────
 document.querySelectorAll('.btn,.nav-cta').forEach(function(btn){
