@@ -1,10 +1,9 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-02 — foundation: images, palette, fonts, libraries, one WebGL canvas, fallback, depth gauge
+- STEP-03 — Canopy: tree of life particles + wordmark (hero)
 
 ## Next
-- STEP-03 — Canopy: tree of life particles + wordmark (hero)
 - STEP-04 — Ground: the house, light sweep, three reasons
 - STEP-05 — Inside: rooms ribbon (curved WebGL gallery)
 - STEP-06 — Roots: the systems beneath (solar, water, windows) + descent
@@ -13,6 +12,7 @@
 - STEP-09 — mobile, fallback, performance, ES/FR QA
 
 ## Done
+- STEP-02 — foundation: images/web, palette + fonts, three/gsap/lenis, #gl stage + CA_STAGE scene manager, no-gl fallback, depth gauge
 - STEP-01 — compare setup (old.html + compare.html)
 
 ## Rules
