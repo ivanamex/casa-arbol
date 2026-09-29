@@ -314,37 +314,60 @@ html.ground-live .ground-poster{opacity:0}
 html.no-gl .gp img{filter:brightness(.82) saturate(.9)}
 @media(prefers-reduced-motion:reduce){.beat,.ground-poster,.ground-facts{transition:none}.gp-a img{transform:none}}
 
-/* GALLERY */
-.gallery{background:var(--bg2);padding:72px 0}
-.gal-hd{padding:0 5vw 44px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
-.drag-hint{font-size:.6rem;letter-spacing:.01em;text-transform:none;color:var(--warm);opacity:.6;display:flex;align-items:center;gap:8px}
-.drag-hint::after{content:'→';font-size:.9rem}
-.gal-scroll-wrap{position:relative}
-.gal-track{display:flex;gap:14px;overflow-x:auto;padding:0 0 16px;scrollbar-width:none;cursor:grab;scroll-behavior:smooth}
-.gal-track:active{cursor:grabbing}
-.gal-track::-webkit-scrollbar{display:none}
-/* Gallery arrows — square, transparent glass, pushed to extreme edges */
-.gal-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:56px;height:56px;border-radius:0;background:rgba(0,0,0,.45);color:#fff;border:1px solid rgba(255,255,255,.5);display:none;align-items:center;justify-content:center;cursor:pointer;transition:background-color .3s ease,border-color .3s ease;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-.gal-arrow svg{width:20px;height:20px;stroke-width:2}
-.gal-arrow:hover{background:rgba(0,0,0,.65);border-color:rgba(255,255,255,.6)}
-.gal-arrow:focus-visible{outline:2px solid #fff;outline-offset:2px}
-.gal-prev{left:1rem}
-.gal-next{right:1rem}
-@media(min-width:769px){.gal-arrow{display:flex}}
-@media(max-width:768px){.gal-arrow{width:44px;height:44px}.gal-arrow svg{width:18px;height:18px}}
-.gi{flex-shrink:0;overflow:hidden;position:relative}
-.gi:nth-child(1){width:min(460px,78vw);height:310px}
-.gi:nth-child(2){width:min(280px,60vw);height:310px}
-.gi:nth-child(3){width:min(420px,75vw);height:310px}
-.gi:nth-child(4){width:min(320px,68vw);height:310px}
-.gi:nth-child(5){width:min(380px,72vw);height:310px}
-.gi:nth-child(6){width:min(300px,65vw);height:310px}
-.gi:nth-child(7){width:min(440px,78vw);height:310px}
-.gi:nth-child(8){width:min(460px,78vw);height:310px}
-.gi img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease;display:block}
-.gi:hover img{transform:scale(1.04)}
-.gi-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(42,30,21,.5));padding:24px 16px 14px;font-size:.62rem;letter-spacing:.01em;text-transform:none;color:rgba(239,232,220,.85);opacity:0;transition:opacity .4s}
-.gi:hover .gi-cap{opacity:1}
+
+/* INSIDE — rooms ribbon, vault beat, kitchen */
+.inside{position:relative;background:transparent}
+.inside-scroll{height:520svh}
+.inside-pin{position:sticky;top:0;height:100svh;overflow:hidden;touch-action:pan-y}
+.rib-hd{position:absolute;left:5vw;top:11vh;z-index:2;pointer-events:none;max-width:60vw;transition:opacity .6s ease}
+.rib-title{font-family:var(--font-display);font-weight:200;font-size:clamp(2.2rem,4.4vw,4.4rem);line-height:1;letter-spacing:-.04em;color:var(--text);margin:0}
+.rib-title em{color:var(--corten)}
+.rib-caps{position:absolute;left:5vw;bottom:34px;z-index:2;display:flex;gap:14px;align-items:baseline;font-size:13px;color:var(--text-2);opacity:0;transition:opacity .35s ease;pointer-events:none}
+.rib-caps.on{opacity:1}
+.rib-idx{color:var(--text-3);font-variant-numeric:tabular-nums}
+.rib-cap{display:none}
+.rib-cap.on{display:inline}
+.rib-hint{position:absolute;right:5vw;bottom:34px;z-index:2;font-size:12px;color:var(--text-3);display:none;pointer-events:none}
+.inside.ph-vault .rib-hd,.inside.ph-vault .rib-caps,.inside.ph-vault .rib-hint{opacity:0}
+/* fallback: native horizontal scroll-snap */
+.rib-fallback{display:none}
+html.no-gl .rib-fallback{display:flex;position:absolute;left:0;right:0;top:56%;transform:translateY(-50%);gap:16px;padding:0 5vw;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;transition:opacity .6s ease}
+.rib-fallback::-webkit-scrollbar{display:none}
+.rib-item{flex:0 0 auto;width:min(520px,64vw);scroll-snap-align:center;margin:0}
+.rib-item picture{display:block;width:100%}
+.rib-item img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.rib-item figcaption{font-size:13px;color:var(--text-2);margin-top:10px}
+.rib-item img{background:var(--sand)}
+html.no-gl .inside.ph-vault .rib-fallback{opacity:0;pointer-events:none}
+/* the vault beat */
+.vault{position:absolute;inset:0;opacity:0;transition:opacity .8s ease;pointer-events:none}
+.inside.ph-vault .vault{opacity:1}
+.vault-poster{position:absolute;inset:0;display:none}
+html.no-gl .vault-poster{display:block}
+.vault-poster picture,.vault-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vault-poster::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,227,174,.55),rgba(255,227,174,.15) 32%,transparent 52%);mix-blend-mode:screen;opacity:var(--iq,0)}
+.vault-txt{position:absolute;left:5vw;bottom:10vh;max-width:600px;z-index:2;background:rgba(239,232,220,.94);padding:30px 34px 32px;border-radius:2px}
+.vault-t{font-family:var(--font-display);font-weight:200;font-size:clamp(2rem,4.2vw,4rem);line-height:1;letter-spacing:-.04em;margin:0 0 18px;color:var(--text)}
+.vault-b{font-weight:300;font-size:clamp(1.05rem,1.4vw,1.35rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0}
+/* the kitchen closes the chapter */
+.kitch{display:grid;grid-template-columns:1.1fr .9fr;gap:6vw;align-items:center;padding:14vh 5vw;max-width:1400px;margin:0 auto}
+.kitch-h2{font-family:var(--font-display);font-weight:200;font-size:clamp(2rem,4.2vw,4rem);line-height:1.02;letter-spacing:-.04em;color:var(--text);margin:0 0 26px}
+.kitch-h2 em{color:var(--corten)}
+.brands{margin:34px 0 0;font-size:13px;color:var(--text-3)}
+.kitch-img picture,.kitch-img img{display:block;width:100%;max-height:78vh;aspect-ratio:3/4;object-fit:cover}
+@media(max-width:768px){
+  .inside-scroll{height:260svh}
+  .rib-hd{max-width:82vw}
+  .rib-title{font-size:clamp(2rem,9vw,3rem)}
+  .rib-caps{bottom:calc(60px + env(safe-area-inset-bottom));left:6vw;font-size:12.5px}
+  html.gl .rib-hint{display:block;right:6vw;bottom:calc(60px + env(safe-area-inset-bottom))}
+  html.no-gl .rib-fallback{padding:0 6vw}
+  .rib-item{width:78vw}
+  .vault-txt{left:6vw;right:6vw;bottom:calc(76px + env(safe-area-inset-bottom));padding:22px 22px 24px}
+  .kitch{grid-template-columns:1fr;gap:36px;padding:10vh 6vw}
+  .kitch-img picture,.kitch-img img{max-height:60vh}
+}
+@media(prefers-reduced-motion:reduce){.rib-hd,.rib-caps,.vault,.rib-fallback{transition:none}}
 
 /* FEATURES */
 .features{background:transparent;padding:72px 5vw;position:relative;overflow:hidden}
@@ -428,34 +451,6 @@ html.no-gl .gp img{filter:brightness(.82) saturate(.9)}
 .pool-big strong{font-style:normal;font-weight:300;color:var(--teal)}
 .pool-pills{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px}
 .pill{background:rgba(154,74,38,.18);border:1px solid rgba(154,74,38,.4);color:var(--teal);font-size:.62rem;letter-spacing:.01em;text-transform:none;padding:7px 16px;backdrop-filter:blur(4px)}
-
-/* KITCHEN */
-.kitchen{background:var(--bg2);padding:72px 0 64px;position:relative;overflow:hidden}
-.kitchen>*{position:relative;z-index:1}
-/* Ambient chef-utensils silhouette — whisk + chef's knife crossed still-life */
-.chef-silhouette-bg{position:absolute;top:0;right:0;width:min(600px,45vw);height:auto;z-index:0;pointer-events:none;opacity:.15;filter:invert(72%) sepia(39%) saturate(495%) hue-rotate(2deg) brightness(88%) contrast(86%);animation:chefBreathe 10s ease-in-out infinite alternate;transform-origin:center}
-@keyframes chefBreathe{from{transform:scale(1)}to{transform:scale(1.015)}}
-@media(max-width:768px){.chef-silhouette-bg{width:min(300px,55vw);right:0;opacity:.10}}
-@media(prefers-reduced-motion:reduce){.chef-silhouette-bg{animation:none}}
-/* Title block — sits at the top, section padding provides the breathing room above */
-.kitch-head{max-width:880px;margin:0 auto;padding:0 5vw;text-align:center}
-.kitch-head .ey{justify-content:center}
-.kitch-head .rule{margin-left:auto;margin-right:auto}
-/* Body paragraph — centered block, left-aligned text, breathing space below before the image */
-.kitch-body{max-width:760px;margin:16px auto 64px;padding:0 5vw}
-.kitch-body .body-t{text-align:left;max-width:none}
-/* Hero image — breathing space above (from body margin), flush with marquee below */
-.kitch-hero{position:relative;overflow:hidden;margin:0;border-top:1px solid rgba(154,74,38,.12)}
-.kitch-hero img{width:100%;height:clamp(320px,56vh,560px);object-fit:cover;display:block;transition:transform 1.2s ease}
-.kitch-hero:hover img{transform:scale(1.02)}
-/* Brand marquee — flush against hero image bottom */
-.kitch-mq-wrap{background:var(--earth);overflow:hidden;padding:15px 0;margin:0;border-top:1px solid rgba(154,74,38,.3);border-bottom:1px solid rgba(154,74,38,.3)}
-.kitch-mq-track{display:flex;animation:kmscroll 50s linear infinite;white-space:nowrap;width:max-content}
-.kitch-mq-track:hover{animation-play-state:paused}
-@keyframes kmscroll{to{transform:translateX(-50%)}}
-.kitch-mi{font-family:var(--font-display);font-size:.78rem;letter-spacing:.01em;text-transform:none;color:rgba(141,104,70,.68);padding:0 28px;display:inline-flex;align-items:center;gap:28px}
-.kitch-mi .kdot{color:var(--gold);font-size:1rem;line-height:0;opacity:.7}
-@media(prefers-reduced-motion:reduce){.kitch-mq-track{animation:none}}
 
 /* PLANS */
 .plans{background:var(--bg2);padding:50px 5vw;position:relative;overflow:hidden;background-image:linear-gradient(rgba(154,74,38,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(154,74,38,.04) 1px,transparent 1px);background-size:48px 48px;background-position:0 0,0 0}
@@ -585,26 +580,6 @@ html.no-gl .gp img{filter:brightness(.82) saturate(.9)}
   body.on-img .cur-r{width:64px;height:64px;opacity:0}
 }
 
-
-/* ── STACKED CARD GALLERY ── */
-.stack-sec{background:var(--bg2);padding:80px 5vw;overflow:hidden}
-.stack-hd{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:60px}
-.stack-counter{font-family:var(--font-display);font-size:2.8rem;font-weight:200;color:rgba(154,74,38,.25);line-height:1;letter-spacing:-.02em}
-.stack-counter span{color:var(--gold)}
-
-/* card deck removed */
-
-/* Navigation row */
-.stack-nav{display:flex;align-items:center;justify-content:space-between;max-width:640px;margin:28px auto 0}
-.stack-dots{display:flex;gap:8px;align-items:center}
-.sdot{width:6px;height:6px;border-radius:50%;background:rgba(154,74,38,.2);transition:all .4s;cursor:pointer}
-.sdot.active{width:22px;border-radius:3px;background:var(--gold)}
-.stack-arrows{display:flex;gap:10px}
-.sarr{background:none;border:1px solid rgba(154,74,38,.25);color:var(--gold);width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:all .35s}
-.sarr:hover{background:var(--gold);color:var(--on-corten)}
-
-/* Right column captions */
-/* stack captions removed */
 
 /* OME SPA SECTION */
 .ome-sec{background:var(--earth);padding:100px 5vw;position:relative;overflow:hidden}
@@ -989,42 +964,37 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
   </div>
 </section>
 
-<!-- GALLERY -->
-<section class="stack-sec" id="gallery" data-chapter="inside">
-  <div class="stack-hd rv">
-    <div>
-      <div class="ey" data-i18n="gallery.ey">Gallery</div>
-      <h2 class="serif" style="font-size:clamp(1.8rem,3.5vw,3rem)" data-i18n="gallery.heading">Crafted in<br><em>every detail</em></h2>
-      <span class="rule"></span>
+<!-- INSIDE — rooms ribbon (curved WebGL gallery), the vault beat, the kitchen closes the chapter -->
+<section class="inside" id="gallery" data-chapter="inside">
+  <div class="inside-scroll">
+    <div class="inside-pin">
+      <div class="rib-hd"><div class="ey" data-i18n="gallery.ey">Gallery</div><h2 class="rib-title" data-i18n="gallery.heading">Crafted in<br><em>every detail</em></h2></div>
+      <div class="rib-caps" id="ribCaps" aria-live="polite"><span class="rib-idx" id="ribIdx">01 / 08</span><span class="rib-cap" data-i18n="img.exterior" data-index="0">Exterior</span><span class="rib-cap" data-i18n="img.gf" data-index="1">Ground floor guest bedroom</span><span class="rib-cap" data-i18n="img.guest-suite" data-index="2">Guest suite</span><span class="rib-cap" data-i18n="img.guest-suite" data-index="3">Guest suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="4">Upper-floor suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="5">Upper-floor suite</span><span class="rib-cap" data-i18n="img.upper-suite" data-index="6">Upper-floor suite</span><span class="rib-cap" data-i18n="img.guest-bath" data-index="7">Guest suite bathroom</span></div>
+      <div class="rib-hint" data-i18n="gallery.swipe">Swipe to explore</div>
+      <div class="rib-fallback" aria-label="Gallery">
+      <figure class="rib-item" data-index="0"><picture><source type="image/webp" srcset="/images/web/casa-arbol-exterior-m.webp 816w, /images/web/casa-arbol-exterior.webp 1387w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/casa-arbol-exterior-m.jpg" srcset="/images/web/casa-arbol-exterior-m.jpg 816w, /images/web/casa-arbol-exterior.jpg 1387w" sizes="(max-width:768px) 64vw, 520px" width="1387" height="1734" alt="Casa Árbol villa exterior — Playacar Fase II luxury residence" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRvABAABXRUJQVlA4IOQBAABQDgCdASozAEAAPqVGmUmmJCKhN/asAMAUiUAYA/MCQg6n1+7Cr7DikYZv1r7RBA2Xj3f1aaXSVSxQGwHlDBgVOP27IjfNGq+rSNXnCvxYIgo2j+a6EVXth9FM88Hgr2POIt5btnmwP9ILeGyDQDIPvtHmT4eHHaZMIYAA/vlBR9kw+B9dmlzauY4g99AukPHd0KVpCzU0oo/We2GOOU05chzb948ptzHzSa9CBBdmsb9jvvcxyxHF3gdDJXq31vvM/sD++ygbAEpmKZYmaMyGZ96Np/qzyqTfkK7I+sa7SKa6hTizC3j8RtPCEU+1fwvC9XV/sLrXhmNGUWFH/BvE1Ct6tGfCz+zrLDpXoH2wpTRy5HTpwtyoqNJW22wS9fCPD0D0YwfQI0S+fw7XiJSO95V1UQNT+Ojyqejm1v/MB3Or3dk/2XReWJChA5b3dU1Qo0uBvfUP0BCjogIY0ag0G+wjTB8zG3YRoYSHGMqOJVdfbM2uBIfj/1GWhu5KrUapU7dlFxQ38r2Sihljfw3hKcgLhRP2HLA5vRxVvITdaWLEggf0Cz6j9JoOtJG4jMEXqmNUUdAjRFGKiUfwrtdmV1tHi/SgEnc0Sc254P9WtU9Ho+DUZhOX88PuEcB0MvlYh/AA) center/cover"></picture><figcaption data-i18n="img.exterior">Exterior</figcaption></figure>
+      <figure class="rib-item" data-index="1"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Ground floor guest bedroom at Casa Árbol — brick vault ceiling and natural textures" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture><figcaption data-i18n="img.gf">Ground floor guest bedroom</figcaption></figure>
+      <figure class="rib-item" data-index="2"><picture><source type="image/webp" srcset="/images/web/room-2-guest-suite-1-m.webp 1200w, /images/web/room-2-guest-suite-1.webp 2040w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-2-guest-suite-1-m.jpg" srcset="/images/web/room-2-guest-suite-1-m.jpg 1200w, /images/web/room-2-guest-suite-1.jpg 1734w" sizes="(max-width:768px) 64vw, 520px" width="1734" height="1300" alt="Guest suite at Casa Árbol — serene palette with premium finishes" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnoBAABXRUJQVlA4IG4BAABwCwCdASpAADAAPrVMoEynI6MiJXgOYOAWiWMAuzAL6QmBSkMas0xz6hHA1dpP2nRHh45VT9QJOiNQJqOvvpeZ1EG4zqqKfLM+WSJY2XJJaUogFr+cRVteRpLmcmgjDCFE3WUAAPv0ejS0RBaYtVIEoU39jIOtJBfMz+HdAWlH3SuF/46nkceY5WKXr8uX/a4ixx9yh/xbSQTwQ5+q+pNjI1SEtTkcZmHafcpF3M+FUnhJzGk+UZdbTLVVoco5e7Cp+Ha9yLPm6CkMHnVVJi52aA8Yvki9zsE8HaVVovzqAqnZHLUQKKFQBZT4m/cnSdmnruFV/pCtyAcgj1Tyco6eaOm06SeaRTDxaZ8YGsBhrj6f+YbaJK8dv64kptgGQq11WV1piu8ooNq1kb7fPnkY4F08KtwkOTB0AW4TYRETPTLpyEvhwEB9sZ9NPaNIhmwtssCNzrzTMXLWAUGYJipOrDI+Lx0RV9WNjrhSAAA=) center/cover"></picture><figcaption data-i18n="img.guest-suite">Guest suite</figcaption></figure>
+      <figure class="rib-item" data-index="3"><picture><source type="image/webp" srcset="/images/web/room-2-guest-suite-2-m.webp 1200w, /images/web/room-2-guest-suite-2.webp 2040w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-2-guest-suite-2-m.jpg" srcset="/images/web/room-2-guest-suite-2-m.jpg 1200w, /images/web/room-2-guest-suite-2.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Guest suite alternate view — Casa Árbol luxury villa Playacar Fase II" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnABAABXRUJQVlA4IGQBAADwCwCdASpAADAAPqFEmEmmJCKhN/cdUMAUCWMApAAKEfF+8IgIZHPm1BjOWSUkbkpJOa3OuJv7RW7lZM7uv1gn9+vIOQY0BJ+aiSd1cVegHxG6UY0vu/af4+OhunXw+cTlviDsoARTAAD+zWCYvqZUUKjkeUWi4s7Iq1E5Yvl44arGGb5t1PMZyC+QnHChuNWkYcTISmnVMJ47wQj6khb6AoV29UWK8pKiYF+DW8jAbmEIHEXF9Qm+ocPr3orQYin669kN7gIm7vwDjzGup81hcfUQI4NHk+W5gPEDxX729XvuzkYJXWFOuOACWOeOQJpIvFgXqbNxLnT3gVWW6S3uklrbNDnJBH2BbHr9dz7c87yvL5/0B9IiwNjg/nSO8k4w8iBkoj8013gKEFECWKDo9fMBqIAUEtWXW8fv6dx3t+WADnyBke/RDnczYCX5Yu9TQVaP17B/uCwjI9Fq3HcXjAAAAA==) center/cover"></picture><figcaption data-i18n="img.guest-suite">Guest suite</figcaption></figure>
+      <figure class="rib-item" data-index="4"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-1-m.webp 1200w, /images/web/room-3-upper-suite-1.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-3-upper-suite-1-m.jpg" srcset="/images/web/room-3-upper-suite-1-m.jpg 1200w, /images/web/room-3-upper-suite-1.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Upper-floor suite at Casa Árbol — warm wood and integrated lighting" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRl4BAABXRUJQVlA4IFIBAADwCgCdASpAADAAPrVOnkunJCKhqrv8AOAWiWMAvYwBjS0JyeKtLQjxT65hm2CoUH4AFaqRZtGnEnk7kcfZemqTGepB5hq+coYUg+r3hSgRddBBhjRMIZDkCh/r+3KFpwAA5hE2Fl2OB5KZkfnwkZpvgWfXG1WW7dwbcu+ZSTQCQdNLzA2Lf7gHF+wJn9EYV8lOR8CN4VaK9qFL9nKtsCLQXphkdjzfDriYvQ6KL06xRwdKzmm3k35HxFirg+Txjcbwo6lv0RK0G3/0e/3Py7I9+P4/e8lwrXQ6qoAhoiaOIxBQ2AhZS2iUTaHVvcln71SOVrQXIlN7u6Q9RbKUBFi8I894lKu7p5HNfhrNoqI5w+oTX2aMylsvSDBZQ/GYYRWTaYBvQ4IL8Q+tQPqohpxKDVhPhuW69z5fNoMDEc1Ycgy1mNJoUYHdkzsNxf28DIAAAA==) center/cover"></picture><figcaption data-i18n="img.upper-suite">Upper-floor suite</figcaption></figure>
+      <figure class="rib-item" data-index="5"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-2-m.webp 1200w, /images/web/room-3-upper-suite-2.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-3-upper-suite-2-m.jpg" srcset="/images/web/room-3-upper-suite-2-m.jpg 1200w, /images/web/room-3-upper-suite-2.jpg 2400w" sizes="(max-width:768px) 64vw, 520px" width="2400" height="1800" alt="Upper-floor suite alternate angle — Casa Árbol Playacar" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRpgBAABXRUJQVlA4IIwBAAAQDACdASpAADAAPrVOn0qnJCKhqrgM+OAWiUAYoYfJNC+3TYBm2o2SUJLEZGL72ImFzQXIhz7IEEiufkIKJjSTlD7IktSGIRMXsp/3OI+ypbuI2KF1dg6ZkVtkcEi0GqAddZKx5obeVEAA/tN+1NYDu2RYsvhTPCP27oSqPfFn3kowYEG6RPqDHBuB8tA20efhsTVC8WSRat4g52wtVNGCoeQBEayzcP/CFnDyTLpSEZEYO+CS/8illxF6TLoGNoJofn5a3cz8AmCH/kHhb0l4VEZSPupsmDhu6SDXYrCEXL74L/frxaScVhNXtK/+11BvSkfZ+NOZeRS+M/zSLf3ZPXRvZa4O4kaKP3ePltSkV3j2k0QqfDJdeOmkl8ocbV0BDKpCLoH2Wcn95apQyhc1JJTk3vnNpJB46JJZHOWBPIkG0xPZUgbT1Bh6mdkCcDK90ACLWM+GurMk8P6aigBKiRK/xfviYStdli/mlKMORpKNdRR6gDebuZdKj22ehhV00TRZwbxMQIHZAAA=) center/cover"></picture><figcaption data-i18n="img.upper-suite">Upper-floor suite</figcaption></figure>
+      <figure class="rib-item" data-index="6"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-3-m.webp 1200w, /images/web/room-3-upper-suite-3.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/room-3-upper-suite-3-m.jpg" srcset="/images/web/room-3-upper-suite-3-m.jpg 1200w, /images/web/room-3-upper-suite-3.jpg 2040w" sizes="(max-width:768px) 64vw, 520px" width="2040" height="1530" alt="Upper-floor suite detail — Casa Árbol luxury residence" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnQBAABXRUJQVlA4IGgBAACQCwCdASpAADAAPrVSo02nJCMiJXgMAOAWiWMAuzN1gkq3PUnDgNoLJbM+0Ut5L+845b3gD+1buYrSKrbi+UQMJ2sGGg9VSs8NCQxwCbFV4Siz5pOig+Pr8n6xtAQUhgaTxStSAAD+zaweguw9HbVLDWqA54Mf1VLAqwLn70Y+rImSLs/ulljDakMdMv4TwN4UjnlagFJHco3aDrhh0iTng9Gg3rXpNtTmAqzcqQWnUEb4LgHDFFVmP9ErlZGGz0UNAWOp5F0QkGAsehfiefxjblKGFlKRcMgoWePvt4+fQBAnNjGppvzG8UWcCjEpQT+m+xirtm5yt7mnd18N6Dxhss40TEn7G9hwU8QuARjEfZ3CpwI2GsfMM7w+Y4sUvPcz3aG0xEX/BI/U8UWoP5vO5p5Rwy+PNMQR/4uDuweEq/964sw741t09elKR3/58WLtdNR638eCYGsGGxLV7N0if/RffQWsAAA=) center/cover"></picture><figcaption data-i18n="img.upper-suite">Upper-floor suite</figcaption></figure>
+      <figure class="rib-item" data-index="7"><picture><source type="image/webp" srcset="/images/web/bathroom-guest-suite-m.webp 1200w, /images/web/bathroom-guest-suite.webp 2400w" sizes="(max-width:768px) 64vw, 520px"><img src="/images/web/bathroom-guest-suite-m.jpg" srcset="/images/web/bathroom-guest-suite-m.jpg 1200w, /images/web/bathroom-guest-suite.jpg 2400w" sizes="(max-width:768px) 64vw, 520px" width="2400" height="1800" alt="Guest suite bathroom at Casa Árbol — spa-grade finishes, natural stone" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRmIBAABXRUJQVlA4IFYBAAAQCwCdASpAADAAPrVMokynI6MiLVM6SOAWiWMAtkfZRwQLXb3mudqTV3BIZAs3fXjFbP69Q9iX3DzDwvUE+QlnH+ii/qXvnebFXjcxvwgvLKE+3J2Gufbf9/Xk1VwTVn4AAP7XJv4vZzYniA2ei1IidRXPr7gKRalzsglpUmrW3GWbtAtims1YB/dHvMe0OpEUJIyqYsnxmVO9TCHmCUaqVt0RJ1PtI0/UbuVVT6sbekFzNMomrf5/3yziGFYLxRhIUuEvvAl5GCfzFMpfjp38e37l6rdt5DYvtD5JNSRW/Jqe2q8mENTl9IADD+auWw4S6ZGkC4pOA4Ij4O2WovtnJhAws1a9kMjI66f3lb77CVVrSCgAjvXzTdJ5VRQSS0q/8kdP+8uLLyEQ5jM97MmT7duQEj1wfIVm/XUYqTnyJtpv6JEhUir6p3K9nyGQpRQ0KxpOAAA=) center/cover"></picture><figcaption data-i18n="img.guest-bath">Guest suite bathroom</figcaption></figure>
+      </div>
+      <div class="vault" aria-hidden="false">
+        <div class="vault-poster" aria-hidden="true"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="100vw"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="100vw" width="2040" height="1530" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture></div>
+        <div class="vault-txt"><h3 class="vault-t" data-i18n="feat.f7.name">Vault Brick Ceilings</h3><p class="vault-b" data-i18n="feat.f7.desc">Handcrafted exposed brick vaults glow at golden hour, illuminated by warm LED strips — architecture that transforms with every quality of light.</p></div>
+      </div>
     </div>
-    <div class="stack-counter"><span id="stackCurr">1</span> / 7</div>
   </div>
-  <div class="gal-scroll-wrap">
-  <button class="gal-arrow gal-prev" type="button" aria-label="Previous image" onclick="galPrev()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
-  <button class="gal-arrow gal-next" type="button" aria-label="Next image" onclick="galNext()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
-  <div class="gal-track" id="gtrack">
-     <div class="gi" data-index="0"><picture><source type="image/webp" srcset="/images/web/casa-arbol-exterior-m.webp 816w, /images/web/casa-arbol-exterior.webp 1387w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/casa-arbol-exterior-m.jpg" srcset="/images/web/casa-arbol-exterior-m.jpg 816w, /images/web/casa-arbol-exterior.jpg 1387w" sizes="(max-width:768px) 78vw, 460px" width="1387" height="1734" alt="Casa Árbol villa exterior — Playacar Fase II luxury residence" loading="eager" decoding="async" style="background:url(data:image/webp;base64,UklGRvABAABXRUJQVlA4IOQBAABQDgCdASozAEAAPqVGmUmmJCKhN/asAMAUiUAYA/MCQg6n1+7Cr7DikYZv1r7RBA2Xj3f1aaXSVSxQGwHlDBgVOP27IjfNGq+rSNXnCvxYIgo2j+a6EVXth9FM88Hgr2POIt5btnmwP9ILeGyDQDIPvtHmT4eHHaZMIYAA/vlBR9kw+B9dmlzauY4g99AukPHd0KVpCzU0oo/We2GOOU05chzb948ptzHzSa9CBBdmsb9jvvcxyxHF3gdDJXq31vvM/sD++ygbAEpmKZYmaMyGZ96Np/qzyqTfkK7I+sa7SKa6hTizC3j8RtPCEU+1fwvC9XV/sLrXhmNGUWFH/BvE1Ct6tGfCz+zrLDpXoH2wpTRy5HTpwtyoqNJW22wS9fCPD0D0YwfQI0S+fw7XiJSO95V1UQNT+Ojyqejm1v/MB3Or3dk/2XReWJChA5b3dU1Qo0uBvfUP0BCjogIY0ag0G+wjTB8zG3YRoYSHGMqOJVdfbM2uBIfj/1GWhu5KrUapU7dlFxQ38r2Sihljfw3hKcgLhRP2HLA5vRxVvITdaWLEggf0Cz6j9JoOtJG4jMEXqmNUUdAjRFGKiUfwrtdmV1tHi/SgEnc0Sc254P9WtU9Ho+DUZhOX88PuEcB0MvlYh/AA) center/cover"></picture><div class="gi-cap" data-i18n="img.exterior">Exterior</div></div>
-     <div class="gi" data-index="1"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="(max-width:768px) 78vw, 460px" width="2040" height="1530" alt="Ground floor guest bedroom at Casa Árbol — brick vault ceiling and natural textures" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture><div class="gi-cap" data-i18n="img.gf">Ground floor guest bedroom</div></div>
-     <div class="gi" data-index="2"><picture><source type="image/webp" srcset="/images/web/room-2-guest-suite-1-m.webp 1200w, /images/web/room-2-guest-suite-1.webp 2040w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/room-2-guest-suite-1-m.jpg" srcset="/images/web/room-2-guest-suite-1-m.jpg 1200w, /images/web/room-2-guest-suite-1.jpg 1734w" sizes="(max-width:768px) 78vw, 460px" width="1734" height="1300" alt="Guest suite at Casa Árbol — serene palette with premium finishes" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnoBAABXRUJQVlA4IG4BAABwCwCdASpAADAAPrVMoEynI6MiJXgOYOAWiWMAuzAL6QmBSkMas0xz6hHA1dpP2nRHh45VT9QJOiNQJqOvvpeZ1EG4zqqKfLM+WSJY2XJJaUogFr+cRVteRpLmcmgjDCFE3WUAAPv0ejS0RBaYtVIEoU39jIOtJBfMz+HdAWlH3SuF/46nkceY5WKXr8uX/a4ixx9yh/xbSQTwQ5+q+pNjI1SEtTkcZmHafcpF3M+FUnhJzGk+UZdbTLVVoco5e7Cp+Ha9yLPm6CkMHnVVJi52aA8Yvki9zsE8HaVVovzqAqnZHLUQKKFQBZT4m/cnSdmnruFV/pCtyAcgj1Tyco6eaOm06SeaRTDxaZ8YGsBhrj6f+YbaJK8dv64kptgGQq11WV1piu8ooNq1kb7fPnkY4F08KtwkOTB0AW4TYRETPTLpyEvhwEB9sZ9NPaNIhmwtssCNzrzTMXLWAUGYJipOrDI+Lx0RV9WNjrhSAAA=) center/cover"></picture><div class="gi-cap" data-i18n="img.guest-suite">Guest suite</div></div>
-     <div class="gi" data-index="3"><picture><source type="image/webp" srcset="/images/web/room-2-guest-suite-2-m.webp 1200w, /images/web/room-2-guest-suite-2.webp 2040w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/room-2-guest-suite-2-m.jpg" srcset="/images/web/room-2-guest-suite-2-m.jpg 1200w, /images/web/room-2-guest-suite-2.jpg 2040w" sizes="(max-width:768px) 78vw, 460px" width="2040" height="1530" alt="Guest suite alternate view — Casa Árbol luxury villa Playacar Fase II" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnABAABXRUJQVlA4IGQBAADwCwCdASpAADAAPqFEmEmmJCKhN/cdUMAUCWMApAAKEfF+8IgIZHPm1BjOWSUkbkpJOa3OuJv7RW7lZM7uv1gn9+vIOQY0BJ+aiSd1cVegHxG6UY0vu/af4+OhunXw+cTlviDsoARTAAD+zWCYvqZUUKjkeUWi4s7Iq1E5Yvl44arGGb5t1PMZyC+QnHChuNWkYcTISmnVMJ47wQj6khb6AoV29UWK8pKiYF+DW8jAbmEIHEXF9Qm+ocPr3orQYin669kN7gIm7vwDjzGup81hcfUQI4NHk+W5gPEDxX729XvuzkYJXWFOuOACWOeOQJpIvFgXqbNxLnT3gVWW6S3uklrbNDnJBH2BbHr9dz7c87yvL5/0B9IiwNjg/nSO8k4w8iBkoj8013gKEFECWKDo9fMBqIAUEtWXW8fv6dx3t+WADnyBke/RDnczYCX5Yu9TQVaP17B/uCwjI9Fq3HcXjAAAAA==) center/cover"></picture><div class="gi-cap" data-i18n="img.guest-suite">Guest suite</div></div>
-     <div class="gi" data-index="4"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-1-m.webp 1200w, /images/web/room-3-upper-suite-1.webp 2400w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/room-3-upper-suite-1-m.jpg" srcset="/images/web/room-3-upper-suite-1-m.jpg 1200w, /images/web/room-3-upper-suite-1.jpg 2040w" sizes="(max-width:768px) 78vw, 460px" width="2040" height="1530" alt="Upper-floor suite at Casa Árbol — warm wood and integrated lighting" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRl4BAABXRUJQVlA4IFIBAADwCgCdASpAADAAPrVOnkunJCKhqrv8AOAWiWMAvYwBjS0JyeKtLQjxT65hm2CoUH4AFaqRZtGnEnk7kcfZemqTGepB5hq+coYUg+r3hSgRddBBhjRMIZDkCh/r+3KFpwAA5hE2Fl2OB5KZkfnwkZpvgWfXG1WW7dwbcu+ZSTQCQdNLzA2Lf7gHF+wJn9EYV8lOR8CN4VaK9qFL9nKtsCLQXphkdjzfDriYvQ6KL06xRwdKzmm3k35HxFirg+Txjcbwo6lv0RK0G3/0e/3Py7I9+P4/e8lwrXQ6qoAhoiaOIxBQ2AhZS2iUTaHVvcln71SOVrQXIlN7u6Q9RbKUBFi8I894lKu7p5HNfhrNoqI5w+oTX2aMylsvSDBZQ/GYYRWTaYBvQ4IL8Q+tQPqohpxKDVhPhuW69z5fNoMDEc1Ycgy1mNJoUYHdkzsNxf28DIAAAA==) center/cover"></picture><div class="gi-cap" data-i18n="img.upper-suite">Upper-floor suite</div></div>
-     <div class="gi" data-index="5"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-2-m.webp 1200w, /images/web/room-3-upper-suite-2.webp 2400w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/room-3-upper-suite-2-m.jpg" srcset="/images/web/room-3-upper-suite-2-m.jpg 1200w, /images/web/room-3-upper-suite-2.jpg 2400w" sizes="(max-width:768px) 78vw, 460px" width="2400" height="1800" alt="Upper-floor suite alternate angle — Casa Árbol Playacar" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRpgBAABXRUJQVlA4IIwBAAAQDACdASpAADAAPrVOn0qnJCKhqrgM+OAWiUAYoYfJNC+3TYBm2o2SUJLEZGL72ImFzQXIhz7IEEiufkIKJjSTlD7IktSGIRMXsp/3OI+ypbuI2KF1dg6ZkVtkcEi0GqAddZKx5obeVEAA/tN+1NYDu2RYsvhTPCP27oSqPfFn3kowYEG6RPqDHBuB8tA20efhsTVC8WSRat4g52wtVNGCoeQBEayzcP/CFnDyTLpSEZEYO+CS/8illxF6TLoGNoJofn5a3cz8AmCH/kHhb0l4VEZSPupsmDhu6SDXYrCEXL74L/frxaScVhNXtK/+11BvSkfZ+NOZeRS+M/zSLf3ZPXRvZa4O4kaKP3ePltSkV3j2k0QqfDJdeOmkl8ocbV0BDKpCLoH2Wcn95apQyhc1JJTk3vnNpJB46JJZHOWBPIkG0xPZUgbT1Bh6mdkCcDK90ACLWM+GurMk8P6aigBKiRK/xfviYStdli/mlKMORpKNdRR6gDebuZdKj22ehhV00TRZwbxMQIHZAAA=) center/cover"></picture><div class="gi-cap" data-i18n="img.upper-suite">Upper-floor suite</div></div>
-     <div class="gi" data-index="6"><picture><source type="image/webp" srcset="/images/web/room-3-upper-suite-3-m.webp 1200w, /images/web/room-3-upper-suite-3.webp 2400w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/room-3-upper-suite-3-m.jpg" srcset="/images/web/room-3-upper-suite-3-m.jpg 1200w, /images/web/room-3-upper-suite-3.jpg 2040w" sizes="(max-width:768px) 78vw, 460px" width="2040" height="1530" alt="Upper-floor suite detail — Casa Árbol luxury residence" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRnQBAABXRUJQVlA4IGgBAACQCwCdASpAADAAPrVSo02nJCMiJXgMAOAWiWMAuzN1gkq3PUnDgNoLJbM+0Ut5L+845b3gD+1buYrSKrbi+UQMJ2sGGg9VSs8NCQxwCbFV4Siz5pOig+Pr8n6xtAQUhgaTxStSAAD+zaweguw9HbVLDWqA54Mf1VLAqwLn70Y+rImSLs/ulljDakMdMv4TwN4UjnlagFJHco3aDrhh0iTng9Gg3rXpNtTmAqzcqQWnUEb4LgHDFFVmP9ErlZGGz0UNAWOp5F0QkGAsehfiefxjblKGFlKRcMgoWePvt4+fQBAnNjGppvzG8UWcCjEpQT+m+xirtm5yt7mnd18N6Dxhss40TEn7G9hwU8QuARjEfZ3CpwI2GsfMM7w+Y4sUvPcz3aG0xEX/BI/U8UWoP5vO5p5Rwy+PNMQR/4uDuweEq/964sw741t09elKR3/58WLtdNR638eCYGsGGxLV7N0if/RffQWsAAA=) center/cover"></picture><div class="gi-cap" data-i18n="img.upper-suite">Upper-floor suite</div></div>
-     <div class="gi" data-index="7"><picture><source type="image/webp" srcset="/images/web/bathroom-guest-suite-m.webp 1200w, /images/web/bathroom-guest-suite.webp 2400w" sizes="(max-width:768px) 78vw, 460px"><img src="/images/web/bathroom-guest-suite-m.jpg" srcset="/images/web/bathroom-guest-suite-m.jpg 1200w, /images/web/bathroom-guest-suite.jpg 2400w" sizes="(max-width:768px) 78vw, 460px" width="2400" height="1800" alt="Guest suite bathroom at Casa Árbol — spa-grade finishes, natural stone" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRmIBAABXRUJQVlA4IFYBAAAQCwCdASpAADAAPrVMokynI6MiLVM6SOAWiWMAtkfZRwQLXb3mudqTV3BIZAs3fXjFbP69Q9iX3DzDwvUE+QlnH+ii/qXvnebFXjcxvwgvLKE+3J2Gufbf9/Xk1VwTVn4AAP7XJv4vZzYniA2ei1IidRXPr7gKRalzsglpUmrW3GWbtAtims1YB/dHvMe0OpEUJIyqYsnxmVO9TCHmCUaqVt0RJ1PtI0/UbuVVT6sbekFzNMomrf5/3yziGFYLxRhIUuEvvAl5GCfzFMpfjp38e37l6rdt5DYvtD5JNSRW/Jqe2q8mENTl9IADD+auWw4S6ZGkC4pOA4Ij4O2WovtnJhAws1a9kMjI66f3lb77CVVrSCgAjvXzTdJ5VRQSS0q/8kdP+8uLLyEQ5jM97MmT7duQEj1wfIVm/XUYqTnyJtpv6JEhUir6p3K9nyGQpRQ0KxpOAAA=) center/cover"></picture><div class="gi-cap" data-i18n="img.guest-bath">Guest suite bathroom</div></div>
-  </div>
-  </div>
-  <div style="padding:14px 5vw 0;display:flex;justify-content:space-between;align-items:center">
-    <div class="drag-hint" id="dragHint" data-i18n="drag.hint">Drag to explore</div>
-     <div class="stack-dots" id="galDots">
-       <div class="sdot active" onclick="scrollToCard(0)"></div>
-       <div class="sdot" onclick="scrollToCard(1)"></div>
-       <div class="sdot" onclick="scrollToCard(2)"></div>
-       <div class="sdot" onclick="scrollToCard(3)"></div>
-       <div class="sdot" onclick="scrollToCard(4)"></div>
-       <div class="sdot" onclick="scrollToCard(5)"></div>
-       <div class="sdot" onclick="scrollToCard(6)"></div>
-       <div class="sdot" onclick="scrollToCard(7)"></div>
-     </div>
+  <div class="kitch" id="kitchen">
+    <div class="kitch-txt">
+      <div class="ey" data-i18n="kitch.ey">The Kitchen</div>
+      <h2 class="kitch-h2"><span data-i18n="kitch.h2a">Where flavour</span><br><span data-i18n="kitch.h2b">meets <em>design</em></span></h2>
+      <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
+      <p class="brands" aria-label="Brands">Inizio · Hettich · Dekton · Smeg · Teka · Helvex</p>
+    </div>
+    <div class="kitch-img"><picture><source type="image/webp" srcset="/images/web/kitchen-m.webp 800w, /images/web/kitchen.webp 1024w" sizes="100vw"><img src="/images/web/kitchen-m.jpg" srcset="/images/web/kitchen-m.jpg 800w, /images/web/kitchen.jpg 1024w" sizes="100vw" width="1024" height="1536" alt="Casa Árbol kitchen" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRgIBAABXRUJQVlA4IPYAAADQCgCdASorAEAAPqFCmEmmJCKhN/jtUMAUCWUAyFRWR+e3TPSGaIBjlLTVRXS8j3wzNJGDZnylHO5w7atkQBpRnrjnwdTHzrloWAQ/KCtHo2o0v4b1UtgwyV4eJBUEAAD+kEPc1X2a64SKgrWlyG7YkmGu7wSBS9h7WvnJiGifzbrYyfSNeOk8Gw2hMZULxiWz4GlONA3xOzJJOmjdPrkkJg1KzszeUIi1S2gQYzYjwvjsc8ELGif2rW/i6pfyP9VqxJ1d5fzSCATSmwFNWBOlPNAqeIuEyQoRE2W9sDKm+vnn4TGiA8ElpjH+kBAgsJDosxMQAAA=) center/cover"></picture></div>
   </div>
 </section>
 
@@ -1181,23 +1151,6 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
       <li data-i18n="wine.s5">Direct access from the main dining area</li>
     </ul>
     <button class="btn btn-outline-lt" onclick="openModal()" data-i18n="wine.btn">Request Brochure</button>
-  </div>
-</section>
-
-<!-- KITCHEN -->
-<section class="kitchen" id="kitchen">
-  <img src="./images/chef.png" alt="" class="chef-silhouette-bg" aria-hidden="true" loading="lazy">
-  <div class="rv kitch-head"><div class="ey" data-i18n="kitch.ey">The Kitchen</div><h2 class="serif split-parent"><span class="split-wrap"><span class="split-inner d1" data-i18n="kitch.h2a">Where flavour</span></span><span class="split-wrap"><span class="split-inner d2" data-i18n="kitch.h2b">meets <em>design</em></span></span></h2><span class="rule"></span></div>
-  <div class="rv kitch-body">
-    <p class="body-t" data-i18n="kitch.body">The gourmet kitchen at Casa Árbol is fully equipped with the finest European appliances — delivering a professional cooking experience within a beautifully designed space. Warm cappuccino cabinetry, Blum hardware, and a generous peninsula make it the social heart of the home.</p>
-  </div>
-  <div class="rv kitch-hero">
-    <picture><source type="image/webp" srcset="/images/web/kitchen-m.webp 800w, /images/web/kitchen.webp 1024w" sizes="100vw"><img src="/images/web/kitchen-m.jpg" srcset="/images/web/kitchen-m.jpg 800w, /images/web/kitchen.jpg 1024w" sizes="100vw" width="1024" height="1536" alt="Casa Árbol kitchen" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRgIBAABXRUJQVlA4IPYAAADQCgCdASorAEAAPqFCmEmmJCKhN/jtUMAUCWUAyFRWR+e3TPSGaIBjlLTVRXS8j3wzNJGDZnylHO5w7atkQBpRnrjnwdTHzrloWAQ/KCtHo2o0v4b1UtgwyV4eJBUEAAD+kEPc1X2a64SKgrWlyG7YkmGu7wSBS9h7WvnJiGifzbrYyfSNeOk8Gw2hMZULxiWz4GlONA3xOzJJOmjdPrkkJg1KzszeUIi1S2gQYzYjwvjsc8ELGif2rW/i6pfyP9VqxJ1d5fzSCATSmwFNWBOlPNAqeIuEyQoRE2W9sDKm+vnn4TGiA8ElpjH+kBAgsJDosxMQAAA=) center/cover"></picture>
-  </div>
-  <div class="kitch-mq-wrap" aria-hidden="true">
-    <div class="kitch-mq-track">
-      <span class="kitch-mi">INIZIO<span class="kdot">·</span></span><span class="kitch-mi">HETTICH<span class="kdot">·</span></span><span class="kitch-mi">DEKTON<span class="kdot">·</span></span><span class="kitch-mi">SMEG<span class="kdot">·</span></span><span class="kitch-mi">TEKA<span class="kdot">·</span></span><span class="kitch-mi">HELVEX<span class="kdot">·</span></span><span class="kitch-mi">INIZIO<span class="kdot">·</span></span><span class="kitch-mi">HETTICH<span class="kdot">·</span></span><span class="kitch-mi">DEKTON<span class="kdot">·</span></span><span class="kitch-mi">SMEG<span class="kdot">·</span></span><span class="kitch-mi">TEKA<span class="kdot">·</span></span><span class="kitch-mi">HELVEX<span class="kdot">·</span></span>
-    </div>
   </div>
 </section>
 
@@ -3288,6 +3241,29 @@ window.submitBrokerReferral = function(){
   update();
 })();
 </script>
+<script>
+// ── Inside: scroll progress → ribbon phase / vault beat; drives the fallback vault glow too ──
+(function(){
+  var sec=document.getElementById('gallery'); if(!sec) return;
+  var scroll=sec.querySelector('.inside-scroll'), poster=sec.querySelector('.vault-poster');
+  var phone=matchMedia('(max-width:768px)').matches;
+  var raf=0;
+  function update(){
+    raf=0;
+    var r=scroll.getBoundingClientRect(), vh=window.innerHeight;
+    var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
+    var split = phone ? 0.5 : 0.62;
+    var q = p<split ? 0 : (p-split)/(1-split);
+    sec.__p=p; sec.__q=q; sec.__split=split;
+    sec.classList.toggle('ph-vault', p>=split);
+    sec.classList.toggle('ph-rib', p<split);
+    if(poster) poster.style.setProperty('--iq', Math.min(1, q*1.6).toFixed(3));
+  }
+  window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 <script type="module">
 // ── Stage — one WebGL canvas behind the page, smooth scroll, scene manager ──
 // Chapters (STEP-03 … STEP-08) register with CA_STAGE.register(name, {init, update(progress, velocity, dt), render(renderer), resize(w,h), dispose}).
@@ -3669,6 +3645,180 @@ if (window.CA_GL) {
     dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mesh.material.dispose(); } u && u.uTexA.value.dispose(); u && u.uTexB.value.dispose(); html.classList.remove('ground-live'); }
   };
   stage.register('ground', api);
+}
+</script>
+
+<script type="module">
+// ── Chapter: INSIDE — 8 photos on a curved ribbon (the camera inside the cylinder); scroll turns it, velocity bends it; then the vault beat ──
+if (window.CA_GL) {
+  const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
+  const {THREE} = stage;
+  const sec = document.getElementById('gallery');
+  const pin = sec.querySelector('.inside-pin');
+  const capsEl = document.getElementById('ribCaps'), idxEl = document.getElementById('ribIdx');
+  const capEls = [...capsEl.querySelectorAll('.rib-cap')];
+  const NAMES = ["casa-arbol-exterior","room-1-ground-floor","room-2-guest-suite-1","room-2-guest-suite-2","room-3-upper-suite-1","room-3-upper-suite-2","room-3-upper-suite-3","bathroom-guest-suite"];
+  const phone = stage.phone;
+  const R = 5.2, H = phone ? 1.5 : 2.0, GAP = phone ? 0.28 : 0.36, SHIFT = phone ? 0 : 0.13;
+
+  const RIB_VERT = /* glsl */`
+    uniform float uBend, uHover; varying vec2 vUv;
+    void main(){
+      vUv = uv;
+      vec3 p = position;
+      float x = uv.x - 0.5;
+      p.z += uBend * (1.0 - 4.0 * x * x) * 0.45 * (1.0 - uHover);   // the ribbon flexes with scroll velocity
+      p.x += uBend * (uv.y - 0.5) * 0.12 * (1.0 - uHover);
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+    }`;
+  const RIB_FRAG = /* glsl */`
+    uniform sampler2D uTex; uniform float uSplit, uFade, uHover; varying vec2 vUv;
+    void main(){
+      float x = vUv.x - 0.5;
+      vec2 o = vec2(uSplit * x * 0.03 * (1.0 - uHover), 0.0);      // slight RGB split at the edges while it moves
+      float r = texture2D(uTex, vUv + o).r, g = texture2D(uTex, vUv).g, b = texture2D(uTex, vUv - o).b;
+      vec3 col = vec3(r, g, b) * (0.9 + 0.1 * uHover);
+      col *= 1.0 - 0.1 * smoothstep(0.3, 0.5, abs(x)) * (1.0 - uHover);
+      gl_FragColor = vec4(col, uFade);
+    }`;
+  const VAULT_VERT = /* glsl */`varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
+  const VAULT_FRAG = /* glsl */`
+    precision highp float; varying vec2 vUv;
+    uniform sampler2D uTex; uniform vec2 uRes; uniform float uAsp, uQ, uAlpha, uTime;
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+    void main(){
+      float s = uRes.x / uRes.y; vec2 st = vUv;
+      if (s > uAsp) { float k = uAsp / s; st.y = clamp(0.55, k * 0.5, 1.0 - k * 0.5) + (vUv.y - 0.5) * k; }
+      else { float k = s / uAsp; st.x = 0.5 + (vUv.x - 0.5) * k; }
+      st = vec2(0.5) + (st - 0.5) / (1.0 + 0.06 * uQ);
+      vec3 col = texture2D(uTex, clamp(st, 0.001, 0.999)).rgb;
+      col *= 0.78;
+      // warm light rising up the vault: a soft band climbs, and the top third brightens as it arrives
+      float y = vUv.y;
+      float bandY = mix(0.15, 0.86, uQ);
+      float band = exp(-pow((y - bandY) / 0.16, 2.0));
+      float top = smoothstep(0.55, 0.95, y) * smoothstep(0.15, 1.0, uQ);
+      col += vec3(1.0, 0.89, 0.68) * (band * 0.22 * (0.6 + 0.4 * uQ) + top * 0.42) * (0.7 + 0.3 * col.g);
+      col += (hash(gl_FragCoord.xy + fract(uTime) * 61.0) - 0.5) * 0.04;
+      gl_FragColor = vec4(col, uAlpha);
+    }`;
+
+  let scene, camera, group, planes = [], vscene, vcam, vmesh, vu, ready = false, t = 0;
+  let theta = 0, thetaV = 0, sweep = 1, bend = 0, split = 0, hovered = -1, fade = 0;
+  const ray = new THREE.Raycaster(), ndc = new THREE.Vector2(-9, -9);
+  let pointerOver = false;
+  const loader = new THREE.TextureLoader();
+  const load = url => new Promise((res, rej) => loader.load(url, tex => { tex.colorSpace = THREE.NoColorSpace; tex.minFilter = THREE.LinearFilter; tex.generateMipmaps = false; res(tex); }, undefined, rej));
+  const smooth = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
+
+  function showCaption(i) {
+    capEls.forEach(c => c.classList.toggle('on', +c.dataset.index === i));
+    if (i >= 0) idxEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(planes.length).padStart(2, '0');
+    capsEl.classList.toggle('on', i >= 0);
+  }
+
+  const api = {
+    order: -1,
+    async init(st) {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(phone ? 60 : 42, st.width / st.height, 0.1, 50);
+      group = new THREE.Group(); group.position.y = phone ? -0.15 : -0.42; scene.add(group);
+      const texs = await Promise.all(NAMES.map(n => load(`/images/web/${n}-m.webp`)));
+      let th = 0, prevHalf = 0;
+      texs.forEach((tex, i) => {
+        const asp = tex.image.width / tex.image.height;
+        const w = H * asp;
+        if (i > 0) th += (prevHalf + GAP + w / 2) / R;
+        prevHalf = w / 2;
+        const mat = new THREE.ShaderMaterial({ vertexShader: RIB_VERT, fragmentShader: RIB_FRAG, transparent: true, depthTest: false, depthWrite: false,
+          uniforms: { uTex: {value: tex}, uBend: {value: 0}, uSplit: {value: 0}, uHover: {value: 0}, uFade: {value: 0} } });
+        const m = new THREE.Mesh(new THREE.PlaneGeometry(w, H, 24, 4), mat);
+        m.userData = { theta: th, index: i, hover: 0 };
+        m.position.set(-R * Math.sin(th), 0, -R * Math.cos(th)); m.rotation.y = th;
+        m.renderOrder = i;
+        group.add(m); planes.push(m);
+      });
+      sweep = th;
+      // the vault beat: the ground-floor bedroom full screen
+      const vt = await load(`/images/web/room-1-ground-floor${phone ? '-m' : ''}.webp`);
+      vscene = new THREE.Scene(); vcam = new THREE.Camera();
+      vu = { uTex: {value: vt}, uRes: {value: new THREE.Vector2(st.width, st.height)}, uAsp: {value: vt.image.width / vt.image.height}, uQ: {value: 0}, uAlpha: {value: 0}, uTime: {value: 0} };
+      vmesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: VAULT_VERT, fragmentShader: VAULT_FRAG, uniforms: vu, transparent: true, depthTest: false, depthWrite: false }));
+      vmesh.frustumCulled = false; vscene.add(vmesh);
+      ready = true;
+      document.documentElement.classList.add('inside-live');
+    },
+    resize(w, h) { if (camera) { camera.aspect = w / h; camera.updateProjectionMatrix(); } if (vu) vu.uRes.value.set(w, h); },
+    update(progress, velocity, dt) {
+      if (!ready) return;
+      t += dt; dt = Math.min(dt, 1 / 30);
+      const p = sec.__p || 0, q = sec.__q || 0, spl = sec.__split || 0.62;
+      const inRib = p < spl;
+      // where the ribbon should be
+      let target;
+      if (phone) { theta += thetaV * dt; thetaV *= Math.max(0, 1 - 3.2 * dt); theta = Math.max(-0.2, Math.min(sweep + 0.2, theta)); target = theta; }
+      else { target = -0.25 + (sweep + 0.5) * smooth(0, 1, p / spl); }
+      const v = (target - theta) / Math.max(dt, 1e-3);
+      if (!phone) theta = target;
+      // velocity → bend + split, eased back to rest
+      const goal = Math.max(-1, Math.min(1, (phone ? thetaV : v) * 0.35));
+      bend += (goal - bend) * Math.min(1, dt * 4.5);
+      split += (Math.abs(goal) - split) * Math.min(1, dt * 6);
+      group.rotation.y = -theta - SHIFT;
+      // ribbon fades in when ready, out for the vault beat
+      const fadeGoal = inRib ? 1 : Math.max(0, 1 - q * 4);
+      fade += (fadeGoal - fade) * Math.min(1, dt * 3);
+      // hover: raycast
+      let hit = -1;
+      if (inRib && pointerOver) { ray.setFromCamera(ndc, camera); const hits = ray.intersectObjects(planes, false); if (hits.length) hit = hits[0].object.userData.index; }
+      if (hit !== hovered) { hovered = hit; showCaption(hit); document.body.classList.toggle('hov', hit >= 0); }
+      for (const m of planes) {
+        const d = m.userData;
+        d.hover += ((hovered === d.index ? 1 : 0) - d.hover) * Math.min(1, dt * 6);
+        const sc = 1 + 0.06 * d.hover;
+        m.scale.set(sc, sc, 1);
+        const rr = R - 0.32 * d.hover;
+        m.position.set(-rr * Math.sin(d.theta), 0, -rr * Math.cos(d.theta));
+        const u = m.material.uniforms; u.uBend.value = bend; u.uSplit.value = split; u.uHover.value = d.hover; u.uFade.value = fade;
+      }
+      // vault
+      vu.uQ.value = q; vu.uTime.value = t;
+      vu.uAlpha.value = inRib ? 0 : Math.min(1, q * 3);
+    },
+    render(renderer) {
+      if (!ready) return;
+      const r = pin.getBoundingClientRect(), vh = innerHeight, vw = innerWidth;
+      const top = Math.max(0, r.top), bottom = Math.min(vh, r.bottom);
+      if (bottom - top < 1) return;
+      renderer.setScissorTest(true);
+      renderer.setScissor(0, vh - bottom, vw, bottom - top);
+      if (vu.uAlpha.value > 0.001) renderer.render(vscene, vcam);
+      if (fade > 0.001) renderer.render(scene, camera);
+      renderer.setScissorTest(false);
+      renderer.setScissor(0, 0, vw, vh);
+    },
+    debug() { return { theta, sweep, bend, split, hovered, fade, ready, planes: planes.length, alpha: vu && vu.uAlpha.value, q: vu && vu.uQ.value }; },
+    dispose() { ready = false; planes.forEach(m => { m.geometry.dispose(); m.material.uniforms.uTex.value.dispose(); m.material.dispose(); }); planes = []; if (vmesh) { vmesh.geometry.dispose(); vmesh.material.dispose(); vu.uTex.value.dispose(); } document.documentElement.classList.remove('inside-live'); }
+  };
+
+  // pointer → hover (desktop) / tap (phone)
+  addEventListener('pointermove', e => { ndc.set((e.clientX / innerWidth) * 2 - 1, -(e.clientY / innerHeight) * 2 + 1); pointerOver = true; }, {passive: true});
+  document.addEventListener('mouseleave', () => { pointerOver = false; });
+  // phone: horizontal swipe turns the ribbon, with the same bend on swipe velocity
+  if (phone) {
+    let x0 = 0, xl = 0, tl = 0, moved = false;
+    pin.addEventListener('touchstart', e => { const c = e.touches[0]; x0 = xl = c.clientX; tl = performance.now(); moved = false; thetaV = 0; }, {passive: true});
+    pin.addEventListener('touchmove', e => {
+      const c = e.touches[0], now = performance.now(), dx = c.clientX - xl, dtm = Math.max(8, now - tl);
+      if (Math.abs(c.clientX - x0) > 6) moved = true;
+      theta -= dx / innerWidth * 1.6; thetaV = -(dx / innerWidth * 1.6) / (dtm / 1000);
+      xl = c.clientX; tl = now;
+    }, {passive: true});
+    pin.addEventListener('touchend', e => {
+      if (!moved) { const c = e.changedTouches[0]; ndc.set((c.clientX / innerWidth) * 2 - 1, -(c.clientY / innerHeight) * 2 + 1); pointerOver = !pointerOver || hovered < 0; if (!pointerOver) { hovered = -1; showCaption(-1); } }
+    }, {passive: true});
+  }
+  stage.register('inside', api);
 }
 </script>
 </body>

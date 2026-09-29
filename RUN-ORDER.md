@@ -1,15 +1,15 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-05 — Inside: rooms ribbon (curved WebGL gallery)
+- STEP-06 — Roots: the systems beneath (solar, water, windows) + descent
 
 ## Next
-- STEP-06 — Roots: the systems beneath (solar, water, windows) + descent
 - STEP-07 — Cenote: water, caustics, light shafts, ripples (pool, wine, OMé)
 - STEP-08 — Surface: closing CTA, price, enquiry drawer, footer "Site by 20°N"
 - STEP-09 — mobile, fallback, performance, ES/FR QA
 
 ## Done
+- STEP-05 — Inside: 8 photos on a curved WebGL ribbon (scroll turns it, velocity bends it + RGB split, hover/tap straightens with caption + index), vault beat with rising light (feat.f7), kitchen + brand list close; phone swipe ribbon; scroll-snap fallback
 - STEP-04c — earth palette: chukum/sand/wood/Corten/earth/lilac tokens, legacy tokens remapped, old teal/petrol removed; line-art mark as the hero poster, seed-coloured particles (normal blending), ground beats in earth on a chukum band, wood/Corten gauge, earth WhatsApp disc
 - STEP-04b — Sora 300/400/500 for all reading text (subtitles 300, gauge 12 px); Geist Mono reserved for the footer 20°N signature (--font-coords); coordinates removed from the hero
 - STEP-04 — Ground: facade on a cover-fit plane, golden-hour sweep + grain, scroll push-in to the door, three pinned beats (x.r1–3, EN/ES/FR), facts line, noise dissolve into the first interior; CSS push-in/crossfade fallback
