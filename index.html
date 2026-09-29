@@ -403,7 +403,7 @@ html.no-gl .roots-svg{display:block}
 
 /* CENOTE — the one dark chapter */
 .cenote{position:relative;background:transparent}
-.cenote-scroll{position:relative;height:640svh;margin-bottom:-100svh}
+.cenote-scroll{position:relative;height:520svh;margin-bottom:-100svh}
 .cenote-anchor{position:absolute;left:0;width:1px;height:1px;pointer-events:none}
 .cenote-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:transparent;color:var(--chukum)}
 .cenote-base{position:absolute;inset:0;background:var(--earth);transition:opacity 1.2s ease}
@@ -417,8 +417,7 @@ html.no-gl .cenote-fallback{display:block}
 .cbeat{position:absolute;left:5vw;top:50%;width:min(560px,44vw);transform:translateY(-50%);opacity:0;transition:opacity 1s ease;pointer-events:none;z-index:2}
 .cbeat.on{opacity:1;pointer-events:auto}
 .cbeat-inner{animation:cfloat 7s ease-in-out infinite}
-.cbeat[data-beat="1"] .cbeat-inner{animation-delay:-2.3s}
-.cbeat[data-beat="2"] .cbeat-inner{animation-delay:-4.6s}
+.cbeat[data-beat="1"] .cbeat-inner{animation-delay:-3.1s}
 @keyframes cfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .cbeat .ey{color:rgba(239,232,220,.62)}
 .cbeat .ey::before{background:rgba(239,232,220,.5)}
@@ -435,7 +434,7 @@ html.no-gl .cenote-fallback{display:block}
 .perk-d{font-size:12.5px;line-height:1.4;color:rgba(239,232,220,.62)}
 .cenote-out{position:absolute;inset:0;background:var(--chukum);opacity:var(--co,0);pointer-events:none;z-index:3}
 @media(max-width:768px){
-  .cenote-scroll{height:560svh}
+  .cenote-scroll{height:460svh}
   .cbeat{left:6vw;right:6vw;width:auto;top:auto;bottom:calc(56px + env(safe-area-inset-bottom));transform:none}
   .cbeat-t{font-size:clamp(1.5rem,6.6vw,2.2rem);margin-bottom:12px}
   .cbeat-b{font-size:.9rem;line-height:1.45}
@@ -482,6 +481,52 @@ html.no-gl .cenote-fallback{display:block}
 }
 
 
+
+
+/* CELLAR — the wall opens */
+.cellar{position:relative;z-index:2;color:var(--earth);scroll-margin-top:-100svh}   /* #wine-cellar lands on the pinned wall, not on the lead under the cenote's tail */
+.cellar-scroll{position:relative;height:520svh;margin-bottom:-100svh}
+.cellar-lead{height:100svh}
+.cellar-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--chukum)}
+html.gl.cellar-live .cellar-pin{background:transparent}
+/* fallback: two stacked photos, the light wipes down; two chukum halves slide apart */
+.cellar-fb{display:none;position:absolute;inset:0}
+html.no-gl .cellar-fb{display:block}
+.cellar-fb picture,.cellar-fb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
+.cellar-fb .fb-off img{filter:saturate(.55) sepia(.18) brightness(1.05)}
+.cellar-fb .fb-on{clip-path:inset(0 0 calc(100% - var(--wipe,0) * 100%) 0)}
+.fb-half{position:absolute;top:0;bottom:0;width:50%;background:var(--chukum)}
+.fb-half::after{content:"";position:absolute;top:0;bottom:0;width:44px;opacity:min(1,calc(var(--gap,0) * 20));pointer-events:none}   /* the halves' soft shadow on the wall, only once the wall opens */
+.fb-a{left:0;transform:translateX(calc(var(--gap,0) * -100%))}
+.fb-a::after{right:-44px;background:linear-gradient(to right,rgba(42,30,21,.3),transparent)}
+.fb-b{right:0;transform:translateX(calc(var(--gap,0) * 100%))}
+.fb-b::after{left:-44px;background:linear-gradient(to left,rgba(42,30,21,.3),transparent)}
+.fb-seam{position:absolute;left:50%;top:0;width:1px;height:100%;background:var(--wood);transform-origin:top;transform:scaleY(var(--seam,0));opacity:calc(1 - var(--gap,0) * 40)}
+@media(max-width:768px){
+  .fb-half{width:100%;height:50%;left:0;right:0}
+  .fb-a{top:0;bottom:auto;transform:translateY(calc(var(--gap,0) * -100%))}
+  .fb-b{top:auto;bottom:0;transform:translateY(calc(var(--gap,0) * 100%))}
+  .fb-half::after{left:0;right:0;width:auto;height:36px}
+  .fb-a::after{top:auto;bottom:-36px;background:linear-gradient(to bottom,rgba(42,30,21,.3),transparent)}
+  .fb-b::after{bottom:auto;top:-36px;background:linear-gradient(to top,rgba(42,30,21,.3),transparent)}
+  .fb-seam{left:0;top:50%;width:100%;height:1px;transform-origin:left;transform:scaleX(var(--seam,0))}
+}
+/* text on a chukum panel, left, once the light is up */
+.cellar-txt{position:absolute;left:5vw;top:50%;transform:translateY(calc(-50% + 14px));width:min(520px,40vw);padding:30px 34px 32px;background:rgba(239,232,220,.94);border-radius:2px;opacity:0;transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none;z-index:2}
+.cellar.txt-on .cellar-txt{opacity:1;transform:translateY(-50%);pointer-events:auto}
+.cellar-h2{font-family:var(--font-display);font-weight:200;font-size:clamp(1.9rem,3.6vw,3.4rem);line-height:1.05;letter-spacing:-.04em;color:var(--earth);margin:0 0 16px}
+.cellar-h2 em{color:var(--corten)}
+.cellar-b{font-weight:300;font-size:clamp(1rem,1.2vw,1.15rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0}
+.cellar-specs{list-style:none;margin:16px 0 0;padding:0;font-size:14px;color:var(--text-2)}
+.cellar-specs li{padding:8px 0;border-top:1px solid rgba(141,104,70,.35)}
+@media(max-width:768px){
+  .cellar-txt{left:6vw;right:6vw;width:auto;top:auto;bottom:calc(56px + env(safe-area-inset-bottom));transform:translateY(14px);padding:20px 20px 22px}
+  .cellar.txt-on .cellar-txt{transform:none}
+  .cellar-h2{font-size:clamp(1.5rem,6.4vw,2.1rem)}
+  .cellar-b{font-size:.92rem}
+  .cellar-specs{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.cellar-txt{transition:none}}
 
 /* SURFACE — back in the light */
 .surface{position:relative;z-index:2;color:var(--earth);background:linear-gradient(to bottom,transparent 0,var(--chukum) 100svh)}
@@ -694,7 +739,7 @@ nav.sc{padding:12px 24px}
 .nav-drawer.open .nav-drawer-close{display:flex;position:absolute;top:14px;right:14px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;color:var(--chukum);cursor:pointer;z-index:1}
 .nav-drawer-close svg{width:22px;height:22px;stroke-width:1.5}
 .nav-drawer .nav-links{list-style:none;display:flex;flex-direction:column;gap:2px;margin:0;padding:0}
-.nav-drawer .nav-links a{font-family:var(--font-display);font-weight:200;font-size:clamp(2.2rem,6.4vw,5.4rem);letter-spacing:-.04em;line-height:1.12;color:var(--chukum);text-decoration:none;opacity:.85;transition:opacity .3s,color .3s;display:block;padding:3px 0}
+.nav-drawer .nav-links a{font-family:var(--font-display);font-weight:200;font-size:clamp(2rem,5.6vw,4.6rem);letter-spacing:-.04em;line-height:1.12;color:var(--chukum);text-decoration:none;opacity:.85;transition:opacity .3s,color .3s;display:block;padding:3px 0}
 .nav-drawer .nav-links a:hover{opacity:1;color:var(--sand)}
 .nav-drawer .lang-sw{gap:8px}
 .nav-drawer .lang-btn{font-size:13px;padding:7px 12px}
@@ -715,14 +760,14 @@ body.nav-open nav{transform:none!important;filter:none!important;-webkit-backdro
   .gauge-line{right:0;top:0;bottom:0;width:1px}
   .gauge-marker{left:-3px;top:calc(var(--p,0)*100%);transform:translateY(-50%);transition:top .12s linear}
   .gauge-layers{position:absolute;right:16px;top:0;bottom:0}
-  .gauge li{right:0;top:calc(var(--i)*20%);transform:translateY(-50%)}
+  .gauge li{right:0;top:calc(var(--i)*100%/6);transform:translateY(-50%)}
 }
 @media(max-width:768px){
   .gauge{left:16px;right:16px;bottom:calc(12px + env(safe-area-inset-bottom));height:30px}
   .gauge-line{left:0;right:0;bottom:0;height:1px}
   .gauge-marker{left:calc(7% + var(--p,0)*86%);bottom:-3px;transform:translateX(-50%);transition:left .12s linear}
   .gauge-layers{position:absolute;left:0;right:0;bottom:9px}
-  .gauge li{font-size:11px;left:calc(7% + var(--i)*17.2%);transform:translateX(-50%)}
+  .gauge li{font-size:10.5px;left:calc(7% + var(--i)*86%/6);transform:translateX(-50%)}
 }
 body.nav-open .gauge{opacity:0;transition:opacity .2s}
 .gauge.on-dark{color:rgba(239,232,220,.72);text-shadow:none}
@@ -832,7 +877,8 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
     <li style="--i:2" data-target="inside">inside</li>
     <li style="--i:3" data-target="roots">roots</li>
     <li style="--i:4" data-target="cenote">cenote</li>
-    <li style="--i:5" data-target="surface">surface</li>
+    <li style="--i:5" data-target="cellar">cellar</li>
+    <li style="--i:6" data-target="surface">surface</li>
   </ol>
 </aside>
 
@@ -868,7 +914,8 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
         <li><a href="#gallery"><span class="menu-i">03</span>inside</a></li>
         <li><a href="#features"><span class="menu-i">04</span>roots</a></li>
         <li><a href="#pool"><span class="menu-i">05</span>cenote</a></li>
-        <li><a href="#contact"><span class="menu-i">06</span>surface</a></li>
+        <li><a href="#wine-cellar"><span class="menu-i">06</span>cellar</a></li>
+        <li><a href="#contact"><span class="menu-i">07</span>surface</a></li>
       </ul>
       <aside class="menu-side">
         <div class="lang-sw">
@@ -884,7 +931,6 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
         </div>
         <ul class="menu-more">
           <li><a href="#kitchen" data-i18n="nav.kitchen">Kitchen</a></li>
-          <li><a href="#wine-cellar" data-i18n="nav.wine">Wine Cellar</a></li>
           <li><a href="#ome-spa" data-i18n="nav.ome">OMé Spa</a></li>
           <li><a href="#videos" data-i18n="nav.videos">Videos</a></li>
           <li><a href="#" onclick="event.preventDefault()" data-i18n="nav.brochure">Brochure</a></li>
@@ -975,11 +1021,10 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
 </section>
 
 <!-- POOL — animated cenote section -->
-<!-- CENOTE — below the water, looking up: the pool, the wine cellar, OMé Spa float by in the dark water -->
+<!-- CENOTE — below the water, looking up: the pool, then OMé Spa float by in the dark water -->
 <section class="cenote" id="pool" data-chapter="cenote">
   <div class="cenote-scroll">
-    <div class="cenote-anchor" id="wine-cellar" style="top:calc(.39 * (100% - 100svh))"></div>
-    <div class="cenote-anchor" id="ome-spa" style="top:calc(.71 * (100% - 100svh))"></div>
+    <div class="cenote-anchor" id="ome-spa" style="top:calc(.52 * (100% - 100svh))"></div>
     <div class="cenote-pin dark-surface">
       <div class="cenote-base" aria-hidden="true"></div>
       <div class="cenote-fallback" aria-hidden="true">
@@ -993,12 +1038,6 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
         <div class="chips"><span class="chip" data-i18n="pool.pill1">Natural Stone Edges</span><span class="chip" data-i18n="pool.pill2">Cascading Waterfall</span><span class="chip" data-i18n="pool.pill3">Beach Entry</span><span class="chip" data-i18n="pool.pill5">Tropical Landscaping</span></div>
       </div></article>
       <article class="cbeat" data-beat="1"><div class="cbeat-inner">
-        <div class="ey" data-i18n="wine.ey">The Wine Cellar</div>
-        <h2 class="cbeat-t"><span data-i18n="wine.h2a">A collection</span><br><span data-i18n="wine.h2b">worthy of <em>legends</em></span></h2>
-        <p class="cbeat-b" data-i18n="wine.body">The floor-to-ceiling glass-fronted wine wall is a showpiece of Casa Árbol — a theatre for your collection. Framed by crystal-backlit panels, each bottle is displayed as art.</p>
-        <ul class="cspecs"><li data-i18n="wine.s1">200+ bottle capacity with climate control</li><li data-i18n="wine.s3">Custom steel & glass racking system</li><li data-i18n="wine.s5">Direct access from the main dining area</li></ul>
-      </div></article>
-      <article class="cbeat" data-beat="2"><div class="cbeat-inner">
         <div class="ey" data-i18n="ome.ey">Casa Árbol Privilege</div>
         <h2 class="cbeat-t"><span data-i18n="ome.h2a">OMé Spa</span> <em data-i18n="ome.h2b">for Two</em></h2>
         <p class="cbeat-b" data-i18n="ome.body">OMé Spa is part of living at Casa Árbol. The award-winning wellness sanctuary at The Reef Playacar — minutes from your door — becomes an extension of the home. A full year of unlimited access, for two, included with the residence.</p>
@@ -1012,6 +1051,27 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
         </ul>
       </div></article>
       <div class="cenote-out" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CELLAR — the wall opens: a seam, two plaster halves slide apart, the backlight washes down the stone -->
+<section class="cellar" id="wine-cellar" data-chapter="cellar">
+  <div class="cellar-scroll">
+    <div class="cellar-lead" aria-hidden="true"></div>
+    <div class="cellar-pin">
+      <div class="cellar-fb" aria-hidden="true">
+        <picture class="fb-off"><source type="image/webp" srcset="/images/web/wine-wall-off-m.webp 1200w, /images/web/wine-wall-off.webp 2400w" sizes="100vw"><img src="/images/web/wine-wall-off-m.jpg" srcset="/images/web/wine-wall-off-m.jpg 1200w, /images/web/wine-wall-off.jpg 2400w" sizes="100vw" width="2400" height="1340" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAABQCACdASpAACQAPqVImkmmJKKhN/cYAMAUiWcAyjwWavPvv/e5HJDA4IbUj9yy8gRknzvzU7tVTEpVqoXWQybYAWe5Vq7gJfqj0gAA/uwcS8Ye6QYyeyKjScx6XIg3TUnY9KQ8hW85Cq3OLsIL2bTCLKWqb9cH+sq9nqn65myj0yzSzjFccVC2ftCmxzUAbBaDWd73NkMYOPMQPQ5htFOyyPmuw8ZR03/ZUbfCNFwyBKBcP0E0oU0xaWaR7WbRX7zXx52/WayfwYV6GcK+4PGhDa7cjlVAHzm6GGGFGEorIxG5Q7EAAA==) center/cover"></picture>
+        <picture class="fb-on"><source type="image/webp" srcset="/images/web/wine-wall-on-m.webp 1200w, /images/web/wine-wall-on.webp 2400w" sizes="100vw"><img src="/images/web/wine-wall-on-m.jpg" srcset="/images/web/wine-wall-on-m.jpg 1200w, /images/web/wine-wall-on.jpg 2400w" sizes="100vw" width="2400" height="1340" alt="The wine wall at Casa Árbol — bottles on a backlit stone wall behind a glass partition" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAAAQCgCdASpAACQAPqlGnEmmJCMhN/OaqMAVCWcAvRwLMvLsHq+8xJ9sSi0RPTtXyC3JYFpXSPf1x6RcOBF9nQVyQMdjjrQqo0LqTzXhKefmmN+3imYsE7pVAAD6ahXL64m8S3T72+97COoTrUOb0c153vSyzR7g1259NmeSYS5+oF5QuNN9Cakod/YuXx4mypvF1DkcLumVHHQmPkOJ6M0Bz2CHLwFpQVm2qGPyMogc1goo6NAZnspLQuqdV3eiR55MZU9TsTZyLXdyY9HvS6zZHhUo9hj/UsdKV3YJFivfiDf5LkoGbytPwEki0fc8qx5fHY9uEkvsHQRdJvLkpnAeE/AAAA==) center/cover"></picture>
+        <div class="fb-half fb-a"></div><div class="fb-half fb-b"></div>
+        <div class="fb-seam"></div>
+      </div>
+      <div class="cellar-txt">
+        <div class="ey" data-i18n="wine.ey">The Wine Cellar</div>
+        <h2 class="cellar-h2"><span data-i18n="wine.h2a">A collection</span><br><span data-i18n="wine.h2b">worthy of <em>legends</em></span></h2>
+        <p class="cellar-b" data-i18n="wine.body">The floor-to-ceiling glass-fronted wine wall is a showpiece of Casa Árbol — a theatre for your collection. Framed by crystal-backlit panels, each bottle is displayed as art.</p>
+        <ul class="cellar-specs"><li data-i18n="wine.s1">200+ bottle capacity with climate control</li><li data-i18n="wine.s3">Custom steel & glass racking system</li><li data-i18n="wine.s5">Direct access from the main dining area</li></ul>
+      </div>
     </div>
   </div>
 </section>
@@ -2988,7 +3048,7 @@ window.submitBrokerReferral = function(){
 // ── Depth gauge — layer names + moving marker; works in both stage and fallback mode ──
 (function(){
   var g=document.getElementById('gauge'); if(!g) return;
-  var names=['canopy','ground','inside','roots','cenote','surface'];
+  var names=['canopy','ground','inside','roots','cenote','cellar','surface'];
   var els=names.map(function(n){ return document.querySelector('[data-chapter="'+n+'"]'); });
   var items=Array.prototype.slice.call(g.querySelectorAll('li'));
   var marker=document.getElementById('gaugeMarker');
@@ -3007,7 +3067,7 @@ window.submitBrokerReferral = function(){
     for(var j=idx+1;j<tops.length;j++){ if(tops[j]!==null){ end=tops[j]; break; } }
     if(end===null) end=docH;
     var p=Math.min(1,Math.max(0,(y-start)/Math.max(1,end-start)));
-    var pos=idx>=5 ? 1 : (idx+p)/5;
+    var N=names.length-1; var pos=idx>=N ? 1 : (idx+p)/N;
     marker.style.setProperty('--p', pos.toFixed(4));
     items.forEach(function(li,i){ li.classList.toggle('active', i===idx); });
     document.documentElement.setAttribute('data-layer', names[idx]);
@@ -3221,7 +3281,7 @@ window.submitBrokerReferral = function(){
 (function(){
   var sec=document.getElementById('pool'); if(!sec) return;
   var scroll=sec.querySelector('.cenote-scroll'), pin=sec.querySelector('.cenote-pin'), beats=Array.prototype.slice.call(sec.querySelectorAll('.cbeat'));
-  var WIN=[[0.03,0.33],[0.37,0.65],[0.69,0.90]];
+  var WIN=[[0.03,0.46],[0.50,0.90]];
   var raf=0;
   function update(){
     raf=0;
@@ -3231,6 +3291,31 @@ window.submitBrokerReferral = function(){
     var on=r.top<vh&&r.bottom>0;
     beats.forEach(function(b,i){ b.classList.toggle('on', on && p>=WIN[i][0] && p<WIN[i][1]); });
     var o=Math.min(1,Math.max(0,(p-0.88)/0.12)); pin.style.setProperty('--co', (o*o).toFixed(3));
+  }
+  window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+<script>
+// ── Cellar: scroll progress → seam, halves, light, text; drives the CSS fallback too ──
+(function(){
+  var sec=document.getElementById('wine-cellar'); if(!sec||!sec.classList.contains('cellar')) return;
+  var scroll=sec.querySelector('.cellar-scroll'), pin=sec.querySelector('.cellar-pin');
+  function sm(a,b,x){ x=Math.min(1,Math.max(0,(x-a)/(b-a))); return x*x*(3-2*x); }
+  var raf=0;
+  function update(){
+    raf=0;
+    var r=scroll.getBoundingClientRect(), vh=innerHeight;
+    // p runs over the whole section: 0 when the wall's top edge is at the bottom of the screen (the cenote has just faded to chukum),
+    // ~0.24 when the wall is up and pinned, ~0.76 when Surface starts sliding over it.
+    var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
+    sec.__p=p;
+    // seam draws as the wall rises → halves part → light down the stone → text → halves close before Surface's heading reaches the wall
+    var seam=sm(0.05,0.23,p), gap=sm(0.24,0.44,p)*(1-sm(0.68,0.79,p)), light=sm(0.43,0.60,p);
+    sec.__t={seam:seam,gap:gap,light:light};
+    pin.style.setProperty('--seam',seam.toFixed(3)); pin.style.setProperty('--gap',gap.toFixed(3)); pin.style.setProperty('--wipe',light.toFixed(3));
+    sec.classList.toggle('txt-on', p>=0.56 && p<0.69);
   }
   window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
   window.addEventListener('resize', update);
@@ -3261,7 +3346,7 @@ if (window.CA_GL) {
     const el = document.querySelector(a.getAttribute('href'));
     if (!el) return;
     e.preventDefault();
-    lenis.scrollTo(el);
+    lenis.scrollTo(el);   // Lenis honours scroll-margin-top like native anchors
   });
 
   // Renderer — DPR capped at 1.5 on phones, 2 on desktop
@@ -3273,7 +3358,7 @@ if (window.CA_GL) {
   const CHUKUM = new THREE.Color('#EFE8DC'), WARM = new THREE.Color('#E9DFCD'), clear = CHUKUM.clone();
 
   // Scene manager
-  const ORDER = ['canopy', 'ground', 'inside', 'roots', 'cenote', 'surface'];
+  const ORDER = ['canopy', 'ground', 'inside', 'roots', 'cenote', 'cellar', 'surface'];
   const stage = { THREE, gsap, ScrollTrigger, lenis, renderer, phone, chapters: new Map(), depth: 0, width: 0, height: 0 };
   document.querySelectorAll('section[data-chapter]').forEach(el => {
     const name = el.dataset.chapter;
@@ -3931,8 +4016,8 @@ if (window.CA_GL) {
     }`;
   const WATER_FRAG = /* glsl */`
     precision highp float; varying vec2 vUv;
-    uniform sampler2D uPool, uWine, uRipple; uniform vec2 uRes, uWinPos, uWinSize;
-    uniform float uPoolAsp, uWineAsp, uWinAsp, uTime, uLook, uWineMix, uOut, uPhone, uTexel;
+    uniform sampler2D uPool, uRipple; uniform vec2 uRes;
+    uniform float uPoolAsp, uTime, uLook, uOut, uPhone, uTexel;
     float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
     vec2 hash2(vec2 p){ return fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453); }
     float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f); return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y); }
@@ -3976,14 +4061,6 @@ if (window.CA_GL) {
       }
       ray /= float(N) * (uPhone > 0.5 ? 0.3 : 0.55); ray *= 1.0 - abs(uv.x - L.x) * 0.8;
       col += vec3(1.0, 0.9, 0.7) * ray * 0.26 * (1.0 - sfc * 0.6);
-      // the wine cellar in a window whose edges ripple
-      vec2 wl = (uv - uWinPos) / uWinSize;
-      vec2 wd = wl + grad * 0.5 + vec2(noise(uv * 6.0 + uTime * 0.3) - 0.5, noise(uv * 6.0 + 7.0 - uTime * 0.25) - 0.5) * 0.05;
-      float inside = step(0.0, wd.x) * step(wd.x, 1.0) * step(0.0, wd.y) * step(wd.y, 1.0);
-      vec2 wuv = cover(wd, uWineAsp, uWinAsp, vec2(0.5, 0.5));
-      vec3 wine = texture2D(uWine, clamp(wuv, 0.001, 0.999)).rgb;
-      float edge = smoothstep(0.0, 0.07, min(min(wd.x, 1.0 - wd.x), min(wd.y, 1.0 - wd.y)));
-      col = mix(col, wine * (0.72 + 0.28 * edge), inside * edge * uWineMix);
       // grain, vignette, and the way back up to chukum
       col += (hash(gl_FragCoord.xy + fract(uTime) * 61.0) - 0.5) * 0.035;
       col *= 1.0 - 0.35 * smoothstep(0.5, 1.2, length((uv - 0.5) * vec2(1.2, 1.0)) * 1.4);
@@ -4009,17 +4086,14 @@ if (window.CA_GL) {
   const load = url => new Promise((res, rej) => loader.load(url, tex => { tex.colorSpace = THREE.NoColorSpace; tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = false; tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping; res(tex); }, undefined, rej));
   const smooth = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
   function layout(w, h) {
-    if (phone) { wu.uWinPos.value.set(0.10, 0.64); wu.uWinSize.value.set(0.80, 0.28); }
-    else { wu.uWinPos.value.set(0.56, 0.20); wu.uWinSize.value.set(0.36, 0.58); }
     wu.uRes.value.set(w, h);
-    wu.uWinAsp.value = (wu.uWinSize.value.x * w) / (wu.uWinSize.value.y * h);
     du.uAsp.value = w / h;
   }
   const api = {
     order: -1,
     disposable: true,
     async init(st) {
-      const [pt, wt] = await Promise.all([load(`/images/web/cenote-pool${phone ? '-m' : ''}.webp`), load(`/images/web/wine-cellar-m.webp`)]);
+      const pt = await load(`/images/web/cenote-pool${phone ? '-m' : ''}.webp`);
       for (let i = 0; i < 3; i++) rts.push(new THREE.WebGLRenderTarget(SIM, SIM, { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat, type: THREE.UnsignedByteType, depthBuffer: false, stencilBuffer: false }));
       // seed the targets at rest (0.5)
       simScene = new THREE.Scene();
@@ -4031,8 +4105,8 @@ if (window.CA_GL) {
       for (const rt of rts) { st.renderer.setRenderTarget(rt); st.renderer.render(fs, new THREE.Camera()); }
       st.renderer.setRenderTarget(null);
       scene = new THREE.Scene(); cam = new THREE.Camera();
-      wu = { uPool: {value: pt}, uWine: {value: wt}, uRipple: {value: rts[0].texture}, uRes: {value: new THREE.Vector2(1, 1)}, uWinPos: {value: new THREE.Vector2()}, uWinSize: {value: new THREE.Vector2()},
-             uPoolAsp: {value: pt.image.width / pt.image.height}, uWineAsp: {value: wt.image.width / wt.image.height}, uWinAsp: {value: 1}, uTime: {value: 0}, uLook: {value: 0.9}, uWineMix: {value: 0}, uOut: {value: 0}, uPhone: {value: phone ? 1 : 0}, uTexel: {value: 1 / SIM} };
+      wu = { uPool: {value: pt}, uRipple: {value: rts[0].texture}, uRes: {value: new THREE.Vector2(1, 1)},
+             uPoolAsp: {value: pt.image.width / pt.image.height}, uTime: {value: 0}, uLook: {value: 0.9}, uOut: {value: 0}, uPhone: {value: phone ? 1 : 0}, uTexel: {value: 1 / SIM} };
       water = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: QUAD_VERT, fragmentShader: WATER_FRAG, uniforms: wu, depthTest: false, depthWrite: false }));
       water.frustumCulled = false; scene.add(water);
       const N = phone ? 320 : 700, seed = new Float32Array(N * 3);
@@ -4051,8 +4125,7 @@ if (window.CA_GL) {
       t += dt; dt = Math.min(dt, 1 / 30);
       const p = sec.__p || 0;
       wu.uTime.value = t; du.uTime.value = t;
-      wu.uLook.value = 0.5 + 0.35 * (1 - smooth(0.33, 0.4, p)) + 0.25 * smooth(0.65, 0.7, p);
-      wu.uWineMix.value = smooth(0.37, 0.42, p) * (1 - smooth(0.62, 0.67, p));
+      wu.uLook.value = 0.85 - 0.25 * smooth(0.46, 0.52, p);
       wu.uOut.value = smooth(0.88, 1.0, p);
       // ripple sim: one step per frame; the pointer stirs the surface, and now and then a drop falls on its own
       const r = stage.renderer;
@@ -4075,8 +4148,8 @@ if (window.CA_GL) {
       renderer.render(scene, cam);
       renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
     },
-    debug() { return { ready, p: sec.__p, look: wu && wu.uLook.value, wine: wu && wu.uWineMix.value, out: wu && wu.uOut.value, sim: SIM }; },
-    dispose() { ready = false; rts.forEach(rt => rt.dispose()); rts = []; if (water) { water.geometry.dispose(); water.material.dispose(); wu.uPool.value.dispose(); wu.uWine.value.dispose(); } if (dust) { dust.geometry.dispose(); dust.material.dispose(); } if (simMat) simMat.dispose(); document.documentElement.classList.remove('cenote-live'); }
+    debug() { return { ready, p: sec.__p, look: wu && wu.uLook.value, out: wu && wu.uOut.value, sim: SIM }; },
+    dispose() { ready = false; rts.forEach(rt => rt.dispose()); rts = []; if (water) { water.geometry.dispose(); water.material.dispose(); wu.uPool.value.dispose(); } if (dust) { dust.geometry.dispose(); dust.material.dispose(); } if (simMat) simMat.dispose(); document.documentElement.classList.remove('cenote-live'); }
   };
   const setPointer = (cx, cy) => { const r = pin.getBoundingClientRect(); const x = (cx - r.left) / r.width, y = 1 - (cy - r.top) / r.height; if (x < 0 || x > 1 || y < 0 || y > 1) return; if (Math.hypot(x - pointer.lx, y - pointer.ly) > 0.004) { pointer.x = x; pointer.y = y; pointer.lx = x; pointer.ly = y; pointer.moved = true; } };
   addEventListener('pointermove', e => setPointer(e.clientX, e.clientY), {passive: true});
@@ -4174,6 +4247,106 @@ if (window.CA_GL) {
     dispose() { ready = false; geo && geo.dispose(); document.documentElement.classList.remove('surface-live'); }
   };
   stage.register('surface', api);
+}
+</script>
+
+<script type="module">
+// ── Chapter: CELLAR — the chukum page is the wall: a wood seam, two plaster halves part, the backlight washes down the stone; pointer parallax between glass and bottles ──
+if (window.CA_GL) {
+  const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
+  const {THREE} = stage;
+  const sec = document.getElementById('wine-cellar'), pin = sec.querySelector('.cellar-pin');
+  const phone = stage.phone;
+  const VERT = /* glsl */`varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
+  const FRAG = /* glsl */`
+    precision highp float; varying vec2 vUv;
+    uniform sampler2D uOff, uOn; uniform vec2 uRes, uPar; uniform float uAsp, uGap, uSeam, uLight, uTime, uVert;
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+    float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f); return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y); }
+    vec2 cover(vec2 uv, float a, float s, vec2 focus){ vec2 st = uv;
+      if (s > a) { float k = a / s; st.y = clamp(focus.y, k * 0.5, 1.0 - k * 0.5) + (uv.y - 0.5) * k; }
+      else { float k = s / a; st.x = clamp(focus.x, k * 0.5, 1.0 - k * 0.5) + (uv.x - 0.5) * k; }
+      return st; }
+    void main(){
+      vec2 uv = vUv; float s = uRes.x / uRes.y;
+      vec2 st = cover(uv, uAsp, s, vec2(0.62, 0.5));
+      // the glass wall in the photo (x 0.22–0.98, y 0.13–0.91 bottom-up): bottles move with the pointer, the glass front stays
+      float mask = smoothstep(0.19, 0.27, st.x) * smoothstep(1.0, 0.97, st.x) * smoothstep(0.08, 0.16, st.y) * smoothstep(0.94, 0.86, st.y);
+      vec2 back = clamp(st + (uPar / uRes) * mask, 0.001, 0.999);
+      vec3 off = texture2D(uOff, back).rgb, on = texture2D(uOn, back).rgb;
+      // warm the blue "off" photo toward dusk lilac / earth grey so it belongs to the palette
+      float l = dot(off, vec3(0.3, 0.59, 0.11));
+      vec3 tint = mix(vec3(0.34, 0.30, 0.28), vec3(0.561, 0.584, 0.769), smoothstep(0.15, 0.7, l));
+      off = mix(off, tint * (0.55 + 1.5 * l), 0.62);
+      // the light comes on the way it falls in the photo: down the stone from the ceiling slot
+      float front = 1.02 - uLight * 1.3;
+      float lit = smoothstep(front - 0.07, front + 0.07, st.y);
+      vec3 col = mix(off, on, lit);
+      float edge = exp(-pow((st.y - front) / 0.045, 2.0)) * step(0.001, uLight) * step(uLight, 0.999);
+      col += (vec3(1.0, 0.86, 0.62) * 0.28 + on * 0.3) * edge;                 // warm leading edge, slight bloom
+      // the glass front: a faint fixed layer of the same photo inside the partition
+      vec3 glass = texture2D(uOn, clamp(st, 0.001, 0.999)).rgb;
+      col += (glass - col) * 0.14 * mask;
+      // the wall: two plaster halves sliding apart (top/bottom on portrait screens)
+      float axis = uVert > 0.5 ? uv.y : uv.x, d = abs(axis - 0.5), gap = uGap * 0.5;
+      float plaster = uGap < 0.0005 ? 1.0 : smoothstep(gap - 0.0008, gap + 0.0008, d);
+      vec2 pq = uv * vec2(s, 1.0);
+      float pn = noise(pq * 48.0) * 0.45 + noise(pq * 11.0) * 0.55;
+      vec3 pl = vec3(0.937, 0.910, 0.863) * (1.0 - (0.038 - 0.05 * pn) * uSeam);
+      float reveal = smoothstep(gap + 0.014, gap, d) * plaster * smoothstep(0.0, 0.02, uGap);   // the thickness of the plaster at the inner edge, once it opens
+      pl *= 1.0 - 0.3 * reveal;
+      float shadow = smoothstep(gap + 0.10, gap, d) * (1.0 - plaster);          // the halves' soft shadow on the wall
+      col *= 1.0 - 0.42 * shadow * step(0.001, uGap);
+      col = mix(col, pl, plaster);
+      // the seam: a 1 px wood line drawing top → bottom before the wall opens
+      float along = uVert > 0.5 ? uv.x : (1.0 - uv.y);
+      float w = (uVert > 0.5 ? 1.0 / uRes.y : 1.0 / uRes.x);
+      float seam = (1.0 - smoothstep(w * 0.6, w * 1.6, d)) * step(along, uSeam) * (1.0 - smoothstep(0.0, 0.03, uGap));
+      col = mix(col, vec3(0.553, 0.408, 0.275), seam * 0.9);
+      col += (hash(gl_FragCoord.xy + fract(uTime) * 61.0) - 0.5) * 0.025;
+      gl_FragColor = vec4(col, 1.0);
+    }`;
+  let scene, cam, mesh, u, ready = false, t = 0;
+  const par = { x: 0, y: 0, tx: 0, ty: 0 };
+  const loader = new THREE.TextureLoader();
+  const load = url => new Promise((res, rej) => loader.load(url, tex => { tex.colorSpace = THREE.NoColorSpace; tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = false; res(tex); }, undefined, rej));
+  const api = {
+    order: -1, disposable: true,
+    async init(st) {
+      const sfx = phone ? '-m' : '';
+      const [off, on] = await Promise.all([load(`/images/web/wine-wall-off${sfx}.webp`), load(`/images/web/wine-wall-on${sfx}.webp`)]);
+      scene = new THREE.Scene(); cam = new THREE.Camera();
+      u = { uOff: {value: off}, uOn: {value: on}, uRes: {value: new THREE.Vector2(st.width, st.height)}, uPar: {value: new THREE.Vector2()}, uAsp: {value: on.image.width / on.image.height}, uGap: {value: 0}, uSeam: {value: 0}, uLight: {value: 0}, uTime: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0} };
+      mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms: u, depthTest: false, depthWrite: false }));
+      mesh.frustumCulled = false; scene.add(mesh);
+      ready = true; document.documentElement.classList.add('cellar-live');
+    },
+    resize(w, h) { if (u) { u.uRes.value.set(w, h); u.uVert.value = w < h ? 1 : 0; } },
+    update(progress, velocity, dt) {
+      if (!ready) return; t += dt; dt = Math.min(dt, 1 / 30);
+      const k = sec.__t || {seam: 0, gap: 0, light: 0};
+      u.uSeam.value = k.seam; u.uGap.value = k.gap; u.uLight.value = k.light; u.uTime.value = t;
+      par.x += (par.tx - par.x) * Math.min(1, dt * 5); par.y += (par.ty - par.y) * Math.min(1, dt * 5);
+      u.uPar.value.set(par.x, par.y);
+    },
+    render(renderer) {
+      if (!ready) return;
+      const r = pin.getBoundingClientRect(), vh = innerHeight, vw = innerWidth;
+      const top = Math.max(0, r.top), bottom = Math.min(vh, r.bottom);
+      if (bottom - top < 1) return;
+      renderer.setViewport(0, vh - r.top - r.height, vw, r.height);
+      renderer.setScissorTest(true); renderer.setScissor(0, vh - bottom, vw, bottom - top);
+      renderer.render(scene, cam);
+      renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
+    },
+    debug() { return { ready, p: sec.__p, ...(sec.__t || {}), par: [par.x, par.y] }; },
+    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mesh.material.dispose(); u.uOff.value.dispose(); u.uOn.value.dispose(); } document.documentElement.classList.remove('cellar-live'); }
+  };
+  // pointer → a gentle parallax between the glass and the bottles, 8 px at most
+  addEventListener('pointermove', e => { par.tx = (e.clientX / innerWidth - 0.5) * 16; par.ty = (0.5 - e.clientY / innerHeight) * 16; }, {passive: true});
+  addEventListener('touchmove', e => { const c = e.touches[0]; if (c) { par.tx = (c.clientX / innerWidth - 0.5) * 16; par.ty = (0.5 - c.clientY / innerHeight) * 16; } }, {passive: true});
+  document.addEventListener('mouseleave', () => { par.tx = par.ty = 0; });
+  stage.register('cellar', api);
 }
 </script>
 </body>

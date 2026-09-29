@@ -1,9 +1,10 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-10 — the cellar: wine moves out of the cenote into its own chapter, the wall opens, the backlight fills up (needs Ivana's 2 Gemini photos)
+- Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
 
 ## Done
+- STEP-10 — Cellar chapter (id wine-cellar) between cenote and surface, in the gauge and menu: wood seam draws, two plaster halves part (top/bottom on portrait), the backlight washes down the stone off → on with a warm leading edge, text on a chukum panel, pointer parallax glass/bottles ≤ 8 px, halves close and hand to Surface; cenote is pool → OMé; graded web versions of wine-wall-on/off; CSS clip-path fallback
 - STEP-09c — hero block anchored from the bottom (wordmark min(12.6vw, 22vh)), price clears the gauge; the rooms ribbon hangs from the measured title bottom (+32 px, shrinks on short screens), title on one line on desktop when it fits; rule added: text never overlaps a photo or WebGL image unless set on a panel
 - STEP-09b — Surface slides up over the fading cenote (−100svh overlap, transparent-to-chukum top, beats end 0.90 / fade 0.88→1, padding 10vh/8vh): no frame more than a third empty at 1440 and 390; vault beat on suite-vault-front (web versions, top-anchored crop); 9th ribbon photo suite-sculpted-wall with img.suite-sculpted EN/ES/FR; honest alt for the ground-floor room; anchors re-tuned
 - STEP-09 — QA pass (iPhone 12 / mid Android / 1440 / 1920 / fallback both sizes, throttled 4G): poster paints in 0.5–1.1 s, page never blank while WebGL loads, no console errors, flat memory over 3 up/down cycles, heavy chapters (ground, inside, cenote) now sleep off screen and wake from cache; ES/FR: no raw keys, no overflow (beat titles hyphenate); mailto forms, admin ⚙, Brokers Portal, #register-client and ?portal=brokers deep links all work. Open, scheduled: cenote→surface gap (09b), hero/gallery text vs images (09c). Not testable here: real-GPU fps, WhatsApp in-app browser

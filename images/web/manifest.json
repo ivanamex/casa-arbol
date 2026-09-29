@@ -403,5 +403,59 @@
    "bytes": 150045
   },
   "lqip": "data:image/webp;base64,UklGRoABAABXRUJQVlA4IHQBAACQCwCdASpAAC8APrVGnUmnI6KhN/VYAOAWiWMAo0ulBo4Aktem2xIdwguMQ2Zkhm25BRvOZny0KdgTh7joXQI1iv9I0HrymSh1qOFoMIXsV+xNjlFnvsl++BRtPt2ZVR4IyiPLOgDV6ZxRjMGzxZ7suYYOsfVRwSZOVe5KzKE+jRXQ58btrx5IXCdLZO1lSJ/iHCLjBUJg0HKO1zM1x/DwIWs2c7+jf4KqrhHKz+SjJLrnpL50wzCOs+NdiFDYiY6EsltlNYrhfstT8Rtnv8Y/6Ggt/BrC6Os8t1NCHBqa/6qssfZwvKklagDToni6JxQS/RbW+2qkyMmynRs60K4T5xDdICHCEhBNgSRx4ynsnF87v2YU+eU2V5pYH8q6v8hc6jyOr2CDAizyd4v/GuIfIaJkTGfQJSrHnGO231t/b0W38MwXQPSzeWVwnyCnv/h6hOdNpB540ROnjcx0LWg3lfMGQoc+W1j/G0B9IwE8jGtiAAA="
+ },
+ "wine-wall-on": {
+  "webp": {
+   "w": 2400,
+   "h": 1340,
+   "q": 82,
+   "bytes": 321046
+  },
+  "jpg": {
+   "w": 2400,
+   "h": 1340,
+   "q": 70,
+   "bytes": 360773
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 670,
+   "q": 82,
+   "bytes": 94604
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 670,
+   "q": 82,
+   "bytes": 141528
+  },
+  "lqip": "data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAAAQCgCdASpAACQAPqlGnEmmJCMhN/OaqMAVCWcAvRwLMvLsHq+8xJ9sSi0RPTtXyC3JYFpXSPf1x6RcOBF9nQVyQMdjjrQqo0LqTzXhKefmmN+3imYsE7pVAAD6ahXL64m8S3T72+97COoTrUOb0c153vSyzR7g1259NmeSYS5+oF5QuNN9Cakod/YuXx4mypvF1DkcLumVHHQmPkOJ6M0Bz2CHLwFpQVm2qGPyMogc1goo6NAZnspLQuqdV3eiR55MZU9TsTZyLXdyY9HvS6zZHhUo9hj/UsdKV3YJFivfiDf5LkoGbytPwEki0fc8qx5fHY9uEkvsHQRdJvLkpnAeE/AAAA=="
+ },
+ "wine-wall-off": {
+  "webp": {
+   "w": 2400,
+   "h": 1340,
+   "q": 82,
+   "bytes": 249558
+  },
+  "jpg": {
+   "w": 2400,
+   "h": 1340,
+   "q": 82,
+   "bytes": 408068
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 670,
+   "q": 82,
+   "bytes": 69758
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 670,
+   "q": 82,
+   "bytes": 116022
+  },
+  "lqip": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAABQCACdASpAACQAPqVImkmmJKKhN/cYAMAUiWcAyjwWavPvv/e5HJDA4IbUj9yy8gRknzvzU7tVTEpVqoXWQybYAWe5Vq7gJfqj0gAA/uwcS8Ye6QYyeyKjScx6XIg3TUnY9KQ8hW85Cq3OLsIL2bTCLKWqb9cH+sq9nqn65myj0yzSzjFccVC2ftCmxzUAbBaDWd73NkMYOPMQPQ5htFOyyPmuw8ZR03/ZUbfCNFwyBKBcP0E0oU0xaWaR7WbRX7zXx52/WayfwYV6GcK+4PGhDa7cjlVAHzm6GGGFGEorIxG5Q7EAAA=="
  }
 }
