@@ -14,6 +14,8 @@ Between the last cenote beat (OMé Spa) and the Surface heading ("Begin your Cas
 - `.surface-inner` padding-top: 10vh desktop, 8vh phone.
 - Recheck the anchors #wine-cellar / #ome-spa (top: calc(.37 / .69 …)) still land on their beats; adjust if the window change moves them.
 
+Note: STEP-10 later inserts the cellar chapter between cenote and Surface. Build the overlap so it works for whatever section follows the cenote.
+
 ## Done when
 At 1440×900 and 390×844, scrolling slowly from the OMé beat to the enquiry form, no frame shows more than about a third of the screen empty. The cenote still fades to light; nothing else changes.
 

@@ -5,6 +5,7 @@
 
 ## Next
 - STEP-09b — close the empty gap after the cenote + real brick-vault photo in the vault beat
+- STEP-10 — the cellar: wine moves out of the cenote into its own chapter, the wall opens, the backlight fills up (needs Ivana's 2 Gemini photos)
 
 ## Done
 - STEP-08 — Surface: light rising into chukum, lead.h2 huge, price + lines, two virtual-experience buttons, underline form with a Corten submit; enquiry + broker modals as a right-side chukum drawer; footer in sand with the small particle tree, contacts, portal, socials, EN/ES/FR, bottom line + 20°N signature; chapter menu on earth with contacts and languages on the side; WhatsApp Corten on hover
@@ -29,7 +30,7 @@
 ## Rules
 - Branch `redesign-webgl` only. Never push to main. One step at a time.
 - One file: index.html. Vanilla JS modules from CDN (Three.js, GSAP + ScrollTrigger, Lenis). No build, no npm, no React.
-- Concept: one continuous descent — canopy → house → rooms → roots → cenote → back to the surface.
+- Concept: one continuous descent — canopy → house → rooms → roots → cenote (pool, OMé) → cellar → back to the surface.
 - Palette (2026-09-29, from the renders): chukum #EFE8DC · sand #DFC9AB · wood #8D6846 · Corten #9A4A26 (only accent) · earth #2A1E15 · dusk lilac #8F95C4 (rare). Light site; the cenote is the one dark chapter. No teal, no petrol, no gold, no serif.
 - Type: Unbounded (display) + Sora (everything you read). Geist Mono only for the footer coordinates.
 - 20°N signature: the property's coordinates, small and quiet, in the footer next to "Site by 20°N" — never in the header or hero.
