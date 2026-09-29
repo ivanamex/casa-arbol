@@ -1,0 +1,353 @@
+{
+ "bathroom-guest-suite": {
+  "webp": {
+   "w": 2400,
+   "h": 1800,
+   "q": 74,
+   "bytes": 398862
+  },
+  "jpg": {
+   "w": 2400,
+   "h": 1800,
+   "q": 56,
+   "bytes": 396293
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 119064
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 74,
+   "bytes": 144744
+  },
+  "lqip": "data:image/webp;base64,UklGRmIBAABXRUJQVlA4IFYBAAAQCwCdASpAADAAPrVMokynI6MiLVM6SOAWiWMAtkfZRwQLXb3mudqTV3BIZAs3fXjFbP69Q9iX3DzDwvUE+QlnH+ii/qXvnebFXjcxvwgvLKE+3J2Gufbf9/Xk1VwTVn4AAP7XJv4vZzYniA2ei1IidRXPr7gKRalzsglpUmrW3GWbtAtims1YB/dHvMe0OpEUJIyqYsnxmVO9TCHmCUaqVt0RJ1PtI0/UbuVVT6sbekFzNMomrf5/3yziGFYLxRhIUuEvvAl5GCfzFMpfjp38e37l6rdt5DYvtD5JNSRW/Jqe2q8mENTl9IADD+auWw4S6ZGkC4pOA4Ij4O2WovtnJhAws1a9kMjI66f3lb77CVVrSCgAjvXzTdJ5VRQSS0q/8kdP+8uLLyEQ5jM97MmT7duQEj1wfIVm/XUYqTnyJtpv6JEhUir6p3K9nyGQpRQ0KxpOAAA="
+ },
+ "casa-arbol-exterior": {
+  "webp": {
+   "w": 1387,
+   "h": 1734,
+   "q": 68,
+   "bytes": 383280
+  },
+  "jpg": {
+   "w": 1387,
+   "h": 1734,
+   "q": 62,
+   "bytes": 406992
+  },
+  "webp-m": {
+   "w": 816,
+   "h": 1020,
+   "q": 62,
+   "bytes": 144382
+  },
+  "jpg-m": {
+   "w": 816,
+   "h": 1020,
+   "q": 56,
+   "bytes": 143562
+  },
+  "lqip": "data:image/webp;base64,UklGRvABAABXRUJQVlA4IOQBAABQDgCdASozAEAAPqVGmUmmJCKhN/asAMAUiUAYA/MCQg6n1+7Cr7DikYZv1r7RBA2Xj3f1aaXSVSxQGwHlDBgVOP27IjfNGq+rSNXnCvxYIgo2j+a6EVXth9FM88Hgr2POIt5btnmwP9ILeGyDQDIPvtHmT4eHHaZMIYAA/vlBR9kw+B9dmlzauY4g99AukPHd0KVpCzU0oo/We2GOOU05chzb948ptzHzSa9CBBdmsb9jvvcxyxHF3gdDJXq31vvM/sD++ygbAEpmKZYmaMyGZ96Np/qzyqTfkK7I+sa7SKa6hTizC3j8RtPCEU+1fwvC9XV/sLrXhmNGUWFH/BvE1Ct6tGfCz+zrLDpXoH2wpTRy5HTpwtyoqNJW22wS9fCPD0D0YwfQI0S+fw7XiJSO95V1UQNT+Ojyqejm1v/MB3Or3dk/2XReWJChA5b3dU1Qo0uBvfUP0BCjogIY0ag0G+wjTB8zG3YRoYSHGMqOJVdfbM2uBIfj/1GWhu5KrUapU7dlFxQ38r2Sihljfw3hKcgLhRP2HLA5vRxVvITdaWLEggf0Cz6j9JoOtJG4jMEXqmNUUdAjRFGKiUfwrtdmV1tHi/SgEnc0Sc254P9WtU9Ho+DUZhOX88PuEcB0MvlYh/AA"
+ },
+ "cenote-pool": {
+  "webp": {
+   "w": 900,
+   "h": 1485,
+   "q": 80,
+   "bytes": 153742
+  },
+  "jpg": {
+   "w": 900,
+   "h": 1485,
+   "q": 80,
+   "bytes": 175274
+  },
+  "webp-m": {
+   "w": 727,
+   "h": 1200,
+   "q": 80,
+   "bytes": 123738
+  },
+  "jpg-m": {
+   "w": 727,
+   "h": 1200,
+   "q": 74,
+   "bytes": 145911
+  },
+  "lqip": "data:image/webp;base64,UklGRkIBAABXRUJQVlA4IDYBAABwCgCdASonAEAAPrFInkmnJCKhMrbbMOAWCWIAszvRQNZgEp/rx2Z7gmD54gjS67UXhHm4HSHzyaJfRFNcFP7lq2O5DrpJCbJH1QbG0zz58aLngxW/NWY39Ve1wAD+Z8pVisEHKyLt+ihzDmqDmqX7bZzHtbLgwnxgCnXDjBYlMA1KYipGtek68nVQie8TDYfhi2/A/hrRctBGreeE3eTYKiE574bHXhmyRDmd6PsqVO4/TW6Oq/20YmqZNAwZuANzeOTT9pPgKdPI6jePELlV3P74JoweQnd/1eNsFG0V6A4ZLCFBcQ2G62FxYuLoxyqoiJCjLXGlmeur9xyoDfHrUz5sIQ71WcdQaoyqH7rvVYKF7IPYmbmHp90F7JiZ0TEsEK2uJchviHLT9cFE3mNB74byiAAA"
+ },
+ "kitchen": {
+  "webp": {
+   "w": 1024,
+   "h": 1536,
+   "q": 80,
+   "bytes": 52214
+  },
+  "jpg": {
+   "w": 1024,
+   "h": 1536,
+   "q": 80,
+   "bytes": 129436
+  },
+  "webp-m": {
+   "w": 800,
+   "h": 1200,
+   "q": 80,
+   "bytes": 31754
+  },
+  "jpg-m": {
+   "w": 800,
+   "h": 1200,
+   "q": 80,
+   "bytes": 84008
+  },
+  "lqip": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4IPYAAADQCgCdASorAEAAPqFCmEmmJCKhN/jtUMAUCWUAyFRWR+e3TPSGaIBjlLTVRXS8j3wzNJGDZnylHO5w7atkQBpRnrjnwdTHzrloWAQ/KCtHo2o0v4b1UtgwyV4eJBUEAAD+kEPc1X2a64SKgrWlyG7YkmGu7wSBS9h7WvnJiGifzbrYyfSNeOk8Gw2hMZULxiWz4GlONA3xOzJJOmjdPrkkJg1KzszeUIi1S2gQYzYjwvjsc8ELGif2rW/i6pfyP9VqxJ1d5fzSCATSmwFNWBOlPNAqeIuEyQoRE2W9sDKm+vnn4TGiA8ElpjH+kBAgsJDosxMQAAA="
+ },
+ "master-suite": {
+  "webp": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 154540
+  },
+  "jpg": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 156738
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 74,
+   "bytes": 126864
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 74,
+   "bytes": 148888
+  },
+  "lqip": "data:image/webp;base64,UklGRnIBAABXRUJQVlA4IGYBAAAQCwCdASpAADAAPrVIoUunI6MhqBVeMOAWiWMAxyfyT4l8gCCSFyawRUhsuiCIYbsjVMajP9C6LaJ+qUtafQydWqa9ceEywzQ4FrOciFFclp73kAy2p3MSKgm9Cpt3oS+QAP5IzISElV2ZS/4AJ/8yU1Zy3CoV6qoEPAvAiGhV1ocHxm3EVUFjf6C3kak44DRBrOsN7fQhOya4khnkttAcg3DkhutmLb7/MRY714m/mdfkf3UFqy56s6NNAp7slHkhuAdpFWB6xiRFA9DpYFBLwECWzArkcWk5iFx++DvbvI9yzPh+FcSMCrUDgci9dgLxS/6usAAY4YEQfrATYTpiMaf3kY+gl0T1+zzwHubuqI9eAraHxhAKDOpCIPPBSXgZQBxj78xUfZIKhjQAKwRewrJcvnr/iEQ067PREtBCCKwyi8QDUmPE6cW8Z5T5Pjo6kgG7GPNxMS3OIi8Se9X6+FGGk4AA"
+ },
+ "room-1-ground-floor": {
+  "webp": {
+   "w": 2400,
+   "h": 1800,
+   "q": 62,
+   "bytes": 379272
+  },
+  "jpg": {
+   "w": 2040,
+   "h": 1530,
+   "q": 68,
+   "bytes": 396728
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 129988
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 68,
+   "bytes": 136104
+  },
+  "lqip": "data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA"
+ },
+ "room-2-guest-suite-1": {
+  "webp": {
+   "w": 2040,
+   "h": 1530,
+   "q": 62,
+   "bytes": 401626
+  },
+  "jpg": {
+   "w": 1734,
+   "h": 1300,
+   "q": 68,
+   "bytes": 396161
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 62,
+   "bytes": 148022
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 52,
+   "bytes": 151463
+  },
+  "lqip": "data:image/webp;base64,UklGRnoBAABXRUJQVlA4IG4BAABwCwCdASpAADAAPrVMoEynI6MiJXgOYOAWiWMAuzAL6QmBSkMas0xz6hHA1dpP2nRHh45VT9QJOiNQJqOvvpeZ1EG4zqqKfLM+WSJY2XJJaUogFr+cRVteRpLmcmgjDCFE3WUAAPv0ejS0RBaYtVIEoU39jIOtJBfMz+HdAWlH3SuF/46nkceY5WKXr8uX/a4ixx9yh/xbSQTwQ5+q+pNjI1SEtTkcZmHafcpF3M+FUnhJzGk+UZdbTLVVoco5e7Cp+Ha9yLPm6CkMHnVVJi52aA8Yvki9zsE8HaVVovzqAqnZHLUQKKFQBZT4m/cnSdmnruFV/pCtyAcgj1Tyco6eaOm06SeaRTDxaZ8YGsBhrj6f+YbaJK8dv64kptgGQq11WV1piu8ooNq1kb7fPnkY4F08KtwkOTB0AW4TYRETPTLpyEvhwEB9sZ9NPaNIhmwtssCNzrzTMXLWAUGYJipOrDI+Lx0RV9WNjrhSAAA="
+ },
+ "room-2-guest-suite-2": {
+  "webp": {
+   "w": 2040,
+   "h": 1530,
+   "q": 68,
+   "bytes": 385990
+  },
+  "jpg": {
+   "w": 2040,
+   "h": 1530,
+   "q": 56,
+   "bytes": 408508
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 68,
+   "bytes": 145958
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 56,
+   "bytes": 150895
+  },
+  "lqip": "data:image/webp;base64,UklGRnABAABXRUJQVlA4IGQBAADwCwCdASpAADAAPqFEmEmmJCKhN/cdUMAUCWMApAAKEfF+8IgIZHPm1BjOWSUkbkpJOa3OuJv7RW7lZM7uv1gn9+vIOQY0BJ+aiSd1cVegHxG6UY0vu/af4+OhunXw+cTlviDsoARTAAD+zWCYvqZUUKjkeUWi4s7Iq1E5Yvl44arGGb5t1PMZyC+QnHChuNWkYcTISmnVMJ47wQj6khb6AoV29UWK8pKiYF+DW8jAbmEIHEXF9Qm+ocPr3orQYin669kN7gIm7vwDjzGup81hcfUQI4NHk+W5gPEDxX729XvuzkYJXWFOuOACWOeOQJpIvFgXqbNxLnT3gVWW6S3uklrbNDnJBH2BbHr9dz7c87yvL5/0B9IiwNjg/nSO8k4w8iBkoj8013gKEFECWKDo9fMBqIAUEtWXW8fv6dx3t+WADnyBke/RDnczYCX5Yu9TQVaP17B/uCwjI9Fq3HcXjAAAAA=="
+ },
+ "room-3-upper-suite-1": {
+  "webp": {
+   "w": 2400,
+   "h": 1800,
+   "q": 68,
+   "bytes": 369496
+  },
+  "jpg": {
+   "w": 2040,
+   "h": 1530,
+   "q": 68,
+   "bytes": 397463
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 132976
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 68,
+   "bytes": 143072
+  },
+  "lqip": "data:image/webp;base64,UklGRl4BAABXRUJQVlA4IFIBAADwCgCdASpAADAAPrVOnkunJCKhqrv8AOAWiWMAvYwBjS0JyeKtLQjxT65hm2CoUH4AFaqRZtGnEnk7kcfZemqTGepB5hq+coYUg+r3hSgRddBBhjRMIZDkCh/r+3KFpwAA5hE2Fl2OB5KZkfnwkZpvgWfXG1WW7dwbcu+ZSTQCQdNLzA2Lf7gHF+wJn9EYV8lOR8CN4VaK9qFL9nKtsCLQXphkdjzfDriYvQ6KL06xRwdKzmm3k35HxFirg+Txjcbwo6lv0RK0G3/0e/3Py7I9+P4/e8lwrXQ6qoAhoiaOIxBQ2AhZS2iUTaHVvcln71SOVrQXIlN7u6Q9RbKUBFi8I894lKu7p5HNfhrNoqI5w+oTX2aMylsvSDBZQ/GYYRWTaYBvQ4IL8Q+tQPqohpxKDVhPhuW69z5fNoMDEc1Ycgy1mNJoUYHdkzsNxf28DIAAAA=="
+ },
+ "room-3-upper-suite-2": {
+  "webp": {
+   "w": 2400,
+   "h": 1800,
+   "q": 74,
+   "bytes": 380454
+  },
+  "jpg": {
+   "w": 2400,
+   "h": 1800,
+   "q": 52,
+   "bytes": 402595
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 135048
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 68,
+   "bytes": 147343
+  },
+  "lqip": "data:image/webp;base64,UklGRpgBAABXRUJQVlA4IIwBAAAQDACdASpAADAAPrVOn0qnJCKhqrgM+OAWiUAYoYfJNC+3TYBm2o2SUJLEZGL72ImFzQXIhz7IEEiufkIKJjSTlD7IktSGIRMXsp/3OI+ypbuI2KF1dg6ZkVtkcEi0GqAddZKx5obeVEAA/tN+1NYDu2RYsvhTPCP27oSqPfFn3kowYEG6RPqDHBuB8tA20efhsTVC8WSRat4g52wtVNGCoeQBEayzcP/CFnDyTLpSEZEYO+CS/8illxF6TLoGNoJofn5a3cz8AmCH/kHhb0l4VEZSPupsmDhu6SDXYrCEXL74L/frxaScVhNXtK/+11BvSkfZ+NOZeRS+M/zSLf3ZPXRvZa4O4kaKP3ePltSkV3j2k0QqfDJdeOmkl8ocbV0BDKpCLoH2Wcn95apQyhc1JJTk3vnNpJB46JJZHOWBPIkG0xPZUgbT1Bh6mdkCcDK90ACLWM+GurMk8P6aigBKiRK/xfviYStdli/mlKMORpKNdRR6gDebuZdKj22ehhV00TRZwbxMQIHZAAA="
+ },
+ "room-3-upper-suite-3": {
+  "webp": {
+   "w": 2400,
+   "h": 1800,
+   "q": 52,
+   "bytes": 403620
+  },
+  "jpg": {
+   "w": 2040,
+   "h": 1530,
+   "q": 56,
+   "bytes": 380828
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 74,
+   "bytes": 137370
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 62,
+   "bytes": 146043
+  },
+  "lqip": "data:image/webp;base64,UklGRnQBAABXRUJQVlA4IGgBAACQCwCdASpAADAAPrVSo02nJCMiJXgMAOAWiWMAuzN1gkq3PUnDgNoLJbM+0Ut5L+845b3gD+1buYrSKrbi+UQMJ2sGGg9VSs8NCQxwCbFV4Siz5pOig+Pr8n6xtAQUhgaTxStSAAD+zaweguw9HbVLDWqA54Mf1VLAqwLn70Y+rImSLs/ulljDakMdMv4TwN4UjnlagFJHco3aDrhh0iTng9Gg3rXpNtTmAqzcqQWnUEb4LgHDFFVmP9ErlZGGz0UNAWOp5F0QkGAsehfiefxjblKGFlKRcMgoWePvt4+fQBAnNjGppvzG8UWcCjEpQT+m+xirtm5yt7mnd18N6Dxhss40TEn7G9hwU8QuARjEfZ3CpwI2GsfMM7w+Y4sUvPcz3aG0xEX/BI/U8UWoP5vO5p5Rwy+PNMQR/4uDuweEq/964sw741t09elKR3/58WLtdNR638eCYGsGGxLV7N0if/RffQWsAAA="
+ },
+ "tour-preview": {
+  "webp": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 142648
+  },
+  "jpg": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 148381
+  },
+  "webp-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 142648
+  },
+  "jpg-m": {
+   "w": 1200,
+   "h": 900,
+   "q": 80,
+   "bytes": 148381
+  },
+  "lqip": "data:image/webp;base64,UklGRloBAABXRUJQVlA4IE4BAABwCwCdASpAADAAPp1AmUmlpCKhN/jtULATiWMAsR/V0KJbQUXzSpVaPJEKDMlJ4RbkCr3uBd38PE6VTh3YlCvGUEMx0PSYVZYZU5RKeTu9YG731mu0CgGXpekPnLJJnWPMHnfwAP6G3y0OXyNZmkJJ2S2qj8sSrdu50ejal+hooawH+cHQAIPr6e/L2pAnOwnECzUPTnhY24qka6NyolmlDigqUXO21JtPt+4gGUC1ZOlAhKlMFXBnQhLURIP5JYLOLkGFpfmssTjh7B21/9jd2rBX6NzLZ1zwmfBBmT+ZmP8bnARF4v4MF/afVEpeZYVU3QZv5/NOkOzbufq+qD12pG7DNJUvD8dmc3pgws1JabFgAgcvLYrKC/42AKQl2RApwZGFNCjlELCUxDHL/1GX/mnpYCvekJ0MumV6Wow5FfNvb50Me6MTmKR+gAAA"
+ },
+ "wine-cellar": {
+  "webp": {
+   "w": 765,
+   "h": 1381,
+   "q": 80,
+   "bytes": 109612
+  },
+  "jpg": {
+   "w": 765,
+   "h": 1381,
+   "q": 80,
+   "bytes": 175795
+  },
+  "webp-m": {
+   "w": 665,
+   "h": 1200,
+   "q": 80,
+   "bytes": 88436
+  },
+  "jpg-m": {
+   "w": 665,
+   "h": 1200,
+   "q": 80,
+   "bytes": 131896
+  },
+  "lqip": "data:image/webp;base64,UklGRioBAABXRUJQVlA4IB4BAABwCgCdASojAEAAPqlIm0mmJKKhNVn4AMAVCWcAxnwZI7MFQkCwILSktyT1q/RjaDcWOx9L0748fUmxp3jkdgJ0t9XgapbC6IkIjlInqQyvL83xXIg51/yxC9B7wAD5Wpt8yK4LLwjfbrojlsQHYbaqXrOqcioDjGJA5bFPojo9CimterRL/bhqVPVLKjvmbqINq4ggjj6ULLYknc60ISq34WbklmepFlDNVj6hgCs8kPF58O/V+jdfIrQOKBSNv+EJ5YIIAbMx+6kzPnHrp7RyOtCF6mhit7DfLB9GLrXIqzqOJNAl7cDkzDAbksbTYwAPDgJXTMWhH0+W9DOyFNauQclqcI909Q4IXyP55j0JG77EvqYPHgFlt58SpAAA"
+ }
+}
