@@ -191,7 +191,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400&family=Geist:wght@400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400&family=Sora:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
 <link rel="preload" as="image" type="image/webp" imagesrcset="/images/web/casa-arbol-exterior-m.webp 816w, /images/web/casa-arbol-exterior.webp 1387w" imagesizes="100vw" fetchpriority="high">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <script>
@@ -217,7 +217,7 @@
   --abyss:#03161B; --deep:#0A3440; --cenote:#2FD4C4; --limestone:#EDE6D8; --sunlight:#FFE3AE;
   --text:var(--limestone); --text-2:rgba(237,230,216,.78); --text-3:rgba(237,230,216,.5);
   --line:rgba(237,230,216,.12); --surface:var(--deep); --surface-2:#072830;
-  --font-display:'Unbounded',sans-serif; --font-body:'Geist',sans-serif; --font-mono:'Geist Mono',ui-monospace,monospace;
+  --font-display:'Unbounded',sans-serif; --font-body:'Sora',sans-serif; --font-coords:'Geist Mono',ui-monospace,monospace; /* --font-coords: footer 20°N signature only */
   /* legacy tokens, remapped so modal / broker / admin components keep rendering */
   --bg:var(--abyss); --bg2:var(--surface-2); --ink:var(--limestone); --ink2:var(--text-2);
   --gold:var(--cenote); --gold-lt:var(--sunlight); --warm:var(--cenote); --sand:rgba(237,230,216,.6);
@@ -253,17 +253,17 @@ html.no-gl .hero-mark{display:block}
 @keyframes markDraw{to{stroke-dashoffset:0}}
 @keyframes markFill{to{fill:rgba(237,230,216,.92);stroke:rgba(237,230,216,0)}}
 .hero-content{position:absolute;left:0;right:0;top:60vh;z-index:2;padding:0 5vw;text-align:center;opacity:0;transform:translateY(18px);transition:opacity 1.6s ease,transform 1.6s cubic-bezier(.16,1,.3,1)}
-.hero-meta{position:absolute;left:0;right:0;bottom:30px;z-index:2;display:flex;justify-content:space-between;gap:16px;padding:0 5vw;font-family:var(--font-mono);font-size:12px;color:var(--text-3);opacity:0;transition:opacity 1.6s ease .3s}
+.hero-meta{position:absolute;left:0;right:0;bottom:30px;z-index:2;display:flex;justify-content:flex-end;gap:16px;padding:0 5vw;font-family:var(--font-body);font-size:12px;color:var(--text-3);opacity:0;transition:opacity 1.6s ease .3s}
 html.canopy-ready .hero-content{opacity:1;transform:none}
 html.canopy-ready .hero-meta{opacity:1}
 .hero-h1{font-family:var(--font-display);font-size:clamp(2.6rem,12.6vw,12.5rem);font-weight:200;line-height:1;letter-spacing:-.04em;color:var(--text);margin:0 0 18px}
 .hero-h1 em{color:var(--sunlight)}
-.hero-sub{font-family:var(--font-body);font-size:clamp(.95rem,1.1vw,1.1rem);line-height:1.7;color:var(--text-2);max-width:560px;margin:0 auto}
+.hero-sub{font-family:var(--font-body);font-weight:300;font-size:clamp(1.05rem,1.4vw,1.35rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0 auto}
 @media(max-width:768px){
   .hero-mark{top:14vh;width:74vw}
   .hero-content{top:54vh;padding:0 6vw}
-  .hero-sub{font-size:.95rem;max-width:420px}
-  .hero-meta{bottom:calc(58px + env(safe-area-inset-bottom));flex-direction:column;align-items:flex-start;gap:4px;font-size:11px}
+  .hero-sub{font-size:1.05rem;max-width:34ch}
+  .hero-meta{bottom:calc(58px + env(safe-area-inset-bottom));font-size:11.5px}
 }
 @media(prefers-reduced-motion:reduce){
   .hero-mark{animation:none;stroke-dashoffset:0;fill:rgba(237,230,216,.92);stroke:transparent}
@@ -295,15 +295,15 @@ html.ground-live .ground-poster{opacity:0}
 .beat.active{opacity:1;transform:translateY(-50%);pointer-events:auto}
 .beat.past{transform:translateY(calc(-50% - 40px))}
 .beat-t{font-family:var(--font-display);font-weight:300;font-size:clamp(2.6rem,7.4vw,6.8rem);line-height:.98;letter-spacing:-.04em;text-transform:lowercase;color:var(--text);margin:0 0 24px}
-.beat-b{font-size:clamp(1rem,1.15vw,1.15rem);line-height:1.65;color:var(--text-2);max-width:38ch}
-.ground-facts{position:absolute;font-family:var(--font-mono);font-size:12.5px;color:var(--text-3);opacity:0;transition:opacity .6s ease;pointer-events:none;margin:0}
-.beat-idx{display:block;font-family:var(--font-mono);font-size:12.5px;color:var(--text-3);margin-bottom:22px}
+.beat-b{font-weight:300;font-size:clamp(1.05rem,1.4vw,1.35rem);line-height:1.5;color:var(--text-2);max-width:40ch}
+.ground-facts{position:absolute;font-family:var(--font-body);font-size:12.5px;color:var(--text-3);opacity:0;transition:opacity .6s ease;pointer-events:none;margin:0}
+.beat-idx{display:block;font-family:var(--font-body);font-size:12.5px;color:var(--text-3);margin-bottom:22px}
 .ground-facts{left:5vw;bottom:34px}
 .ground.in .ground-facts{opacity:1}
 @media(max-width:768px){
   .beat{left:6vw;right:6vw;top:46%}
   .beat-t{font-size:clamp(2.3rem,11.5vw,4.2rem);margin-bottom:18px}
-  .beat-b{font-size:1rem;max-width:none}
+  .beat-b{font-size:1.05rem;max-width:none}
   .ground-pin::before{background:linear-gradient(to top,rgba(3,22,27,.88),rgba(3,22,27,.45) 45%,rgba(3,22,27,.1) 75%,transparent)}
   .ground-facts{left:6vw;right:6vw;bottom:calc(56px + env(safe-area-inset-bottom));line-height:1.6;font-size:11.5px}
 }
@@ -731,10 +731,11 @@ html.lenis,html.lenis body{height:auto}
 h2.serif,.pool-big,.ve-head h2,.modal h3,.plans-card-head,.stack-counter,.stat-n,.lead-price-amt,.f-tagline,.success,.br-ok .msg,.ve-sub,.h-scroll-track,.lead::before{font-family:var(--font-display);letter-spacing:-.04em;font-weight:200}
 h2.serif{font-size:clamp(2.2rem,5vw,4.2rem);line-height:1.05}
 h2.serif em,.ve-head h2 em,.pool-big strong{color:var(--cenote)}
-.body-t,.lead-p,.fc-ds,.ome-perk-note,.oc-body{color:var(--text-2);opacity:1;font-size:.92rem;line-height:1.75}
+.body-t,.lead-p,.fc-ds,.ome-perk-note,.oc-body{color:var(--text-2);opacity:1;font-size:.95rem;line-height:1.6}
+.body-t{font-weight:300;font-size:clamp(1.05rem,1.4vw,1.35rem);line-height:1.5;max-width:40ch}
 .body-t{max-width:520px}
 /* Small labels: Geist Mono 12–13 px, no tracked caps */
-.ey,.hero-ey,.stat-l,.f-head,.f label,.modal-sub,.pill,.gi-cap,.ve-lbl,.ve-meta,.drag-hint,.fi-rm,.plans-card-sub,.f-bottom-l,.lead-price-ccy,.mi,.kitch-mi,.br-sec,.bpm-opt-t,.bpm-share-l,.ltbl th,.bsm,.f-lang button,.f-broker,.bpm-copy,.adm-btn,.f-contact b,.cline,.gi-cap,.wine-specs li{font-family:var(--font-mono);font-size:12.5px;letter-spacing:0;text-transform:none;font-weight:400}
+.ey,.hero-ey,.stat-l,.f-head,.f label,.modal-sub,.pill,.gi-cap,.ve-lbl,.ve-meta,.drag-hint,.fi-rm,.plans-card-sub,.f-bottom-l,.lead-price-ccy,.mi,.kitch-mi,.br-sec,.bpm-opt-t,.bpm-share-l,.ltbl th,.bsm,.f-lang button,.f-broker,.bpm-copy,.adm-btn,.f-contact b,.cline,.gi-cap,.wine-specs li{font-family:var(--font-body);font-size:12.5px;letter-spacing:0;text-transform:none;font-weight:400}
 .ey,.hero-ey{color:var(--cenote)}
 .ey::before,.hero-ey::before{background:var(--cenote)}
 .mi,.kitch-mi{font-size:13px;color:var(--text-3)}
@@ -759,7 +760,7 @@ nav.sc{padding:12px 24px}
 .nav-name{font-family:var(--font-display);font-weight:300;font-size:15px;letter-spacing:-.02em;color:var(--text);white-space:nowrap}
 .nav-right{display:flex;align-items:center;gap:clamp(8px,1.4vw,20px)}
 .lang-sw{display:flex;gap:2px;align-items:center}
-.lang-btn{background:none;border:1px solid transparent;border-radius:3px;color:var(--text-3);font-family:var(--font-mono);font-size:12px;padding:5px 7px;cursor:pointer;transition:color .3s,border-color .3s}
+.lang-btn{background:none;border:1px solid transparent;border-radius:3px;color:var(--text-3);font-family:var(--font-body);font-size:12px;padding:5px 7px;cursor:pointer;transition:color .3s,border-color .3s}
 .lang-btn:hover{color:var(--text)}
 .lang-btn.active{color:var(--cenote);border-color:rgba(47,212,196,.35)}
 .nav-cta{font-family:var(--font-body);font-weight:500;font-size:13px;color:var(--text);background:none;border:1px solid rgba(237,230,216,.3);padding:8px 16px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .3s,color .3s,border-color .3s}
@@ -786,7 +787,7 @@ body.nav-open{overflow:hidden}
 body.nav-open nav{transform:none!important;filter:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
 
 /* Depth gauge — the scroll indicator */
-.gauge{position:fixed;z-index:150;pointer-events:none;font-family:var(--font-mono);font-size:12px;color:var(--text-3);text-shadow:0 1px 10px rgba(3,22,27,.9)}
+.gauge{position:fixed;z-index:150;pointer-events:none;font-family:var(--font-body);font-weight:400;font-size:12px;color:var(--text-3);text-shadow:0 1px 10px rgba(3,22,27,.9)}
 .gauge-layers{margin:0;padding:0;list-style:none}
 .gauge li{position:absolute;pointer-events:auto;cursor:pointer;white-space:nowrap;transition:color .4s ease}
 .gauge li:hover{color:var(--text-2)}
@@ -805,7 +806,7 @@ body.nav-open nav{transform:none!important;filter:none!important;-webkit-backdro
   .gauge-line{left:0;right:0;bottom:0;height:1px}
   .gauge-marker{left:calc(7% + var(--p,0)*86%);bottom:-3px;transform:translateX(-50%);transition:left .12s linear}
   .gauge-layers{position:absolute;left:0;right:0;bottom:9px}
-  .gauge li{font-size:10.5px;left:calc(7% + var(--i)*17.2%);transform:translateX(-50%)}
+  .gauge li{font-size:11px;left:calc(7% + var(--i)*17.2%);transform:translateX(-50%)}
 }
 body.nav-open .gauge{opacity:0;transition:opacity .2s}
 
@@ -965,7 +966,6 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
     <p class="hero-sub" data-i18n="hero.sub">Where memories are made. Where generations grow. A home everyone wishes were theirs. Shoes optional. The beach is that close.</p>
   </div>
   <div class="hero-meta" aria-hidden="true">
-    <span class="hero-coords">20.6°N · 87.1°W — Playacar Fase II, Riviera Maya</span>
     <span class="hero-price">$1.675M USD</span>
   </div>
 </section>
