@@ -773,7 +773,9 @@ nav.sc{padding:12px 24px}
 .nav-burger{display:inline-flex;align-items:center;gap:9px;background:none;border:0;color:var(--text);font-family:var(--font-body);font-weight:500;font-size:13px;cursor:pointer;padding:8px 2px 8px 6px}
 .nav-burger::after{content:'';display:block;width:18px;height:1px;background:currentColor;box-shadow:0 5px 0 currentColor;transform:translateY(-2.5px)}
 @media(max-width:768px){nav{padding:14px 16px}nav.sc{padding:10px 16px}}
-@media(max-width:640px){nav>.nav-right>.lang-sw{display:none}.nav-cta{padding:7px 12px;font-size:12.5px}}
+@media(max-width:640px){.nav-right{gap:8px}nav>.nav-right>.lang-sw{gap:0}nav>.nav-right>.lang-sw .lang-btn{font-size:11.5px;padding:6px 5px}.nav-cta{padding:7px 11px;font-size:12px}.nav-burger{gap:6px;padding:8px 0 8px 2px}}
+@media(max-width:520px){nav .nav-name{display:none}}   /* phones: the mark alone, so EN · ES · FR fit beside the enquiry button */
+@media(max-width:359px){.nav-burger>span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}   /* the narrowest phones: the menu icon alone (the label stays for screen readers) */
 @media(max-width:380px){.nav-name{display:none}}
 /* Menu drawer — full screen, all widths */
 .nav-drawer{display:none}
@@ -3266,6 +3268,8 @@ window.submitBrokerReferral = function(){
   var pin=sec.querySelector('.roots-pin'), svg=document.getElementById('rootsSvg');
   var sysEls=Array.prototype.slice.call(sec.querySelectorAll('.root-sys')), cta=sec.querySelector('.roots-cta');
   var LAND=[0.30,0.47,0.64,0.80];                       // scroll progress at which each main root lands
+  var LAND_PHONE=[0.12,0.33,0.54,0.75];                 // phones: the first system lands within half a screen, no empty stretch under the heading
+  function landAt(ph){ return ph ? LAND_PHONE : LAND; }
   function rng(seed){ var t=seed>>>0; return function(){ t+=0x6D2B79F5; var r=Math.imul(t^(t>>>15),1|t); r^=r+Math.imul(r^(r>>>7),61|r); return ((r^(r>>>14))>>>0)/4294967296; }; }
   function bez(p0,p1,p2,p3,t){ var u=1-t; return [u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0], u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]]; }
   function qbez(p0,p1,p2,t){ var u=1-t; return [u*u*p0[0]+2*u*t*p1[0]+t*t*p2[0], u*u*p0[1]+2*u*t*p1[1]+t*t*p2[1]]; }
@@ -3295,8 +3299,8 @@ window.submitBrokerReferral = function(){
       var S=[starts[i]*W,-0.02*H], T=[targets[i][0]*W,targets[i][1]*H], dy=T[1]-S[1];
       var P1=[S[0]+(R()-0.5)*0.18*W, S[1]+dy*(0.35+R()*0.15)], P2=[T[0]+(R()-0.5)*0.22*W, T[1]-dy*(0.30+R()*0.15)];
       var pts=[]; for(var j=0;j<=48;j++){ var t=j/48, p=bez(S,P1,P2,T,t); p[0]+=Math.sin(t*9+i*2)*W*0.008*(1-t); pts.push(p); }
-      var e=LAND[i], st=Math.max(0,e-0.34);
-      branch(pts, 2.4, 1.0, st, e, 0);
+      var e=landAt(phone)[i], st=Math.max(0,e-0.34);
+      branch(pts, phone?3.6:2.4, phone?1.5:1.0, st, e, 0);   // thicker on phones so the roots read at 390 px
     }
     // two minor roots that just fade into the ground
     var minors=phone?[[0.30,-0.02,0.34,0.5],[0.72,-0.02,0.88,0.55]]:[[0.50,-0.02,0.46,0.86],[0.60,-0.02,0.86,0.50]];
@@ -3308,7 +3312,7 @@ window.submitBrokerReferral = function(){
     });
     return {lines:lines, targets:targets};
   }
-  window.CA_ROOTS={build:build, LAND:LAND};
+  window.CA_ROOTS={build:build, LAND:LAND, landAt:landAt};
 
   // system blocks sit where the roots land
   var phone=matchMedia('(max-width:768px)').matches, built=null;
@@ -3335,7 +3339,7 @@ window.submitBrokerReferral = function(){
     var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
     sec.__p=p;
     var on=r.top<vh&&r.bottom>0;
-    sysEls.forEach(function(el,i){ el.classList.toggle('on', on && p>=LAND[i]-0.01); });
+    sysEls.forEach(function(el,i){ el.classList.toggle('on', on && p>=landAt(phone)[i]-0.01); });
     cta.classList.toggle('on', on && p>=0.86);
     sec.classList.toggle('cta-on', on && p>=0.86);
     var d=Math.min(1,Math.max(0,(p-0.9)/0.1)); d=d*d*(3-2*d);
@@ -3458,7 +3462,7 @@ if (window.CA_GL) {
       onToggle(self){
         ch.active = self.isActive;
         clearTimeout(ch.sleepT);
-        if (ch.active) { if (ch.api && !ch.inited) boot(ch); }
+        if (ch.active) { if (ch.api && !ch.inited && !ch.failed) boot(ch); }
         else if (ch.api && ch.inited && ch.api.disposable) {
           // off-screen chapters give their textures back after a moment; they re-init (from cache) when they come back
           ch.sleepT = setTimeout(() => { if (!ch.active && ch.inited && ch.initDone) { ch.api.dispose(); ch.inited = false; ch.initDone = false; } }, 2500);
@@ -3467,6 +3471,7 @@ if (window.CA_GL) {
     });
   });
   function boot(ch) {
+    if (stage.lost) return;
     ch.inited = true; ch.initDone = false;
     Promise.resolve(ch.api.init(stage)).then(() => { ch.initDone = true; ch.api.resize && ch.api.resize(stage.width, stage.height); }, e => { console.warn('[stage] ' + ch.name + ' failed to init', e); ch.inited = false; });
   }
@@ -3489,17 +3494,41 @@ if (window.CA_GL) {
   addEventListener('resize', resize);
   resize();
 
+  // If the GPU drops the context (iOS under memory pressure, a tab coming back from the background), the chapters have already
+  // hidden their photo posters — so fall back to the CSS version of the whole page, for good, instead of leaving blank screens.
+  stage.lost = false;
+  function fallBack(why) {
+    if (stage.lost) return; stage.lost = true;
+    console.warn('[stage] WebGL lost (' + why + ') — showing the photo version');
+    const h = document.documentElement;
+    [...h.classList].filter(c => /-live$/.test(c) || c === 'gl' || c === 'gl-ready').forEach(c => h.classList.remove(c));
+    h.classList.add('no-gl', 'gl-lost');
+    window.CA_GL = false;
+    stage.chapters.forEach(ch => { ch.inited = false; ch.initDone = false; });
+    window.dispatchEvent(new Event('resize'));                    // roots draws its SVG, the phase scripts recompute
+    window.dispatchEvent(new Event('scroll'));
+  }
+  canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); fallBack('context lost'); }, false);
+  // a chapter that throws hands its own screen back to its photo, the others carry on
+  const LIVE_CLASS = { canopy: 'canopy-live', ground: 'ground-live', inside: 'inside-live', cenote: 'cenote-live', cellar: 'cellar-live', surface: 'surface-live' };
+  function failChapter(ch, e) {
+    console.warn('[stage] ' + ch.name + ' failed, showing its photo', e);
+    ch.failed = true; ch.inited = false;
+    if (LIVE_CLASS[ch.name]) document.documentElement.classList.remove(LIVE_CLASS[ch.name]);
+  }
+
   let hidden = document.hidden;
   document.addEventListener('visibilitychange', () => { hidden = document.hidden; });
   gsap.ticker.add((t, dtMs) => {
-    if (hidden) return;
+    if (hidden || stage.lost) return;
+    if (renderer.getContext().isContextLost()) { fallBack('context lost'); return; }
     clear.lerpColors(CHUKUM, WARM, stage.depth);
     renderer.setClearColor(clear, 1);
     renderer.clear();
     const dt = dtMs / 1000;
-    const live = [...stage.chapters.values()].filter(ch => ch.active && ch.inited).sort((a, b) => (a.api.order || 0) - (b.api.order || 0));
-    for (const ch of live) ch.api.update(ch.progress, ch.velocity, dt);
-    for (const ch of live) ch.api.render && ch.api.render(renderer);
+    const live = [...stage.chapters.values()].filter(ch => ch.active && ch.inited && !ch.failed).sort((a, b) => (a.api.order || 0) - (b.api.order || 0));
+    for (const ch of live) { try { ch.api.update(ch.progress, ch.velocity, dt); } catch (e) { failChapter(ch, e); } }
+    for (const ch of live) { if (ch.failed) continue; try { ch.api.render && ch.api.render(renderer); } catch (e) { failChapter(ch, e); } }
   });
 
   window.CA_STAGE = stage;
