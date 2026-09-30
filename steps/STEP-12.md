@@ -6,7 +6,7 @@ Ivana loves the bubbles on the dark as the cellar's intro. Build the cellar as t
 - The dark-warm screen with rising bubbles stays as the opening. Make it about 1 screen of scroll, no longer, and let the bubbles thicken slightly as you scroll, so it builds.
 
 ## Act 2 — The pour
-- New photo `images/champagne-pour-close.jpg` (coming from Ivana; until it lands, use `champagne-pour.jpg` cropped to the glass).
+- Photo `images/champagne-pour-close.jpg` is in the repo (928×1152, portrait): the pour into one flute, warm dark background with candles. Make web versions; on wide screens keep it at its native size or below, centred, and let the dark background extend to the edges of the screen (sample its edge colour) instead of upscaling.
 - The bubbles on screen condense into the bubbles inside the glass: the photo fades up from the dark, masked from the bottom up like liquid filling, and the WebGL bubbles line up with the stream in the glass as it arrives.
 - Scroll drives the fill. A short line of text on a small panel, bottom-left: wine.ey + wine.h2a/h2b.
 - Phones: same, portrait crop centred on the glass.
