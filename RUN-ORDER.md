@@ -4,7 +4,7 @@
 - STEP-11 — review round 1: slower ground→inside dissolve, facade as a picture not a stripe, drops from the roots into the cenote, the cellar warm with a champagne reveal, OMé inside the water, water → fire (temazcal) → cellar
 
 ## Next
-- STEP-11b — footer credit: plain "by 20°N" linked to 20north.art, coordinates removed (agency rule); Brokers Portal hover text fixed
+- STEP-11b — footer: credit + coordinates on the right, linked to 20north.art, clear of the WhatsApp button; Brokers Portal hover text fixed
 
 ## Open (Ivana) — before going live
 - Written OK from The Reef Playacar / OMé to use their spa photos and logo on the site.
@@ -35,7 +35,7 @@
 - Concept: one continuous descent — canopy → house → rooms → roots → cenote (pool, OMé, temazcal fire) → cellar → back to the surface.
 - Palette (2026-09-29, from the renders): chukum #EFE8DC · sand #DFC9AB · wood #8D6846 · Corten #9A4A26 (only accent) · earth #2A1E15 · dusk lilac #8F95C4 (rare). Light site; the cenote is the one dark chapter. No teal, no petrol, no gold, no serif.
 - Type: Unbounded (display) + Sora (everything you read).
-- Credit: the footer's last line is plain "by 20°N" linked to https://20north.art, in the site's own footer style. No coordinates, no logo (agency rule, 2026-09-29).
+- Credit: footer bottom line, right side: the coordinates + "by 20°N", one link to https://20north.art, in the footer's own style (Ivana, 2026-09-29).
 - Phone first: the link goes out on WhatsApp. Poster image visible in < 2.5 s on 4G; WebGL loads after.
 - Text never overlaps a photo or WebGL image unless it sits on a panel; check 1440×900, 1280×720, 390×844.
 - Keep every data-i18n key, EN/ES/FR, both enquiry forms, Brokers Portal, admin leads panel, WhatsApp button.

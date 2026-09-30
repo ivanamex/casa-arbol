@@ -2,10 +2,13 @@
 
 Tiny step, after STEP-11. Touch nothing else.
 
-The agency rule (20north RUN-ORDER, 2026-09-29): on every client site the last line of the footer reads `by 20°N`, plain text in the client's own font, colour and footer size, linked to https://20north.art. No logo, no orange, no coordinates, no animation.
+The agency rule (20north RUN-ORDER, 2026-09-29): the credit is plain `by 20°N` in the client's own footer style, linked to https://20north.art, no logo, no orange, no animation. For Casa Árbol Ivana keeps the coordinates beside it.
 
-- Footer bottom line: replace "Site by 20°N" with `<a href="https://20north.art" rel="noopener">by 20°N</a>`, as the last item on the line. Same font, colour and size as the rest of the line; underline on hover/focus only, visible focus ring.
-- Remove the coordinates signature (Geist Mono "20.6296°N 87.0739°W") from the footer, and drop the Geist Mono font load entirely if nothing else uses it.
+- Footer bottom line, Ivana's call for this site (2026-09-29): split it in two.
+  - Left: "By Private Sale Only. © 2026 Casa Árbol · Weber-Buric Real Estate".
+  - Right: the coordinates "20.6296°N 87.0739°W" (Geist Mono, as now), then `<a href="https://20north.art" rel="noopener">by 20°N</a>` in the footer's own font, colour and size. Coordinates + credit are one link to 20north.art.
+  - Underline on hover/focus only, visible focus ring.
+  - The right group must clear the WhatsApp float button: right padding of button size + 24 px, and on phones the right group wraps under the left one, left-aligned.
 - Leave the geo meta tags in <head> alone (they're for search, not display).
 
 Note: 20north.art is behind a login during its demo phase. Fine on this preview branch; before merging to main it must be public (see RUN-ORDER Open).
