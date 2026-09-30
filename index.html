@@ -283,33 +283,35 @@ h2.serif em{color:var(--gold)}
 
 
 /* GROUND — the house */
-.ground{position:relative;height:400svh;background:transparent}
+.ground{position:relative;height:480svh;background:transparent}
 .ground-pin{position:sticky;top:0;height:100svh;overflow:hidden}
-.ground-stage{position:absolute;left:0;right:0;top:0;height:60svh;overflow:hidden}
-.ground-band{position:absolute;left:0;right:0;top:60svh;bottom:0;background:var(--chukum)}
+.ground-stage{position:absolute;left:0;right:0;top:0;height:84svh;overflow:hidden}
+.ground-band{position:absolute;left:0;right:0;top:84svh;bottom:0;background:var(--chukum)}
 .ground-poster{position:absolute;inset:0;transition:opacity 1s ease}
 .gp{position:absolute;inset:0}
 .gp picture,.gp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .gp-a img{object-position:50% 58%;transform:scale(calc(1 + var(--gp,0) * .35));transform-origin:56% 65%}
-.gp-b{opacity:clamp(0,calc((var(--gp,0) - .86) * 7.2),1)}
+.gp-b{opacity:clamp(0,calc((var(--gp,0) - .70) * 3.4),1)}
 html.ground-live .ground-poster{opacity:0}
-.ground-beats{position:absolute;inset:0;padding:0 5vw}
-.beat{position:absolute;left:5vw;right:5vw;top:47%;max-width:980px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px 5vw;align-items:start;transform:translateY(calc(-50% + 40px));opacity:0;transition:opacity .75s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none}
-.beat.active{opacity:1;transform:translateY(-50%);pointer-events:auto}
-.beat.past{transform:translateY(calc(-50% - 40px))}
-.beat-t{font-family:var(--font-display);font-weight:300;font-size:clamp(2rem,4.2vw,4.2rem);line-height:.98;letter-spacing:-.04em;text-transform:lowercase;color:var(--text);margin:0;overflow-wrap:break-word;hyphens:auto}
-.beat-b{font-weight:300;font-size:clamp(1rem,1.25vw,1.2rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0;padding-top:.4em}
+/* the three beats sit on a chukum panel over the lower-left of the photo (the vault beat's panel), clear of the front door */
+.ground-beats{position:absolute;inset:0;pointer-events:none}
+.beat{position:absolute;left:5vw;bottom:calc(16svh + 4vh);width:min(520px,40vw);background:rgba(239,232,220,.94);border-radius:2px;padding:26px 30px 28px;transform:translateY(32px);opacity:0;transition:opacity .75s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.beat.active{opacity:1;transform:none;pointer-events:auto}
+.beat.past{transform:translateY(-32px)}
+.beat-t{font-family:var(--font-display);font-weight:300;font-size:clamp(1.7rem,2.9vw,2.9rem);line-height:1;letter-spacing:-.04em;text-transform:lowercase;color:var(--text);margin:0 0 12px;overflow-wrap:break-word;hyphens:auto}
+.beat-b{font-weight:300;font-size:clamp(.95rem,1.05vw,1.08rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0}
 .ground-facts{position:absolute;font-family:var(--font-body);font-size:12.5px;color:var(--text-3);opacity:0;transition:opacity .6s ease;pointer-events:none;margin:0}
-.beat-idx{display:block;grid-column:1/-1;font-family:var(--font-body);font-size:12.5px;color:var(--text-3);margin-bottom:10px}
-.ground-facts{left:5vw;bottom:22px}
+.beat-idx{display:block;font-family:var(--font-body);font-size:12.5px;color:var(--text-3);margin-bottom:8px}
+.ground-facts{left:5vw;top:50%;transform:translateY(-50%)}   /* the band below the photo keeps only the facts line, centred in it */
 .ground.in .ground-facts{opacity:1}
 @media(max-width:768px){
-  .ground-stage{height:54svh}
-  .ground-band{top:54svh}
-  .beat{left:6vw;right:6vw;top:46%;grid-template-columns:1fr;gap:12px}
-  .beat-t{font-size:clamp(1.9rem,8.6vw,3rem)}
-  .beat-b{font-size:.95rem;max-width:none;padding-top:0}
-  .ground-facts{left:6vw;right:6vw;bottom:calc(52px + env(safe-area-inset-bottom));line-height:1.5;font-size:11.5px}
+  .ground-stage{height:66svh}
+  .ground-band{top:66svh}
+  .beat{left:6vw;right:6vw;width:auto;bottom:calc(34svh + 1.5vh);padding:12px 14px 13px}
+  .beat-t{font-size:clamp(1.25rem,5.2vw,1.6rem);margin-bottom:6px}
+  .beat-b{font-size:.82rem;line-height:1.4;max-width:none}
+  .beat-idx{font-size:10.5px;margin-bottom:4px}
+  .ground-facts{left:6vw;right:6vw;top:50%;line-height:1.5;font-size:11.5px}
 }
 html.no-gl .gp img{filter:brightness(.82) saturate(.9)}
 @media(prefers-reduced-motion:reduce){.beat,.ground-poster,.ground-facts{transition:none}.gp-a img{transform:none}}
@@ -387,6 +389,17 @@ html.no-gl .roots-svg{display:block}
 .roots-cta{position:absolute;left:0;right:0;bottom:9vh;display:flex;justify-content:center;z-index:2;opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1);pointer-events:none}
 .roots-cta.on{opacity:1;transform:none;pointer-events:auto}
 .roots-dark{position:absolute;inset:0;background:var(--earth);opacity:var(--rd,0);z-index:3;pointer-events:none}
+/* WebGL draws the darkening itself so the drops can fall over it; the DOM fades with it */
+html.gl .roots-dark{display:none}
+html.gl .roots-hd,html.gl .root-sys,html.gl .roots-cta{filter:opacity(calc(1 - var(--rd,0)))}
+/* fallback: three drops and a ring while the page is dark */
+.roots-drops-fb{display:none;position:absolute;inset:0;z-index:4;pointer-events:none}
+html.no-gl .roots.drip .roots-drops-fb{display:block}
+.roots-drops-fb i{position:absolute;left:var(--x);top:var(--y);width:9px;height:13px;margin-left:-4px;background:var(--sand);border-radius:50% 50% 50% 50%/42% 42% 58% 58%;opacity:0;animation:fbDrop 2.8s ease-in var(--d) infinite}
+.roots-drops-fb b{position:absolute;left:var(--x);top:90%;width:10px;height:4px;margin:-2px 0 0 -5px;border:1px solid rgba(223,201,171,.7);border-radius:50%;opacity:0;animation:fbRing 2.8s ease-out calc(var(--d) + 1.5s) infinite}
+@keyframes fbDrop{0%{transform:translateY(0) scale(.3);opacity:0}18%{transform:translateY(0) scale(1);opacity:.9}52%{transform:translateY(var(--fall)) scaleY(1.5);opacity:.9}54%,100%{opacity:0;transform:translateY(var(--fall))}}
+@keyframes fbRing{0%{transform:scale(1);opacity:.7}60%,100%{transform:scale(26);opacity:0}}
+@media(prefers-reduced-motion:reduce){.roots-drops-fb i,.roots-drops-fb b{animation:none;opacity:.6}.roots-drops-fb i{transform:translateY(var(--fall))}}
 @media(max-width:768px){
   .roots-scroll{height:380svh}
   .roots-hd{max-width:84vw;top:9vh;transition:opacity .5s ease}
@@ -403,7 +416,7 @@ html.no-gl .roots-svg{display:block}
 
 /* CENOTE — the one dark chapter */
 .cenote{position:relative;background:transparent}
-.cenote-scroll{position:relative;height:520svh;margin-bottom:-100svh}
+.cenote-scroll{position:relative;height:640svh;margin-bottom:-100svh}
 .cenote-anchor{position:absolute;left:0;width:1px;height:1px;pointer-events:none}
 .cenote-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:transparent;color:var(--chukum)}
 .cenote-base{position:absolute;inset:0;background:var(--earth);transition:opacity 1.2s ease}
@@ -418,6 +431,7 @@ html.no-gl .cenote-fallback{display:block}
 .cbeat.on{opacity:1;pointer-events:auto}
 .cbeat-inner{animation:cfloat 7s ease-in-out infinite}
 .cbeat[data-beat="1"] .cbeat-inner{animation-delay:-3.1s}
+.cbeat[data-beat="2"] .cbeat-inner{animation-delay:-5.2s}
 @keyframes cfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 .cbeat .ey{color:rgba(239,232,220,.62)}
 .cbeat .ey::before{background:rgba(239,232,220,.5)}
@@ -432,9 +446,13 @@ html.no-gl .cenote-fallback{display:block}
 .perks li{display:flex;flex-direction:column;gap:2px;padding-top:8px;border-top:1px solid rgba(239,232,220,.16)}
 .perk-n{font-weight:500;font-size:14px;color:var(--chukum)}
 .perk-d{font-size:12.5px;line-height:1.4;color:rgba(239,232,220,.62)}
-.cenote-out{position:absolute;inset:0;background:var(--chukum);opacity:var(--co,0);pointer-events:none;z-index:3}
+.cenote-out{position:absolute;inset:0;background:#4D331F;opacity:var(--co,0);pointer-events:none;z-index:3}   /* the last ember light hands straight to the cellar's wall by candle: amber → amber */
+/* fallback: the place through the water crossfades pool → OMé → temazcal, with a warm overlay for the fire */
+.cenote-fallback .cf-ome{opacity:var(--f1,0)}
+.cenote-fallback .cf-tem{opacity:var(--f2,0)}
+.cenote-fallback::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 70% 60% at 50% 72%,rgba(255,120,30,.45),rgba(120,40,10,.35) 60%,transparent);opacity:var(--fire,0)}
 @media(max-width:768px){
-  .cenote-scroll{height:460svh}
+  .cenote-scroll{height:560svh}
   .cbeat{left:6vw;right:6vw;width:auto;top:auto;bottom:calc(56px + env(safe-area-inset-bottom));transform:none}
   .cbeat-t{font-size:clamp(1.5rem,6.6vw,2.2rem);margin-bottom:12px}
   .cbeat-b{font-size:.9rem;line-height:1.45}
@@ -487,21 +505,26 @@ html.no-gl .cenote-fallback{display:block}
 .cellar{position:relative;z-index:2;color:var(--earth);scroll-margin-top:-100svh}   /* #wine-cellar lands on the pinned wall, not on the lead under the cenote's tail */
 .cellar-scroll{position:relative;height:520svh;margin-bottom:-100svh}
 .cellar-lead{height:100svh}
-.cellar-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:var(--chukum)}
+.cellar-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:#4D331F}   /* the wall by the last ember light, until the LED comes on */
 html.gl.cellar-live .cellar-pin{background:transparent}
-/* fallback: two stacked photos, the light wipes down; two chukum halves slide apart */
+/* fallback: the lit photo twice (dark by candle, then lit), the light wipes down; two plaster halves slide apart; CSS bubbles rise */
 .cellar-fb{display:none;position:absolute;inset:0}
 html.no-gl .cellar-fb{display:block}
 .cellar-fb picture,.cellar-fb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%}
-.cellar-fb .fb-off img{filter:saturate(.55) sepia(.18) brightness(1.05)}
+.cellar-fb .fb-dark img{filter:brightness(.32) sepia(.55) saturate(1.3) contrast(1.05)}
 .cellar-fb .fb-on{clip-path:inset(0 0 calc(100% - var(--wipe,0) * 100%) 0)}
+.cellar-bubbles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.cellar-bubbles span{position:absolute;left:calc(50% + var(--bx));bottom:40%;width:var(--bs);height:var(--bs);border-radius:50%;border:1px solid rgba(239,232,220,.75);background:radial-gradient(circle at 35% 35%,rgba(239,232,220,.8),rgba(239,232,220,0) 55%);opacity:0}
+.cellar.bubbling .cellar-bubbles span{animation:fbBubble 3.2s linear var(--bd) infinite}
+@keyframes fbBubble{0%{transform:translateY(0);opacity:0}10%{opacity:.85}100%{transform:translateY(-70vh) translateX(var(--bw));opacity:0}}
 .fb-half{position:absolute;top:0;bottom:0;width:50%;background:var(--chukum)}
+.fb-half::before{content:"";position:absolute;inset:0;background:#4D331F;opacity:calc(1 - var(--wl,0))}   /* the plaster is dark until the light is up */
 .fb-half::after{content:"";position:absolute;top:0;bottom:0;width:44px;opacity:min(1,calc(var(--gap,0) * 20));pointer-events:none}   /* the halves' soft shadow on the wall, only once the wall opens */
 .fb-a{left:0;transform:translateX(calc(var(--gap,0) * -100%))}
 .fb-a::after{right:-44px;background:linear-gradient(to right,rgba(42,30,21,.3),transparent)}
 .fb-b{right:0;transform:translateX(calc(var(--gap,0) * 100%))}
 .fb-b::after{left:-44px;background:linear-gradient(to left,rgba(42,30,21,.3),transparent)}
-.fb-seam{position:absolute;left:50%;top:0;width:1px;height:100%;background:var(--wood);transform-origin:top;transform:scaleY(var(--seam,0));opacity:calc(1 - var(--gap,0) * 40)}
+.fb-seam{position:absolute;left:50%;top:0;width:1px;height:100%;background:var(--wood);transform-origin:top;transform:scaleY(var(--seam,0));opacity:calc(1 - var(--gap,0) * 40);box-shadow:0 0 10px 1px rgba(255,170,90,calc(.7 * (1 - var(--wl,0))))}   /* a hair of light from the room behind while the wall is dark */
 @media(max-width:768px){
   .fb-half{width:100%;height:50%;left:0;right:0}
   .fb-a{top:0;bottom:auto;transform:translateY(calc(var(--gap,0) * -100%))}
@@ -510,23 +533,28 @@ html.no-gl .cellar-fb{display:block}
   .fb-a::after{top:auto;bottom:-36px;background:linear-gradient(to bottom,rgba(42,30,21,.3),transparent)}
   .fb-b::after{bottom:auto;top:-36px;background:linear-gradient(to top,rgba(42,30,21,.3),transparent)}
   .fb-seam{left:0;top:50%;width:100%;height:1px;transform-origin:left;transform:scaleX(var(--seam,0))}
+  .cellar-bubbles span{left:calc(50% + var(--bx) * 3);bottom:50%}
 }
 /* text on a chukum panel, left, once the light is up */
-.cellar-txt{position:absolute;left:5vw;top:50%;transform:translateY(calc(-50% + 14px));width:min(520px,40vw);padding:30px 34px 32px;background:rgba(239,232,220,.94);border-radius:2px;opacity:0;transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none;z-index:2}
+.cellar-photo{display:block;width:100%;max-height:20vh;object-fit:cover;margin:0 0 16px;border-radius:2px}
+.cellar-photo img{display:block;width:100%;height:auto;max-height:20vh;object-fit:cover;border-radius:2px}
+.cellar-txt{position:absolute;left:5vw;top:50%;transform:translateY(calc(-50% + 14px));width:min(520px,40vw);padding:24px 28px 26px;background:rgba(239,232,220,.94);border-radius:2px;opacity:0;transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none;z-index:2}
 .cellar.txt-on .cellar-txt{opacity:1;transform:translateY(-50%);pointer-events:auto}
-.cellar-h2{font-family:var(--font-display);font-weight:200;font-size:clamp(1.9rem,3.6vw,3.4rem);line-height:1.05;letter-spacing:-.04em;color:var(--earth);margin:0 0 16px}
+.cellar-h2{font-family:var(--font-display);font-weight:200;font-size:clamp(1.7rem,2.9vw,2.7rem);line-height:1.05;letter-spacing:-.04em;color:var(--earth);margin:0 0 12px}
 .cellar-h2 em{color:var(--corten)}
-.cellar-b{font-weight:300;font-size:clamp(1rem,1.2vw,1.15rem);line-height:1.5;color:var(--text-2);max-width:40ch;margin:0}
-.cellar-specs{list-style:none;margin:16px 0 0;padding:0;font-size:14px;color:var(--text-2)}
-.cellar-specs li{padding:8px 0;border-top:1px solid rgba(141,104,70,.35)}
+.cellar-b{font-weight:300;font-size:clamp(.95rem,1.05vw,1.05rem);line-height:1.45;color:var(--text-2);max-width:44ch;margin:0}
+.cellar-specs{list-style:none;margin:12px 0 0;padding:0;font-size:13.5px;color:var(--text-2)}
+.cellar-specs li{padding:6px 0;border-top:1px solid rgba(141,104,70,.35)}
 @media(max-width:768px){
   .cellar-txt{left:6vw;right:6vw;width:auto;top:auto;bottom:calc(56px + env(safe-area-inset-bottom));transform:translateY(14px);padding:20px 20px 22px}
   .cellar.txt-on .cellar-txt{transform:none}
   .cellar-h2{font-size:clamp(1.5rem,6.4vw,2.1rem)}
   .cellar-b{font-size:.92rem}
   .cellar-specs{font-size:13px}
+  .cellar-photo,.cellar-photo img{max-height:16vh}
+  .cellar-photo{margin-bottom:12px}
 }
-@media(prefers-reduced-motion:reduce){.cellar-txt{transition:none}}
+@media(prefers-reduced-motion:reduce){.cellar-txt{transition:none}.cellar.bubbling .cellar-bubbles span{animation:none}}
 
 /* SURFACE — back in the light */
 .surface{position:relative;z-index:2;color:var(--earth);background:linear-gradient(to bottom,transparent 0,var(--chukum) 100svh)}
@@ -958,13 +986,11 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
 <section class="ground" id="houseSection" data-chapter="ground">
   <div class="ground-pin">
     <div class="ground-stage"><div class="ground-poster" aria-hidden="true"><div class="gp gp-a"><picture><source type="image/webp" srcset="/images/web/casa-arbol-exterior-m.webp 816w, /images/web/casa-arbol-exterior.webp 1387w" sizes="100vw"><img src="/images/web/casa-arbol-exterior-m.jpg" srcset="/images/web/casa-arbol-exterior-m.jpg 816w, /images/web/casa-arbol-exterior.jpg 1387w" sizes="100vw" width="1387" height="1734" alt="Casa Árbol at night" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRvABAABXRUJQVlA4IOQBAABQDgCdASozAEAAPqVGmUmmJCKhN/asAMAUiUAYA/MCQg6n1+7Cr7DikYZv1r7RBA2Xj3f1aaXSVSxQGwHlDBgVOP27IjfNGq+rSNXnCvxYIgo2j+a6EVXth9FM88Hgr2POIt5btnmwP9ILeGyDQDIPvtHmT4eHHaZMIYAA/vlBR9kw+B9dmlzauY4g99AukPHd0KVpCzU0oo/We2GOOU05chzb948ptzHzSa9CBBdmsb9jvvcxyxHF3gdDJXq31vvM/sD++ygbAEpmKZYmaMyGZ96Np/qzyqTfkK7I+sa7SKa6hTizC3j8RtPCEU+1fwvC9XV/sLrXhmNGUWFH/BvE1Ct6tGfCz+zrLDpXoH2wpTRy5HTpwtyoqNJW22wS9fCPD0D0YwfQI0S+fw7XiJSO95V1UQNT+Ojyqejm1v/MB3Or3dk/2XReWJChA5b3dU1Qo0uBvfUP0BCjogIY0ag0G+wjTB8zG3YRoYSHGMqOJVdfbM2uBIfj/1GWhu5KrUapU7dlFxQ38r2Sihljfw3hKcgLhRP2HLA5vRxVvITdaWLEggf0Cz6j9JoOtJG4jMEXqmNUUdAjRFGKiUfwrtdmV1tHi/SgEnc0Sc254P9WtU9Ho+DUZhOX88PuEcB0MvlYh/AA) center/cover"></picture></div><div class="gp gp-b"><picture><source type="image/webp" srcset="/images/web/room-1-ground-floor-m.webp 1200w, /images/web/room-1-ground-floor.webp 2400w" sizes="100vw"><img src="/images/web/room-1-ground-floor-m.jpg" srcset="/images/web/room-1-ground-floor-m.jpg 1200w, /images/web/room-1-ground-floor.jpg 2040w" sizes="100vw" width="2040" height="1530" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAAAwDACdASpAADAAPrVMpUynI6OiKrgJAOAWiWUAuNveATxYAMWvxM8bmYNvCXXh7btqxWBE3VhYhYgr0bQvDsFS7hmwNAi3/hURbQqZ9PYeFzZ5KG3WlLEortrvVyH79Xqt58jy8KHAkoQAAP3xpWlaNkJ5ZSMW2a8XgBjF+P82abkApPHHnOcjJAIQuc3rFKmj6gKL0vGNL/HAmzEf6L4xISCtBfTAi7c2aa0PsSvyGX0/Qve/fBJLS/K2sXfjQ+cpO8DB6LrZ6Kvx1gyPxb8ngiJ9txxKfUHvR+72fcmoevJCJHw6pcOLCKTXmqQ1y5e4UZ7zV4C5LsD9yWBxR19XOq8t891mGWeuChs8h97a1MKA9+6ANa6P4DC+HulExifg/ESwEawhkESYi4bCeT1X31ThUmpBQAk8fkphkJUUkNohU4tCpDpEdXIRzOVq9o6t3BUtlKvoKY4qQcoj5QFdmTc0Qrp6k/DVZs3dzpiALjDwZKLAAAAA) center/cover"></picture></div></div></div>
-    <div class="ground-band">
+    <div class="ground-band"><p class="ground-facts" data-i18n="x.facts">476 m² · 5 suites · 20+ kW solar · by private sale</p></div>
     <div class="ground-beats">
       <article class="beat" data-beat="0"><span class="beat-idx" aria-hidden="true">01 / 03</span><h2 class="beat-t" data-i18n="x.r1.t">The address</h2><p class="beat-b" data-i18n="x.r1.b">Playacar Fase II, the most coveted address on the Riviera Maya. Golf course views from the house, and the beach close enough to walk barefoot.</p></article>
       <article class="beat" data-beat="1"><span class="beat-idx" aria-hidden="true">02 / 03</span><h2 class="beat-t" data-i18n="x.r2.t">Built for independence</h2><p class="beat-b" data-i18n="x.r2.b">More than 20 kW of hybrid solar, reverse osmosis water at every tap and European Serie 150 windows made for the tropics. Low running costs, year round.</p></article>
       <article class="beat" data-beat="2"><span class="beat-idx" aria-hidden="true">03 / 03</span><h2 class="beat-t" data-i18n="x.r3.t">One of a kind</h2><p class="beat-b" data-i18n="x.r3.b">A cenote-inspired pool with beach entry and waterfall, handcrafted brick vault ceilings and a Corten steel facade. Nothing else in Playacar looks like it.</p></article>
-    </div>
-    <p class="ground-facts" data-i18n="x.facts">476 m² · 5 suites · 20+ kW solar · by private sale</p>
     </div>
   </div>
 </section>
@@ -1016,20 +1042,23 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
       <div class="root-sys" data-sys="3"><h3 class="root-t" data-i18n="feat.f9.name">Biophilic Design</h3><p class="root-b" data-i18n="feat.f9.desc">Every room opens to tropical gardens. Giant fenestration and curated planting dissolve the line between interior sanctuary and paradise.</p></div>
       <div class="roots-cta"><button class="btn btn-lt" onclick="openModal()" data-i18n="arch.btn">Request Architectural Plans</button></div>
       <div class="roots-dark" aria-hidden="true"></div>
+      <div class="roots-drops-fb" aria-hidden="true"><i style="--x:30%;--y:46%;--fall:44vh;--d:0s"></i><i style="--x:58%;--y:38%;--fall:52vh;--d:.9s"></i><i style="--x:76%;--y:60%;--fall:30vh;--d:1.8s"></i><b style="--x:30%;--d:0s"></b><b style="--x:58%;--d:.9s"></b><b style="--x:76%;--d:1.8s"></b></div>
     </div>
   </div>
 </section>
 
 <!-- POOL — animated cenote section -->
-<!-- CENOTE — below the water, looking up: the pool, then OMé Spa float by in the dark water -->
+<!-- CENOTE — below the water, looking up: the pool, then OMé Spa, then the temazcal fire; the water warms and hands its ember light to the cellar -->
 <section class="cenote" id="pool" data-chapter="cenote">
   <div class="cenote-scroll">
-    <div class="cenote-anchor" id="ome-spa" style="top:calc(.52 * (100% - 100svh))"></div>
+    <div class="cenote-anchor" id="ome-spa" style="top:calc(.40 * (100% - 100svh))"></div>
     <div class="cenote-pin dark-surface">
       <div class="cenote-base" aria-hidden="true"></div>
       <div class="cenote-fallback" aria-hidden="true">
         <svg width="0" height="0" style="position:absolute"><filter id="cenoteCaustic" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="turbulence" baseFrequency="0.010 0.018" numOctaves="2" seed="3" result="t"><animate attributeName="baseFrequency" values="0.010 0.018;0.014 0.022;0.010 0.018" dur="16s" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="t" scale="34" xChannelSelector="R" yChannelSelector="G"/></filter></svg>
         <picture><source type="image/webp" srcset="/images/web/cenote-pool-m.webp 727w, /images/web/cenote-pool.webp 900w" sizes="100vw"><img src="/images/web/cenote-pool-m.jpg" srcset="/images/web/cenote-pool-m.jpg 727w, /images/web/cenote-pool.jpg 900w" sizes="100vw" width="900" height="1485" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRkIBAABXRUJQVlA4IDYBAABwCgCdASonAEAAPrFInkmnJCKhMrbbMOAWCWIAszvRQNZgEp/rx2Z7gmD54gjS67UXhHm4HSHzyaJfRFNcFP7lq2O5DrpJCbJH1QbG0zz58aLngxW/NWY39Ve1wAD+Z8pVisEHKyLt+ihzDmqDmqX7bZzHtbLgwnxgCnXDjBYlMA1KYipGtek68nVQie8TDYfhi2/A/hrRctBGreeE3eTYKiE574bHXhmyRDmd6PsqVO4/TW6Oq/20YmqZNAwZuANzeOTT9pPgKdPI6jePELlV3P74JoweQnd/1eNsFG0V6A4ZLCFBcQ2G62FxYuLoxyqoiJCjLXGlmeur9xyoDfHrUz5sIQ71WcdQaoyqH7rvVYKF7IPYmbmHp90F7JiZ0TEsEK2uJchviHLT9cFE3mNB74byiAAA) center/cover"></picture>
+        <picture class="cf-ome"><source type="image/webp" srcset="/images/web/ome-entrance-m.webp 1048w, /images/web/ome-entrance.webp 1320w" sizes="100vw"><img src="/images/web/ome-entrance-m.jpg" srcset="/images/web/ome-entrance-m.jpg 890w, /images/web/ome-entrance.jpg 1320w" sizes="100vw" width="1320" height="1512" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRr4BAABXRUJQVlA4ILIBAABQDgCdASo4AEAAPq1GnEmmI6KhMfjtsMAViUAYoYHZ+C+AEomQEMgh/9GzAl0EZmb3DrSDfF+ScncA+ZZqIaoGqV0MLcwZG08fFuRmVV94zIYsHvysSuJ2+IML/j+wmoxb1V4qskXSttlEggcDKzmsbHxR7oO0zPoQEgAA/W5l7dNmTfMynOzsxx3sayczNU+qHQAyReXWNdyCVzomUoaO8TW9wWXRgOcEFfsNgJTSJXs2N9pldBuM4ZhYyC+cWdbSy1J9799jT4IPuJPW6UUQihwNDItdYYkU21xyFAddgWGr2HCvfh+NFAphnu0pMYTJBTmpQrdQXVQOqiQ3+zpDjKgryIDcP9YlC+zN2PYWA+gmec0WVJZxja5E1Hna2lJKMb9OOn/PXNrmHlU5gk3AbsZ28DXAj5bCPm5+L6nOjegTwdAzrNpfTg4pmDbGRkaxafF88hDpBVtuC3pp6BpJOsFP3iEtZA3Kx/dTrGmCx6T+5UKzHQwFCsTkF0M7ZtbryiNuWwVrFiwCcpCao4T6LRlr/vlSK/ptfbidbcjyGO0BXFnT9B4lBICZFocOKloAAA==) center/cover"></picture>
+        <picture class="cf-tem"><source type="image/webp" srcset="/images/web/temazcal-stones-m.webp 975w, /images/web/temazcal-stones.webp 1320w" sizes="100vw"><img src="/images/web/temazcal-stones-m.jpg" srcset="/images/web/temazcal-stones-m.jpg 975w, /images/web/temazcal-stones.jpg 1320w" sizes="100vw" width="1320" height="1625" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRiwCAABXRUJQVlA4ICACAABQDwCdASo0AEAAPrVQoUynJCMiKBQMAOAWiUAVhygqe9LyIMCT0p8vEsKn3/OG60oAA3RXpzUu3IWoi+KNtxm3hAy+JIZ8W/P/pkum3aRMmxyRIPof2DxAKw42qhmxDOCHyiDqvx3OzSrGj3+OHHF8iPJrJ+dXzQfVc5oqFUjzV0A6IAD+7FmQJxFyAQ73xN4ancQccbHwnz7X7xITsDCfs9uK4/tl9YRQyTRQ9AytChaXuSaj4U/XV24x8Zz5zyp8FnfJaGShgIj9OzSMdIqr3XpFfJSQ1JX3W/Xga3x48MPppQX451Wz7iOAXLNrexdOXVvDaajInO8u1ksKW6z0k94UNeMPrjg/TInkkYy0HnywgVOcMX8RJrrXfSiuToiXzUg5GTVdYxsApPcju3zn9yWPL0G9u4CCCjFvsUOBTaEUfUjoCCcmK0h+rxTiTG5wMnabpuzWNHKIaAP+MqWXyqiCg2BXPebck42S/CC6eLiZzJYmSc3h52YiTcdQS6hsOuaA7tDAOPoM7nJeCxYl44WpVP2iwN4YKnwaS8EtzWz9j/OpPkD1ZJsf9vk2HnT432I7mEMqhT9lsEGXOcOISBGG5apfzXAvt6VgZ6wRCe4VcnTyN3FD/qgSm1Cm1+lJmpjVTMIKZn3IG8ylWiZkpT8q3FSqthd42Ntbpj+7T9pXr0UlQuUBby9AetRIvyR4JeqGHmR6Q7o0/vt0QAAA) center/cover"></picture>
       </div>
       <article class="cbeat" data-beat="0"><div class="cbeat-inner">
         <div class="ey" data-i18n="pool.pill4">Turquoise Caribbean Water</div>
@@ -1047,26 +1076,32 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
           <li><span class="perk-n" data-i18n="ome.p3.name">Sauna & Steam Room</span><span class="perk-d" data-i18n="ome.p3.note">Unlimited access to dry sauna and eucalyptus steam room — included with every visit</span></li>
           <li><span class="perk-n" data-i18n="ome.p4.name">Beach Club at The Reef Playacar</span><span class="perk-d" data-i18n="ome.p4.note">6 complimentary day passes — private Caribbean beach, pools, all resort facilities</span></li>
           <li><span class="perk-n" data-i18n="ome.p5.name">15% Dining Discount</span><span class="perk-d" data-i18n="ome.p5.note">Year-round discount at all The Reef Resorts dining outlets including The Roof 28 rooftop bar</span></li>
-          <li><span class="perk-n" data-i18n="ome.p6.name">Temazcal Ceremonies</span><span class="perk-d" data-i18n="ome.p6.note">Access to ancestral Mayan temazcal rituals guided by a traditional shaman — a singular experience</span></li>
         </ul>
+      </div></article>
+      <article class="cbeat" data-beat="2"><div class="cbeat-inner">
+        <div class="ey" data-i18n="ome.ey">Casa Árbol Privilege</div>
+        <h2 class="cbeat-t" data-i18n="ome.p6.name">Temazcal Ceremonies</h2>
+        <p class="cbeat-b" data-i18n="ome.p6.note">Access to ancestral Mayan temazcal rituals guided by a traditional shaman — a singular experience</p>
       </div></article>
       <div class="cenote-out" aria-hidden="true"></div>
     </div>
   </div>
 </section>
 
-<!-- CELLAR — the wall opens: a seam, two plaster halves slide apart, the backlight washes down the stone -->
+<!-- CELLAR — the wall by candle opens: a seam of light, two plaster halves slide apart, champagne bubbles rise, the backlight washes down the stone -->
 <section class="cellar" id="wine-cellar" data-chapter="cellar">
   <div class="cellar-scroll">
     <div class="cellar-lead" aria-hidden="true"></div>
     <div class="cellar-pin">
       <div class="cellar-fb" aria-hidden="true">
-        <picture class="fb-off"><source type="image/webp" srcset="/images/web/wine-wall-off-m.webp 1200w, /images/web/wine-wall-off.webp 2400w" sizes="100vw"><img src="/images/web/wine-wall-off-m.jpg" srcset="/images/web/wine-wall-off-m.jpg 1200w, /images/web/wine-wall-off.jpg 2400w" sizes="100vw" width="2400" height="1340" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAABQCACdASpAACQAPqVImkmmJKKhN/cYAMAUiWcAyjwWavPvv/e5HJDA4IbUj9yy8gRknzvzU7tVTEpVqoXWQybYAWe5Vq7gJfqj0gAA/uwcS8Ye6QYyeyKjScx6XIg3TUnY9KQ8hW85Cq3OLsIL2bTCLKWqb9cH+sq9nqn65myj0yzSzjFccVC2ftCmxzUAbBaDWd73NkMYOPMQPQ5htFOyyPmuw8ZR03/ZUbfCNFwyBKBcP0E0oU0xaWaR7WbRX7zXx52/WayfwYV6GcK+4PGhDa7cjlVAHzm6GGGFGEorIxG5Q7EAAA==) center/cover"></picture>
+        <picture class="fb-dark"><source type="image/webp" srcset="/images/web/wine-wall-on-m.webp 1200w, /images/web/wine-wall-on.webp 2400w" sizes="100vw"><img src="/images/web/wine-wall-on-m.jpg" srcset="/images/web/wine-wall-on-m.jpg 1200w, /images/web/wine-wall-on.jpg 2400w" sizes="100vw" width="2400" height="1340" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAAAQCgCdASpAACQAPqlGnEmmJCMhN/OaqMAVCWcAvRwLMvLsHq+8xJ9sSi0RPTtXyC3JYFpXSPf1x6RcOBF9nQVyQMdjjrQqo0LqTzXhKefmmN+3imYsE7pVAAD6ahXL64m8S3T72+97COoTrUOb0c153vSyzR7g1259NmeSYS5+oF5QuNN9Cakod/YuXx4mypvF1DkcLumVHHQmPkOJ6M0Bz2CHLwFpQVm2qGPyMogc1goo6NAZnspLQuqdV3eiR55MZU9TsTZyLXdyY9HvS6zZHhUo9hj/UsdKV3YJFivfiDf5LkoGbytPwEki0fc8qx5fHY9uEkvsHQRdJvLkpnAeE/AAAA==) center/cover"></picture>
         <picture class="fb-on"><source type="image/webp" srcset="/images/web/wine-wall-on-m.webp 1200w, /images/web/wine-wall-on.webp 2400w" sizes="100vw"><img src="/images/web/wine-wall-on-m.jpg" srcset="/images/web/wine-wall-on-m.jpg 1200w, /images/web/wine-wall-on.jpg 2400w" sizes="100vw" width="2400" height="1340" alt="The wine wall at Casa Árbol — bottles on a backlit stone wall behind a glass partition" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAAAQCgCdASpAACQAPqlGnEmmJCMhN/OaqMAVCWcAvRwLMvLsHq+8xJ9sSi0RPTtXyC3JYFpXSPf1x6RcOBF9nQVyQMdjjrQqo0LqTzXhKefmmN+3imYsE7pVAAD6ahXL64m8S3T72+97COoTrUOb0c153vSyzR7g1259NmeSYS5+oF5QuNN9Cakod/YuXx4mypvF1DkcLumVHHQmPkOJ6M0Bz2CHLwFpQVm2qGPyMogc1goo6NAZnspLQuqdV3eiR55MZU9TsTZyLXdyY9HvS6zZHhUo9hj/UsdKV3YJFivfiDf5LkoGbytPwEki0fc8qx5fHY9uEkvsHQRdJvLkpnAeE/AAAA==) center/cover"></picture>
         <div class="fb-half fb-a"></div><div class="fb-half fb-b"></div>
         <div class="fb-seam"></div>
+        <div class="cellar-bubbles" aria-hidden="true"><span style="--bx:-6px;--bs:4px;--bd:0s;--bw:8px"></span><span style="--bx:3px;--bs:3px;--bd:0.3s;--bw:-6px"></span><span style="--bx:-2px;--bs:5px;--bd:0.6s;--bw:4px"></span><span style="--bx:8px;--bs:3px;--bd:0.9s;--bw:-10px"></span><span style="--bx:-9px;--bs:4px;--bd:1.2s;--bw:6px"></span><span style="--bx:1px;--bs:3px;--bd:1.5s;--bw:-3px"></span><span style="--bx:5px;--bs:5px;--bd:1.8s;--bw:9px"></span><span style="--bx:-4px;--bs:3px;--bd:2.1s;--bw:-7px"></span><span style="--bx:7px;--bs:4px;--bd:2.4s;--bw:2px"></span><span style="--bx:-7px;--bs:3px;--bd:2.7s;--bw:-5px"></span><span style="--bx:2px;--bs:4px;--bd:3.0s;--bw:7px"></span><span style="--bx:-1px;--bs:3px;--bd:3.3s;--bw:-8px"></span></div>
       </div>
       <div class="cellar-txt">
+        <picture class="cellar-photo"><source type="image/webp" srcset="/images/web/champagne-pour-m.webp 1200w, /images/web/champagne-pour.webp 2400w" sizes="(max-width:768px) 88vw, 40vw"><img src="/images/web/champagne-pour-m.jpg" srcset="/images/web/champagne-pour-m.jpg 1200w, /images/web/champagne-pour.jpg 2400w" sizes="(max-width:768px) 88vw, 40vw" width="2400" height="1340" alt="Champagne poured in front of the lit wine wall at Casa Árbol" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRioBAABXRUJQVlA4IB4BAADQCgCdASpAACQAPqVCmUmmJCKhOrTcAMAUiWUAvnx1o/AJtYVqKPceG27PYgRWjMnyrZJjE2NIlwUemc8McLSpv+XAdLtT9BvNDQ1G/7+si/zjwQJQWPP5MZbnp6JUAAD+8NSTjmbfVlM7J1wBC9POYY+yDk03X7mqHFdnyL8Dq7jcnFUtGwNS3Nwm7enb1NnNNpRg5/DYwJmiJnJLPJrRTaDTHRbBr9YCfiMr0hX0ZqB5XIgk0fGyvJKA1eDq7koXbTW45DK9HDqPJQ7BXbWZ82/xu9ZnSW8kjreFVmMsWE5Xi94AECvDLxa4WySbAQRialrNcVLbpxt8zrM6Z3KSZ/eKZVKgUSzqMpiKGz9xor5HvBLpH8ZxW6rhgAAA) center/cover"></picture>
         <div class="ey" data-i18n="wine.ey">The Wine Cellar</div>
         <h2 class="cellar-h2"><span data-i18n="wine.h2a">A collection</span><br><span data-i18n="wine.h2b">worthy of <em>legends</em></span></h2>
         <p class="cellar-b" data-i18n="wine.body">The floor-to-ceiling glass-fronted wine wall is a showpiece of Casa Árbol — a theatre for your collection. Framed by crystal-backlit panels, each bottle is displayed as art.</p>
@@ -3136,9 +3171,9 @@ window.submitBrokerReferral = function(){
     var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
     pin.style.setProperty('--gp', p.toFixed(4));
     sec.__p=p;
-    var idx = p<0.31 ? 0 : p<0.59 ? 1 : 2;
-    var on = p>0.015 && p<0.87 && r.top<vh && r.bottom>0;
-    beats.forEach(function(b,i){ b.classList.toggle('active', on && i===idx); b.classList.toggle('past', i<idx || (!on && p>=0.87)); });
+    var idx = p<0.25 ? 0 : p<0.48 ? 1 : 2;
+    var on = p>0.015 && p<0.70 && r.top<vh && r.bottom>0;   // the beats leave before the dissolve starts at 0.70
+    beats.forEach(function(b,i){ b.classList.toggle('active', on && i===idx); b.classList.toggle('past', i<idx || (!on && p>=0.70)); });
     sec.classList.toggle('in', on);
   }
   window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
@@ -3265,7 +3300,10 @@ window.submitBrokerReferral = function(){
     cta.classList.toggle('on', on && p>=0.86);
     sec.classList.toggle('cta-on', on && p>=0.86);
     var d=Math.min(1,Math.max(0,(p-0.9)/0.1)); d=d*d*(3-2*d);
-    pin.style.setProperty('--rd', d.toFixed(3));
+    pin.style.setProperty('--rd', d.toFixed(3)); sec.__rd=d;
+    // the hand-off to the cenote: 0 as the page starts to darken (p 0.88), 1 when the roots have scrolled away and the cenote is pinned
+    var q0=0.88*(r.height-vh), q=Math.min(1,Math.max(0,(-r.top-q0)/Math.max(1,r.height-q0)));
+    sec.__q=q; sec.classList.toggle('drip', on && q>0 && q<1);
     if(!window.CA_GL && svg){
       var paths=svg.children;
       for(var i=0;i<paths.length;i++){ var el=paths[i], s0=+el.dataset.s, e0=+el.dataset.e, g=Math.min(1,Math.max(0,(p-s0)/Math.max(1e-3,e0-s0))), len=+el.dataset.len; el.style.strokeDashoffset=(len*(1-g)).toFixed(1); }
@@ -3277,11 +3315,12 @@ window.submitBrokerReferral = function(){
 })();
 </script>
 <script>
-// ── Cenote: scroll progress → three floating beats; fade back to chukum at the end ──
+// ── Cenote: scroll progress → three floating beats (pool, OMé, temazcal), the fire, the fallback crossfades; fade to the ember-dark wall at the end ──
 (function(){
   var sec=document.getElementById('pool'); if(!sec) return;
   var scroll=sec.querySelector('.cenote-scroll'), pin=sec.querySelector('.cenote-pin'), beats=Array.prototype.slice.call(sec.querySelectorAll('.cbeat'));
-  var WIN=[[0.03,0.46],[0.50,0.90]];
+  var WIN=[[0.02,0.34],[0.38,0.66],[0.70,0.90]];   // pool · OMé · temazcal
+  function sm(a,b,x){ x=Math.min(1,Math.max(0,(x-a)/(b-a))); return x*x*(3-2*x); }
   var raf=0;
   function update(){
     raf=0;
@@ -3290,6 +3329,8 @@ window.submitBrokerReferral = function(){
     sec.__p=p;
     var on=r.top<vh&&r.bottom>0;
     beats.forEach(function(b,i){ b.classList.toggle('on', on && p>=WIN[i][0] && p<WIN[i][1]); });
+    var fire=sm(0.68,0.80,p); sec.__fire=fire;
+    pin.style.setProperty('--f1', sm(0.36,0.44,p).toFixed(3)); pin.style.setProperty('--f2', sm(0.76,0.84,p).toFixed(3)); pin.style.setProperty('--fire', fire.toFixed(3));
     var o=Math.min(1,Math.max(0,(p-0.88)/0.12)); pin.style.setProperty('--co', (o*o).toFixed(3));
   }
   window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
@@ -3311,10 +3352,13 @@ window.submitBrokerReferral = function(){
     // ~0.24 when the wall is up and pinned, ~0.76 when Surface starts sliding over it.
     var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
     sec.__p=p;
-    // seam draws as the wall rises → halves part → light down the stone → text → halves close before Surface's heading reaches the wall
-    var seam=sm(0.05,0.23,p), gap=sm(0.24,0.44,p)*(1-sm(0.68,0.79,p)), light=sm(0.43,0.60,p);
-    sec.__t={seam:seam,gap:gap,light:light};
-    pin.style.setProperty('--seam',seam.toFixed(3)); pin.style.setProperty('--gap',gap.toFixed(3)); pin.style.setProperty('--wipe',light.toFixed(3));
+    // seam of light draws as the dark wall rises → halves part (the pop) → bubbles rise → the LED washes down the stone → text → halves close, lit, before Surface's heading reaches the wall
+    // the pop escapes the seam as it parts, the stream rises, the LED comes on as the bubbles reach the ceiling slot
+    var seam=sm(0.05,0.23,p), gap=sm(0.24,0.44,p)*(1-sm(0.68,0.79,p)), light=sm(0.46,0.60,p), pop=sm(0.24,0.31,p), rise=sm(0.27,0.62,p)*1.5;
+    sec.__t={seam:seam,gap:gap,light:light,pop:pop,rise:rise};
+    pin.style.setProperty('--seam',seam.toFixed(3)); pin.style.setProperty('--gap',gap.toFixed(3)); pin.style.setProperty('--wipe',light.toFixed(3)); pin.style.setProperty('--wl',light.toFixed(3));
+    pin.classList.toggle('dark-surface', light<0.5);
+    sec.classList.toggle('bubbling', p>=0.24 && p<0.62);
     sec.classList.toggle('txt-on', p>=0.56 && p<0.69);
   }
   window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
@@ -3635,9 +3679,9 @@ if (window.CA_GL) {
     }
     void main(){
       vec2 uv = vUv;
-      float n = snoise(vec2(uv.x * 7.0, uv.y * 5.0) + uTime * 0.1);
+      float n = snoise(vec2(uv.x * 3.2, uv.y * 2.4) + uTime * 0.06);   // a slow, coarse frontier: a deliberate melt, not glitches
       float wipe = 0.5 * (n * 0.5 + 0.5) + 0.5 * uv.y;              // the interior rises from below, ragged with noise
-      float m = smoothstep(0.0, 0.15, uMix * 1.15 - wipe);
+      float m = smoothstep(0.0, 0.22, uMix * 1.22 - wipe);
       float edge = 1.0 - abs(2.0 * m - 1.0);                        // displacement only along the dissolve frontier
       // A: the facade, pushed in toward the door
       vec2 sa = cover(uv, uAspA, uFocus);
@@ -3693,8 +3737,10 @@ if (window.CA_GL) {
       t += dt;
       const p = sec.__p || 0;
       u.uTime.value = t;
-      u.uScale.value = 1 + 0.35 * smooth(0, 0.86, p);
-      u.uMix.value = smooth(0.86, 1, p);
+      u.uScale.value = 1 + 0.35 * smooth(0, 0.72, p);
+      // the dissolve runs over the last 30 % of a 480svh chapter (~110svh of scroll) and slows through the middle, where both rooms are mixed
+      let m = Math.min(1, Math.max(0, (p - 0.70) / 0.30)); m += 0.5 * Math.sin(2 * Math.PI * m) / (2 * Math.PI);
+      u.uMix.value = m;
       const T = 22, k = (t % T) / T;           // one slow pass every 22 s
       u.uSweep.value = -0.45 + k * 2.4;
     },
@@ -3936,7 +3982,80 @@ if (window.CA_GL) {
       col = mix(col, earth, smoothstep(0.5, 0.95, vDepth));
       gl_FragColor = vec4(col, a * 0.92);
     }`;
-  let scene, cam, mesh, mat, ready = false;
+  // ── the drops: the root tips bring water down into the cenote; scroll-driven, so scrolling up reverses them ──
+  const DROP_VERT = /* glsl */`
+    attribute vec2 aCorner; attribute vec4 aA, aB;   // aA: centre x,y (viewport px, y down), half-size px, y-stretch · aB: alpha, kind (0 drop / 1 ring), colour mix, seed
+    uniform vec2 uVp; varying vec2 vC; varying float vA, vK, vM, vS, vSeed;
+    void main(){
+      vec2 p = aA.xy + aCorner * aA.z * vec2(1.0, aA.w);
+      vC = aCorner; vA = aB.x; vK = aB.y; vM = aB.z; vS = aA.w; vSeed = aB.w;
+      gl_Position = vec4(p.x / uVp.x * 2.0 - 1.0, 1.0 - p.y / uVp.y * 2.0, 0.0, 1.0);
+    }`;
+  const DROP_FRAG = /* glsl */`
+    precision mediump float; varying vec2 vC; varying float vA, vK, vM, vS, vSeed;
+    void main(){
+      vec3 sand = vec3(0.875, 0.788, 0.671), chukum = vec3(0.937, 0.910, 0.863), wood = vec3(0.553, 0.408, 0.275);
+      if (vK < 0.5) {
+        // a drop: a round belly low in the quad, a tail up toward the tip it hangs from when it stretches
+        vec2 c = vec2(vC.x, -vC.y); float r = length(vec2(c.x, c.y + 0.35));   // quad y runs down the screen: flip so the tail points up to the tip
+        float belly = 1.0 - smoothstep(0.5, 0.62, r);
+        float tw = 0.42 * (1.0 - smoothstep(-0.35, 1.0, c.y)) * clamp(1.0 - 1.0 / max(vS, 1.0), 0.0, 1.0);
+        float tail = (1.0 - smoothstep(tw * 0.7, tw, abs(c.x))) * step(-0.35, c.y) * (1.0 - smoothstep(0.85, 1.0, c.y));
+        float a = max(belly, tail);
+        float hi = 1.0 - smoothstep(0.0, 0.25, length(c - vec2(-0.16, -0.5)));
+        vec3 col = mix(mix(wood, sand, vM), chukum, hi * 0.8);
+        gl_FragColor = vec4(col, a * vA);
+      } else {
+        // a ring on the water, thin, in sand/chukum, with a fainter one inside
+        float r = length(vC);
+        float a = 1.0 - smoothstep(0.0, 0.05, abs(r - 0.92));
+        a += 0.45 * (1.0 - smoothstep(0.0, 0.05, abs(r - 0.62 - 0.1 * vSeed)));
+        gl_FragColor = vec4(mix(sand, chukum, 0.4), a * vA);
+      }
+    }`;
+  const ND = stage.phone ? 4 : 8, DL = 0.42;   // drops, and how much of the hand-off each one lives
+  let scene, cam, mesh, mat, dark, darkMat, dropScene, dropMesh, dA, dB, tips = [], hit = [], ready = false;
+  const smooth = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
+  function pickTips(w, h) {
+    const {lines} = window.CA_ROOTS.build(w, h, stage.phone);
+    const ends = lines.map(l => { const e = l.pts[l.pts.length - 1]; return [e[0], e[1]]; }).filter(e => e[1] > 0.22 * h && e[1] < 0.80 * h && e[0] > 0.05 * w && e[0] < 0.95 * w);
+    ends.sort((a, b) => b[1] - a[1]);
+    const out = [];
+    for (const e of ends) { if (out.length >= ND) break; if (out.every(o => Math.hypot(o[0] - e[0], o[1] - e[1]) > (stage.phone ? 0.18 : 0.09) * w)) out.push(e); }
+    while (out.length < ND) out.push([w * (0.2 + 0.6 * (out.length / ND)), h * 0.6]);
+    out.sort((a, b) => a[0] - b[0]);
+    return out.map((e, i) => [e[0], e[1], ((i * 7) % 11) / 11]);
+  }
+  function buildDrops() {
+    const Q = ND * 2, corner = new Float32Array(Q * 4 * 2), idx = [];
+    for (let i = 0; i < Q; i++) { const b = i * 4; corner.set([-1, -1, 1, -1, 1, 1, -1, 1], b * 2); idx.push(b, b + 1, b + 2, b, b + 2, b + 3); }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(Q * 4 * 3), 3));
+    g.setAttribute('aCorner', new THREE.BufferAttribute(corner, 2));
+    dA = new THREE.BufferAttribute(new Float32Array(Q * 4 * 4), 4).setUsage(THREE.DynamicDrawUsage);
+    dB = new THREE.BufferAttribute(new Float32Array(Q * 4 * 4), 4).setUsage(THREE.DynamicDrawUsage);
+    g.setAttribute('aA', dA); g.setAttribute('aB', dB); g.setIndex(idx);
+    dropMesh = new THREE.Mesh(g, new THREE.ShaderMaterial({ vertexShader: DROP_VERT, fragmentShader: DROP_FRAG, uniforms: { uVp: {value: new THREE.Vector2(innerWidth, innerHeight)} }, transparent: true, depthTest: false, depthWrite: false, side: THREE.DoubleSide }));   // y is flipped from pixel space, so the winding is too
+    dropMesh.frustumCulled = false; dropScene = new THREE.Scene(); dropScene.add(dropMesh);
+  }
+  function setQuad(k, cx, cy, size, sy, alpha, kind, colMix, seed) {
+    for (let v = 0; v < 4; v++) { const o = k * 4 + v; dA.setXYZW(o, cx, cy, size, sy); dB.setXYZW(o, alpha, kind, colMix, seed); }
+  }
+  function updateDrops() {
+    const q = sec.__q || 0, rd = sec.__rd || 0, vh = innerHeight, pr = pin.getBoundingClientRect(), surfY = 0.90 * vh;
+    for (let i = 0; i < ND; i++) {
+      const t = tips[i], s0 = 0.02 + i * (0.56 / Math.max(1, ND - 1)), u = (q - s0) / DL;
+      const tx = t[0] + pr.left, ty = t[1] + pr.top;
+      let dropA = 0, ringA = 0, cy = ty, size = 0, st = 1, rr = 0;
+      if (u > 0 && u < 0.28) { const w = smooth(0, 1, u / 0.28); size = 2 + 7 * w; st = 1 + 0.35 * w; cy = ty + size * 0.6; dropA = 0.92 * Math.min(1, w * 3); }                       // swells at the tip
+      else if (u >= 0.28 && u < 0.62) { const f = (u - 0.28) / 0.34; cy = ty + (surfY - ty) * f * f; size = 9; st = 1 + 1.1 * f * (1 - 0.7 * f * f * f); dropA = 0.92; }            // detaches and falls, stretching
+      else if (u >= 0.62 && u < 1) { const g = (u - 0.62) / 0.38; rr = 14 + (stage.phone ? 110 : 170) * g; ringA = 0.5 * Math.pow(1 - g, 1.4); }                                    // the ring spreads
+      if (u >= 0.62 && u < 1) { if (!hit[i]) { hit[i] = true; window.CA_CENOTE && window.CA_CENOTE.impact(tx, surfY, 0.26, stage.phone ? 0.05 : 0.03); } } else hit[i] = false;
+      setQuad(i * 2, tx, cy, size * 1.3, st, dropA, 0, rd, t[2]);
+      setQuad(i * 2 + 1, tx, surfY, rr, 0.42, ringA, 1, rd, t[2]);
+    }
+    dA.needsUpdate = dB.needsUpdate = true;
+  }
   function buildGeometry(w, h) {
     const {lines} = window.CA_ROOTS.build(w, h, stage.phone);
     const pos = [], nor = [], side = [], wid = [], tt = [], ss = [], ee = [], idx = [];
@@ -3965,16 +4084,21 @@ if (window.CA_GL) {
     return g;
   }
   const api = {
-    order: -1,
+    order: 0.5,   // after the cenote: the drops fall over its rising water
     init(st) {
       scene = new THREE.Scene(); cam = new THREE.Camera();
       mat = new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, transparent: true, depthTest: false, depthWrite: false,
         uniforms: { uRes: {value: new THREE.Vector2(pin.clientWidth, pin.clientHeight)}, uP: {value: 0} } });
       mesh = new THREE.Mesh(buildGeometry(pin.clientWidth, pin.clientHeight), mat); mesh.frustumCulled = false;
-      scene.add(mesh); ready = true;
+      scene.add(mesh);
+      // the page goes to earth on the canvas (not in the DOM) so the drops can fall over it
+      darkMat = new THREE.ShaderMaterial({ vertexShader: 'void main(){ gl_Position = vec4(position.xy, 0.0, 1.0); }', fragmentShader: 'precision mediump float; uniform float uA; void main(){ gl_FragColor = vec4(0.165, 0.118, 0.082, uA); }', uniforms: { uA: {value: 0} }, transparent: true, depthTest: false, depthWrite: false });
+      dark = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), darkMat); dark.frustumCulled = false; dark.renderOrder = 1; scene.add(dark);
+      tips = pickTips(pin.clientWidth, pin.clientHeight); buildDrops();
+      ready = true;
     },
-    resize() { if (!ready) return; mesh.geometry.dispose(); mesh.geometry = buildGeometry(pin.clientWidth, pin.clientHeight); mat.uniforms.uRes.value.set(pin.clientWidth, pin.clientHeight); },
-    update() { if (ready) mat.uniforms.uP.value = sec.__p || 0; },
+    resize() { if (!ready) return; mesh.geometry.dispose(); mesh.geometry = buildGeometry(pin.clientWidth, pin.clientHeight); mat.uniforms.uRes.value.set(pin.clientWidth, pin.clientHeight); tips = pickTips(pin.clientWidth, pin.clientHeight); dropMesh.material.uniforms.uVp.value.set(innerWidth, innerHeight); },
+    update() { if (!ready) return; mat.uniforms.uP.value = sec.__p || 0; darkMat.uniforms.uA.value = sec.__rd || 0; updateDrops(); },
     render(renderer) {
       if (!ready) return;
       const r = pin.getBoundingClientRect(), vh = innerHeight, vw = innerWidth;
@@ -3985,16 +4109,18 @@ if (window.CA_GL) {
       renderer.setScissorTest(true); renderer.setScissor(0, vh - bottom, vw, bottom - top);
       renderer.render(scene, cam);
       renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
+      // the drops and rings live in viewport space: they fall across the seam between the roots' earth and the rising cenote
+      if ((sec.__q || 0) > 0) renderer.render(dropScene, cam);
     },
-    debug() { return { ready, p: sec.__p, verts: mesh && mesh.geometry.attributes.position.count }; },
-    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mat.dispose(); } }
+    debug() { return { ready, p: sec.__p, q: sec.__q, verts: mesh && mesh.geometry.attributes.position.count, tips: tips.map(t => [Math.round(t[0]), Math.round(t[1])]), drops: dA && tips.map((t, i) => [Math.round(dA.getX(i * 8)), Math.round(dA.getY(i * 8)), +dA.getZ(i * 8).toFixed(1), +dB.getX(i * 8).toFixed(2), +dA.getZ(i * 8 + 4).toFixed(0), +dB.getX(i * 8 + 4).toFixed(2)]) }; },
+    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mat.dispose(); } if (dark) { dark.geometry.dispose(); darkMat.dispose(); } if (dropMesh) { dropMesh.geometry.dispose(); dropMesh.material.dispose(); } }
   };
   stage.register('roots', api);
 }
 </script>
 
 <script type="module">
-// ── Chapter: CENOTE — earth-dark water, caustics, light shafts, drifting particles, a ripple simulation the pointer stirs; the pool photo is the view up through the surface ──
+// ── Chapter: CENOTE — earth-dark water, caustics, light shafts, drifting particles, a ripple simulation the pointer (and the roots' drops) stir; the view up through the surface is the pool, then OMé, then the temazcal fire ──
 if (window.CA_GL) {
   const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
   const {THREE} = stage;
@@ -4016,8 +4142,8 @@ if (window.CA_GL) {
     }`;
   const WATER_FRAG = /* glsl */`
     precision highp float; varying vec2 vUv;
-    uniform sampler2D uPool, uRipple; uniform vec2 uRes;
-    uniform float uPoolAsp, uTime, uLook, uOut, uPhone, uTexel;
+    uniform sampler2D uImgA, uImgB, uRipple; uniform vec2 uRes;
+    uniform float uAspA, uAspB, uImgMix, uTime, uLook, uOut, uPhone, uTexel, uEnter, uFire;
     float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
     vec2 hash2(vec2 p){ return fract(sin(vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3)))) * 43758.5453); }
     float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f); return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y); }
@@ -4025,6 +4151,10 @@ if (window.CA_GL) {
       for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) { vec2 g = vec2(float(x), float(y)); vec2 o = hash2(i + g); o = 0.5 + 0.5 * sin(t + 6.2831 * o); m = min(m, length(g + o - f)); }
       return m; }
     float caustic(vec2 p, float t){ float a = voro(p * 3.0, t * 0.7); float b = voro(p * 5.5 + vec2(3.1, 1.7), t * 0.9); return pow(1.0 - a, 6.0) * 1.2 + pow(1.0 - b, 8.0) * 0.8; }
+    // the fire: the caustic network's cell borders glow as ember cracks
+    float cracks(vec2 p, float t){ vec2 i = floor(p), f = fract(p); float f1 = 8.0, f2 = 8.0;
+      for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) { vec2 g = vec2(float(x), float(y)); vec2 o = hash2(i + g); o = 0.5 + 0.4 * sin(t * 0.3 + 6.2831 * o); float d = length(g + o - f); if (d < f1) { f2 = f1; f1 = d; } else if (d < f2) { f2 = d; } }
+      return pow(1.0 - smoothstep(0.0, 0.07, f2 - f1), 2.0); }
     vec2 cover(vec2 uv, float a, float s, vec2 focus){ vec2 st = uv;
       if (s > a) { float k = a / s; st.y = clamp(focus.y, k * 0.5, 1.0 - k * 0.5) + (uv.y - 0.5) * k; }
       else { float k = s / a; st.x = clamp(focus.x, k * 0.5, 1.0 - k * 0.5) + (uv.x - 0.5) * k; }
@@ -4035,21 +4165,28 @@ if (window.CA_GL) {
       float hx = texture2D(uRipple, uv + vec2(uTexel, 0.0)).r - texture2D(uRipple, uv - vec2(uTexel, 0.0)).r;
       float hy = texture2D(uRipple, uv + vec2(0.0, uTexel)).r - texture2D(uRipple, uv - vec2(0.0, uTexel)).r;
       vec2 grad = vec2(hx, hy) * 4.0;
-      // the water body: earth-dark, a touch lighter toward the surface
-      vec3 deep = vec3(0.102, 0.078, 0.059), earth = vec3(0.165, 0.118, 0.082);
+      // the water body: earth-dark, a touch lighter toward the surface; the fire slides it to ember
+      vec3 deep = mix(vec3(0.102, 0.078, 0.059), vec3(0.14, 0.05, 0.02), uFire), earth = mix(vec3(0.165, 0.118, 0.082), vec3(0.30, 0.11, 0.04), uFire);
       vec3 col = mix(deep, earth, smoothstep(0.0, 1.0, uv.y));
-      // the surface: the pool seen from below, bent by the ripples
-      vec2 suv = vec2(uv.x, clamp((uv.y - 0.42) / 0.58, 0.0, 1.0));
-      vec2 puv = cover(suv + grad * 0.05 + vec2(sin(uTime * 0.2 + uv.y * 3.0) * 0.006, 0.0), uPoolAsp, s / 0.58, vec2(0.5, 0.5));
-      vec3 pool = texture2D(uPool, clamp(puv, 0.001, 0.999)).rgb;
-      float sfc = smoothstep(0.50, 0.92, uv.y + h * 2.5);
-      col = mix(col, pool * 0.78, sfc * uLook);
-      col += pool * 0.09 * (1.0 - sfc);                                    // the only colour down here leaks from the photo
-      // caustics
+      // heat shimmer: a vertical refraction wobble that replaces the ripples as the water warms (one coarse octave on phones)
+      float sh = uPhone > 0.5 ? noise(vec2(uv.x * 6.0, uv.y * 14.0 - uTime * 1.6)) : noise(vec2(uv.x * 12.0, uv.y * 30.0 - uTime * 2.2)) * 0.6 + noise(vec2(uv.x * 26.0 + 3.0, uv.y * 60.0 - uTime * 3.5)) * 0.4;
+      vec2 shim = vec2((sh - 0.5) * 0.06, (sh - 0.5) * 0.02) * uFire;
+      grad *= 1.0 - uFire;
+      // the surface: the place seen from below — the pool, then OMé, then the temazcal stones — same water, bent by the ripples or the heat
+      vec2 suv = vec2(uv.x, clamp((uv.y - 0.42) / 0.58, 0.0, 1.0)) + grad * 0.05 + shim + vec2(sin(uTime * 0.2 + uv.y * 3.0) * 0.006, 0.0);
+      vec3 pool = mix(texture2D(uImgA, clamp(cover(suv, uAspA, s / 0.58, vec2(0.5, 0.5)), 0.001, 0.999)).rgb, texture2D(uImgB, clamp(cover(suv, uAspB, s / 0.58, vec2(0.5, 0.5)), 0.001, 0.999)).rgb, uImgMix);
+      pool *= mix(vec3(1.0), vec3(1.12, 0.86, 0.62), uFire * 0.6);
+      float sfc = smoothstep(0.50, 0.92, uv.y + h * 2.5 * (1.0 - uFire) + (sh - 0.5) * 0.08 * uFire);
+      col = mix(col, pool * 0.78, sfc * uLook * uEnter);
+      col += pool * 0.09 * (1.0 - sfc) * uEnter;                           // the only colour down here leaks from the photo
+      // caustics — a faint shimmer as the rings spread, the full network once the water is here, ember cracks in the fire
       vec2 cuv = uv * vec2(s, 1.0) + grad * 0.2;
       float c = caustic(cuv + vec2(uTime * 0.02, uTime * 0.015), uTime);
-      vec3 ctint = mix(vec3(1.0, 0.93, 0.78), pool, 0.55);
-      col += ctint * c * (0.08 + 0.32 * smoothstep(0.15, 0.9, uv.y)) * (1.0 - 0.55 * sfc * uLook);
+      float cr = cracks(cuv * 3.2 + vec2(0.0, -uTime * 0.05), uTime) * (0.75 + 0.5 * noise(vec2(uTime * 3.0 + uv.x * 5.0, uv.y * 4.0))) * 0.55;
+      vec3 ctint = mix(mix(vec3(1.0, 0.93, 0.78), pool, 0.55), vec3(1.0, 0.42, 0.10), uFire);
+      float cw = mix(0.08 + 0.32 * smoothstep(0.15, 0.9, uv.y), 0.12 + 0.30 * (1.0 - smoothstep(0.35, 0.95, uv.y)), uFire);   // caustics gather toward the surface, embers glow from below
+      col += ctint * mix(c, cr, uFire) * cw * (1.0 - 0.55 * sfc * uLook) * (0.12 + 0.88 * uEnter);
+      col *= 1.0 - 0.22 * smoothstep(0.55, 0.0, uv.x) * (1.0 - uPhone);                                  // the beats read on the left
       // light shafts from the opening above
       vec2 L = vec2(0.5 + h * 1.5 + sin(uTime * 0.13) * 0.06, 1.08);
       vec2 d = L - uv; float ray = 0.0, w = 1.0; const int N = 12;
@@ -4060,28 +4197,33 @@ if (window.CA_GL) {
         ray += m * w; w *= 0.86;
       }
       ray /= float(N) * (uPhone > 0.5 ? 0.3 : 0.55); ray *= 1.0 - abs(uv.x - L.x) * 0.8;
-      col += vec3(1.0, 0.9, 0.7) * ray * 0.26 * (1.0 - sfc * 0.6);
+      col += mix(vec3(1.0, 0.9, 0.7), vec3(1.0, 0.5, 0.2), uFire) * ray * 0.26 * (1.0 - 0.5 * uFire) * (1.0 - sfc * 0.6) * uEnter;
       // grain, vignette, and the way back up to chukum
       col += (hash(gl_FragCoord.xy + fract(uTime) * 61.0) - 0.5) * 0.035;
       col *= 1.0 - 0.35 * smoothstep(0.5, 1.2, length((uv - 0.5) * vec2(1.2, 1.0)) * 1.4);
-      col = mix(col, vec3(0.937, 0.910, 0.863), uOut);
+      col = mix(col, vec3(0.302, 0.200, 0.122), uOut);                   // the last ember light becomes the cellar's wall by candle
       gl_FragColor = vec4(col, 1.0);
     }`;
   const DUST_VERT = /* glsl */`
-    attribute vec3 aSeed; uniform float uTime, uPR, uAsp; varying float vA;
+    attribute vec3 aSeed; uniform float uTime, uPR, uAsp, uFire; varying float vA, vF;
     void main(){
-      float y = mod(aSeed.y + uTime * (0.02 + aSeed.z * 0.05), 2.0) - 1.0;
-      float x = aSeed.x + sin(uTime * 0.4 + aSeed.y * 7.0) * 0.02;
-      vA = (0.25 + aSeed.z * 0.5) * (1.0 - smoothstep(0.7, 1.0, y));
-      gl_PointSize = (1.5 + aSeed.z * 2.5) * uPR;
+      // drifting dust; in the fire it rises fast and flickers as sparks
+      float y = mod(aSeed.y + uTime * (0.02 + aSeed.z * 0.05) * (1.0 + 4.0 * uFire), 2.0) - 1.0;
+      float x = aSeed.x + sin(uTime * 0.4 + aSeed.y * 7.0) * 0.02 + sin(uTime * 3.0 + aSeed.y * 11.0) * 0.01 * uFire;
+      vA = (0.25 + aSeed.z * 0.5) * (1.0 - smoothstep(0.7, 1.0, y)) * (1.0 + 0.8 * uFire * (0.5 + 0.5 * sin(uTime * 9.0 + aSeed.x * 40.0)));
+      vF = uFire;
+      gl_PointSize = (1.5 + aSeed.z * 2.5) * uPR * (1.0 + 0.3 * uFire);
       gl_Position = vec4(x, y, 0.0, 1.0);
     }`;
   const DUST_FRAG = /* glsl */`
-    precision mediump float; varying float vA;
-    void main(){ float d = length(gl_PointCoord - 0.5); float a = smoothstep(0.5, 0.15, d) * vA; gl_FragColor = vec4(1.0, 0.94, 0.82, a); }`;
+    precision mediump float; varying float vA, vF;
+    void main(){ float d = length(gl_PointCoord - 0.5); float a = smoothstep(0.5, 0.15, d) * vA; gl_FragColor = vec4(mix(vec3(1.0, 0.94, 0.82), vec3(1.0, 0.55, 0.18), vF), a); }`;
 
-  let scene, cam, water, wu, dust, du, simScene, simMat, rts = [], cur = 0, ready = false, t = 0, dripT = 0;
-  const pointer = { x: 0.5, y: 0.5, lx: -1, ly: -1, moved: false };
+  let scene, cam, water, wu, dust, du, simScene, simMat, rts = [], cur = 0, ready = false, t = 0, dripT = 0, tex = {};
+  const pointer = { x: 0.5, y: 0.5, lx: -1, ly: -1, moved: false }, impacts = [];
+  const rootsSec = document.getElementById('features');
+  // the place seen through the surface, along the chapter: pool → OMé entrance → the sign wall → the lantern lounge → the temazcal stones
+  const SEQ = [['pool', 0, 0], ['entrance', 0.36, 0.44], ['sign', 0.54, 0.62], ['lounge', 0.66, 0.72], ['stones', 0.76, 0.84]];
   const loader = new THREE.TextureLoader();
   const load = url => new Promise((res, rej) => loader.load(url, tex => { tex.colorSpace = THREE.NoColorSpace; tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = false; tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping; res(tex); }, undefined, rej));
   const smooth = (a, b, x) => { x = Math.min(1, Math.max(0, (x - a) / (b - a))); return x * x * (3 - 2 * x); };
@@ -4093,7 +4235,9 @@ if (window.CA_GL) {
     order: -1,
     disposable: true,
     async init(st) {
-      const pt = await load(`/images/web/cenote-pool${phone ? '-m' : ''}.webp`);
+      const sfx = phone ? '-m' : '', names = { pool: 'cenote-pool', entrance: 'ome-entrance', sign: 'ome-sign-wall', lounge: 'ome-lounge-lantern', stones: 'temazcal-stones' };
+      const loaded = await Promise.all(Object.entries(names).map(([k, n]) => load(`/images/web/${n}${sfx}.webp`).then(t => [k, t])));
+      tex = Object.fromEntries(loaded); const pt = tex.pool;
       for (let i = 0; i < 3; i++) rts.push(new THREE.WebGLRenderTarget(SIM, SIM, { minFilter: THREE.LinearFilter, magFilter: THREE.LinearFilter, format: THREE.RGBAFormat, type: THREE.UnsignedByteType, depthBuffer: false, stencilBuffer: false }));
       // seed the targets at rest (0.5)
       simScene = new THREE.Scene();
@@ -4105,14 +4249,14 @@ if (window.CA_GL) {
       for (const rt of rts) { st.renderer.setRenderTarget(rt); st.renderer.render(fs, new THREE.Camera()); }
       st.renderer.setRenderTarget(null);
       scene = new THREE.Scene(); cam = new THREE.Camera();
-      wu = { uPool: {value: pt}, uRipple: {value: rts[0].texture}, uRes: {value: new THREE.Vector2(1, 1)},
-             uPoolAsp: {value: pt.image.width / pt.image.height}, uTime: {value: 0}, uLook: {value: 0.9}, uOut: {value: 0}, uPhone: {value: phone ? 1 : 0}, uTexel: {value: 1 / SIM} };
+      wu = { uImgA: {value: pt}, uImgB: {value: pt}, uImgMix: {value: 0}, uRipple: {value: rts[0].texture}, uRes: {value: new THREE.Vector2(1, 1)},
+             uAspA: {value: pt.image.width / pt.image.height}, uAspB: {value: pt.image.width / pt.image.height}, uTime: {value: 0}, uLook: {value: 0.9}, uOut: {value: 0}, uPhone: {value: phone ? 1 : 0}, uTexel: {value: 1 / SIM}, uEnter: {value: 1}, uFire: {value: 0} };
       water = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: QUAD_VERT, fragmentShader: WATER_FRAG, uniforms: wu, depthTest: false, depthWrite: false }));
       water.frustumCulled = false; scene.add(water);
       const N = phone ? 320 : 700, seed = new Float32Array(N * 3);
       for (let i = 0; i < N; i++) { seed[i*3] = Math.random() * 2 - 1; seed[i*3+1] = Math.random() * 2 - 1; seed[i*3+2] = Math.random(); }
       const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(N * 3), 3)); g.setAttribute('aSeed', new THREE.BufferAttribute(seed, 3));
-      du = { uTime: {value: 0}, uPR: {value: st.renderer.getPixelRatio()}, uAsp: {value: 1} };
+      du = { uTime: {value: 0}, uPR: {value: st.renderer.getPixelRatio()}, uAsp: {value: 1}, uFire: {value: 0} };
       dust = new THREE.Points(g, new THREE.ShaderMaterial({ vertexShader: DUST_VERT, fragmentShader: DUST_FRAG, uniforms: du, transparent: true, depthTest: false, depthWrite: false }));
       dust.frustumCulled = false; scene.add(dust);
       layout(st.width, st.height);
@@ -4123,17 +4267,26 @@ if (window.CA_GL) {
     update(progress, velocity, dt) {
       if (!ready) return;
       t += dt; dt = Math.min(dt, 1 / 30);
-      const p = sec.__p || 0;
+      const p = sec.__p || 0, q = rootsSec && rootsSec.__q !== undefined ? rootsSec.__q : 1;
       wu.uTime.value = t; du.uTime.value = t;
-      wu.uLook.value = 0.85 - 0.25 * smooth(0.46, 0.52, p);
+      wu.uEnter.value = smooth(0.45, 1.0, q);                      // the water arrives as the drops' rings spread
+      wu.uLook.value = 0.85;
+      const fire = smooth(0.68, 0.80, p); wu.uFire.value = fire; du.uFire.value = fire;
       wu.uOut.value = smooth(0.88, 1.0, p);
-      // ripple sim: one step per frame; the pointer stirs the surface, and now and then a drop falls on its own
+      // which place shows through the surface, and the crossfade between two of them (through the same ripples)
+      let k = 0; for (let i = 1; i < SEQ.length; i++) if (p >= SEQ[i][1]) k = i;
+      const cur2 = SEQ[k], prev = SEQ[Math.max(0, k - 1)], mixing = k > 0 && p < cur2[2];
+      const A = tex[mixing ? prev[0] : cur2[0]], B = tex[cur2[0]];
+      wu.uImgA.value = A; wu.uAspA.value = A.image.width / A.image.height; wu.uImgB.value = B; wu.uAspB.value = B.image.width / B.image.height;
+      wu.uImgMix.value = mixing ? smooth(cur2[1], cur2[2], p) : 0;
+      // ripple sim: one step per frame; the pointer stirs the surface, the roots' drops land on it, and now and then a drop falls on its own
       const r = stage.renderer;
-      let ds = 0, dx = -1, dy = -1;
-      if (pointer.moved) { pointer.moved = false; dx = pointer.x; dy = pointer.y; ds = 0.28; }
-      dripT -= dt; if (dripT <= 0) { dripT = 1.6 + Math.random() * 2.4; if (ds === 0) { dx = 0.2 + Math.random() * 0.6; dy = 0.55 + Math.random() * 0.4; ds = 0.22; } }
+      let ds = 0, dx = -1, dy = -1, dr = phone ? 0.05 : 0.03;
+      if (impacts.length) { const im = impacts.shift(); dx = im[0]; dy = im[1]; ds = im[2]; dr = im[3]; }
+      else if (pointer.moved) { pointer.moved = false; dx = pointer.x; dy = pointer.y; ds = 0.28; }
+      dripT -= dt; if (dripT <= 0) { dripT = 1.6 + Math.random() * 2.4; if (ds === 0 && fire < 0.5) { dx = 0.2 + Math.random() * 0.6; dy = 0.55 + Math.random() * 0.4; ds = 0.22; } }
       simMat.uniforms.uPrev.value = rts[cur].texture; simMat.uniforms.uPrev2.value = rts[(cur + 2) % 3].texture;
-      simMat.uniforms.uDrop.value.set(dx, dy); simMat.uniforms.uDropS.value = ds; simMat.uniforms.uDropR.value = phone ? 0.05 : 0.03;
+      simMat.uniforms.uDrop.value.set(dx, dy); simMat.uniforms.uDropS.value = ds; simMat.uniforms.uDropR.value = dr;
       const next = (cur + 1) % 3;
       r.setRenderTarget(rts[next]); r.render(simScene, cam); r.setRenderTarget(null);
       cur = next; wu.uRipple.value = rts[cur].texture;
@@ -4148,9 +4301,11 @@ if (window.CA_GL) {
       renderer.render(scene, cam);
       renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
     },
-    debug() { return { ready, p: sec.__p, look: wu && wu.uLook.value, out: wu && wu.uOut.value, sim: SIM }; },
-    dispose() { ready = false; rts.forEach(rt => rt.dispose()); rts = []; if (water) { water.geometry.dispose(); water.material.dispose(); wu.uPool.value.dispose(); } if (dust) { dust.geometry.dispose(); dust.material.dispose(); } if (simMat) simMat.dispose(); document.documentElement.classList.remove('cenote-live'); }
+    debug() { return { ready, p: sec.__p, look: wu && wu.uLook.value, out: wu && wu.uOut.value, enter: wu && wu.uEnter.value, fire: wu && wu.uFire.value, mix: wu && wu.uImgMix.value, img: wu && [wu.uImgA.value.image.src.split('/').pop(), wu.uImgB.value.image.src.split('/').pop()], sim: SIM, impacts: impacts.length }; },
+    dispose() { ready = false; rts.forEach(rt => rt.dispose()); rts = []; if (water) { water.geometry.dispose(); water.material.dispose(); Object.values(tex).forEach(t => t.dispose()); tex = {}; } if (dust) { dust.geometry.dispose(); dust.material.dispose(); } if (simMat) simMat.dispose(); document.documentElement.classList.remove('cenote-live'); }
   };
+  // the roots' drops land on the water: viewport px → the sim's uv, queued for the next steps
+  window.CA_CENOTE = { impact(px, py, s, rad) { if (!ready) return false; const r = pin.getBoundingClientRect(); const x = (px - r.left) / r.width, y = 1 - (py - r.top) / r.height; if (x < 0 || x > 1 || y < 0 || y > 1) return false; impacts.push([x, y, s || 0.3, rad || 0.04]); return true; } };
   const setPointer = (cx, cy) => { const r = pin.getBoundingClientRect(); const x = (cx - r.left) / r.width, y = 1 - (cy - r.top) / r.height; if (x < 0 || x > 1 || y < 0 || y > 1) return; if (Math.hypot(x - pointer.lx, y - pointer.ly) > 0.004) { pointer.x = x; pointer.y = y; pointer.lx = x; pointer.ly = y; pointer.moved = true; } };
   addEventListener('pointermove', e => setPointer(e.clientX, e.clientY), {passive: true});
   addEventListener('touchmove', e => { const c = e.touches[0]; if (c) setPointer(c.clientX, c.clientY); }, {passive: true});
@@ -4251,7 +4406,7 @@ if (window.CA_GL) {
 </script>
 
 <script type="module">
-// ── Chapter: CELLAR — the chukum page is the wall: a wood seam, two plaster halves part, the backlight washes down the stone; pointer parallax between glass and bottles ──
+// ── Chapter: CELLAR — the wall by the last ember light: a seam of light, two plaster halves part, champagne bubbles rise, the LED washes down the stone; pointer parallax between glass and bottles ──
 if (window.CA_GL) {
   const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
   const {THREE} = stage;
@@ -4260,7 +4415,7 @@ if (window.CA_GL) {
   const VERT = /* glsl */`varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
   const FRAG = /* glsl */`
     precision highp float; varying vec2 vUv;
-    uniform sampler2D uOff, uOn; uniform vec2 uRes, uPar; uniform float uAsp, uGap, uSeam, uLight, uTime, uVert;
+    uniform sampler2D uOn; uniform vec2 uRes, uPar; uniform float uAsp, uGap, uSeam, uLight, uTime, uVert;
     float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
     float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f); return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y); }
     vec2 cover(vec2 uv, float a, float s, vec2 focus){ vec2 st = uv;
@@ -4273,11 +4428,13 @@ if (window.CA_GL) {
       // the glass wall in the photo (x 0.22–0.98, y 0.13–0.91 bottom-up): bottles move with the pointer, the glass front stays
       float mask = smoothstep(0.19, 0.27, st.x) * smoothstep(1.0, 0.97, st.x) * smoothstep(0.08, 0.16, st.y) * smoothstep(0.94, 0.86, st.y);
       vec2 back = clamp(st + (uPar / uRes) * mask, 0.001, 0.999);
-      vec3 off = texture2D(uOff, back).rgb, on = texture2D(uOn, back).rgb;
-      // warm the blue "off" photo toward dusk lilac / earth grey so it belongs to the palette
-      float l = dot(off, vec3(0.3, 0.59, 0.11));
-      vec3 tint = mix(vec3(0.34, 0.30, 0.28), vec3(0.561, 0.584, 0.769), smoothstep(0.15, 0.7, l));
-      off = mix(off, tint * (0.55 + 1.5 * l), 0.62);
+      vec3 on = min(texture2D(uOn, back).rgb * 1.1, vec3(1.0));                 // the lit wall, lifted a touch
+      // the same room at dusk by one candle: exposure down ~70 %, the shadows pushed to deep earth and amber, never blue
+      float l = dot(on, vec3(0.3, 0.59, 0.11));
+      vec3 off = on * 0.30 * vec3(1.10, 0.90, 0.68);
+      off = mix(vec3(0.165, 0.118, 0.082) * 0.55, off, smoothstep(0.0, 0.45, l));
+      off += vec3(1.0, 0.62, 0.30) * 0.10 * pow(max(0.0, l - 0.3), 1.5);           // the candle catches the glass and the labels
+      off *= 0.9 + 0.16 * noise(st * 3.0 + vec2(0.0, uTime * 0.15));                // a slow breath of candlelight over the room
       // the light comes on the way it falls in the photo: down the stone from the ceiling slot
       float front = 1.02 - uLight * 1.3;
       float lit = smoothstep(front - 0.07, front + 0.07, st.y);
@@ -4292,21 +4449,57 @@ if (window.CA_GL) {
       float plaster = uGap < 0.0005 ? 1.0 : smoothstep(gap - 0.0008, gap + 0.0008, d);
       vec2 pq = uv * vec2(s, 1.0);
       float pn = noise(pq * 48.0) * 0.45 + noise(pq * 11.0) * 0.55;
-      vec3 pl = vec3(0.937, 0.910, 0.863) * (1.0 - (0.038 - 0.05 * pn) * uSeam);
+      // the plaster: by the last ember light until the LED is up, then chukum
+      vec3 pl = mix(vec3(0.302, 0.200, 0.122) * (1.0 - (0.06 - 0.08 * pn) * uSeam), vec3(0.937, 0.910, 0.863) * (1.0 - (0.038 - 0.05 * pn) * uSeam), uLight);
       float reveal = smoothstep(gap + 0.014, gap, d) * plaster * smoothstep(0.0, 0.02, uGap);   // the thickness of the plaster at the inner edge, once it opens
       pl *= 1.0 - 0.3 * reveal;
       float shadow = smoothstep(gap + 0.10, gap, d) * (1.0 - plaster);          // the halves' soft shadow on the wall
       col *= 1.0 - 0.42 * shadow * step(0.001, uGap);
       col = mix(col, pl, plaster);
-      // the seam: a 1 px wood line drawing top → bottom before the wall opens
+      // the seam: a 1 px line drawing top → bottom before the wall opens — a hair of light from the room behind while the wall is dark, a wood line once it is lit
       float along = uVert > 0.5 ? uv.x : (1.0 - uv.y);
       float w = (uVert > 0.5 ? 1.0 / uRes.y : 1.0 / uRes.x);
-      float seam = (1.0 - smoothstep(w * 0.6, w * 1.6, d)) * step(along, uSeam) * (1.0 - smoothstep(0.0, 0.03, uGap));
-      col = mix(col, vec3(0.553, 0.408, 0.275), seam * 0.9);
+      float open = 1.0 - smoothstep(0.0, 0.03, uGap);
+      float seam = (1.0 - smoothstep(w * 0.6, w * 1.6, d)) * step(along, uSeam) * open;
+      float glow = exp(-d / 0.005) * step(along, uSeam) * open * (1.0 - uLight);
+      col = mix(col, mix(vec3(1.0, 0.72, 0.42), vec3(0.553, 0.408, 0.275), uLight), seam * 0.9);
+      col += vec3(1.0, 0.62, 0.30) * glow * 0.22;
       col += (hash(gl_FragCoord.xy + fract(uTime) * 61.0) - 0.5) * 0.025;
       gl_FragColor = vec4(col, 1.0);
     }`;
-  let scene, cam, mesh, u, ready = false, t = 0;
+  // ── champagne: a fine burst out of the seam as the halves part, then a stream of tiny bubbles rising up the screen ──
+  const BUB_VERT = /* glsl */`
+    attribute vec4 aSeed; uniform float uPop, uRise, uVert, uPR, uAsp, uLight; varying float vA;
+    void main(){
+      vec2 p; float a;
+      if (aSeed.w < 0.3) {
+        // the pop: out of the middle of the seam, in every direction, then a drift upward
+        float ang = aSeed.x * 6.2831, rr = (0.04 + 0.22 * aSeed.y) * uPop;
+        p = vec2(0.5, 0.5) + vec2(cos(ang), sin(ang) * uAsp) * rr;
+        p.y += uPop * uPop * 0.12 * (0.5 + aSeed.z);
+        a = uPop * (1.0 - uPop) * 4.0 * (0.4 + 0.6 * aSeed.z);
+      } else {
+        // the stream: from along the seam (or across the horizontal seam on portrait screens), up the screen
+        float y0 = uVert > 0.5 ? 0.5 : (0.55 - 0.75 * aSeed.y);
+        float x0 = uVert > 0.5 ? aSeed.y : 0.5 + (aSeed.x - 0.5) * 0.10;
+        float rise = uRise * (1.1 + 0.9 * aSeed.z);
+        p = vec2(x0 + sin(uRise * 14.0 + aSeed.x * 30.0) * 0.012 * (1.0 + rise), y0 + rise);
+        a = smoothstep(0.0, 0.05, uRise) * (1.0 - smoothstep(0.93, 1.02, p.y)) * (0.35 + 0.65 * aSeed.z) * (1.0 - smoothstep(1.0, 1.35, uRise));
+      }
+      vA = a;
+      gl_PointSize = (1.6 + 2.8 * aSeed.z) * uPR * (aSeed.w < 0.3 ? 0.8 : 1.0);
+      gl_Position = vec4(p * 2.0 - 1.0, 0.0, 1.0);
+    }`;
+  const BUB_FRAG = /* glsl */`
+    precision mediump float; varying float vA; uniform float uLight;
+    void main(){
+      vec2 c = gl_PointCoord - 0.5; float d = length(c);
+      float rim = smoothstep(0.5, 0.42, d) * (1.0 - smoothstep(0.30, 0.42, d) * 0.55);
+      float hi = 1.0 - smoothstep(0.0, 0.16, length(c - vec2(-0.12, -0.14)));
+      vec3 col = mix(vec3(1.0, 0.80, 0.55), vec3(0.937, 0.910, 0.863), 0.3 + 0.6 * uLight);   // the cenote's sparks become sand/chukum bubbles catching the light
+      gl_FragColor = vec4(col, (rim * 0.55 + hi * 0.8) * vA);
+    }`;
+  let scene, cam, mesh, u, bubbles, bu, ready = false, t = 0;
   const par = { x: 0, y: 0, tx: 0, ty: 0 };
   const loader = new THREE.TextureLoader();
   const load = url => new Promise((res, rej) => loader.load(url, tex => { tex.colorSpace = THREE.NoColorSpace; tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = false; res(tex); }, undefined, rej));
@@ -4314,18 +4507,25 @@ if (window.CA_GL) {
     order: -1, disposable: true,
     async init(st) {
       const sfx = phone ? '-m' : '';
-      const [off, on] = await Promise.all([load(`/images/web/wine-wall-off${sfx}.webp`), load(`/images/web/wine-wall-on${sfx}.webp`)]);
+      const on = await load(`/images/web/wine-wall-on${sfx}.webp`);
       scene = new THREE.Scene(); cam = new THREE.Camera();
-      u = { uOff: {value: off}, uOn: {value: on}, uRes: {value: new THREE.Vector2(st.width, st.height)}, uPar: {value: new THREE.Vector2()}, uAsp: {value: on.image.width / on.image.height}, uGap: {value: 0}, uSeam: {value: 0}, uLight: {value: 0}, uTime: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0} };
+      u = { uOn: {value: on}, uRes: {value: new THREE.Vector2(st.width, st.height)}, uPar: {value: new THREE.Vector2()}, uAsp: {value: on.image.width / on.image.height}, uGap: {value: 0}, uSeam: {value: 0}, uLight: {value: 0}, uTime: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0} };
       mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms: u, depthTest: false, depthWrite: false }));
       mesh.frustumCulled = false; scene.add(mesh);
+      const NB = phone ? 120 : 280, seed = new Float32Array(NB * 4);
+      for (let i = 0; i < NB; i++) { seed[i*4] = Math.random(); seed[i*4+1] = Math.random(); seed[i*4+2] = Math.random(); seed[i*4+3] = Math.random(); }
+      const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(NB * 3), 3)); g.setAttribute('aSeed', new THREE.BufferAttribute(seed, 4));
+      bu = { uPop: {value: 0}, uRise: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0}, uPR: {value: st.renderer.getPixelRatio()}, uAsp: {value: st.width / st.height}, uLight: {value: 0} };
+      bubbles = new THREE.Points(g, new THREE.ShaderMaterial({ vertexShader: BUB_VERT, fragmentShader: BUB_FRAG, uniforms: bu, transparent: true, depthTest: false, depthWrite: false }));
+      bubbles.frustumCulled = false; bubbles.renderOrder = 1; scene.add(bubbles);
       ready = true; document.documentElement.classList.add('cellar-live');
     },
-    resize(w, h) { if (u) { u.uRes.value.set(w, h); u.uVert.value = w < h ? 1 : 0; } },
+    resize(w, h) { if (u) { u.uRes.value.set(w, h); u.uVert.value = w < h ? 1 : 0; } if (bu) { bu.uVert.value = w < h ? 1 : 0; bu.uAsp.value = w / h; } },
     update(progress, velocity, dt) {
       if (!ready) return; t += dt; dt = Math.min(dt, 1 / 30);
-      const k = sec.__t || {seam: 0, gap: 0, light: 0};
+      const k = sec.__t || {seam: 0, gap: 0, light: 0, pop: 0, rise: 0};
       u.uSeam.value = k.seam; u.uGap.value = k.gap; u.uLight.value = k.light; u.uTime.value = t;
+      bu.uPop.value = k.pop || 0; bu.uRise.value = k.rise || 0; bu.uLight.value = k.light;
       par.x += (par.tx - par.x) * Math.min(1, dt * 5); par.y += (par.ty - par.y) * Math.min(1, dt * 5);
       u.uPar.value.set(par.x, par.y);
     },
@@ -4340,7 +4540,7 @@ if (window.CA_GL) {
       renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
     },
     debug() { return { ready, p: sec.__p, ...(sec.__t || {}), par: [par.x, par.y] }; },
-    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mesh.material.dispose(); u.uOff.value.dispose(); u.uOn.value.dispose(); } document.documentElement.classList.remove('cellar-live'); }
+    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mesh.material.dispose(); u.uOn.value.dispose(); } if (bubbles) { bubbles.geometry.dispose(); bubbles.material.dispose(); } document.documentElement.classList.remove('cellar-live'); }
   };
   // pointer → a gentle parallax between the glass and the bottles, 8 px at most
   addEventListener('pointermove', e => { par.tx = (e.clientX / innerWidth - 0.5) * 16; par.ty = (0.5 - e.clientY / innerHeight) * 16; }, {passive: true});
