@@ -3,6 +3,9 @@
 ## Now
 - STEP-11b — footer: credit + coordinates on the right, linked to 20north.art, clear of the WhatsApp button; Brokers Portal hover text fixed
 
+## Next
+- STEP-12 — the cellar in three acts: bubbles → the pour (new close-up) → the wall
+
 ## Open (Ivana) — before going live
 - Written OK from The Reef Playacar / OMé to use their spa photos and logo on the site.
 - 20north.art public before this merges (it's behind a login in its demo phase).
