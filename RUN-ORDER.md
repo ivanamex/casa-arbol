@@ -1,7 +1,10 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-11 — review round 1: slower ground→inside dissolve, facade as a picture not a stripe, water dripping from the roots into the cenote (more notes coming)
+- STEP-11 — review round 1: slower ground→inside dissolve, facade as a picture not a stripe, drops from the roots into the cenote, the cellar warm with a champagne reveal, OMé inside the water, water → fire (temazcal) → cellar
+
+## Open (Ivana) — before going live
+- Written OK from The Reef Playacar / OMé to use their spa photos and logo on the site.
 
 ## Later
 - Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
@@ -25,13 +28,12 @@
 ## Rules
 - Branch `redesign-webgl` only. Never push to main. One step at a time.
 - One file: index.html. Vanilla JS modules from CDN (Three.js, GSAP + ScrollTrigger, Lenis). No build, no npm, no React.
-- Concept: one continuous descent — canopy → house → rooms → roots → cenote (pool, OMé) → cellar → back to the surface.
+- Concept: one continuous descent — canopy → house → rooms → roots → cenote (pool, OMé, temazcal fire) → cellar → back to the surface.
 - Palette (2026-09-29, from the renders): chukum #EFE8DC · sand #DFC9AB · wood #8D6846 · Corten #9A4A26 (only accent) · earth #2A1E15 · dusk lilac #8F95C4 (rare). Light site; the cenote is the one dark chapter. No teal, no petrol, no gold, no serif.
 - Type: Unbounded (display) + Sora (everything you read). Geist Mono only for the footer coordinates.
 - 20°N signature: the property's coordinates, small and quiet, in the footer next to "Site by 20°N" — never in the header or hero.
 - Phone first: the link goes out on WhatsApp. Poster image visible in < 2.5 s on 4G; WebGL loads after.
 - Text never overlaps a photo or WebGL image unless it sits on a panel; check 1440×900, 1280×720, 390×844.
 - Keep every data-i18n key, EN/ES/FR, both enquiry forms, Brokers Portal, admin leads panel, WhatsApp button.
-- Text never overlaps a photo or WebGL image unless it's intentionally set on a panel. Check every chapter at 1440×900, 1280×720 and 390×844 before saying done.
 - Metric units. Surname "Buric". Agency "Weber-Buric Real Estate".
 - Before merge: delete old.html, compare.html, steps/, RUN-ORDER.md.

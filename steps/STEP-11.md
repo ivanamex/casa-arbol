@@ -27,3 +27,23 @@ The page goes to earth and nothing happens for about a screen. Fill it with wate
 - The reveal becomes a champagne moment: as the wall halves part, a fine burst of bubbles escapes from the seam (the pop), then a stream of tiny bubbles rises up the screen in light chukum/sand, catching light. When they reach the ceiling slot, the LED light comes on and washes down the stone as it does now, warmer and brighter than now (lift the lit state about 10%).
 - Bubbles ties back to the water bubbles of the cenote (and, after the fire beat, sparks turn back into bubbles).
 - Phones: fewer bubbles. Fallback: a CSS bubble rise and the warm crossfade.
+
+## 5. OMé inside the water, seamlessly
+New photos: `images/ome-entrance.jpg`, `images/ome-sign-wall.jpg`, `images/ome-lounge-lantern.jpg` (portrait, 1320 px wide; make web versions as in STEP-02).
+- In the cenote the view through the surface is the pool photo. During the OMé beat it crossfades, through the ripples, into `ome-entrance` (the stone wall, wooden letters, jungle): same distortion, same caustics, so it's the same water showing a different place. No hard cut, no frame.
+- `ome-sign-wall` as a second surface image late in the OMé beat (slow drift between the two). `ome-lounge-lantern` is the lamp-lit lounge: use it as the image that bridges to the fire (item 6).
+- The OMé beat's perk list shows five perks; the temazcal gets its own beat (item 6).
+
+## 6. Water → fire: the temazcal
+New photo: `images/temazcal-stones.jpg` (glowing volcanic stones).
+- New cenote beat after OMé, text keys `ome.p6.name` + `ome.p6.note` (already in EN/ES/FR).
+- The water warms: the shader's palette slides from turquoise/earth to amber/ember; the caustic network turns into glowing ember cracks; the rising bubbles/dust become sparks; a heat shimmer (vertical refraction wobble) replaces the ripples. The surface image goes ome-lounge-lantern → temazcal-stones through the shimmer.
+- All scroll-driven and reversible. Phones: fewer sparks, shimmer at quarter resolution. Fallback: crossfade the photos with a warm CSS overlay.
+
+## 7. Fire → cellar
+- The ember glow is the last light of the cenote; it hands over directly to the cellar's dark-by-candle state (item 4), so the colour never jumps: amber → amber.
+- Sparks rise and become the champagne bubbles of the cellar reveal.
+- New photo `images/champagne-pour.jpg` (a hand pouring champagne in front of the lit wine wall): on the cellar text panel, above the text, 16:9, once the light is up. Grade it with the wine-wall photo.
+
+## Order check after this step
+canopy → ground → inside → roots (drops) → cenote: pool → OMé → temazcal (fire) → cellar (bubbles, light) → surface.
