@@ -4,7 +4,7 @@
 - STEP-11 — review round 1: slower ground→inside dissolve, facade as a picture not a stripe, drops from the roots into the cenote, the cellar warm with a champagne reveal, OMé inside the water, water → fire (temazcal) → cellar
 
 ## Next
-- STEP-11b — footer credit: plain "by 20°N" linked to 20north.art, coordinates removed (agency rule)
+- STEP-11b — footer credit: plain "by 20°N" linked to 20north.art, coordinates removed (agency rule); Brokers Portal hover text fixed
 
 ## Open (Ivana) — before going live
 - Written OK from The Reef Playacar / OMé to use their spa photos and logo on the site.

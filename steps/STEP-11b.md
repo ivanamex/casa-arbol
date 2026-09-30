@@ -9,3 +9,9 @@ The agency rule (20north RUN-ORDER, 2026-09-29): on every client site the last l
 - Leave the geo meta tags in <head> alone (they're for search, not display).
 
 Note: 20north.art is behind a login during its demo phase. Fine on this preview branch; before merging to main it must be public (see RUN-ORDER Open).
+
+## Also: Brokers Portal button text vanishes on hover
+- Three rule sets fight: line ~592 (`footer .f-broker:hover` fills Corten, text #FBF6EE), ~828–829 (old legacy `.f-broker`), and ~865–866 (`footer .f-broker:hover{color:var(--corten)}`), which wins and paints Corten text on a Corten fill.
+- Keep one definition only (the ~591–592 pair: outline at rest, Corten fill + `--on-corten` text on hover and focus-visible). Delete the other two.
+- Grep the file for any other button whose hover sets the text to the same colour as its fill (enquiry submit, drawer submit, portal options, language buttons) and fix the same way.
+- The coordinates at bottom right also sit under the WhatsApp button; they go away with the credit change above.
