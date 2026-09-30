@@ -501,9 +501,9 @@ html.no-gl .cenote-fallback{display:block}
 
 
 
-/* CELLAR — the wall opens */
-.cellar{position:relative;z-index:2;color:var(--earth);scroll-margin-top:-100svh}   /* #wine-cellar lands on the pinned wall, not on the lead under the cenote's tail */
-.cellar-scroll{position:relative;height:520svh;margin-bottom:-100svh}
+/* CELLAR — three acts: bubbles on the dark, the pour, the wall opens */
+.cellar{position:relative;z-index:2;color:var(--earth);scroll-margin-top:-100svh}   /* #wine-cellar lands on the pinned screen, not on the lead under the cenote's tail */
+.cellar-scroll{position:relative;height:800svh;margin-bottom:-100svh}
 .cellar-lead{height:100svh}
 .cellar-pin{position:sticky;top:0;height:100svh;overflow:hidden;background:#4D331F}   /* the wall by the last ember light, until the LED comes on */
 html.gl.cellar-live .cellar-pin{background:transparent}
@@ -514,9 +514,12 @@ html.no-gl .cellar-fb{display:block}
 .cellar-fb .fb-dark img{filter:brightness(.32) sepia(.55) saturate(1.3) contrast(1.05)}
 .cellar-fb .fb-on{clip-path:inset(0 0 calc(100% - var(--wipe,0) * 100%) 0)}
 .cellar-bubbles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.cellar-bubbles span{position:absolute;left:calc(50% + var(--bx));bottom:40%;width:var(--bs);height:var(--bs);border-radius:50%;border:1px solid rgba(239,232,220,.75);background:radial-gradient(circle at 35% 35%,rgba(239,232,220,.8),rgba(239,232,220,0) 55%);opacity:0}
-.cellar.bubbling .cellar-bubbles span{animation:fbBubble 3.2s linear var(--bd) infinite}
-@keyframes fbBubble{0%{transform:translateY(0);opacity:0}10%{opacity:.85}100%{transform:translateY(-70vh) translateX(var(--bw));opacity:0}}
+.cellar-bubbles span{position:absolute;left:var(--bx);bottom:-4%;width:var(--bs);height:var(--bs);border-radius:50%;border:1px solid rgba(239,232,220,.75);background:radial-gradient(circle at 35% 35%,rgba(239,232,220,.8),rgba(239,232,220,0) 55%);opacity:0}
+.cellar.bubbling .cellar-bubbles span{animation:fbBubble 4.2s linear var(--bd) infinite}
+@keyframes fbBubble{0%{transform:translateY(0);opacity:0}8%{opacity:.85}100%{transform:translateY(-108vh) translateX(var(--bw));opacity:0}}
+/* fallback act 2: the pour fills from the bottom (clip-path), its dark background extended to the edges, then pulls back */
+.cellar-fb .fb-pour{background:#2A1508;opacity:var(--pa,0);clip-path:inset(calc((1 - var(--fill,0)) * 100%) 0 0 0);transform:scale(var(--pull,1));transform-origin:50% 50%}
+.cellar-fb .fb-pour img{object-fit:contain;object-position:50% 50%;max-width:928px;max-height:1152px;width:100%;height:100%;left:50%;top:50%;transform:translate(-50%,-50%)}
 .fb-half{position:absolute;top:0;bottom:0;width:50%;background:var(--chukum)}
 .fb-half::before{content:"";position:absolute;inset:0;background:#4D331F;opacity:calc(1 - var(--wl,0))}   /* the plaster is dark until the light is up */
 .fb-half::after{content:"";position:absolute;top:0;bottom:0;width:44px;opacity:min(1,calc(var(--gap,0) * 20));pointer-events:none}   /* the halves' soft shadow on the wall, only once the wall opens */
@@ -533,11 +536,13 @@ html.no-gl .cellar-fb{display:block}
   .fb-a::after{top:auto;bottom:-36px;background:linear-gradient(to bottom,rgba(42,30,21,.3),transparent)}
   .fb-b::after{bottom:auto;top:-36px;background:linear-gradient(to top,rgba(42,30,21,.3),transparent)}
   .fb-seam{left:0;top:50%;width:100%;height:1px;transform-origin:left;transform:scaleX(var(--seam,0))}
-  .cellar-bubbles span{left:calc(50% + var(--bx) * 3);bottom:50%}
+  .cellar-fb .fb-pour img{object-fit:cover;object-position:50% 45%;max-width:none;max-height:none}
 }
-/* text on a chukum panel, left, once the light is up */
-.cellar-photo{display:block;width:100%;max-height:20vh;object-fit:cover;margin:0 0 16px;border-radius:2px}
-.cellar-photo img{display:block;width:100%;height:auto;max-height:20vh;object-fit:cover;border-radius:2px}
+/* act 2: a short line on a small panel, bottom-left, over the pour */
+.cellar-pour{position:absolute;left:5vw;bottom:8vh;width:min(400px,32vw);padding:18px 22px 20px;background:rgba(239,232,220,.94);border-radius:2px;opacity:0;transform:translateY(14px);transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none;z-index:2}
+.cellar.pour-on .cellar-pour{opacity:1;transform:none;pointer-events:auto}
+.cellar-pour .cellar-h2{font-size:clamp(1.5rem,2.4vw,2.2rem);margin:0}
+/* act 3: the text panel, text only, once the light is up */
 .cellar-txt{position:absolute;left:5vw;top:50%;transform:translateY(calc(-50% + 14px));width:min(520px,40vw);padding:24px 28px 26px;background:rgba(239,232,220,.94);border-radius:2px;opacity:0;transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1);pointer-events:none;z-index:2}
 .cellar.txt-on .cellar-txt{opacity:1;transform:translateY(-50%);pointer-events:auto}
 .cellar-h2{font-family:var(--font-display);font-weight:200;font-size:clamp(1.7rem,2.9vw,2.7rem);line-height:1.05;letter-spacing:-.04em;color:var(--earth);margin:0 0 12px}
@@ -551,10 +556,10 @@ html.no-gl .cellar-fb{display:block}
   .cellar-h2{font-size:clamp(1.5rem,6.4vw,2.1rem)}
   .cellar-b{font-size:.92rem}
   .cellar-specs{font-size:13px}
-  .cellar-photo,.cellar-photo img{max-height:16vh}
-  .cellar-photo{margin-bottom:12px}
+  .cellar-pour{left:6vw;right:6vw;width:auto;bottom:calc(56px + env(safe-area-inset-bottom));padding:14px 16px 16px}
+  .cellar-pour .cellar-h2{font-size:clamp(1.3rem,5.6vw,1.8rem)}
 }
-@media(prefers-reduced-motion:reduce){.cellar-txt{transition:none}.cellar.bubbling .cellar-bubbles span{animation:none}}
+@media(prefers-reduced-motion:reduce){.cellar-txt,.cellar-pour{transition:none}.cellar.bubbling .cellar-bubbles span{animation:none}}
 
 /* SURFACE — back in the light */
 .surface{position:relative;z-index:2;color:var(--earth);background:linear-gradient(to bottom,transparent 0,var(--chukum) 100svh)}
@@ -1087,7 +1092,7 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
   </div>
 </section>
 
-<!-- CELLAR — the wall by candle opens: a seam of light, two plaster halves slide apart, champagne bubbles rise, the backlight washes down the stone -->
+<!-- CELLAR — three acts: bubbles rise on the dark; the pour fills a flute and the bubbles gather into it; the camera pulls back and the wall by candle opens (seam, halves, the LED washes down the stone) -->
 <section class="cellar" id="wine-cellar" data-chapter="cellar">
   <div class="cellar-scroll">
     <div class="cellar-lead" aria-hidden="true"></div>
@@ -1097,12 +1102,15 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
         <picture class="fb-on"><source type="image/webp" srcset="/images/web/wine-wall-on-m.webp 1200w, /images/web/wine-wall-on.webp 2400w" sizes="100vw"><img src="/images/web/wine-wall-on-m.jpg" srcset="/images/web/wine-wall-on-m.jpg 1200w, /images/web/wine-wall-on.jpg 2400w" sizes="100vw" width="2400" height="1340" alt="The wine wall at Casa Árbol — bottles on a backlit stone wall behind a glass partition" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRhABAABXRUJQVlA4IAQBAAAQCgCdASpAACQAPqlGnEmmJCMhN/OaqMAVCWcAvRwLMvLsHq+8xJ9sSi0RPTtXyC3JYFpXSPf1x6RcOBF9nQVyQMdjjrQqo0LqTzXhKefmmN+3imYsE7pVAAD6ahXL64m8S3T72+97COoTrUOb0c153vSyzR7g1259NmeSYS5+oF5QuNN9Cakod/YuXx4mypvF1DkcLumVHHQmPkOJ6M0Bz2CHLwFpQVm2qGPyMogc1goo6NAZnspLQuqdV3eiR55MZU9TsTZyLXdyY9HvS6zZHhUo9hj/UsdKV3YJFivfiDf5LkoGbytPwEki0fc8qx5fHY9uEkvsHQRdJvLkpnAeE/AAAA==) center/cover"></picture>
         <div class="fb-half fb-a"></div><div class="fb-half fb-b"></div>
         <div class="fb-seam"></div>
-        <div class="cellar-bubbles" aria-hidden="true"><span style="--bx:-6px;--bs:4px;--bd:0s;--bw:8px"></span><span style="--bx:3px;--bs:3px;--bd:0.3s;--bw:-6px"></span><span style="--bx:-2px;--bs:5px;--bd:0.6s;--bw:4px"></span><span style="--bx:8px;--bs:3px;--bd:0.9s;--bw:-10px"></span><span style="--bx:-9px;--bs:4px;--bd:1.2s;--bw:6px"></span><span style="--bx:1px;--bs:3px;--bd:1.5s;--bw:-3px"></span><span style="--bx:5px;--bs:5px;--bd:1.8s;--bw:9px"></span><span style="--bx:-4px;--bs:3px;--bd:2.1s;--bw:-7px"></span><span style="--bx:7px;--bs:4px;--bd:2.4s;--bw:2px"></span><span style="--bx:-7px;--bs:3px;--bd:2.7s;--bw:-5px"></span><span style="--bx:2px;--bs:4px;--bd:3.0s;--bw:7px"></span><span style="--bx:-1px;--bs:3px;--bd:3.3s;--bw:-8px"></span></div>
+        <div class="cellar-bubbles" aria-hidden="true"><span style="--bx:6%;--bs:4px;--bd:0s;--bw:8px"></span><span style="--bx:14%;--bs:3px;--bd:1.1s;--bw:-6px"></span><span style="--bx:23%;--bs:5px;--bd:0.4s;--bw:4px"></span><span style="--bx:31%;--bs:3px;--bd:2.6s;--bw:-10px"></span><span style="--bx:40%;--bs:4px;--bd:1.7s;--bw:6px"></span><span style="--bx:48%;--bs:3px;--bd:3.3s;--bw:-3px"></span><span style="--bx:57%;--bs:5px;--bd:0.9s;--bw:9px"></span><span style="--bx:65%;--bs:3px;--bd:2.1s;--bw:-7px"></span><span style="--bx:73%;--bs:4px;--bd:3.7s;--bw:2px"></span><span style="--bx:81%;--bs:3px;--bd:1.4s;--bw:-5px"></span><span style="--bx:88%;--bs:4px;--bd:2.9s;--bw:7px"></span><span style="--bx:94%;--bs:3px;--bd:0.6s;--bw:-8px"></span></div>
+        <picture class="fb-pour"><source type="image/webp" srcset="/images/web/champagne-pour-close-m.webp 928w" sizes="(max-width:768px) 100vw, 928px"><img src="/images/web/champagne-pour-close-m.jpg" srcset="/images/web/champagne-pour-close-m.jpg 928w" sizes="(max-width:768px) 100vw, 928px" width="928" height="1152" alt="" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRoQBAABXRUJQVlA4IHgBAABQCwCdASo0AEAAPqlCmUmmI6KhN/asAMAVCUAWo3q6PQM5CpTbTSVMwXqu9DB5AdV0hAocgRY7nwAyVhLsKcXmgeVuvvwGaveZYVWnNN+J9QtOt3R7qfFWnFZ2sei/2ECLSEAA/n3cIgIcIHKZu9R5F1Prbo7Rb/reX5mDAvh5oCgG2UENaETenpevrbN0z/4Ks8t1QxcMLwV1cPxkmi1bnuvA7j/Nz9BWe3zdQ7YJ1Jnbj7eCWs6Oo3vTy0Q2ub05sU/YuipbT0meeoIOjQRzDnOiZkAx+GJBT90eUQvRwCyb9nd16VpOCFEUSZqgL1wqp0skukJafd1V8re3sAtEhy4V5XaDGaFteOeOMrr3sAAJ4UHGXDWa9DZ3yWO5Q17/3hiv2tmVsMdrXoFI6yxON9NtKaS0osnIzJ/7h4SFbdQz1AWswn3u2fPMEZtrmj2Vuhb6a0fx+hIvbVaNsm76LE8I69Eqh6O20hmYxX2yKbEP1z7PAAAA) center/cover"></picture>
       </div>
-      <div class="cellar-txt">
-        <picture class="cellar-photo"><source type="image/webp" srcset="/images/web/champagne-pour-m.webp 1200w, /images/web/champagne-pour.webp 2400w" sizes="(max-width:768px) 88vw, 40vw"><img src="/images/web/champagne-pour-m.jpg" srcset="/images/web/champagne-pour-m.jpg 1200w, /images/web/champagne-pour.jpg 2400w" sizes="(max-width:768px) 88vw, 40vw" width="2400" height="1340" alt="Champagne poured in front of the lit wine wall at Casa Árbol" loading="lazy" decoding="async" style="background:url(data:image/webp;base64,UklGRioBAABXRUJQVlA4IB4BAADQCgCdASpAACQAPqVCmUmmJCKhOrTcAMAUiWUAvnx1o/AJtYVqKPceG27PYgRWjMnyrZJjE2NIlwUemc8McLSpv+XAdLtT9BvNDQ1G/7+si/zjwQJQWPP5MZbnp6JUAAD+8NSTjmbfVlM7J1wBC9POYY+yDk03X7mqHFdnyL8Dq7jcnFUtGwNS3Nwm7enb1NnNNpRg5/DYwJmiJnJLPJrRTaDTHRbBr9YCfiMr0hX0ZqB5XIgk0fGyvJKA1eDq7koXbTW45DK9HDqPJQ7BXbWZ82/xu9ZnSW8kjreFVmMsWE5Xi94AECvDLxa4WySbAQRialrNcVLbpxt8zrM6Z3KSZ/eKZVKgUSzqMpiKGz9xor5HvBLpH8ZxW6rhgAAA) center/cover"></picture>
+      <div class="cellar-pour">
         <div class="ey" data-i18n="wine.ey">The Wine Cellar</div>
         <h2 class="cellar-h2"><span data-i18n="wine.h2a">A collection</span><br><span data-i18n="wine.h2b">worthy of <em>legends</em></span></h2>
+      </div>
+      <div class="cellar-txt">
+        <div class="ey" data-i18n="wine.ey">The Wine Cellar</div>
         <p class="cellar-b" data-i18n="wine.body">The floor-to-ceiling glass-fronted wine wall is a showpiece of Casa Árbol — a theatre for your collection. Framed by crystal-backlit panels, each bottle is displayed as art.</p>
         <ul class="cellar-specs"><li data-i18n="wine.s1">200+ bottle capacity with climate control</li><li data-i18n="wine.s3">Custom steel & glass racking system</li><li data-i18n="wine.s5">Direct access from the main dining area</li></ul>
       </div>
@@ -3338,7 +3346,7 @@ window.submitBrokerReferral = function(){
 })();
 </script>
 <script>
-// ── Cellar: scroll progress → seam, halves, light, text; drives the CSS fallback too ──
+// ── Cellar: scroll progress → bubbles, the pour, seam, halves, light, text; drives the CSS fallback too ──
 (function(){
   var sec=document.getElementById('wine-cellar'); if(!sec||!sec.classList.contains('cellar')) return;
   var scroll=sec.querySelector('.cellar-scroll'), pin=sec.querySelector('.cellar-pin');
@@ -3347,18 +3355,21 @@ window.submitBrokerReferral = function(){
   function update(){
     raf=0;
     var r=scroll.getBoundingClientRect(), vh=innerHeight;
-    // p runs over the whole section: 0 when the wall's top edge is at the bottom of the screen (the cenote has just faded to chukum),
-    // ~0.24 when the wall is up and pinned, ~0.76 when Surface starts sliding over it.
+    // p runs over the whole 800svh section: 0 when the dark screen's top edge is at the bottom of the viewport (the cenote has just faded to ember),
+    // ~0.14 when it is up and pinned, ~0.86 when Surface starts sliding over it.
     var p=Math.min(1,Math.max(0,-r.top/Math.max(1,r.height-vh)));
     sec.__p=p;
-    // seam of light draws as the dark wall rises → halves part (the pop) → bubbles rise → the LED washes down the stone → text → halves close, lit, before Surface's heading reaches the wall
-    // the pop escapes the seam as it parts, the stream rises, the LED comes on as the bubbles reach the ceiling slot
-    var seam=sm(0.05,0.23,p), gap=sm(0.24,0.44,p)*(1-sm(0.68,0.79,p)), light=sm(0.46,0.60,p), pop=sm(0.24,0.31,p), rise=sm(0.27,0.62,p)*1.5;
-    sec.__t={seam:seam,gap:gap,light:light,pop:pop,rise:rise};
+    // act 1 (≈1 screen): bubbles rise on the dark and thicken · act 2: the pour fills from the bottom and the bubbles gather into the glass, a short line bottom-left
+    // pull back: the pour shrinks into the dark wall, the seam of light draws · act 3: halves part (the pop), the LED washes down, the text panel · halves close, lit, before Surface's heading arrives
+    var dens=sm(0.05,0.30,p), fill=sm(0.30,0.42,p), gather=sm(0.28,0.40,p), pourA=sm(0.30,0.36,p)*(1-sm(0.52,0.60,p)), pull=1-0.14*sm(0.52,0.60,p), bubA=dens*(1-sm(0.44,0.52,p));
+    var seam=sm(0.56,0.64,p), gap=sm(0.64,0.72,p)*(1-sm(0.81,0.875,p)), light=sm(0.70,0.77,p), pop=sm(0.64,0.69,p);
+    sec.__t={dens:dens,fill:fill,gather:gather,pourA:pourA,pull:pull,bubA:bubA,seam:seam,gap:gap,light:light,pop:pop};
     pin.style.setProperty('--seam',seam.toFixed(3)); pin.style.setProperty('--gap',gap.toFixed(3)); pin.style.setProperty('--wipe',light.toFixed(3)); pin.style.setProperty('--wl',light.toFixed(3));
+    pin.style.setProperty('--fill',fill.toFixed(3)); pin.style.setProperty('--pa',pourA.toFixed(3)); pin.style.setProperty('--pull',pull.toFixed(3));
     pin.classList.toggle('dark-surface', light<0.5);
-    sec.classList.toggle('bubbling', p>=0.24 && p<0.62);
-    sec.classList.toggle('txt-on', p>=0.56 && p<0.69);
+    sec.classList.toggle('bubbling', p>=0.05 && p<0.46);
+    sec.classList.toggle('pour-on', p>=0.36 && p<0.52);
+    sec.classList.toggle('txt-on', p>=0.74 && p<0.82);
   }
   window.addEventListener('scroll', function(){ if(!raf) raf=requestAnimationFrame(update); }, {passive:true});
   window.addEventListener('resize', update);
@@ -4405,7 +4416,7 @@ if (window.CA_GL) {
 </script>
 
 <script type="module">
-// ── Chapter: CELLAR — the wall by the last ember light: a seam of light, two plaster halves part, champagne bubbles rise, the LED washes down the stone; pointer parallax between glass and bottles ──
+// ── Chapter: CELLAR — three acts: bubbles rise on the dark; the pour fills a flute and the bubbles gather into it; the camera pulls back and the wall by candle opens (seam of light, plaster halves, the LED washes down the stone); pointer parallax between glass and bottles ──
 if (window.CA_GL) {
   const stage = window.CA_STAGE || await new Promise(r => addEventListener('ca:stage', () => r(window.CA_STAGE), {once: true}));
   const {THREE} = stage;
@@ -4414,7 +4425,7 @@ if (window.CA_GL) {
   const VERT = /* glsl */`varying vec2 vUv; void main(){ vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`;
   const FRAG = /* glsl */`
     precision highp float; varying vec2 vUv;
-    uniform sampler2D uOn; uniform vec2 uRes, uPar; uniform float uAsp, uGap, uSeam, uLight, uTime, uVert;
+    uniform sampler2D uOn, uPour; uniform vec2 uRes, uPar; uniform vec4 uPourRect; uniform vec3 uEdge; uniform float uAsp, uGap, uSeam, uLight, uTime, uVert, uFill, uPourA;
     float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
     float noise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f); return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y); }
     vec2 cover(vec2 uv, float a, float s, vec2 focus){ vec2 st = uv;
@@ -4463,30 +4474,43 @@ if (window.CA_GL) {
       float glow = exp(-d / 0.005) * step(along, uSeam) * open * (1.0 - uLight);
       col = mix(col, mix(vec3(1.0, 0.72, 0.42), vec3(0.553, 0.408, 0.275), uLight), seam * 0.9);
       col += vec3(1.0, 0.62, 0.30) * glow * 0.22;
+      // act 2: the pour — at its own size, centred, its dark background carried to the edges in its edge colour; it fills from the bottom like the glass
+      vec2 pst = vec2((uv.x - uPourRect.x) / (uPourRect.z - uPourRect.x), (uv.y - uPourRect.y) / (uPourRect.w - uPourRect.y));   // texture v runs up, like uv
+      float inside = step(0.0, pst.x) * step(pst.x, 1.0) * step(0.0, pst.y) * step(pst.y, 1.0);
+      float feather = smoothstep(0.0, 0.06, min(pst.x, 1.0 - pst.x)) * smoothstep(0.0, 0.05, min(pst.y, 1.0 - pst.y)) * inside;
+      vec3 pour = mix(uEdge * (1.0 - 0.35 * smoothstep(0.4, 1.1, length((uv - 0.5) * vec2(1.2, 1.0)) * 1.3)), texture2D(uPour, clamp(pst, 0.001, 0.999)).rgb, feather);
+      float lvl = uFill * 1.14 - 0.05 + (noise(vec2(uv.x * 9.0, uTime * 0.6)) - 0.5) * 0.03;
+      float vis = (1.0 - smoothstep(lvl - 0.05, lvl + 0.01, uv.y)) * uPourA;
+      col = mix(col, pour, vis);
       col += (hash(gl_FragCoord.xy + fract(uTime) * 61.0) - 0.5) * 0.025;
       gl_FragColor = vec4(col, 1.0);
     }`;
-  // ── champagne: a fine burst out of the seam as the halves part, then a stream of tiny bubbles rising up the screen ──
+  // ── champagne: act 1 a field of bubbles rising on the dark, thickening with scroll; act 2 they gather into the stream in the glass; act 3 a small pop out of the seam ──
   const BUB_VERT = /* glsl */`
-    attribute vec4 aSeed; uniform float uPop, uRise, uVert, uPR, uAsp, uLight; varying float vA;
+    attribute vec4 aSeed; uniform vec4 uGlass; uniform float uDens, uT, uGather, uBubA, uPop, uVert, uPR, uAsp, uLight; varying float vA;
     void main(){
-      vec2 p; float a;
-      if (aSeed.w < 0.3) {
-        // the pop: out of the middle of the seam, in every direction, then a drift upward
+      vec2 p; float a, sz = 1.0;
+      if (aSeed.w < 0.12) {
+        // act 3: the pop out of the middle of the seam as the halves part, then a drift upward
         float ang = aSeed.x * 6.2831, rr = (0.04 + 0.22 * aSeed.y) * uPop;
         p = vec2(0.5, 0.5) + vec2(cos(ang), sin(ang) * uAsp) * rr;
         p.y += uPop * uPop * 0.12 * (0.5 + aSeed.z);
-        a = uPop * (1.0 - uPop) * 4.0 * (0.4 + 0.6 * aSeed.z);
+        a = uPop * (1.0 - uPop) * 4.0 * (0.4 + 0.6 * aSeed.z); sz = 0.8;
       } else {
-        // the stream: from along the seam (or across the horizontal seam on portrait screens), up the screen
-        float y0 = uVert > 0.5 ? 0.5 : (0.55 - 0.75 * aSeed.y);
-        float x0 = uVert > 0.5 ? aSeed.y : 0.5 + (aSeed.x - 0.5) * 0.10;
-        float rise = uRise * (1.1 + 0.9 * aSeed.z);
-        p = vec2(x0 + sin(uRise * 14.0 + aSeed.x * 30.0) * 0.012 * (1.0 + rise), y0 + rise);
-        a = smoothstep(0.0, 0.05, uRise) * (1.0 - smoothstep(0.93, 1.02, p.y)) * (0.35 + 0.65 * aSeed.z) * (1.0 - smoothstep(1.0, 1.35, uRise));
+        // act 1: rising across the screen, scroll-driven with a slow drift; more of them the further you scroll
+        float alive = step(aSeed.w, 0.12 + 0.88 * uDens);
+        float sp = 0.6 + 0.8 * aSeed.z, yf = fract(aSeed.y + uT * sp);
+        vec2 free = vec2(aSeed.x + sin(uT * 3.0 + aSeed.y * 20.0) * 0.01, yf);
+        // act 2: the same bubbles condense into the stream inside the glass (uGlass: x, bottom, top, half-width — screen uv)
+        float gy = uGlass.y + fract(aSeed.y * 3.7 + uT * sp * 0.6) * (uGlass.z - uGlass.y);
+        float taper = 0.3 + 0.7 * (gy - uGlass.y) / max(0.001, uGlass.z - uGlass.y);
+        vec2 glass = vec2(uGlass.x + (aSeed.x - 0.5) * 2.0 * uGlass.w * taper, gy);
+        p = mix(free, glass, uGather);
+        a = alive * uBubA * (0.35 + 0.65 * aSeed.z) * smoothstep(0.0, 0.04, yf) * (1.0 - smoothstep(0.94, 1.0, yf) * (1.0 - uGather));
+        sz = mix(1.0, 0.55, uGather);
       }
       vA = a;
-      gl_PointSize = (1.6 + 2.8 * aSeed.z) * uPR * (aSeed.w < 0.3 ? 0.8 : 1.0);
+      gl_PointSize = (1.6 + 2.8 * aSeed.z) * uPR * sz;
       gl_Position = vec4(p * 2.0 - 1.0, 0.0, 1.0);
     }`;
   const BUB_FRAG = /* glsl */`
@@ -4498,33 +4522,57 @@ if (window.CA_GL) {
       vec3 col = mix(vec3(1.0, 0.80, 0.55), vec3(0.937, 0.910, 0.863), 0.3 + 0.6 * uLight);   // the cenote's sparks become sand/chukum bubbles catching the light
       gl_FragColor = vec4(col, (rim * 0.55 + hi * 0.8) * vA);
     }`;
-  let scene, cam, mesh, u, bubbles, bu, ready = false, t = 0;
+  let scene, cam, mesh, u, bubbles, bu, ready = false, t = 0, pourImg = null, lastPull = 1;
   const par = { x: 0, y: 0, tx: 0, ty: 0 };
+  // the pour photo's own edge colour, so its dark background can run to the edges of the screen
+  function edgeColour(img) {
+    try {
+      const c = document.createElement('canvas'), W = 64, H = 80; c.width = W; c.height = H; const g = c.getContext('2d'); g.drawImage(img, 0, 0, W, H);
+      const d = g.getImageData(0, 0, W, H).data; let r = 0, gg = 0, b = 0, n = 0;
+      for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) { if (x > 2 && x < W - 3 && y > 2 && y < H - 3) continue; const i = (y * W + x) * 4; r += d[i]; gg += d[i + 1]; b += d[i + 2]; n++; }
+      return new THREE.Vector3(r / n / 255, gg / n / 255, b / n / 255);
+    } catch (e) { return new THREE.Vector3(0.165, 0.082, 0.031); }
+  }
+  // where the pour sits: at its native size or below, centred, on wide screens; a portrait crop centred on the glass on phones. Also where the glass is, for the bubbles.
+  function layoutPour(w, h, pull) {
+    if (!u || !pourImg) return;
+    const iw = pourImg.width, ih = pourImg.height; let pw, ph, x0, y0;
+    if (w < h) { const sc = Math.max(w / iw, h / ih); pw = iw * sc; ph = ih * sc; x0 = w / 2 - pw / 2; y0 = h * 0.45 - ph * 0.45; }
+    else { const sc = Math.min(1, (h * 0.94) / ih, (w * 0.9) / iw); pw = iw * sc; ph = ih * sc; x0 = (w - pw) / 2; y0 = (h - ph) / 2; }
+    const cx = x0 + pw / 2, cy = y0 + ph / 2; pw *= pull; ph *= pull; x0 = cx - pw / 2; y0 = cy - ph / 2;
+    u.uPourRect.value.set(x0 / w, 1 - (y0 + ph) / h, (x0 + pw) / w, 1 - y0 / h);
+    // the flute's bowl in the photo (uv, y down): stream centre x 0.50, liquid from 0.56 up to the foam at 0.35, half-width 0.07
+    if (bu) bu.uGlass.value.set((x0 + 0.50 * pw) / w, 1 - (y0 + 0.56 * ph) / h, 1 - (y0 + 0.35 * ph) / h, 0.07 * pw / w);
+  }
   const loader = new THREE.TextureLoader();
   const load = url => new Promise((res, rej) => loader.load(url, tex => { tex.colorSpace = THREE.NoColorSpace; tex.minFilter = THREE.LinearFilter; tex.magFilter = THREE.LinearFilter; tex.generateMipmaps = false; res(tex); }, undefined, rej));
   const api = {
     order: -1, disposable: true,
     async init(st) {
       const sfx = phone ? '-m' : '';
-      const on = await load(`/images/web/wine-wall-on${sfx}.webp`);
+      const [on, pourT] = await Promise.all([load(`/images/web/wine-wall-on${sfx}.webp`), load(`/images/web/champagne-pour-close${sfx}.webp`)]);
       scene = new THREE.Scene(); cam = new THREE.Camera();
-      u = { uOn: {value: on}, uRes: {value: new THREE.Vector2(st.width, st.height)}, uPar: {value: new THREE.Vector2()}, uAsp: {value: on.image.width / on.image.height}, uGap: {value: 0}, uSeam: {value: 0}, uLight: {value: 0}, uTime: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0} };
+      u = { uOn: {value: on}, uPour: {value: pourT}, uPourRect: {value: new THREE.Vector4(0, 0, 1, 1)}, uEdge: {value: edgeColour(pourT.image)}, uFill: {value: 0}, uPourA: {value: 0}, uRes: {value: new THREE.Vector2(st.width, st.height)}, uPar: {value: new THREE.Vector2()}, uAsp: {value: on.image.width / on.image.height}, uGap: {value: 0}, uSeam: {value: 0}, uLight: {value: 0}, uTime: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0} };
+      pourImg = pourT.image;
       mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ vertexShader: VERT, fragmentShader: FRAG, uniforms: u, depthTest: false, depthWrite: false }));
       mesh.frustumCulled = false; scene.add(mesh);
       const NB = phone ? 120 : 280, seed = new Float32Array(NB * 4);
       for (let i = 0; i < NB; i++) { seed[i*4] = Math.random(); seed[i*4+1] = Math.random(); seed[i*4+2] = Math.random(); seed[i*4+3] = Math.random(); }
       const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(NB * 3), 3)); g.setAttribute('aSeed', new THREE.BufferAttribute(seed, 4));
-      bu = { uPop: {value: 0}, uRise: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0}, uPR: {value: st.renderer.getPixelRatio()}, uAsp: {value: st.width / st.height}, uLight: {value: 0} };
+      bu = { uGlass: {value: new THREE.Vector4(0.5, 0.4, 0.6, 0.05)}, uDens: {value: 0}, uT: {value: 0}, uGather: {value: 0}, uBubA: {value: 0}, uPop: {value: 0}, uVert: {value: st.width < st.height ? 1 : 0}, uPR: {value: st.renderer.getPixelRatio()}, uAsp: {value: st.width / st.height}, uLight: {value: 0} };
       bubbles = new THREE.Points(g, new THREE.ShaderMaterial({ vertexShader: BUB_VERT, fragmentShader: BUB_FRAG, uniforms: bu, transparent: true, depthTest: false, depthWrite: false }));
       bubbles.frustumCulled = false; bubbles.renderOrder = 1; scene.add(bubbles);
+      layoutPour(st.width, st.height, 1);
       ready = true; document.documentElement.classList.add('cellar-live');
     },
-    resize(w, h) { if (u) { u.uRes.value.set(w, h); u.uVert.value = w < h ? 1 : 0; } if (bu) { bu.uVert.value = w < h ? 1 : 0; bu.uAsp.value = w / h; } },
+    resize(w, h) { if (u) { u.uRes.value.set(w, h); u.uVert.value = w < h ? 1 : 0; layoutPour(w, h, (sec.__t && sec.__t.pull) || 1); } if (bu) { bu.uVert.value = w < h ? 1 : 0; bu.uAsp.value = w / h; } },
     update(progress, velocity, dt) {
       if (!ready) return; t += dt; dt = Math.min(dt, 1 / 30);
-      const k = sec.__t || {seam: 0, gap: 0, light: 0, pop: 0, rise: 0};
-      u.uSeam.value = k.seam; u.uGap.value = k.gap; u.uLight.value = k.light; u.uTime.value = t;
-      bu.uPop.value = k.pop || 0; bu.uRise.value = k.rise || 0; bu.uLight.value = k.light;
+      const k = sec.__t || {seam: 0, gap: 0, light: 0, pop: 0, dens: 0, fill: 0, gather: 0, pourA: 0, pull: 1, bubA: 0};
+      u.uSeam.value = k.seam; u.uGap.value = k.gap; u.uLight.value = k.light; u.uTime.value = t; u.uFill.value = k.fill; u.uPourA.value = k.pourA;
+      if (k.pull !== lastPull) { lastPull = k.pull; layoutPour(stage.width, stage.height, k.pull); }
+      bu.uPop.value = k.pop; bu.uDens.value = k.dens; bu.uGather.value = k.gather; bu.uBubA.value = k.bubA; bu.uLight.value = k.light;
+      bu.uT.value = (sec.__p || 0) * 2.4 + t * 0.012;                       // the rise is scroll-driven (reversible) with a slow drift of its own
       par.x += (par.tx - par.x) * Math.min(1, dt * 5); par.y += (par.ty - par.y) * Math.min(1, dt * 5);
       u.uPar.value.set(par.x, par.y);
     },
@@ -4538,8 +4586,8 @@ if (window.CA_GL) {
       renderer.render(scene, cam);
       renderer.setScissorTest(false); renderer.setScissor(0, 0, vw, vh); renderer.setViewport(0, 0, vw, vh);
     },
-    debug() { return { ready, p: sec.__p, ...(sec.__t || {}), par: [par.x, par.y] }; },
-    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mesh.material.dispose(); u.uOn.value.dispose(); } if (bubbles) { bubbles.geometry.dispose(); bubbles.material.dispose(); } document.documentElement.classList.remove('cellar-live'); }
+    debug() { return { ready, p: sec.__p, ...(sec.__t || {}), par: [par.x, par.y], pourRect: u && u.uPourRect.value.toArray().map(v => +v.toFixed(3)), glass: bu && bu.uGlass.value.toArray().map(v => +v.toFixed(3)), edge: u && u.uEdge.value.toArray().map(v => Math.round(v * 255)) }; },
+    dispose() { ready = false; if (mesh) { mesh.geometry.dispose(); mesh.material.dispose(); u.uOn.value.dispose(); u.uPour.value.dispose(); } if (bubbles) { bubbles.geometry.dispose(); bubbles.material.dispose(); } pourImg = null; document.documentElement.classList.remove('cellar-live'); }
   };
   // pointer → a gentle parallax between the glass and the bottles, 8 px at most
   addEventListener('pointermove', e => { par.tx = (e.clientX / innerWidth - 0.5) * 16; par.ty = (0.5 - e.clientY / innerHeight) * 16; }, {passive: true});
