@@ -1,7 +1,7 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: main — live at casaarbolplayacar.com since 2026-09-30)
 
 ## Now
-- Nothing queued. Next: the device check under Later, then Ivana's next round.
+- STEP-15 — phone: no plain brown screens (cenote blank on Ivana's iPhone after the phone fixes); per-chapter photo mode + ?debug panel
 
 ## Open (Ivana)
 - When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art (footer `.f-credit`, one href).
