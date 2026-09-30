@@ -1,11 +1,10 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- Nothing queued. Next: Ivana's review round 2, or the device check + pre-merge clean-up listed under Later
+- STEP-13 — go live: classic site kept at /classic for brokers, credit → Instagram for now, internal files off the site, merge to main
 
 ## Open (Ivana) — before going live
-- Written OK from The Reef Playacar / OMé to use their spa photos and logo on the site.
-- 20north.art public before this merges (it's behind a login in its demo phase).
+- When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art.
 
 ## Later
 - Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
