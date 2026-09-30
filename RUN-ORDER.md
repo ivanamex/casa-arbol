@@ -1,7 +1,7 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: main — live at casaarbolplayacar.com since 2026-09-30)
 
 ## Now
-- Nothing queued. Live. Next: check the production deploy on a real phone and a real GPU (see Later), then Ivana's next round.
+- STEP-14 — back to the top: footer link, floating button above WhatsApp, clickable depth gauge; quick veil + tree re-assembles instead of a long scroll
 
 ## Open (Ivana)
 - When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art (footer `.f-credit`, one href).
