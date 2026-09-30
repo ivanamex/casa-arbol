@@ -1,10 +1,11 @@
-# STEP-11b — "Site by 20°N" links to 20north.art
+# STEP-11b — The 20°N credit (follows the 20north rule of 2026-09-29)
 
 Tiny step, after STEP-11. Touch nothing else.
 
-- In the footer bottom line, make "20°N" in "Site by 20°N" a link: `https://20north.art/?utm_source=casaarbolplayacar&utm_medium=footer&utm_campaign=site-credit`, `target="_blank" rel="noopener"`.
-- Same style as the rest of the line (no colour change); underline on hover/focus only, visible focus ring.
-- Wrap the 20°N signature coordinates next to it in the same link, so the whole signature is one target.
-- Check the link in EN/ES/FR (the credit isn't translated; keep it as is).
+The agency rule (20north RUN-ORDER, 2026-09-29): on every client site the last line of the footer reads `by 20°N`, plain text in the client's own font, colour and footer size, linked to https://20north.art. No logo, no orange, no coordinates, no animation.
 
-Note: 20north.art is private (Vercel login) during its demo phase. That's fine on this preview branch. Before merging to main, check that 20north.art is public; if it isn't yet, point the link to https://www.instagram.com/20north.art/ until it is (see RUN-ORDER Open).
+- Footer bottom line: replace "Site by 20°N" with `<a href="https://20north.art" rel="noopener">by 20°N</a>`, as the last item on the line. Same font, colour and size as the rest of the line; underline on hover/focus only, visible focus ring.
+- Remove the coordinates signature (Geist Mono "20.6296°N 87.0739°W") from the footer, and drop the Geist Mono font load entirely if nothing else uses it.
+- Leave the geo meta tags in <head> alone (they're for search, not display).
+
+Note: 20north.art is behind a login during its demo phase. Fine on this preview branch; before merging to main it must be public (see RUN-ORDER Open).

@@ -4,11 +4,11 @@
 - STEP-11 — review round 1: slower ground→inside dissolve, facade as a picture not a stripe, drops from the roots into the cenote, the cellar warm with a champagne reveal, OMé inside the water, water → fire (temazcal) → cellar
 
 ## Next
-- STEP-11b — "Site by 20°N" links to 20north.art
+- STEP-11b — footer credit: plain "by 20°N" linked to 20north.art, coordinates removed (agency rule)
 
 ## Open (Ivana) — before going live
 - Written OK from The Reef Playacar / OMé to use their spa photos and logo on the site.
-- 20north.art public before this merges (it's behind a login in its demo phase); otherwise the credit links to Instagram @20north.art for now.
+- 20north.art public before this merges (it's behind a login in its demo phase).
 
 ## Later
 - Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
@@ -34,8 +34,8 @@
 - One file: index.html. Vanilla JS modules from CDN (Three.js, GSAP + ScrollTrigger, Lenis). No build, no npm, no React.
 - Concept: one continuous descent — canopy → house → rooms → roots → cenote (pool, OMé, temazcal fire) → cellar → back to the surface.
 - Palette (2026-09-29, from the renders): chukum #EFE8DC · sand #DFC9AB · wood #8D6846 · Corten #9A4A26 (only accent) · earth #2A1E15 · dusk lilac #8F95C4 (rare). Light site; the cenote is the one dark chapter. No teal, no petrol, no gold, no serif.
-- Type: Unbounded (display) + Sora (everything you read). Geist Mono only for the footer coordinates.
-- 20°N signature: the property's coordinates, small and quiet, in the footer next to "Site by 20°N" — never in the header or hero.
+- Type: Unbounded (display) + Sora (everything you read).
+- Credit: the footer's last line is plain "by 20°N" linked to https://20north.art, in the site's own footer style. No coordinates, no logo (agency rule, 2026-09-29).
 - Phone first: the link goes out on WhatsApp. Poster image visible in < 2.5 s on 4G; WebGL loads after.
 - Text never overlaps a photo or WebGL image unless it sits on a panel; check 1440×900, 1280×720, 390×844.
 - Keep every data-i18n key, EN/ES/FR, both enquiry forms, Brokers Portal, admin leads panel, WhatsApp button.
