@@ -3,11 +3,11 @@
 ## Now
 - STEP-13 — go live: classic site kept at /classic for brokers, credit → Instagram for now, internal files off the site, merge to main
 
-## Open (Ivana) — before going live
+## Open (Ivana)
 - When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art.
 
 ## Later
-- Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
+- Device check on a real phone and GPU after go-live (the wall's seam, the light wipe, the pour).
 
 ## Done
 - STEP-12 — the cellar in three acts (800svh): act 1 ≈1 screen of bubbles rising on the dark-warm screen, thickening with scroll; act 2 the pour (champagne-pour-close, web versions) fades up masked from the bottom like the glass filling, at its native size or below and centred on wide screens with its own edge colour carried to the screen edges, a portrait crop centred on the glass on phones, the WebGL bubbles condense into the stream in the flute, a short line (wine.ey + h2) on a small panel bottom-left; pull back into the dark wall, the seam of light draws; act 3 the wall opens as before (halves, pop, the LED washes down), the text panel is text only (the table shot is gone); halves close → Surface unchanged; fallback: CSS bubbles, clip-path fill, wall crossfade
@@ -39,4 +39,4 @@
 - Text never overlaps a photo or WebGL image unless it sits on a panel; check 1440×900, 1280×720, 390×844.
 - Keep every data-i18n key, EN/ES/FR, both enquiry forms, Brokers Portal, admin leads panel, WhatsApp button.
 - Metric units. Surname "Buric". Agency "Weber-Buric Real Estate".
-- Before merge: delete old.html, compare.html, steps/, RUN-ORDER.md.
+- RUN-ORDER.md and steps/ stay in the repo but never ship (.vercelignore). The classic site lives at /classic for brokers.
