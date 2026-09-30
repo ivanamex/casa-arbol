@@ -1,7 +1,7 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: main — live at casaarbolplayacar.com since 2026-09-30)
 
 ## Now
-- STEP-15 — phone: no plain brown screens (cenote blank on Ivana's iPhone after the phone fixes); per-chapter photo mode + ?debug panel
+- Waiting on Ivana: check casaarbolplayacar.com on the iPhone, normally and with ?debug; "ok" or a screenshot of the panel.
 
 ## Open (Ivana)
 - When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art (footer `.f-credit`, one href).
@@ -10,6 +10,7 @@
 - Device check on a real phone and GPU after go-live (the wall's seam, the light wipe, the pour).
 
 ## Done
+- STEP-15 — per-chapter photo mode: html.<chapter>-fb shows that chapter's photo version (mirrors every no-gl rule; -fbout crossfades it away in 0.6 s once the WebGL has drawn); set when init() rejects (no retry), when update/render throws, and while a chapter is on screen but not ready (at once on phones, after 1.2 s on desktop); phones wake chapters a screen early; a stage that never starts (9 s) switches to the photo version; fragment shaders use highp only where the GPU has it; phone textures ≤ 1200 px, pixel ratio ≤ 1.5 phone / 2 desktop; ?debug panel (chapter states, last 5 warnings, WebGL2, MAX_TEXTURE_SIZE, dpr); the cellar's photo container is now .cellar-photos (html.cellar-fb would have hidden the page)
 - Phone fixes (Ivana's iPhone report, ES): the stage now survives a lost WebGL context (iOS memory pressure, tab restore) by switching the page to its photo version instead of leaving blank screens; a chapter that throws hands its own screen back to its photo; EN · ES · FR stay in the phone header (the wordmark gives way to the mark below 520 px, the Menu label to its icon below 360 px); on phones the roots land their first system within half a screen and draw thicker
 - STEP-14 — the way up: footer link "Back to the canopy" (x.top, EN/ES/FR) centred under the small tree, the header logo, and the depth gauge's layer names as keyboard-reachable buttons (canopy = top, the others land at their chapter's start) all go through CA_JUMP: a 300 ms chukum veil, an instant Lenis jump, the canopy re-assembles the tree in ~1.2 s, the veil fades out; reduced motion jumps instantly with no veil; focus moves to the logo after a jump to the top; the dead btt script is gone
 - STEP-13 §5 — redesign-webgl merged into main with a merge commit (2026-09-30); the pre-merge main is tagged classic-2026-09 and stays live at /classic; the working branch is main from here. Settled: The Reef Playacar / OMé gave their OK for the spa photos (Ivana, 2026-09-29).
