@@ -1,7 +1,7 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: main — live at casaarbolplayacar.com since 2026-09-30)
 
 ## Now
-- STEP-14 — back to the top: the logo (already fixed in the header) + a footer link + clickable depth gauge, all through a quick veil + tree re-assembly instead of a long scroll
+- Nothing queued. Next: the device check under Later, then Ivana's next round.
 
 ## Open (Ivana)
 - When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art (footer `.f-credit`, one href).
@@ -10,6 +10,7 @@
 - Device check on a real phone and GPU after go-live (the wall's seam, the light wipe, the pour).
 
 ## Done
+- STEP-14 — the way up: footer link "Back to the canopy" (x.top, EN/ES/FR) centred under the small tree, the header logo, and the depth gauge's layer names as keyboard-reachable buttons (canopy = top, the others land at their chapter's start) all go through CA_JUMP: a 300 ms chukum veil, an instant Lenis jump, the canopy re-assembles the tree in ~1.2 s, the veil fades out; reduced motion jumps instantly with no veil; focus moves to the logo after a jump to the top; the dead btt script is gone
 - STEP-13 §5 — redesign-webgl merged into main with a merge commit (2026-09-30); the pre-merge main is tagged classic-2026-09 and stays live at /classic; the working branch is main from here. Settled: The Reef Playacar / OMé gave their OK for the spa photos (Ivana, 2026-09-29).
 - STEP-13 §0–4 — the cellar starts where the fire ends: no lead-in, its screen rises over the cenote's fading fire with a feathered top edge and the bubbles already in it (720svh; acts ≈1 · 2 · 3 screens; slow scroll from the temazcal to the wall never shows a plain brown frame at 1440×900 or 390×844); credit links to https://www.instagram.com/20north.art/ for now; vercel.json lets /classic and /classic/* through before the catch-all; .vercelignore keeps RUN-ORDER.md, steps/, compare.html and *.md off the site; compare.html deleted; old.html → classic/index.html with absolute /images/ paths, noindex + canonical kept; sitemap stays / only
 - STEP-12 — the cellar in three acts (800svh): act 1 ≈1 screen of bubbles rising on the dark-warm screen, thickening with scroll; act 2 the pour (champagne-pour-close, web versions) fades up masked from the bottom like the glass filling, at its native size or below and centred on wide screens with its own edge colour carried to the screen edges, a portrait crop centred on the glass on phones, the WebGL bubbles condense into the stream in the flute, a short line (wine.ey + h2) on a small panel bottom-left; pull back into the dark wall, the seam of light draws; act 3 the wall opens as before (halves, pop, the LED washes down), the text panel is text only (the table shot is gone); halves close → Surface unchanged; fallback: CSS bubbles, clip-path fill, wall crossfade
