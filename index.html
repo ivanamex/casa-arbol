@@ -217,7 +217,7 @@
   --chukum:#EFE8DC; --sand:#DFC9AB; --wood:#8D6846; --corten:#9A4A26; --on-corten:#FBF6EE; --earth:#2A1E15; --lilac:#8F95C4;
   --text:var(--earth); --text-2:rgba(42,30,21,.78); --text-3:#6F4E38; /* deep wood: small text at AA */
   --line:rgba(141,104,70,.28); --surface:var(--sand); --surface-2:#E7DCC8;
-  --font-display:'Unbounded',sans-serif; --font-body:'Sora',sans-serif; --font-coords:'Geist Mono',ui-monospace,monospace; /* --font-coords: footer 20°N signature only */
+  --font-display:'Unbounded',sans-serif; --font-body:'Sora',sans-serif; --font-coords:'Geist Mono',ui-monospace,monospace; /* --font-coords: the footer coordinates only */
   /* legacy tokens, remapped so modal / broker / admin components keep rendering */
   --bg:var(--chukum); --bg2:var(--surface-2); --ink:var(--earth); --ink2:var(--text-2);
   --gold:var(--corten); --gold-lt:var(--wood); --warm:var(--corten); --sand-legacy:rgba(42,30,21,.6);
@@ -617,7 +617,7 @@ html.gl.surface-live .surface,html.gl.surface-live footer{background:transparent
 .f-emails{display:flex;flex-direction:column;gap:6px}
 .f-wa-line{display:block;margin-top:4px}
 footer .f-broker{margin-top:10px;align-self:flex-start;background:none;border:1px solid rgba(141,104,70,.55);border-radius:999px;padding:8px 14px;font-family:var(--font-body);font-size:12.5px;font-weight:500;letter-spacing:0;text-transform:none;color:var(--earth);cursor:pointer;transition:all .3s}
-footer .f-broker:hover{background:var(--corten);border-color:var(--corten);color:var(--on-corten)}
+footer .f-broker:hover,footer .f-broker:focus-visible{background:var(--corten);border-color:var(--corten);color:var(--on-corten)}
 .f-social{display:flex;align-items:center;gap:10px}
 .f-social a{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border:1px solid rgba(141,104,70,.5);border-radius:50%;color:var(--earth);transition:all .3s;text-decoration:none}
 .f-social a:hover{background:var(--corten);border-color:var(--corten);color:var(--on-corten)}
@@ -625,9 +625,14 @@ footer .f-broker:hover{background:var(--corten);border-color:var(--corten);color
 .f-lang button{background:none;border:1px solid rgba(141,104,70,.45);border-radius:3px;color:var(--text-2);font-family:var(--font-body);font-size:12px;padding:6px 10px;cursor:pointer;transition:all .3s}
 .f-lang button:hover{color:var(--corten);border-color:var(--corten)}
 .f-lang button.active{color:var(--corten);border-color:var(--corten);background:rgba(154,74,38,.08)}
-.f-bottom{max-width:1400px;margin:52px auto 0;padding-top:22px;border-top:1px solid rgba(141,104,70,.35);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;font-size:12.5px;color:var(--text-3)}
+.f-bottom{max-width:1400px;margin:52px auto 0;padding:22px calc(56px + 24px) 0 0;border-top:1px solid rgba(141,104,70,.35);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px 24px;font-size:12.5px;color:var(--text-3)}   /* right padding keeps the credit clear of the WhatsApp button */
+/* the 20°N credit: coordinates + "by 20°N", one link, in the footer's own font, colour and size; underline on hover/focus only */
+.f-credit{display:inline-flex;align-items:baseline;gap:12px;color:inherit;font:inherit;text-decoration:none;border-radius:2px}
+.f-credit:hover,.f-credit:focus-visible{text-decoration:underline;text-underline-offset:3px}
+.f-credit:focus-visible{outline:2px solid var(--corten);outline-offset:4px}
 .f-coords{font-family:var(--font-coords);font-size:11.5px;letter-spacing:.02em;color:var(--earth);opacity:.45}
 @media(max-width:1024px){.f-grid{grid-template-columns:1fr 1fr 1fr;gap:36px 28px}}
+@media(max-width:768px){.f-bottom{flex-direction:column;align-items:flex-start;gap:10px;padding-right:calc(42px + 24px)}}   /* phones: the credit wraps under the left line, left-aligned */
 @media(max-width:640px){.f-grid{grid-template-columns:1fr 1fr;gap:30px 20px}.f-bottom{justify-content:flex-start}}
 @media(max-width:420px){.f-grid{grid-template-columns:1fr}}
 /* the enquiry as a right-side drawer in chukum; the broker modals share it */
@@ -852,9 +857,6 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
 .br-ok .chk{width:52px;height:52px;border-radius:50%;border:1.2px solid var(--gold);display:inline-flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:18px}
 .br-ok .chk svg{width:22px;height:22px;stroke-width:1.6}
 .br-ok .msg{font-family:var(--font-display);font-size:1.15rem;font-weight:300;color:var(--ink2);line-height:1.4}
-/* Footer broker referral button — square outlined, mirrors .f-lang button + .f-social a visual language */
-.f-broker{background:none;border:1px solid rgba(154,74,38,.25);color:rgba(239,232,220,.55);font-family:var(--font-body);font-size:.68rem;font-weight:400;letter-spacing:.01em;text-transform:none;padding:8px 14px;width:auto;white-space:nowrap;cursor:pointer;transition:all .3s ease;text-decoration:none;display:inline-block;align-self:flex-start;margin-top:6px}
-.f-broker:hover{color:var(--gold-lt);border-color:rgba(141,104,70,.5)}
 /* Close X — thin-stroke SVG, mirrors .mcl placement */
 .br-cl{position:absolute;top:10px;right:10px;background:none;border:none;color:var(--ink2);cursor:pointer;width:44px;height:44px;display:flex;align-items:center;justify-content:center;opacity:.55;transition:opacity .3s;padding:0;z-index:3}
 .br-cl:hover{opacity:1}
@@ -889,9 +891,6 @@ html.no-gl .rv,html.no-gl .rl{transition-duration:.5s}
 .bpm-copy:hover{color:#9A4A26;border-color:#9A4A26}
 .bpm-copy svg{width:12px;height:12px;stroke-width:1.6}
 .bpm-copy.done{color:var(--gold);border-color:var(--gold)}
-/* STEP-04c: footer button on sand */
-footer .f-broker{color:var(--text-2);border-color:rgba(141,104,70,.45)}
-footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
 </style>
 </head>
 <body>
@@ -1192,8 +1191,8 @@ footer .f-broker:hover{color:var(--corten);border-color:var(--corten)}
     </div>
     </div>
     <div class="f-bottom">
-      <div class="f-bottom-l"><span data-i18n="footer.sale">By Private Sale Only</span>. © <span id="fYear">2026</span> Casa Árbol · Weber-Buric Real Estate · Site by 20°N</div>
-      <div class="f-coords" aria-label="Coordinates">20.6296°N 87.0739°W</div>
+      <div class="f-bottom-l"><span data-i18n="footer.sale">By Private Sale Only</span>. © <span id="fYear">2026</span> Casa Árbol · Weber-Buric Real Estate</div>
+      <a class="f-credit" href="https://20north.art" rel="noopener"><span class="f-coords">20.6296°N 87.0739°W</span><span class="f-by">by 20°N</span></a>
     </div>
   </footer>
 </section>

@@ -1,7 +1,7 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- STEP-11b — footer: credit + coordinates on the right, linked to 20north.art, clear of the WhatsApp button; Brokers Portal hover text fixed
+- Nothing queued. Next: Ivana's review round 2, or the device check + pre-merge clean-up listed under Later
 
 ## Next
 - STEP-12 — the cellar in three acts: bubbles → the pour (new close-up) → the wall
@@ -14,6 +14,7 @@
 - Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
 
 ## Done
+- STEP-11b — footer bottom line split: left the sale line + ©, right the coordinates (Geist Mono) + "by 20°N" as one link to https://20north.art in the footer's own type, underline on hover/focus only with a visible focus ring, right padding of the WhatsApp button + 24 px (wraps under the left line on phones); Brokers Portal button down to one rule set (outline at rest, Corten fill + light text on hover/focus) — the two legacy overrides that painted Corten on Corten are gone; no other button had the fault
 - STEP-11 — review round 1: ground 480svh with the dissolve over 0.70→1 (slow through the middle, coarser frontier); facade stage 84svh/66svh with the three beats on a chukum panel lower-left, the band keeps the facts line; roots → cenote: 8 drops (4 on phones) swell at the root tips, fall and ring on the water, the rings feed the cenote's ripple sim and the water arrives as they spread (fallback: 3 CSS drops + rings); cenote 640svh: pool → OMé → temazcal, the place through the surface crossfades pool → ome-entrance → ome-sign-wall → ome-lounge-lantern → temazcal-stones through the same ripples, the fire slides the palette to ember, caustics become ember cracks, dust becomes sparks, a heat shimmer replaces the ripples, exit fades to the ember-dark wall; cellar: wine-wall-off dropped, the dark state built from wine-wall-on in the shader (−70 % exposure, earth/amber shadows), the wall is dark by candle with a seam of light until the LED comes on (+10 % lit), champagne pop + bubble stream from the seam, champagne-pour on the text panel; web versions of the five new photos
 - STEP-10 — Cellar chapter (id wine-cellar) between cenote and surface, in the gauge and menu: wood seam draws, two plaster halves part (top/bottom on portrait), the backlight washes down the stone off → on with a warm leading edge, text on a chukum panel, pointer parallax glass/bottles ≤ 8 px, halves close and hand to Surface; cenote is pool → OMé; graded web versions of wine-wall-on/off; CSS clip-path fallback
 - STEP-09c — hero block anchored from the bottom (wordmark min(12.6vw, 22vh)), price clears the gauge; the rooms ribbon hangs from the measured title bottom (+32 px, shrinks on short screens), title on one line on desktop when it fits; rule added: text never overlaps a photo or WebGL image unless set on a panel
