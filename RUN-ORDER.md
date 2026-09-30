@@ -1,9 +1,6 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- Nothing queued. Next: Ivana's review round 2, or the device check + pre-merge clean-up listed under Later
-
-## Next
 - STEP-12 — the cellar in three acts: bubbles → the pour (new close-up) → the wall
 
 ## Open (Ivana) — before going live
