@@ -3,8 +3,12 @@
 ## Now
 - STEP-11 — review round 1: slower ground→inside dissolve, facade as a picture not a stripe, drops from the roots into the cenote, the cellar warm with a champagne reveal, OMé inside the water, water → fire (temazcal) → cellar
 
+## Next
+- STEP-11b — "Site by 20°N" links to 20north.art
+
 ## Open (Ivana) — before going live
 - Written OK from The Reef Playacar / OMé to use their spa photos and logo on the site.
+- 20north.art public before this merges (it's behind a login in its demo phase); otherwise the credit links to Instagram @20north.art for now.
 
 ## Later
 - Nothing queued. Next: a device check of STEP-10 on a real phone and a real GPU (the wall's seam, the light wipe, the closing before Surface), then the pre-merge clean-up (delete old.html, compare.html, steps/, RUN-ORDER.md)
