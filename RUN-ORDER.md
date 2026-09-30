@@ -1,9 +1,6 @@
 # RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
 
 ## Now
-- Nothing queued. Next: Ivana's review round 2, or the device check + pre-merge clean-up listed under Later
-
-## Next
 - STEP-11b — footer: credit + coordinates on the right, linked to 20north.art, clear of the WhatsApp button; Brokers Portal hover text fixed
 
 ## Open (Ivana) — before going live
