@@ -1,15 +1,16 @@
-# RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: redesign-webgl)
+# RUN-ORDER — Casa Árbol "From canopy to cenote" (branch: main — live at casaarbolplayacar.com since 2026-09-30)
 
 ## Now
-- STEP-13 — go live: classic site kept at /classic for brokers, credit → Instagram for now, internal files off the site, merge to main
+- Nothing queued. Live. Next: check the production deploy on a real phone and a real GPU (see Later), then Ivana's next round.
 
 ## Open (Ivana)
-- When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art.
+- When 20north.art goes public: switch the footer credit link from Instagram to https://20north.art (footer `.f-credit`, one href).
 
 ## Later
 - Device check on a real phone and GPU after go-live (the wall's seam, the light wipe, the pour).
 
 ## Done
+- STEP-13 §5 — redesign-webgl merged into main with a merge commit (2026-09-30); the pre-merge main is tagged classic-2026-09 and stays live at /classic; the working branch is main from here. Settled: The Reef Playacar / OMé gave their OK for the spa photos (Ivana, 2026-09-29).
 - STEP-13 §0–4 — the cellar starts where the fire ends: no lead-in, its screen rises over the cenote's fading fire with a feathered top edge and the bubbles already in it (720svh; acts ≈1 · 2 · 3 screens; slow scroll from the temazcal to the wall never shows a plain brown frame at 1440×900 or 390×844); credit links to https://www.instagram.com/20north.art/ for now; vercel.json lets /classic and /classic/* through before the catch-all; .vercelignore keeps RUN-ORDER.md, steps/, compare.html and *.md off the site; compare.html deleted; old.html → classic/index.html with absolute /images/ paths, noindex + canonical kept; sitemap stays / only
 - STEP-12 — the cellar in three acts (800svh): act 1 ≈1 screen of bubbles rising on the dark-warm screen, thickening with scroll; act 2 the pour (champagne-pour-close, web versions) fades up masked from the bottom like the glass filling, at its native size or below and centred on wide screens with its own edge colour carried to the screen edges, a portrait crop centred on the glass on phones, the WebGL bubbles condense into the stream in the flute, a short line (wine.ey + h2) on a small panel bottom-left; pull back into the dark wall, the seam of light draws; act 3 the wall opens as before (halves, pop, the LED washes down), the text panel is text only (the table shot is gone); halves close → Surface unchanged; fallback: CSS bubbles, clip-path fill, wall crossfade
 - STEP-11b — footer bottom line split: left the sale line + ©, right the coordinates (Geist Mono) + "by 20°N" as one link to https://20north.art in the footer's own type, underline on hover/focus only with a visible focus ring, right padding of the WhatsApp button + 24 px (wraps under the left line on phones); Brokers Portal button down to one rule set (outline at rest, Corten fill + light text on hover/focus) — the two legacy overrides that painted Corten on Corten are gone; no other button had the fault
@@ -30,7 +31,7 @@
 - STEP-01 — compare setup (old.html + compare.html)
 
 ## Rules
-- Branch `redesign-webgl` only. Never push to main. One step at a time.
+- Branch `main` (the redesign merged 2026-09-30; the classic site lives at /classic, tag classic-2026-09). One step at a time; every push to main deploys.
 - One file: index.html. Vanilla JS modules from CDN (Three.js, GSAP + ScrollTrigger, Lenis). No build, no npm, no React.
 - Concept: one continuous descent — canopy → house → rooms → roots → cenote (pool, OMé, temazcal fire) → cellar → back to the surface.
 - Palette (2026-09-29, from the renders): chukum #EFE8DC · sand #DFC9AB · wood #8D6846 · Corten #9A4A26 (only accent) · earth #2A1E15 · dusk lilac #8F95C4 (rare). Light site; the cenote is the one dark chapter. No teal, no petrol, no gold, no serif.
